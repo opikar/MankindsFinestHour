@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour {
 
 	public float speed = 10f;
-	public float jumpSpeed = 100f;
+	public float jumpSpeed = 600f;
 	bool facingRight;
 	float move;
 	bool grounded = false;
@@ -16,17 +16,27 @@ public class PlayerMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		def = gameObject.layer;
+		print (whatIsGround.value);
 	}
 	
-	// Update is called once per frame
-	void FixedUpdate() {
+	void Update()
+	{
+		//ignore player collision with ground when going up
 		if(rigidbody2D.velocity.y > 0)
-			gameObject.layer = 0;
+			Physics2D.IgnoreLayerCollision(9, 8, true);
+		//collide with ground if not going up
 		else
-			gameObject.layer = def;
+			Physics2D.IgnoreLayerCollision(def, 8, false);
+
+
 		grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
+		if(rigidbody2D.velocity.y > 0 && grounded)
+			grounded = false;
+		print (grounded);
 		if(Input.GetButtonDown("Fire1") && grounded	)
 			rigidbody2D.AddForce(new Vector2(0, jumpSpeed));
+	}
+	void FixedUpdate() {
 		move = Input.GetAxis("Horizontal");
 		rigidbody2D.velocity = new Vector2 (speed * move, rigidbody2D.velocity.y);
 	}

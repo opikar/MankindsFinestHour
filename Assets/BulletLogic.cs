@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BulletLogic : MonoBehaviour {
 
-	float speed = 100f;
+	public float speed = 1000f;
 	Vector2 velocity;
 	// Use this for initialization
 	void Start () {

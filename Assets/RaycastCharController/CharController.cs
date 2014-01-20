@@ -49,23 +49,7 @@ public class CharController : MonoBehaviour {
 	}
 
 	void Update() {
-		if(Input.GetKey ("down") && Input.GetButton("Jump"))
-			drop = true;
-		else
-			drop = false;
 
-		if(grounded) {
-			if(Input.GetButtonDown("Jump")) {
-				movement.y = jumpSpeed;
-			}
-		} else {
-			if(Input.GetKeyDown("down"))
-				movement.y = -jumpSpeed;
-		}
-
-
-
-		movement.x = Input.GetAxis("Horizontal")*speed;
 	}
 
 	bool CheckSides() {
@@ -99,7 +83,6 @@ public class CharController : MonoBehaviour {
 
 		for(int i = 0; i < 3; i++) {
 			RaycastHit2D hit = Physics2D.Raycast(position, -Vector2.up, distance);
-			Debug.Log(hit.fraction);
 			if(hit.fraction != 0 && movement.y <= 0) {
 				groundLevel = hit.point.y;
 				return true;
@@ -107,5 +90,24 @@ public class CharController : MonoBehaviour {
 			position.x += step;
 		}
 		return false;
+	}
+
+	public void Move(float amount) {
+		movement.x = amount * speed;
+	}
+
+	public void Jump() {
+		if(grounded) {
+			if(Input.GetButtonDown("Jump") && !drop) {
+				movement.y = jumpSpeed;
+			}
+		}
+	}
+
+	public void Drop() {
+		//drop = false;
+		if(!grounded) {
+			movement.y = -jumpSpeed;
+		}
 	}
 }

@@ -49,12 +49,14 @@ public class CharController : MonoBehaviour {
 
 	void Update() {
 		if(grounded) {
+			if(Input.GetKey ("down") && Input.GetButton ("Jump"))
+				transform.position -= new Vector3(0, 0.1f, 0);
+			else
 			if(Input.GetButtonDown("Jump"))
 				movement.y = jumpSpeed;
 		}
 
-		if(Input.GetKeyDown ("down"))
-			transform.position -= new Vector3(0, 0.1f, 0);
+
 
 		movement.x = Input.GetAxis("Horizontal")*speed;
 	}

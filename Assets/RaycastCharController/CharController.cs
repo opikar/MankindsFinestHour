@@ -8,6 +8,7 @@ public class CharController : MonoBehaviour {
 	public float skin = 0.001f;
 	private Vector3 movement;
 	private bool grounded = false;
+	private bool drop = false;
 	private float groundLevel = 0;
 	private float wallPosition = 0;
 	
@@ -48,12 +49,18 @@ public class CharController : MonoBehaviour {
 	}
 
 	void Update() {
+		if(Input.GetKey ("down") && Input.GetButton("Jump"))
+			drop = true;
+		else
+			drop = false;
+
 		if(grounded) {
-			if(Input.GetKey ("down") && Input.GetButton ("Jump"))
-				transform.position -= new Vector3(0, 0.1f, 0);
-			else
-			if(Input.GetButtonDown("Jump"))
+			if(Input.GetButtonDown("Jump")) {
 				movement.y = jumpSpeed;
+			}
+		} else {
+			if(Input.GetKeyDown("down"))
+				movement.y = -jumpSpeed;
 		}
 
 
@@ -81,6 +88,9 @@ public class CharController : MonoBehaviour {
 	}
 
 	bool CheckGround() {
+		if(drop)
+			return false;
+
 		Vector3 position = transform.position;
 		position -= transform.localScale/2;
 		float step = transform.localScale.x/2;

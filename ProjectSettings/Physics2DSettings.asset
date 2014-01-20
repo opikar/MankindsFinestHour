@@ -4,7 +4,7 @@
 Physics2DSettings:
   m_ObjectHideFlags: 0
   m_Gravity: {x: 0, y: -9.81000042}
-  m_DefaultMaterial: {fileID: 0}
+  m_DefaultMaterial: {fileID: 6200000, guid: 3f6ca8c148419eb46bcb1e399230a6b4, type: 2}
   m_VelocityIterations: 8
   m_PositionIterations: 3
   m_RaycastsHitTriggers: 1

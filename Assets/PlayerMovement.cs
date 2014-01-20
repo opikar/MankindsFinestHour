@@ -5,39 +5,53 @@ public class PlayerMovement : MonoBehaviour {
 
 	public float speed = 10f;
 	public float jumpSpeed = 600f;
+	public float maxFallSpeed = 20;
 	bool facingRight;
 	float move;
-	bool grounded = false;
-	float groundRadius = 0.2f;
-	public Transform groundCheck;
-	public LayerMask whatIsGround;
-	int def;
+	RaycastHit2D hit;
+	bool grounded;
+	Transform groundCheck;
+	LayerMask groundMask;
+	LayerMask playerMask;
 
 	// Use this for initialization
 	void Start () {
-		def = gameObject.layer;
-		print (whatIsGround.value);
+		groundCheck = transform.Find ("groundCheck");
+		groundMask = LayerMask.NameToLayer("Ground");
+		playerMask = LayerMask.NameToLayer("Player");
 	}
 	
 	void Update()
 	{
-		//ignore player collision with ground when going up
-		if(rigidbody2D.velocity.y > 0)
-			Physics2D.IgnoreLayerCollision(9, 8, true);
-		//collide with ground if not going up
-		else
-			Physics2D.IgnoreLayerCollision(def, 8, false);
-
-
-		grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
-		if(rigidbody2D.velocity.y > 0 && grounded)
+		hit = Physics2D.Linecast(transform.position, groundCheck.position, 1 << groundMask);
+		//Check if we are inside a collider
+		if(hit.fraction == 0)
 			grounded = false;
-		print (grounded);
-		if(Input.GetButtonDown("Fire1") && grounded	)
-			rigidbody2D.AddForce(new Vector2(0, jumpSpeed));
+		else
+			grounded = true;
+
+		if(Input.GetButton ("Jump") && Input.GetKey ("down")) {
+			grounded = false;
+		}
+
+		if(grounded) {
+			Physics2D.IgnoreLayerCollision(groundMask, playerMask, false);
+			if(Input.GetButtonDown("Jump"))
+				rigidbody2D.AddForce(new Vector2(0, jumpSpeed));
+			}
+		else {
+			//Disable collisions while we are in air
+			Physics2D.IgnoreLayerCollision(groundMask, playerMask, true);
+		}
+
+
 	}
 	void FixedUpdate() {
 		move = Input.GetAxis("Horizontal");
 		rigidbody2D.velocity = new Vector2 (speed * move, rigidbody2D.velocity.y);
+
+		//Limit maximum velocity so we don't fall through floor
+		if(rigidbody2D.velocity.y < -maxFallSpeed)
+			rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, -maxFallSpeed);
 	}
 }

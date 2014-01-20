@@ -89,6 +89,7 @@ public class CharController : MonoBehaviour {
 
 		for(int i = 0; i < 3; i++) {
 			RaycastHit2D hit = Physics2D.Raycast(position, -Vector2.up, distance);
+			Debug.Log(hit.fraction);
 			if(hit.fraction != 0 && movement.y <= 0) {
 				groundLevel = hit.point.y;
 				return true;

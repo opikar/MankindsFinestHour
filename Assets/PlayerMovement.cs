@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour {
 
 		if(Input.GetButton ("Jump") && Input.GetKey ("down")) {
 			grounded = false;
+			if(rigidbody2D.velocity == Vector2.zero)
+				transform.Translate(-Vector2.up * 0.8f);
 		}
 
 		if(grounded) {

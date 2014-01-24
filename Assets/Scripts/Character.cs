@@ -16,7 +16,4 @@ public abstract class Character : MonoBehaviour {
 	void Update () {
 		
 	}
-	public void Move(){
-
-	}
 }

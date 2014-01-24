@@ -3,6 +3,13 @@ using System.Collections;
 
 public class Movement : MonoBehaviour {
 
+	float speed;
+	float jumpForce;
+	bool grounded;
+	bool doubleJump;
+	bool facingRight;
+	public Transform groundCheck;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -12,13 +19,16 @@ public class Movement : MonoBehaviour {
 	void Update () {
 	
 	}
-	void Move(){
+	public void Move(){
 
 	}
-	void Jump(){
+	public void Jump(){
 
 	}
-	void Drop(){
+	public void Drop(){
+
+	}
+	public void Flip(){
 
 	}
 }

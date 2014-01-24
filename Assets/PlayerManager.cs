@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Movement : MonoBehaviour {
+public class PlayerManager : Character {
 
+	public InputManager inputManager;
+	public GUIManager guiManager;
 	// Use this for initialization
 	void Start () {
 	
@@ -12,13 +14,7 @@ public class Movement : MonoBehaviour {
 	void Update () {
 	
 	}
-	void Move(){
-
-	}
-	void Jump(){
-
-	}
-	void Drop(){
-
+	public void Move(){
+		
 	}
 }

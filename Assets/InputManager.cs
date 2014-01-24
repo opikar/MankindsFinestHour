@@ -3,6 +3,7 @@ using System.Collections;
 
 public class InputManager : MonoBehaviour {
 
+	public PlayerManager playerManager;
 	// Use this for initialization
 	void Start () {
 	

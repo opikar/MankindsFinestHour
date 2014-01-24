@@ -14,6 +14,9 @@ public abstract class Character : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		
+	}
+	public void Move(){
+
 	}
 }

@@ -9,12 +9,8 @@ public abstract class Character : MonoBehaviour {
 	public Movement movement;
 
 	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	public virtual void Start () {
+		movement = GetComponent<Movement>();
+		health = GetComponent<Health>();
 	}
 }

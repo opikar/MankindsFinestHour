@@ -4,7 +4,7 @@ using System.Collections;
 public class Movement : MonoBehaviour {
 
 	float speed = 10f;
-	float jumpForce = 500f;
+	float jumpForce = 700f;
 
 	bool facingRight;
 

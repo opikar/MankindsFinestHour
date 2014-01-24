@@ -451,7 +451,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 465312486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.600000024, z: 0}
+  m_LocalPosition: {x: 0, y: -.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2023258947}
@@ -2303,7 +2303,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4536bae788004fe2a7070a5d531eb47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraSpeed: 1.20000005
 --- !u!1 &1880418979
 GameObject:
   m_ObjectHideFlags: 0
@@ -2510,6 +2509,10 @@ GameObject:
   - 4: {fileID: 2023258947}
   - 50: {fileID: 2023258949}
   - 61: {fileID: 2023258948}
+  - 114: {fileID: 2023258954}
+  - 114: {fileID: 2023258953}
+  - 114: {fileID: 2023258952}
+  - 114: {fileID: 2023258951}
   - 114: {fileID: 2023258950}
   m_Layer: 9
   m_Name: Player
@@ -2565,12 +2568,63 @@ MonoBehaviour:
   m_GameObject: {fileID: 2023258946}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78bf7838e2660f3488cd5a2b88146669, type: 3}
+  m_Script: {fileID: 11500000, guid: cf5e5f2fa5351e34e88605700f1c9f0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  jumpSpeed: 1200
-  maxFallSpeed: 20
+  gameManager: {fileID: 0}
+  health: {fileID: 0}
+  weapon: {fileID: 0}
+  movement: {fileID: 0}
+  guiManager: {fileID: 0}
+--- !u!114 &2023258951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2023258946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e8447fdfe6c548b39a18d5695ce4255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2023258952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2023258946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18bc3702b50b5074c8e5fba40841e1e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerManager: {fileID: 0}
+--- !u!114 &2023258953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2023258946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12f381df6a332944ab616a8c5e9bca44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2023258954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2023258946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8d391ddc388524cb9cc3a129729d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundCheck: {fileID: 465312487}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &2123264991
 GameObject:
   m_ObjectHideFlags: 0

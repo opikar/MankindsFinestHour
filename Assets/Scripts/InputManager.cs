@@ -11,6 +11,13 @@ public class InputManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		playerManager.movement.Move(Input.GetAxis("Horizontal"));
+
+		if(Input.GetButtonDown("Jump"))
+			playerManager.movement.Jump();
+
+		if(Input.GetButtonDown("Jump") && Input.GetAxis("Vertical") > 0)
+			playerManager.movement.Drop();
 
 	}
 }

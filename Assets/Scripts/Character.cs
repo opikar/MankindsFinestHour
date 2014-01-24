@@ -7,6 +7,7 @@ public abstract class Character : MonoBehaviour {
 	public Health health;
 	public Weapon weapon;
 	public Movement movement;
+
 	// Use this for initialization
 	void Start () {
 	

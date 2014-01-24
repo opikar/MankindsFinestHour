@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Weapon : MonoBehaviour {
+public class PlayerManager : Character {
 
+	public InputManager inputManager;
+	public GUIManager guiManager;
 	// Use this for initialization
 	void Start () {
 	

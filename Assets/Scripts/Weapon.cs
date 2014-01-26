@@ -12,4 +12,14 @@ public class Weapon : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	void ShootNormalGun(){
+
+	}
+	void ShootSpecialGun(){
+
+	}
+	void MeleeAttack(){
+
+	}
 }

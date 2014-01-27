@@ -27,6 +27,7 @@ public class Movement : MonoBehaviour {
 	bool isInGround;
 
 	//variables for dropping through platforms
+<<<<<<< HEAD
 	bool dropping;
 	float dropTimer;
 	float dropDuration = 0.5f;
@@ -35,12 +36,19 @@ public class Movement : MonoBehaviour {
 	void Start () {
 		groundCheck = transform.Find ("groundCheck");
 		groundCheck2 = transform.Find ("groundCheck");
+=======
+	//bool dropping;
+	//float dropTimer;
+	//float dropDuration = 0.5f;
+	
+	// Use this for initialization
+	void Start () {
+>>>>>>> ca8c448c072f1eec5a6c10533587c9b73292821c
 		playerLayer = LayerMask.NameToLayer("Player");
 		passGroundLayer = LayerMask.NameToLayer("PassPlatforms");
 		facingRight = true;
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		if(rigidbody2D.velocity.y > 0)
 			gameObject.layer = passGroundLayer;
@@ -91,7 +99,7 @@ public class Movement : MonoBehaviour {
 		}
 	}
 	public void Drop(){
-
+		//waiting for implementation
 	}
 	void Flip(){
 		transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);

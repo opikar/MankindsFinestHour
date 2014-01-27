@@ -6,7 +6,7 @@ public class PlayerManager : Character {
 
 	// Use this for initialization
 	void Start () {
-	
+		base.Start();
 	}
 	
 	// Update is called once per frame

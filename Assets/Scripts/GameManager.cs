@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
 public enum State{
 	StartMenu=1,
 	Pregame=2,
-	Race=4,
+	Running=4,
 	Postgame=8,
 	Win=16,
 	Loss=32,

@@ -5,7 +5,7 @@ public class PlayerManager : Character {
 	public GUIManager guiManager;
 
 	// Use this for initialization
-	void Start () {
+	override public void Start () {
 		base.Start();
 	}
 	

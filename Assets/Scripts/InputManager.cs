@@ -2,22 +2,22 @@
 using System.Collections;
 
 public class InputManager : MonoBehaviour {
-	public PlayerManager playerManager;
+	public Movement movement;
 
 	// Use this for initialization
 	void Start () {
-		playerManager = GetComponent<PlayerManager>();
+		movement = GetComponent<Movement>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		playerManager.movement.Move(Input.GetAxis("Horizontal"));
+		movement.Move(Input.GetAxis("Horizontal"));
 
-		if(Input.GetButtonDown("Jump"))
-			playerManager.movement.Jump();
-
-		if(Input.GetButtonDown("Jump") && Input.GetAxis("Vertical") > 0)
-			playerManager.movement.Drop();
-
+		if(Input.GetButtonDown("Jump")) {
+			if(Input.GetAxisRaw("Vertical") < 0)
+				movement.Drop();
+			else
+				movement.Jump();
+		}
 	}
 }

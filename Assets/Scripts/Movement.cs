@@ -25,41 +25,17 @@ public class Movement : MonoBehaviour {
 	bool isInGround;
 
 	//variables for dropping through platforms
-	bool dropping;
-	float dropTimer;
-	float dropDuration = 0.5f;
+	//bool dropping;
+	//float dropTimer;
+	//float dropDuration = 0.5f;
 	
-	LayerMask groundMask;
-	LayerMask playerMask;
-	RaycastHit2D hit;
 	// Use this for initialization
 	void Start () {
-		//groundCheck = transform.Find ("groundCheck");
-		//groundMask = LayerMask.NameToLayer("Ground");
-		//playerMask = LayerMask.NameToLayer("Player");
-		dropTimer = Time.time;
 		playerLayer = LayerMask.NameToLayer("Player");
 		passGroundLayer = LayerMask.NameToLayer("PassPlatforms");
 	}
 	
-	// Update is called once per frame
 	void Update () {
-		
-		/*hit = Physics2D.Linecast(transform.position, groundCheck.position, 1 << groundMask);
-		//Check if we are inside a collider
-		if(hit.fraction == 0)
-			grounded = false;
-		else
-			grounded = true;
-
-		if(grounded) {
-			Physics2D.IgnoreLayerCollision(groundMask, playerMask, false);
-			
-		}
-		else {
-			//Disable collisions while we are in air
-			Physics2D.IgnoreLayerCollision(groundMask, playerMask, true);
-		}*/
 		if(rigidbody2D.velocity.y > 0)
 			gameObject.layer = passGroundLayer;
 		else{
@@ -109,7 +85,7 @@ public class Movement : MonoBehaviour {
 		}
 	}
 	public void Drop(){
-
+		//waiting for implementation
 	}
 	void Flip(){
 		transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);

@@ -88,7 +88,8 @@ public class Movement : MonoBehaviour {
 		}
 	}
 	public void Drop(){
-		//waiting for implementation
+		if(rigidbody2D.gravityScale == 0)
+			rigidbody2D.gravityScale = 1;
 	}
 	void Flip(){
 		transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);

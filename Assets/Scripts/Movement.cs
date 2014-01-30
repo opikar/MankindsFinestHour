@@ -16,8 +16,8 @@ public class Movement : MonoBehaviour {
 	float groundRadius = 0.26f;
 	bool grounded = true;
 	bool doubleJump = false;
-	Transform groundCheck;
-	Transform groundCheck2;
+	public Transform groundCheck;
+	public Transform groundCheck2;
 	public LayerMask whatIsGround;
 	
 	//variables for jumping through platforms
@@ -27,23 +27,12 @@ public class Movement : MonoBehaviour {
 	bool isInGround;
 
 	//variables for dropping through platforms
-<<<<<<< HEAD
 	bool dropping;
 	float dropTimer;
 	float dropDuration = 0.5f;
 
 	// Use this for initialization
 	void Start () {
-		groundCheck = transform.Find ("groundCheck");
-		groundCheck2 = transform.Find ("groundCheck");
-=======
-	//bool dropping;
-	//float dropTimer;
-	//float dropDuration = 0.5f;
-	
-	// Use this for initialization
-	void Start () {
->>>>>>> ca8c448c072f1eec5a6c10533587c9b73292821c
 		playerLayer = LayerMask.NameToLayer("Player");
 		passGroundLayer = LayerMask.NameToLayer("PassPlatforms");
 		facingRight = true;

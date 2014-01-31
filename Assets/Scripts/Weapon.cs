@@ -3,37 +3,39 @@ using System.Collections;
 
 public class Weapon : MonoBehaviour {
 
-	bool shootRight;
-	Vector3 spawnBullet;
+	#region MEMBERS
 	public GameObject bullet;
-	GameObject clone;
-	float bulletSpeed = 25f;
-	Transform m_transform;
-	Vector3 shootDirection;
-	Movement movement;
 	public Transform shootSpawn;
 
-	float angle = 0f;
-	// Use this for initialization
+	private bool b_shootRight;
+	private GameObject m_clone;
+	private float f_bulletSpeed = 25f;
+	private Transform m_transform;
+	private Vector3 v_shootDirection;
+	private Movement m_movement;
+	private float f_angle = 0f;
+	#endregion
+
+
 	void Start () {
 		m_transform = transform;
-		movement = GetComponent<Movement>();
-		shootDirection = m_transform.right;
+		m_movement = GetComponent<Movement>();
+		v_shootDirection = m_transform.right;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
 		Debug.DrawLine(m_transform.position, shootSpawn.position);
-		shootRight = movement.facingRight;
+		b_shootRight = m_movement.facingRight;
 		if(Input.GetKey(KeyCode.LeftControl))
 			ShootNormalGun();
 	}
 
 	void ShootNormalGun(){
-		clone = Instantiate(bullet, shootSpawn.position, Quaternion.identity) as GameObject;
-		clone.rigidbody2D.velocity = (shootSpawn.position - m_transform.position).normalized * bulletSpeed;
-		Destroy(clone, 5f);
+		m_clone = Instantiate(bullet, shootSpawn.position, Quaternion.identity) as GameObject;
+		m_clone.rigidbody2D.velocity = (shootSpawn.position - m_transform.position).normalized * f_bulletSpeed;
+		Destroy(m_clone, 5f);
 	}
 	void ShootSpecialGun(){
 
@@ -43,13 +45,13 @@ public class Weapon : MonoBehaviour {
 	}
 
 	public void MoveShootingTarget(float axis){
-		angle = axis * 45f;
+		f_angle = axis * 45f;
 
 		shootSpawn.position = m_transform.position;
-		if(shootRight)
-			shootSpawn.position += new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle), Mathf.Sin(Mathf.Deg2Rad * angle),  0f) * 2f;
+		if(b_shootRight)
+			shootSpawn.position += new Vector3(Mathf.Cos(Mathf.Deg2Rad * f_angle), Mathf.Sin(Mathf.Deg2Rad * f_angle),  0f) * 2f;
 		else
-			shootSpawn.position += new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle) * -1, Mathf.Sin(Mathf.Deg2Rad * angle),  0f) * 2f;
+			shootSpawn.position += new Vector3(Mathf.Cos(Mathf.Deg2Rad * f_angle) * -1, Mathf.Sin(Mathf.Deg2Rad * f_angle),  0f) * 2f;
 	}
 	/*public void MoveShootingTarget(float axis){
 		if((angle < 90 || axis == -1) && (angle > -90 || axis == 1))
@@ -62,7 +64,4 @@ public class Weapon : MonoBehaviour {
 		else
 			shootSpawn.position += new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle) * -1, Mathf.Sin(Mathf.Deg2Rad * angle),  0f) * 2f;
 	}*/
-	public void ResetShootingTarget(){
-
-	}
 }

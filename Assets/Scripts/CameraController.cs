@@ -5,6 +5,7 @@ public class CameraController : MonoBehaviour {
 	public float CameraSpeed = 1.2f;
 	public GameObject[] waypoints;
 
+	[SerializeField]
 	int nextWaypoint = -1;
 	float cameraZ;
 
@@ -15,7 +16,7 @@ public class CameraController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(nextWaypoint >= waypoints.Length|| nextWaypoint == -1)
+		if(nextWaypoint >= waypoints.Length || nextWaypoint  < 0)
 			return;
 		if (transform.position.x < waypoints[nextWaypoint].transform.position.x) 
 		{

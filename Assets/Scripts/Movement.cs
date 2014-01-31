@@ -89,7 +89,7 @@ public class Movement : MonoBehaviour {
 			{
 				rigidbody2D.gravityScale = 0;
 				rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);
-				transform.position = new Vector2(transform.position.x, other.transform.position.y + 0.5f *(other.transform.localScale.y + transform.localScale.y));
+				transform.position = new Vector3(transform.position.x, other.transform.position.y + 0.5f *(other.transform.localScale.y + transform.localScale.y), transform.position.z);
 			}
 		}
 	}

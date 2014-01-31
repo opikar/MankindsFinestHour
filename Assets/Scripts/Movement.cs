@@ -4,6 +4,7 @@ using System.Collections;
 public class Movement : MonoBehaviour {
 
 	//moving variable
+	[SerializeField]
 	float speed = 10f;
 	
 	public bool facingRight {
@@ -12,6 +13,7 @@ public class Movement : MonoBehaviour {
 	}
 	
 	//jumping variables
+	[SerializeField]
 	float jumpForce = 13f;
 	bool grounded = true;
 	bool doubleJump = false;

@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(waypoints.Length > nextWaypoint || nextWaypoint == -1)
+		if(nextWaypoint >= waypoints.Length|| nextWaypoint == -1)
 			return;
 		if (transform.position.x < waypoints[nextWaypoint].transform.position.x) 
 		{

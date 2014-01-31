@@ -15,4 +15,6 @@ public abstract class Character : MonoBehaviour {
 		weapon = GetComponent<Weapon>();
 		gameManager = GetComponent<GameManager>();
 	}
+
+	public abstract void Die();
 }

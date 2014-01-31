@@ -18,8 +18,16 @@ public class Movement : MonoBehaviour {
 	bool grounded = true;
 	bool doubleJump = false;
 
+	Transform groundCheck;
+	Transform groundCheck2;
+	LayerMask groundMask;
+	float groundRadius = 0.26f;
+
 	// Use this for initialization
 	void Start () {
+		groundCheck = transform.Find ("groundCheck");
+		groundCheck2 = transform.Find ("groundCheck2");
+		groundMask = 1 << LayerMask.NameToLayer("Ground");
 		facingRight = true;
 	}
 	
@@ -36,7 +44,12 @@ public class Movement : MonoBehaviour {
 			Flip ();
 		}
 
-		grounded = rigidbody2D.gravityScale == 0 ? true : false;
+		//grounded = rigidbody2D.gravityScale == 0 ? true : false;
+		//character is standing on ground if groundchecks are overlapping with ground
+		grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundMask) ||
+			Physics2D.OverlapCircle(groundCheck2.position, groundRadius, groundMask);
+
+
 
 		//if the character is on ground he can use double jump
 		if(grounded)

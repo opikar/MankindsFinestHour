@@ -23,7 +23,8 @@ public class CameraController : MonoBehaviour {
 			Vector3 movement = Vector3.MoveTowards(transform.position, waypoints[nextWaypoint].transform.position, speed * Time.deltaTime);
 			movement.z = cameraZ;
 			transform.position = movement;
-		}
+		} else
+			MoveToNext();
 	}
 
 	public void MoveToNext() {

@@ -21,4 +21,5 @@ public class PlayerManager : Character {
 	public override void Die(){
 		gameManager.SetState(State.Loss);
 	}
+	
 }

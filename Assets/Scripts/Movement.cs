@@ -13,40 +13,17 @@ public class Movement : MonoBehaviour {
 	
 	//jumping variables
 	float jumpForce = 13f;
-	float groundRadius = 0.26f;
 	bool grounded = true;
 	bool doubleJump = false;
-	public Transform groundCheck;
-	public Transform groundCheck2;
-	public LayerMask whatIsGround;
-	
-	//variables for jumping through platforms
-	int playerLayer;
-	int passGroundLayer;
-	float layerRadius = 0.4f;
-	bool isInGround;
-
-	//variables for dropping through platforms
-	bool dropping;
-	float dropTimer;
-	float dropDuration = 0.5f;
 
 	// Use this for initialization
 	void Start () {
-		playerLayer = LayerMask.NameToLayer("Player");
-		passGroundLayer = LayerMask.NameToLayer("PassPlatforms");
 		facingRight = true;
 	}
 	
 	void Update () {
 		if(rigidbody2D.velocity.y > 0)
-			gameObject.layer = passGroundLayer;
-		else{
-			isInGround = Physics2D.OverlapCircle(transform.position, layerRadius, whatIsGround);
-			if(!isInGround)
-				gameObject.layer = playerLayer;
-		}
-
+			rigidbody2D.gravityScale = 1;
 
 		if(rigidbody2D.velocity.x > 0 && !facingRight){
 			facingRight = true;
@@ -57,14 +34,8 @@ public class Movement : MonoBehaviour {
 			Flip ();
 		}
 
+		grounded = rigidbody2D.gravityScale == 0 ? true : false;
 
-		//character is standing on ground if groundchecks are overlapping with ground
-		grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround) 
-			|| Physics2D.OverlapCircle(groundCheck2.position, groundRadius, whatIsGround);
-
-		//check if character is jumping through a platform and block him to triple jump
-		if(isInGround)
-			grounded = false;
 		//if the character is on ground he can use double jump
 		if(grounded)
 			doubleJump = false;
@@ -81,7 +52,7 @@ public class Movement : MonoBehaviour {
 	/// Sets the rigid bodys Y-velocity to jump speed if able to jump
 	/// </summary>
 	public void Jump(){
-		if((grounded || !doubleJump) && !isInGround){
+		if(grounded || !doubleJump){
 			rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, Vector2.up.y * jumpForce);
 			if(!grounded)
 				doubleJump = true;
@@ -94,4 +65,22 @@ public class Movement : MonoBehaviour {
 	void Flip(){
 		transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
 	}
+
+	void OnTriggerEnter2D(Collider2D other){
+
+		if(other.tag == "Ground" && rigidbody2D.velocity.y < 0){
+			if(transform.position.x + Mathf.Abs (transform.localScale.x/2) >= other.transform.position.x - other.transform.localScale.x/2 &&
+			   transform.position.x - Mathf.Abs (transform.localScale.x/2) <= other.transform.position.x + other.transform.localScale.x/2)
+			{
+				rigidbody2D.gravityScale = 0;
+				rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);
+				transform.position = new Vector2(transform.position.x, other.transform.position.y + 0.5f *(other.transform.localScale.y + transform.localScale.y));
+			}
+		}
+	}
+	
+	void OnTriggerExit2D(Collider2D other){
+		rigidbody2D.gravityScale = 1;
+	}
+
 }

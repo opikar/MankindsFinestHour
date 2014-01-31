@@ -12,5 +12,7 @@ public abstract class Character : MonoBehaviour {
 	public virtual void Start () {
 		movement = GetComponent<Movement>();
 		health = GetComponent<Health>();
+		weapon = GetComponent<Weapon>();
+		gameManager = GetComponent<GameManager>();
 	}
 }

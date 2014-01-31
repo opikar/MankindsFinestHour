@@ -13,4 +13,14 @@ public class PlayerManager : Character {
 	void Update () {
 	
 	}
+
+	public void AimVertical (float axis)
+	{
+		if(axis != 0){
+			weapon.MoveShootingTarget(axis);
+		}
+		else{
+			weapon.ResetShootingTarget();
+		}
+	}
 }

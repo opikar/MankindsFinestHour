@@ -28,16 +28,14 @@ public class Weapon : MonoBehaviour {
 
 		Debug.DrawLine(m_transform.position, shootSpawn.position);
 		b_shootRight = m_movement.facingRight;
-		if(Input.GetKey(KeyCode.LeftControl))
-			ShootNormalGun();
 	}
 
-	void ShootNormalGun(){
+	public void ShootNormalGun(){
 		m_clone = Instantiate(bullet, shootSpawn.position, Quaternion.identity) as GameObject;
 		m_clone.rigidbody2D.velocity = (shootSpawn.position - m_transform.position).normalized * f_bulletSpeed;
 		Destroy(m_clone, 5f);
 	}
-	void ShootSpecialGun(){
+	public void ShootSpecialGun(){
 
 	}
 	void MeleeAttack(){

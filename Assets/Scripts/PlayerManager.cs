@@ -11,11 +11,14 @@ public class PlayerManager : Character {
 	
 	// Update is called once per frame
 	void Update () {
-	
 	}
 
 	public void AimVertical (float axis)
 	{
 		weapon.MoveShootingTarget(axis);
+	}
+
+	public override void Die(){
+		gameManager.SetState(State.Loss);
 	}
 }

@@ -16,11 +16,6 @@ public class PlayerManager : Character {
 
 	public void AimVertical (float axis)
 	{
-		if(axis != 0){
-			weapon.MoveShootingTarget(axis);
-		}
-		else{
-			weapon.ResetShootingTarget();
-		}
+		weapon.MoveShootingTarget(axis);
 	}
 }

@@ -43,14 +43,25 @@ public class Weapon : MonoBehaviour {
 	}
 
 	public void MoveShootingTarget(float axis){
-		if((angle < 90 || axis == -1) && (angle > -90 || axis == 1))
-			angle += axis * Time.deltaTime * 100f;
+		angle = axis * 45f;
+
 		shootSpawn.position = m_transform.position;
 		if(shootRight)
 			shootSpawn.position += new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle), Mathf.Sin(Mathf.Deg2Rad * angle),  0f) * 2f;
 		else
 			shootSpawn.position += new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle) * -1, Mathf.Sin(Mathf.Deg2Rad * angle),  0f) * 2f;
 	}
+	/*public void MoveShootingTarget(float axis){
+		if((angle < 90 || axis == -1) && (angle > -90 || axis == 1))
+			angle += axis * Time.deltaTime * 100f;
+		if(angle > 90f) angle = 90f;
+		if(angle < -90f) angle = -90f;
+		shootSpawn.position = m_transform.position;
+		if(shootRight)
+			shootSpawn.position += new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle), Mathf.Sin(Mathf.Deg2Rad * angle),  0f) * 2f;
+		else
+			shootSpawn.position += new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle) * -1, Mathf.Sin(Mathf.Deg2Rad * angle),  0f) * 2f;
+	}*/
 	public void ResetShootingTarget(){
 
 	}

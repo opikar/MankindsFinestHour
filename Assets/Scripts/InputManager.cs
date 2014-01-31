@@ -24,7 +24,7 @@ public class InputManager : MonoBehaviour {
 			else
 				movement.Jump();
 		}
-		if(Input.GetButton("Shoot"))
+		if(Input.GetButton("Fire1"))
 			playerManager.ShootNormal();
 	}
 }

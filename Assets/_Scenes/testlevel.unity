@@ -1690,6 +1690,10 @@ Prefab:
       propertyPath: bullet
       value: 
       objectReference: {fileID: 100000, guid: a0a836d9516324b05b16849808b8db39, type: 2}
+    - target: {fileID: 11400002, guid: a4d5446b98851074b9bfbf17d80d07eb, type: 2}
+      propertyPath: shootSpawn
+      value: 
+      objectReference: {fileID: 1416746410}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a4d5446b98851074b9bfbf17d80d07eb, type: 2}
   m_RootGameObject: {fileID: 2023258946}
@@ -1959,6 +1963,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1292860969}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1416746409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1416746410}
+  m_Layer: 0
+  m_Name: ShootSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1416746410
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1416746409}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .644848645, y: 0, z: 0}
+  m_LocalScale: {x: .5, y: .333333343, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2023258947}
 --- !u!1 &1476392002
 GameObject:
   m_ObjectHideFlags: 0
@@ -2587,6 +2617,7 @@ Transform:
   - {fileID: 465312487}
   - {fileID: 283847252}
   - {fileID: 1195846613}
+  - {fileID: 1416746410}
   m_Father: {fileID: 0}
 --- !u!61 &2023258948
 BoxCollider2D:
@@ -2646,6 +2677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 100000, guid: a0a836d9516324b05b16849808b8db39, type: 2}
+  shootSpawn: {fileID: 1416746410}
 --- !u!114 &2023258952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2683,11 +2715,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8d391ddc388524cb9cc3a129729d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundCheck: {fileID: 465312487}
-  groundCheck2: {fileID: 283847252}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 256
+  speed: 10
+  jumpForce: 13
 --- !u!1 &2123264991
 GameObject:
   m_ObjectHideFlags: 0

@@ -68,6 +68,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &100008
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400008}
+  m_Layer: 0
+  m_Name: ShootSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -108,13 +123,25 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.770990729, y: -26.7588654, z: 0}
+  m_LocalPosition: {x: -25.0833797, y: -7.51192474, z: 0}
   m_LocalScale: {x: 2, y: 3, z: 1}
   m_Children:
   - {fileID: 400002}
   - {fileID: 400000}
+  - {fileID: 400008}
   - {fileID: 400004}
   m_Father: {fileID: 0}
+--- !u!4 &400008
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.5, y: 0, z: 0}
+  m_LocalScale: {x: .5, y: .333333343, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400006}
 --- !u!50 &5000000
 Rigidbody2D:
   m_ObjectHideFlags: 1
@@ -168,6 +195,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e8447fdfe6c548b39a18d5695ce4255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullet: {fileID: 100000, guid: a0a836d9516324b05b16849808b8db39, type: 2}
+  shootSpawn: {fileID: 400008}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -179,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18bc3702b50b5074c8e5fba40841e1e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerManager: {fileID: 0}
+  movement: {fileID: 0}
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -202,11 +231,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8d391ddc388524cb9cc3a129729d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundCheck: {fileID: 400002}
-  groundCheck2: {fileID: 400000}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 256
+  speed: 10
+  jumpForce: 20
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

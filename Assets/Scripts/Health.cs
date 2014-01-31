@@ -3,10 +3,12 @@ using System.Collections;
 
 public class Health : MonoBehaviour {
 
-	float fullHP = 100f;
+	public float fullHP = 100f;
 	float currentHP;
+	Character character;
 	// Use this for initialization
 	void Start () {
+		character = GetComponent<Character>();
 		currentHP = fullHP;
 	}
 	
@@ -15,13 +17,11 @@ public class Health : MonoBehaviour {
 	
 	}
 
-	void TakeDamage(int damage){
-		currentHP -= damage;
-		if(currentHP <= 0)
-			Die();
-	}
 
-	void Die(){
-
+	public void ApplyDamage (float dmg)
+	{
+		currentHP -= dmg;
+		if(currentHP <= 0f)
+			character.Die();
 	}
 }

@@ -11,7 +11,6 @@ public class PlayerManager : Character {
 	
 	// Update is called once per frame
 	void Update () {
-	
 	}
 
 	public void AimVertical (float axis)
@@ -19,8 +18,8 @@ public class PlayerManager : Character {
 		weapon.MoveShootingTarget(axis);
 	}
 
-	public override void Die ()
-	{
-		throw new System.NotImplementedException ();
+	public override void Die(){
+		gameManager.SetState(State.Loss);
 	}
+	
 }

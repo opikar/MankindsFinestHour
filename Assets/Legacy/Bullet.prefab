@@ -12,6 +12,7 @@ GameObject:
   - 23: {fileID: 2300000}
   - 50: {fileID: 5000000}
   - 58: {fileID: 5800000}
+  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -84,6 +85,22 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_Radius: .50000006
   m_Center: {x: 5.96046448e-08, y: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af829d68d208784da7750a0420b7856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: {x: 0, y: 0}
+  texture: {fileID: 0}
+  damage: 0
+  gravity: 0
+  isPlayer: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

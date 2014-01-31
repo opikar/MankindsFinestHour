@@ -6,13 +6,14 @@ public class InputManager : MonoBehaviour {
 	PlayerManager playerManager;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		movement = GetComponent<Movement>();
 		playerManager = GetComponent<PlayerManager>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if(playerManager.gameManager.GetState() != State.Running) return;
 		float axis = Input.GetAxisRaw("Vertical");
 		playerManager.AimVertical(axis);
 		movement.Move(Input.GetAxis("Horizontal"));
@@ -23,5 +24,7 @@ public class InputManager : MonoBehaviour {
 			else
 				movement.Jump();
 		}
+		if(Input.GetButton("Shoot"))
+			playerManager.ShootNormal();
 	}
 }

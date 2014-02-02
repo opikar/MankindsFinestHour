@@ -2416,7 +2416,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf5e5f2fa5351e34e88605700f1c9f0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  guiManager: {fileID: 0}
 --- !u!114 &1528473445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2443,7 +2442,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18bc3702b50b5074c8e5fba40841e1e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 0}
 --- !u!114 &1528473447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2469,8 +2467,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8d391ddc388524cb9cc3a129729d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  jumpForce: 20
+  f_speed: 10
+  f_jumpForce: 13
 --- !u!61 &1528473449
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3185,8 +3183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8d391ddc388524cb9cc3a129729d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  jumpForce: 20
+  f_speed: 10
+  f_jumpForce: 13
 --- !u!1 &2123264991
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,8 +5,10 @@ public class CharacterCollisions : MonoBehaviour {
 
 	Vector2 velocity;
 	Vector2 direction;
-	Ray2D ray;
-	RaycastHit2D rayHit;
+#pragma warning disable 414
+    Ray2D ray;
+#pragma warning restore 414
+    RaycastHit2D rayHit;
 
 	// Use this for initialization
 	void Start () {

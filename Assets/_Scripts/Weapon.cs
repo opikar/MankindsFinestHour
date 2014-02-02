@@ -11,40 +11,47 @@ public class Weapon : MonoBehaviour {
 	private GameObject m_clone;
 	private float f_bulletSpeed = 25f;
 	private Transform m_transform;
+#pragma warning disable 414
 	private Vector3 v_shootDirection;
+#pragma warning restore 414
 	private Movement m_movement;
 	private float f_angle = 0f;
 	#endregion
 
-
-	void Start () {
+    #region UNITY_METHODS
+    void Start () 
+    {
 		m_transform = transform;
 		m_movement = GetComponent<Movement>();
 		v_shootDirection = m_transform.right;
 	}
 	
 	// Update is called once per frame
-	void Update () {
-
+	void Update () 
+    {
 		Debug.DrawLine(m_transform.position, shootSpawn.position);
-		b_shootRight = m_movement.facingRight;
+		
 	}
-
-	public void ShootNormalGun(){
+    #endregion
+    public void ShootPrimaryWeapon()
+    {
 		m_clone = Instantiate(bullet, shootSpawn.position, Quaternion.identity) as GameObject;
 		m_clone.rigidbody2D.velocity = (shootSpawn.position - m_transform.position).normalized * f_bulletSpeed;
 		Destroy(m_clone, 5f);
 	}
-	public void ShootSpecialGun(){
+	public void ShootSpecialGun()
+    {
 
 	}
-	void MeleeAttack(){
+	public void MeleeAttack()
+    {
 
 	}
 
-	public void MoveShootingTarget(float axis){
+	public void MoveShootingTarget(float axis)
+    {
 		f_angle = axis * 45f;
-
+        b_shootRight = m_movement.facingRight;
 		shootSpawn.position = m_transform.position;
 		if(b_shootRight)
 			shootSpawn.position += new Vector3(Mathf.Cos(Mathf.Deg2Rad * f_angle), Mathf.Sin(Mathf.Deg2Rad * f_angle),  0f) * 2f;

@@ -7,16 +7,17 @@ public class GameManager : MonoBehaviour
 
 	protected State e_state;
 	
-	private static GameManager instance=null;
+	public static GameManager instance {
+		get;
+		private set;
+	}
 	
 	void Awake()
 	{
-		if (instance == null) 
-		{
-			instance = this;
-		} 
-		else
-			Destroy (this);
+		if (instance != null) 
+			Destroy (instance);
+
+		instance = this;
 
         SetState(State.StartMenu);
 	}

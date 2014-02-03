@@ -22,7 +22,6 @@ public class CameraController : MonoBehaviour {
 		GetDirection();
 
 	}
-	
 
 	// Update is called once per frame
 	void Update () {

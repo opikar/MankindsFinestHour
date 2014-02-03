@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class CameraController : MonoBehaviour {
-	public GameObject[] waypoints;
+	public Transform[] waypoints;
 
 	[SerializeField]
 	int nextWaypoint = -1;
@@ -17,10 +17,10 @@ public class CameraController : MonoBehaviour {
 	void Update () {
 		if(nextWaypoint >= waypoints.Length || nextWaypoint  < 0)
 			return;
-		if (transform.position.x < waypoints[nextWaypoint].transform.position.x) 
+		if (transform.position.x < waypoints[nextWaypoint].position.x) 
 		{
 			float speed = waypoints[nextWaypoint].GetComponent<WaypointScript>().SpeedToWaypoint;
-			Vector3 movement = Vector3.MoveTowards(transform.position, waypoints[nextWaypoint].transform.position, speed * Time.deltaTime);
+			Vector3 movement = Vector3.MoveTowards(transform.position, waypoints[nextWaypoint].position, speed * Time.deltaTime);
 			movement.z = cameraZ;
 			transform.position = movement;
 		} else

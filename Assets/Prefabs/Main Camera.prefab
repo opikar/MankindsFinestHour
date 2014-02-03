@@ -85,7 +85,7 @@ GameObject:
   - 61: {fileID: 6100006}
   - 50: {fileID: 5000000}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

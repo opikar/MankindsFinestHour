@@ -2,32 +2,51 @@
 using System.Collections;
 
 public class CameraController : MonoBehaviour {
-	public GameObject[] waypoints;
+	public Transform[] waypoints;
 
 	[SerializeField]
-	int nextWaypoint = -1;
-	float cameraZ;
+	int i_index = 0;
+	float f_speed;
+	Vector3 direction;
+	float f_range;
+
+	private Transform m_transform;
+
 
 	// Use this for initialization
-	void Start () {
-		cameraZ = transform.position.z;
+	void Start () 
+	{
+		m_transform = transform;
+		f_range = Mathf.Abs(transform.position.z - waypoints[i_index].position.z) + 0.1f;
+		f_range *= f_range;
+		GetDirection();
+
 	}
 	
+
 	// Update is called once per frame
 	void Update () {
-		if(nextWaypoint >= waypoints.Length || nextWaypoint  < 0)
-			return;
-		if (transform.position.x < waypoints[nextWaypoint].transform.position.x) 
-		{
-			float speed = waypoints[nextWaypoint].GetComponent<WaypointScript>().SpeedToWaypoint;
-			Vector3 movement = Vector3.MoveTowards(transform.position, waypoints[nextWaypoint].transform.position, speed * Time.deltaTime);
-			movement.z = cameraZ;
-			transform.position = movement;
-		} else
-			MoveToNext();
+		if(i_index == -1)return;
+		
+		m_transform.Translate(direction*f_speed*Time.deltaTime);
+
+		if((m_transform.position - waypoints[i_index].position).sqrMagnitude<f_range){
+			if(++i_index == waypoints.Length){
+				i_index=-1;
+			}
+			if(i_index != -1)
+				GetDirection();
+		}
+
+	}
+	private void GetDirection()
+	{
+		Vector3 vec;
+		vec = m_transform.position;
+		vec.z = 0;
+		direction = (waypoints[i_index].position-vec).normalized;
+		f_speed = waypoints[i_index].GetComponent<WaypointScript>().SpeedToWaypoint;
 	}
 
-	public void MoveToNext() {
-		nextWaypoint++;
-	}
+
 }

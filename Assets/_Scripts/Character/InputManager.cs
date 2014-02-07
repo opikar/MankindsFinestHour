@@ -28,8 +28,9 @@ public class InputManager : MonoBehaviour
 	void Update () 
     {
 		if(m_gameManager.GetState() != State.Running) return;
-		float axis = Input.GetAxisRaw("Vertical");
-		m_playerManager.AimVertical(axis);
+		float axisVertical = Input.GetAxisRaw("Vertical");
+		float axisHorizontal = Input.GetAxisRaw("Horizontal");
+		m_playerManager.AimVertical(axisVertical, axisHorizontal);
 		m_movement.Move(Input.GetAxis("Horizontal"));
 
 		if(Input.GetButtonDown("Jump")) 
@@ -39,7 +40,7 @@ public class InputManager : MonoBehaviour
 			else
 				m_movement.Jump();
 		}
-		if(Input.GetButton("Fire1"))
+		if(Input.GetKey(KeyCode.z))
 			m_playerManager.ShootPrimaryWeapon();
     }
     #endregion

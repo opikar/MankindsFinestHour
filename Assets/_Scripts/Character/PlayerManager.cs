@@ -24,9 +24,9 @@ public class PlayerManager : Character
     #endregion
 
     #region METHODS
-    public void AimVertical (float axis)
+    public void AimVertical (float axisVertical, float axisHorizontal)
 	{
-		weapon.MoveShootingTarget(axis);
+		weapon.MoveShootingTarget(axisVertical, axisHorizontal);
 	}
 
 	public override void Die()

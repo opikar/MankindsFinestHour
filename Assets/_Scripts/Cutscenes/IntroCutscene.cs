@@ -11,30 +11,39 @@ public class IntroCutscene : MonoBehaviour {
 	"After this string the level should load up"
 	};
 	public int currentString = 0;
-	private GUIText cutsceneText;
+	private new GUIText guiText;
 
 
 	// Use this for initialization
 	void Start () 
 	{
-		cutsceneText = GetComponent<GUIText>();
-		cutsceneText.text = texts[currentString];
+		guiText = GetComponent<GUIText>();
+        if (guiText == null)
+        {
+            guiText = gameObject.AddComponent<GUIText>();
+        }
+		guiText.text = texts[currentString];
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if (Input.GetKeyDown("Space")) {
+	void Update () 
+    {
+		if (Input.GetKeyDown("Space")) 
+        {
 			moveToNextString();
-			if (currentString > texts.Length) {
+			if (currentString > texts.Length) 
+            {
 				Application.LoadLevel("Level1");
 			}
-			else {
-				cutsceneText.text = texts[currentString];
+			else 
+            {
+				guiText.text = texts[currentString];
 			}
 		}
 	}
 
-	public void moveToNextString() {
+	public void moveToNextString() 
+    {
 		currentString++;
 	}
 

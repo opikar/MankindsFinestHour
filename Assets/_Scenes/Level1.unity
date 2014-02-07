@@ -170,7 +170,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1441517390}
   m_GameObject: {fileID: 17813268}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a606279519d034e6eaace3f5defb6ca7, type: 3}
   m_Name: 
@@ -437,6 +437,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 100000, guid: a0a836d9516324b05b16849808b8db39, type: 2}
   shootSpawn: {fileID: 700209962}
+  rateOfFire: .300000012
+  autoShoot: 0
 --- !u!114 &160897682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2571,6 +2573,10 @@ Prefab:
       propertyPath: orthographic size
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 64f178e5a92bbc94483022387f9bdd12, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64f178e5a92bbc94483022387f9bdd12, type: 2}
   m_RootGameObject: {fileID: 17813268}
@@ -3194,6 +3200,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 100000, guid: a0a836d9516324b05b16849808b8db39, type: 2}
   shootSpawn: {fileID: 387260471}
+  rateOfFire: .300000012
+  autoShoot: 0
 --- !u!114 &1974083313
 MonoBehaviour:
   m_ObjectHideFlags: 0

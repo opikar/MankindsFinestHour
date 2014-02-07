@@ -40,7 +40,7 @@ public class InputManager : MonoBehaviour
 			else
 				m_movement.Jump();
 		}
-		if(Input.GetKey(KeyCode.z))
+		if(Input.GetKey(KeyCode.Z))
 			m_playerManager.ShootPrimaryWeapon();
     }
     #endregion

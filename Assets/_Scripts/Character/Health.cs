@@ -4,7 +4,7 @@ using System.Collections;
 public class Health : MonoBehaviour
 {
     #region MEMBERS
-    public float fullHP = 100f;
+    public float fullHP = 10f;
 	
     private float f_currentHP;
 	private Character m_character;

@@ -47,10 +47,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c5672b4d671644fc93348117b94e1f8, type: 3}
+  m_Script: {fileID: 11500000, guid: d62cf344385264e479b27d952343f58b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: {fileID: 0}
+  choice: Player
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

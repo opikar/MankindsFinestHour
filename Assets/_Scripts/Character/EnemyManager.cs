@@ -16,5 +16,9 @@ public class EnemyManager : Character {
     {
         Destroy(gameObject);
     }
+
+	public void Move(float direction){
+		movement.Move(direction);
+	}
     #endregion
 }

@@ -6,12 +6,13 @@ public class Weapon : MonoBehaviour {
 	#region MEMBERS
 	public GameObject bullet;
 	public Transform shootSpawn;
+	public float f_rateOfFire = .3f;
+	public bool autoShoot;
 
 	private bool b_shootRight;
 	private GameObject m_clone;
 	private float f_bulletSpeed = 25f;
 	private Transform m_transform;
-	private float f_rateOfFire = .3f;
 	private float f_lastShot;
 #pragma warning disable 414
 	private Vector3 v_shootDirection;
@@ -38,12 +39,9 @@ public class Weapon : MonoBehaviour {
     #endregion
     public void ShootPrimaryWeapon()
     {
-		if(f_lastShot + f_rateOfFire < Time.time){
-			f_lastShot = Time.time;
-			m_clone = Instantiate(bullet, shootSpawn.position, Quaternion.identity) as GameObject;
-			m_clone.rigidbody2D.velocity = (shootSpawn.position - m_transform.position).normalized * f_bulletSpeed;
-			Destroy(m_clone, 5f);
-		}
+		m_clone = Instantiate(bullet, shootSpawn.position, Quaternion.identity) as GameObject;
+		m_clone.rigidbody2D.velocity = (shootSpawn.position - m_transform.position).normalized * f_bulletSpeed;
+		Destroy(m_clone, 5f);
 	}
 	public void ShootSpecialGun()
     {

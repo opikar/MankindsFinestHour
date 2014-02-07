@@ -104,10 +104,7 @@ public class Movement : MonoBehaviour
 	/// <param name="direction">Direction.</param>
 	public void Move(float direction)
     {
-		//rigidbody2D.velocity = new Vector2(f_speed * direction, rigidbody2D.velocity.y);
-        Vector2 vec = rigidbody2D.velocity;
-        vec.x = f_speed * direction;
-        rigidbody2D.velocity = vec;
+		rigidbody2D.velocity = new Vector2(f_speed * direction, rigidbody2D.velocity.y);
 	}
 
 	/// <summary>

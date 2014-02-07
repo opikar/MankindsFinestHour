@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CutsceneHandler : MonoBehaviour {
+public class CutsceneHandler : MonoBehaviour 
+{
 	public GameObject[] texture;
 	public string[] story;
 	int index = 0;
@@ -9,6 +10,10 @@ public class CutsceneHandler : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+        if (texture.Length != story.Length)
+        {
+            Debug.Log("Not same amount of texture and story");
+        }
 		texture[0].SetActive(true);
 		guiText.text = story[0];
 		for (int i = 1; i < texture.Length; i++)

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEditor;
 using System.Collections;
 
 public class SpawnerScript : MonoBehaviour {
@@ -21,5 +22,6 @@ public class SpawnerScript : MonoBehaviour {
 	void OnDrawGizmos() {
 		Gizmos.color = Color.cyan;
 		Gizmos.DrawCube(transform.position, gizmoSize);
+		Handles.Label(transform.position + new Vector3(-gizmoSize.x/2, gizmoSize.y, 0), choice);
 	}
 }

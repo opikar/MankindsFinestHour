@@ -24,17 +24,33 @@ public class Movement : MonoBehaviour
     private Transform m_groundCheck2;
     private LayerMask m_groundMask;
     private float f_groundRadius = 0.26f;
+    // Here I am just creating a variable with the same name as inherited members
+    // The compiler will complain that it is hiding existing member
+    // Using new on the front I explicitely tell to hide
+    // Then I can use the variable just like the normal ones but faster
+    private new Rigidbody2D rigidbody2D;
+    private new Transform transform;
     #endregion
 
     #region UNITY_METHODS
     void Start () 
     {
+        // Here we call the base.variable which is the slow one
+        // and store that value into our new one.
+        rigidbody2D = base.rigidbody2D;
+        transform = base.transform;
 		m_groundCheck = transform.Find ("groundCheck");
 		m_groundCheck2 = transform.Find ("groundCheck2");
 		m_groundMask = 1 << LayerMask.NameToLayer("Ground");
 		facingRight = true;
 	}
 	
+
+    //////////////////////////////////////////////
+    // Think if you really need the update here.
+    // You are setting those values for a future use in Move
+    // What if you only call them at the beginning of Move?
+    //////////////////////////////////////////////
 	void Update () 
     {
 		if(rigidbody2D.velocity.y > 0)
@@ -55,8 +71,6 @@ public class Movement : MonoBehaviour
 		//character is standing on ground if groundchecks are overlapping with ground
 		b_grounded = Physics2D.OverlapCircle(m_groundCheck.position, f_groundRadius, m_groundMask) ||
 			Physics2D.OverlapCircle(m_groundCheck2.position, f_groundRadius, m_groundMask);
-
-
 
 		//if the character is on ground he can use double jump
 		if(b_grounded)
@@ -90,7 +104,10 @@ public class Movement : MonoBehaviour
 	/// <param name="direction">Direction.</param>
 	public void Move(float direction)
     {
-		rigidbody2D.velocity = new Vector2(f_speed * direction, rigidbody2D.velocity.y);
+		//rigidbody2D.velocity = new Vector2(f_speed * direction, rigidbody2D.velocity.y);
+        Vector2 vec = rigidbody2D.velocity;
+        vec.x = f_speed * direction;
+        rigidbody2D.velocity = vec;
 	}
 
 	/// <summary>

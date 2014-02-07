@@ -31,7 +31,8 @@ public class InputManager : MonoBehaviour
 		float axisVertical = Input.GetAxisRaw("Vertical");
 		float axisHorizontal = Input.GetAxisRaw("Horizontal");
 		m_playerManager.AimVertical(axisVertical, axisHorizontal);
-		m_movement.Move(Input.GetAxis("Horizontal"));
+		
+        m_movement.Move(Input.GetAxis("Horizontal"));
 
 		if(Input.GetButtonDown("Jump")) 
         {

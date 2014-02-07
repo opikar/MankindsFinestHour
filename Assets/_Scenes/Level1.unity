@@ -155,7 +155,7 @@ Transform:
   m_PrefabInternal: {fileID: 1441517390}
   m_GameObject: {fileID: 17813268}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 307.106659, y: 0, z: -10}
+  m_LocalPosition: {x: -.354712486, y: 0, z: -10}
   m_LocalScale: {x: 2.27499986, y: 1, z: 1}
   m_Children:
   - {fileID: 1641542249}
@@ -435,7 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e8447fdfe6c548b39a18d5695ce4255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 100000, guid: a0a836d9516324b05b16849808b8db39, type: 2}
+  bullet: {fileID: 100000, guid: 49b56a9fa2998fa44a7c9132c8044de9, type: 2}
   shootSpawn: {fileID: 700209962}
 --- !u!114 &160897682
 MonoBehaviour:
@@ -2517,7 +2517,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 64f178e5a92bbc94483022387f9bdd12, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 307.106659
+      value: -.354712486
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 64f178e5a92bbc94483022387f9bdd12, type: 2}
       propertyPath: m_LocalPosition.y

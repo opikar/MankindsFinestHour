@@ -36,6 +36,7 @@ public static class GameState {
 			if(uniques[name] == null) {
 				tmp = MonoBehaviour.Instantiate(prefabs[name]) as GameObject;
 				MonoBehaviour.DontDestroyOnLoad(tmp);
+				uniques[name] = tmp;
 				return tmp;
 			} else {
 				uniques[name].SetActive(true);

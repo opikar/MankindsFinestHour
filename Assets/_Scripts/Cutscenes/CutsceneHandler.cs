@@ -3,6 +3,10 @@ using System.Collections;
 
 public class CutsceneHandler : MonoBehaviour 
 {
+	// How would this be done so they would use the same variable for size? 
+	// I tried (string[size]) where "size" would be int, 
+	// but for some non-apparent reason it didn't work. Wrong syntax? - Panu
+	
 	public GameObject[] texture;
 	public string[] story;
 	int index = 0;

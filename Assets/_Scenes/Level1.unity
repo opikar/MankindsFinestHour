@@ -435,7 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e8447fdfe6c548b39a18d5695ce4255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 100000, guid: a0a836d9516324b05b16849808b8db39, type: 2}
+  bullet: {fileID: 100000, guid: 49b56a9fa2998fa44a7c9132c8044de9, type: 2}
   shootSpawn: {fileID: 700209962}
   rateOfFire: .300000012
   autoShoot: 0
@@ -1992,6 +1992,10 @@ Prefab:
       propertyPath: f_jumpForce
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: a4d5446b98851074b9bfbf17d80d07eb, type: 2}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 100000, guid: 49b56a9fa2998fa44a7c9132c8044de9, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a4d5446b98851074b9bfbf17d80d07eb, type: 2}
   m_RootGameObject: {fileID: 160897678}

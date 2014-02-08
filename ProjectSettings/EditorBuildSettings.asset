@@ -14,4 +14,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/testlevel.unity
   - enabled: 1
-    path: Assets/_Scenes/Cutscene.unity
+    path: Assets/_Scenes/Cutscenes/IntroCutscene.unity

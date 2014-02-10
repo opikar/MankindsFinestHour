@@ -7,15 +7,24 @@ public class PatrollingEnemy : MonoBehaviour {
 	private Vector2 v_leftWaypoint;
 	private float f_move;
 	private Vector2 v_target;
+	private float f_seePlayerDistance;
 	private EnemyManager enemyManager;
+	private Transform m_transform;
+	private int mask;
+	RaycastHit2D hit;
 
 	// Use this for initialization
 	void Start () {
+		mask = LayerMask.NameToLayer("Player");
+		print (mask);
+		m_transform = transform;
+		f_seePlayerDistance = 20f;
 		enemyManager = GetComponent<EnemyManager>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		print (SeePlayer());
 		Move ();
 		enemyManager.Move(f_move);
 	}
@@ -47,8 +56,8 @@ public class PatrollingEnemy : MonoBehaviour {
 	}
 
 	void SetPatrolRoute(Transform other){
-		v_leftWaypoint = new Vector2(other.position.x - other.localScale.x * .5f, transform.position.y);
-		v_rightWaypoint = new Vector2(other.position.x + other.localScale.x * .5f, transform.position.y);
+		v_leftWaypoint = new Vector2(other.position.x - other.localScale.x * .5f, m_transform.position.y);
+		v_rightWaypoint = new Vector2(other.position.x + other.localScale.x * .5f, m_transform.position.y);
 	}
 
 	void ResetPatrolRoute(){
@@ -57,15 +66,24 @@ public class PatrollingEnemy : MonoBehaviour {
 	}
 
 	void Move(){
-		if(Vector2.Distance(v_target, transform.position) < 2f && f_move == 1f){
+		if(Vector2.Distance(v_target, m_transform.position) < 2f && f_move == 1f){
 			v_target = v_leftWaypoint;
 			f_move = -1f;
 		}
-		else if(Vector2.Distance(v_target, transform.position) < 2f && f_move == -1f){
+		else if(Vector2.Distance(v_target, m_transform.position) < 2f && f_move == -1f){
 			v_target = v_rightWaypoint;
 			f_move = 1f;
 		}
 		if(v_leftWaypoint == Vector2.zero && v_rightWaypoint == Vector2.zero)
 			f_move = 0;
+	}
+
+	bool SeePlayer(){
+		hit = Physics2D.Raycast(m_transform.position, m_transform.right * f_move, f_seePlayerDistance, mask);
+		if(hit){
+				return true;
+		}
+		else 
+			return false;
 	}
 }

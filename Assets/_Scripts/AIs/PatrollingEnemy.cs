@@ -10,13 +10,13 @@ public class PatrollingEnemy : MonoBehaviour {
 	private float f_seePlayerDistance;
 	private EnemyManager enemyManager;
 	private Transform m_transform;
-	private int mask;
-	RaycastHit2D hit;
+	private int i_mask;
+	private int i_viewDirection; 
+	private RaycastHit2D hit;
 
 	// Use this for initialization
 	void Start () {
-		mask = LayerMask.NameToLayer("Player");
-		print (mask);
+		i_mask = 1 << LayerMask.NameToLayer("Player");
 		m_transform = transform;
 		f_seePlayerDistance = 20f;
 		enemyManager = GetComponent<EnemyManager>();
@@ -24,7 +24,10 @@ public class PatrollingEnemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		print (SeePlayer());
+		if(SeePlayer())
+			f_move = 0;
+		else if(f_move == 0)
+			f_move = i_viewDirection;
 		Move ();
 		enemyManager.Move(f_move);
 	}
@@ -69,19 +72,21 @@ public class PatrollingEnemy : MonoBehaviour {
 		if(Vector2.Distance(v_target, m_transform.position) < 2f && f_move == 1f){
 			v_target = v_leftWaypoint;
 			f_move = -1f;
+			i_viewDirection = -1;
 		}
 		else if(Vector2.Distance(v_target, m_transform.position) < 2f && f_move == -1f){
 			v_target = v_rightWaypoint;
 			f_move = 1f;
+			i_viewDirection = 1;
 		}
 		if(v_leftWaypoint == Vector2.zero && v_rightWaypoint == Vector2.zero)
 			f_move = 0;
 	}
 
 	bool SeePlayer(){
-		hit = Physics2D.Raycast(m_transform.position, m_transform.right * f_move, f_seePlayerDistance, mask);
+		hit = Physics2D.Raycast(m_transform.position, m_transform.right * i_viewDirection, f_seePlayerDistance, i_mask);
 		if(hit){
-				return true;
+			return true;
 		}
 		else 
 			return false;

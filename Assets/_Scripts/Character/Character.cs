@@ -57,5 +57,9 @@ public abstract class Character : MonoBehaviour
     {
 		weapon.ShootPrimaryWeapon();
 	}
+
+	public bool GetFacingRight(){
+		return movement.facingRight;
+	}
     #endregion
 }

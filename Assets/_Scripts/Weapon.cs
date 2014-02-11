@@ -39,9 +39,12 @@ public class Weapon : MonoBehaviour {
     #endregion
     public void ShootPrimaryWeapon()
     {
-		m_clone = Instantiate(bullet, shootSpawn.position, Quaternion.identity) as GameObject;
-		m_clone.rigidbody2D.velocity = (shootSpawn.position - transform.position).normalized * f_bulletSpeed;
-		Destroy(m_clone, 5f);
+		if(!autoShoot || rateOfFire + f_lastShot < Time.time){
+			f_lastShot = Time.time;
+			m_clone = Instantiate(bullet, shootSpawn.position, Quaternion.identity) as GameObject;
+			m_clone.rigidbody2D.velocity = (shootSpawn.position - transform.position).normalized * f_bulletSpeed;
+			Destroy(m_clone, 5f);
+		}
 	}
 	public void ShootSpecialGun()
     {

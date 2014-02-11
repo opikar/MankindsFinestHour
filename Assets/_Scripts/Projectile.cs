@@ -24,12 +24,13 @@ public class Projectile : MonoBehaviour
 		if(isPlayer && other.gameObject.tag == "Enemy")
         {
 			other.gameObject.GetComponent<Character>().ApplyDamage(damage);
+			Destroy(gameObject);
 		}
 		else if(!isPlayer && other.gameObject.tag == "Player")
         {
 			other.gameObject.GetComponent<Character>().ApplyDamage(damage);
+			Destroy(gameObject);
 		}
-        Destroy(gameObject);
     }
     #endregion
 }

@@ -1,30 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PatrollingEnemy : MonoBehaviour {
+public class PatrollingEnemy : BasicAI {
 
+	public float seePlayerDistance = 20f;
+
+	private int i_mask;
+	private int i_viewDirection; 
+	private EnemyManager enemyManager;
+	private Transform m_transform;
 	private Vector2 v_rightWaypoint;
 	private Vector2 v_leftWaypoint;
 	private Vector2 v_target;
 	private float f_move;
-	private float f_seePlayerDistance;
-	private EnemyManager enemyManager;
-	private Transform m_transform;
-	private int i_mask;
-	private int i_viewDirection; 
-	private RaycastHit2D hit;
 
 	// Use this for initialization
 	void Start () {
-		i_mask = 1 << LayerMask.NameToLayer("Player");
 		m_transform = transform;
-		f_seePlayerDistance = 20f;
 		enemyManager = GetComponent<EnemyManager>();
+		i_mask = 1 << LayerMask.NameToLayer("Player");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(SeePlayer()){
+		if(SeePlayer(m_transform, i_viewDirection, seePlayerDistance, i_mask)){
 			enemyManager.ShootPrimaryWeapon();
 			f_move = 0;
 		}
@@ -84,17 +83,5 @@ public class PatrollingEnemy : MonoBehaviour {
 		else
 			i_viewDirection = -1;
 	}
-
-	bool SeePlayer(){
-		//for loop for more precise vision.
-		//send ray from the top, middle and bottom of enemy
-		for(int i = 0; i < 3; i++){	
-			Vector2 origin = new Vector2(m_transform.position.x, m_transform.position.y - m_transform.localScale.y * .5f + m_transform.localScale.y * .5f * i);
-			hit = Physics2D.Raycast(origin, m_transform.right * i_viewDirection, f_seePlayerDistance, i_mask);
-			if(hit){
-				return true;
-			}
-		}
-		return false;
-	}
+	
 }

@@ -5,10 +5,7 @@ public class PatrollingEnemy : BasicAI {
 
 	public float seePlayerDistance = 20f;
 
-	private int i_mask;
-	private int i_viewDirection; 
 	private EnemyManager enemyManager;
-	private Transform m_transform;
 	private Vector2 v_rightWaypoint;
 	private Vector2 v_leftWaypoint;
 	private Vector2 v_target;
@@ -23,13 +20,13 @@ public class PatrollingEnemy : BasicAI {
 	
 	// Update is called once per frame
 	void Update () {
-		if(SeePlayer(m_transform, i_viewDirection, seePlayerDistance, i_mask)){
+		Move ();
+		if(SeePlayer(seePlayerDistance)){
 			enemyManager.ShootPrimaryWeapon();
 			f_move = 0;
 		}
 		else if(f_move == 0)
 			f_move = i_viewDirection;
-		Move ();
 		enemyManager.Move(f_move);
 	}
 

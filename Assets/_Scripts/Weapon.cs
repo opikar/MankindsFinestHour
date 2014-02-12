@@ -9,7 +9,7 @@ public class Weapon : MonoBehaviour {
 	public float rateOfFire = .3f;
 	public bool autoShoot;
 
-    private new Transform transform;
+    private Transform m_transform;
 	private bool b_shootRight;
 	private GameObject m_clone;
 	private float f_bulletSpeed = 25f;	
@@ -25,9 +25,9 @@ public class Weapon : MonoBehaviour {
     void Start () 
     {
 		f_lastShot = Time.time;
-		transform = base.transform;
+		m_transform = transform;
 		m_movement = GetComponent<Movement>();
-		v_shootDirection = transform.right;
+		v_shootDirection = m_transform.right;
 	}
 	
 	// Update is called once per frame
@@ -63,11 +63,18 @@ public class Weapon : MonoBehaviour {
 			f_angle = 30f * axisVertical;
         
 		b_shootRight = m_movement.facingRight;
-		shootSpawn.position = transform.position;
+		shootSpawn.position = m_transform.position;
 		if(b_shootRight)
 			shootSpawn.position += new Vector3(Mathf.Cos(Mathf.Deg2Rad * f_angle), Mathf.Sin(Mathf.Deg2Rad * f_angle),  0f) * 2f;
 		else
 			shootSpawn.position += new Vector3(Mathf.Cos(Mathf.Deg2Rad * f_angle) * -1, Mathf.Sin(Mathf.Deg2Rad * f_angle),  0f) * 2f;
+	}
+
+	public void SetTarget(Transform target)
+	{
+		shootSpawn.position = m_transform.position;
+		shootSpawn.position += (target.position - m_transform.position).normalized;
+		print (shootSpawn.position);
 	}
 	/*public void MoveShootingTarget(float axis){
 		if((angle < 90 || axis == -1) && (angle > -90 || axis == 1))

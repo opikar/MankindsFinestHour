@@ -58,10 +58,16 @@ public abstract class Character : MonoBehaviour
 		weapon.ShootPrimaryWeapon();
 	}
 
+	public void ShootSpecialWeapon()
+	{
+		weapon.ShootSpecialGun();
+	}
+
 	public void SetTarget(Transform shootSpawn)
 	{
 		weapon.SetTarget(shootSpawn);
 	}
+
 
 	public bool GetFacingRight(){
 		return movement.facingRight;

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Movement : MonoBehaviour
@@ -53,28 +53,7 @@ public class Movement : MonoBehaviour
     //////////////////////////////////////////////
 	void Update () 
     {
-		if(rigidbody2D.velocity.y > 0)
-			rigidbody2D.gravityScale = 1;
 
-		if(rigidbody2D.velocity.x > 0 && !facingRight)
-        {
-			facingRight = true;
-			Flip();
-		}
-		if(rigidbody2D.velocity.x < 0 && facingRight)
-        {
-			facingRight = false;
-			Flip ();
-		}
-
-		//grounded = rigidbody2D.gravityScale == 0 ? true : false;
-		//character is standing on ground if groundchecks are overlapping with ground
-		b_grounded = Physics2D.OverlapCircle(m_groundCheck.position, f_groundRadius, m_groundMask) ||
-			Physics2D.OverlapCircle(m_groundCheck2.position, f_groundRadius, m_groundMask);
-
-		//if the character is on ground he can use double jump
-		if(b_grounded)
-			b_doubleJump = false;
 	}
 
     void OnTriggerEnter2D(Collider2D other)
@@ -105,6 +84,30 @@ public class Movement : MonoBehaviour
 	/// <param name="direction">Direction.</param>
 	public void Move(float direction)
     {
+		if(rigidbody2D.velocity.y > 0)
+			rigidbody2D.gravityScale = 1;
+		
+		if(rigidbody2D.velocity.x > 0 && !facingRight)
+		{
+			facingRight = true;
+			Flip();
+		}
+		if(rigidbody2D.velocity.x < 0 && facingRight)
+		{
+			facingRight = false;
+			Flip ();
+		}
+
+		//grounded = rigidbody2D.gravityScale == 0 ? true : false;
+		//character is standing on ground if groundchecks are overlapping with ground
+		b_grounded = Physics2D.OverlapCircle(m_groundCheck.position, f_groundRadius, m_groundMask) ||
+			Physics2D.OverlapCircle(m_groundCheck2.position, f_groundRadius, m_groundMask);
+		
+		//if the character is on ground he can use double jump
+		if(b_grounded)
+			b_doubleJump = false;
+
+
 		rigidbody2D.velocity = new Vector2(f_speed * direction, rigidbody2D.velocity.y);
 	}
 

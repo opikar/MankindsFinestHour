@@ -19,16 +19,16 @@ public class Projectile : MonoBehaviour
         sp.sprite = sprite;
 	}
 
-	void OnCollisionEnter2D(Collision2D other)
+	void OnTriggerEnter2D(Collider2D other)
     {
-		if(isPlayer && other.gameObject.tag == "Enemy")
+		if(isPlayer && other.tag == "Enemy")
         {
-			other.gameObject.GetComponent<Character>().ApplyDamage(damage);
+			other.GetComponent<Character>().ApplyDamage(damage);
 			Destroy(gameObject);
 		}
-		else if(!isPlayer && other.gameObject.tag == "Player")
+		else if(!isPlayer && other.tag == "Player")
         {
-			other.gameObject.GetComponent<Character>().ApplyDamage(damage);
+			other.GetComponent<Character>().ApplyDamage(damage);
 			Destroy(gameObject);
 		}
     }

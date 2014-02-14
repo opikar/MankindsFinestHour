@@ -23,7 +23,7 @@ public class Movement : MonoBehaviour
 	private Transform m_groundCheck;
     private Transform m_groundCheck2;
     private LayerMask m_groundMask;
-    private float f_groundRadius = 0.26f;
+    private float f_groundRadius = 0.30f;
     // Here I am just creating a variable with the same name as inherited members
     // The compiler will complain that it is hiding existing member
     // Using new on the front I explicitely tell to hide
@@ -93,7 +93,8 @@ public class Movement : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        rigidbody2D.gravityScale = 1;
+		if(other.tag == "Ground")
+        	rigidbody2D.gravityScale = 1;
     }
     #endregion
 

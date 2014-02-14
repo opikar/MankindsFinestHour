@@ -12,14 +12,14 @@ public class PatrollingEnemy : BasicAI {
 	private float f_move;
 
 	// Use this for initialization
-	void Start () {
+	protected virtual void Start () {
 		m_transform = transform;
 		enemyManager = GetComponent<EnemyManager>();
 		i_mask = 1 << LayerMask.NameToLayer("Player");
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	protected virtual void Update () {
 		Move ();
 		if(SeePlayer(seePlayerDistance)){
 			enemyManager.ShootPrimaryWeapon();
@@ -52,6 +52,7 @@ public class PatrollingEnemy : BasicAI {
 
 	void SetPatrolRoute(Transform other){
 		f_move = -1f;
+		print ("call");
 		v_leftWaypoint = new Vector2(other.position.x - other.localScale.x * .5f, m_transform.position.y);
 		v_rightWaypoint = new Vector2(other.position.x + other.localScale.x * .5f, m_transform.position.y);
 		v_target = v_leftWaypoint;
@@ -63,14 +64,15 @@ public class PatrollingEnemy : BasicAI {
 	}
 
 	void Move(){
-		if(Vector2.Distance(v_target, m_transform.position) < 2f && f_move == 1f){
+		print (Vector2.Distance(v_target, m_transform.position));
+		if(Vector2.Distance(v_rightWaypoint, m_transform.position) < 2f && f_move == 1f){
 			v_target = v_leftWaypoint;
 			print (v_target + "target2");
 			f_move = -1f;
 		}
-		else if(Vector2.Distance(v_target, m_transform.position) < 2f && f_move == -1f ){
+		else if(Vector2.Distance(v_leftWaypoint, m_transform.position) < 2f && f_move == -1f ){
+			//this gets called 3-10 times when enemy reaches the left corner.
 			v_target = v_rightWaypoint;
-			print (v_target + "target");
 			f_move = 1f;
 		}
 		if(v_leftWaypoint == Vector2.zero && v_rightWaypoint == Vector2.zero)

@@ -2,14 +2,55 @@
 using System.Collections;
 
 public class KamikazeEnemy : PatrollingEnemy {
-
+	
+	private bool b_seePlayer = false;
+	private bool b_charge = false;
+	private float f_reactionTime = 1f;
+	private float f_chargeSpeed = 20f;
+	private float f_chargeStart;
+	private PlayerManager m_playerManager;
+	private Transform m_player;
 	// Use this for initialization
 	protected override void Start () {
 		base.Start();
+		m_player = GameObject.Find("Player").GetComponent<Transform>();
+		m_playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
+		f_chargeStart = Time.time;
 	}
 	
 	// Update is called once per frame
 	protected override void Update () {
-		base.Update();
+		b_seePlayer = SeePlayer(seePlayerDistance) || b_seePlayer;
+		if(!b_seePlayer){
+			Move();
+			b_charge = true;
+			f_chargeStart = Time.time;
+		}
+		else if(f_chargeStart + f_reactionTime < Time.time && b_charge)
+		{
+			Charge();
+			f_move = i_viewDirection;
+		}
+		else
+			f_move = 0;
+		enemyManager.Move(f_move);
 	}
+
+	void Charge(){
+		if(Vector2.SqrMagnitude(m_transform.position - m_player.position) < 15f)
+		{
+			b_charge = false;
+			Explode();
+		}
+		enemyManager.SetMoveSpeed(f_chargeSpeed);
+	}
+
+	void Explode()
+	{
+		//still need and exploding animation
+		m_playerManager.ApplyDamage(m_playerManager.GetMaxHealth() * .5f);
+		enemyManager.Die();
+	}
+
+
 }

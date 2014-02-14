@@ -6,7 +6,7 @@ public class Health : MonoBehaviour
     #region MEMBERS
     public float fullHP = 10f;
 	
-    private float f_currentHP;
+    public float f_currentHP;
 	private Character m_character;
     #endregion
 

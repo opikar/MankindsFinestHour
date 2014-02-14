@@ -72,5 +72,15 @@ public abstract class Character : MonoBehaviour
 	public bool GetFacingRight(){
 		return movement.facingRight;
 	}
+
+	public void SetMoveSpeed(float speed)
+	{
+		movement.SetMoveSpeed(speed);
+	}
+
+	public float GetMaxHealth()
+	{
+		return health.fullHP;
+	}
     #endregion
 }

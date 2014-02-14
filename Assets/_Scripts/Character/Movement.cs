@@ -56,6 +56,11 @@ public class Movement : MonoBehaviour
 
 	}
 
+	public void SetMoveSpeed(float speed)
+	{
+		f_speed = speed;
+	}
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Ground" && rigidbody2D.velocity.y < 0)

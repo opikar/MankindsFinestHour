@@ -5,11 +5,11 @@ public class PatrollingEnemy : BasicAI {
 
 	public float seePlayerDistance = 20f;
 
-	private EnemyManager enemyManager;
-	private Vector2 v_rightWaypoint;
-	private Vector2 v_leftWaypoint;
-	private Vector2 v_target;
-	private float f_move;
+	protected EnemyManager enemyManager;
+	protected Vector2 v_rightWaypoint;
+	protected Vector2 v_leftWaypoint;
+	protected Vector2 v_target;
+	protected float f_move;
 
 	// Use this for initialization
 	protected virtual void Start () {
@@ -63,7 +63,7 @@ public class PatrollingEnemy : BasicAI {
 		v_rightWaypoint = Vector2.zero;
 	}
 
-	void Move(){
+	protected void Move(){
 		print (Vector2.Distance(v_target, m_transform.position));
 		if(Vector2.Distance(v_rightWaypoint, m_transform.position) < 2f && f_move == 1f){
 			v_target = v_leftWaypoint;

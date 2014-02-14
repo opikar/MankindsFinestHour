@@ -52,7 +52,6 @@ public class PatrollingEnemy : BasicAI {
 
 	void SetPatrolRoute(Transform other){
 		f_move = -1f;
-		print ("call");
 		v_leftWaypoint = new Vector2(other.position.x - other.localScale.x * .5f, m_transform.position.y);
 		v_rightWaypoint = new Vector2(other.position.x + other.localScale.x * .5f, m_transform.position.y);
 		v_target = v_leftWaypoint;
@@ -64,10 +63,8 @@ public class PatrollingEnemy : BasicAI {
 	}
 
 	protected void Move(){
-		print (Vector2.Distance(v_target, m_transform.position));
 		if(Vector2.Distance(v_rightWaypoint, m_transform.position) < 2f && f_move == 1f){
 			v_target = v_leftWaypoint;
-			print (v_target + "target2");
 			f_move = -1f;
 		}
 		else if(Vector2.Distance(v_leftWaypoint, m_transform.position) < 2f && f_move == -1f ){

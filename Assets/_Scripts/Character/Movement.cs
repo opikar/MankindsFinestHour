@@ -68,6 +68,10 @@ public class Movement : MonoBehaviour
             if (transform.position.x + Mathf.Abs(transform.localScale.x / 2) >= other.transform.position.x - other.transform.localScale.x / 2 &&
                transform.position.x - Mathf.Abs(transform.localScale.x / 2) <= other.transform.position.x + other.transform.localScale.x / 2)
             {
+				if(other.gameObject.name == "MovingPlatform")
+				{
+					transform.parent = other.gameObject.transform;
+				}
                 rigidbody2D.gravityScale = 0;
                 rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);
                 transform.position = new Vector3(transform.position.x, other.transform.position.y + 0.5f * (other.transform.localScale.y + transform.localScale.y), transform.position.z);
@@ -78,7 +82,13 @@ public class Movement : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)
     {
 		if(other.tag == "Ground")
+		{
+			if(other.gameObject.name == "MovingPlatform")
+			{
+				transform.parent = null;
+			}
         	rigidbody2D.gravityScale = 1;
+		}
     }
     #endregion
 

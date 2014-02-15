@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public delegate IEnumerator Action();
 
@@ -15,7 +16,9 @@ public abstract class ScriptedEnemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(!actionRunning) {
-			StartCoroutine(RunAction(currentState.GetAction()));
+			foreach(Action action in currentState.GetAction().GetInvocationList()) {
+				StartCoroutine(RunAction (action));
+			}
 		}
 	}
 

@@ -144,8 +144,9 @@ public class Movement : MonoBehaviour
     /// </summary>
 	public void Drop()
     {
+		print (transform.parent);
 		if(rigidbody2D.gravityScale == 0)
-			rigidbody2D.gravityScale = 1;
+			rigidbody2D.gravityScale = 20f;
 	}
 
 	private void Flip()

@@ -5,12 +5,17 @@ using System.Collections.Generic;
 public class MovingPlatform : MonoBehaviour {
 
 	public GameObject start;
+	public float speed = 10f;
+	public bool moveAlways;
 
 	private int i_index;
 	private Transform m_transform;
 	private float f_range = 5f;
 	private Vector3 v_moveDirection;
 	private List<Transform> waypoint;
+	private bool b_moving = false;
+	private float f_timer;
+	private float f_delay = 2f;
 
 	void Start()
 	{
@@ -20,14 +25,21 @@ public class MovingPlatform : MonoBehaviour {
 
 	void Update()
 	{
-		if ((m_transform.position - waypoint[i_index].position).sqrMagnitude > f_range)
+		if(b_moving || moveAlways)
 		{
-			v_moveDirection = waypoint [i_index].position - m_transform.position;
-			v_moveDirection.Normalize();
-		}
-		else NextIndex();
+			f_timer += Time.deltaTime;
+			if(moveAlways || f_timer > f_delay)
+			{
+				if ((m_transform.position - waypoint[i_index].position).sqrMagnitude > f_range)
+				{
+					v_moveDirection = waypoint [i_index].position - m_transform.position;
+					v_moveDirection.Normalize();
+				}
+				else NextIndex();
 
-		m_transform.Translate(v_moveDirection * Time.deltaTime * 20f);
+				m_transform.Translate(v_moveDirection * Time.deltaTime * speed);
+			}
+		}
 	}
 
 	void NextIndex()
@@ -44,7 +56,7 @@ public class MovingPlatform : MonoBehaviour {
 		List<GameObject> gos = new List<GameObject>();
 		for(int i = 0; i < t.Length; i++)
 		{
-			if(t[i].tag == "PlatformWaypoint")
+			if(t[i].tag == str)//"PlatformWaypoint")
 				gos.Add(t[i].gameObject);
 			print (t[i].position);
 		}
@@ -80,6 +92,12 @@ public class MovingPlatform : MonoBehaviour {
 			closest.gameObject.GetComponent<PlatformWaypointScript>().SetUsed (true);
 		}
 		return closest;
+	}
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if(other.tag == "Player" || other.tag == "Enemy")
+			b_moving = true;
 	}
 
 

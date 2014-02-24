@@ -19,6 +19,12 @@ public class Projectile : MonoBehaviour
         sp.sprite = sprite;
 	}
 
+	void Update()
+	{
+		if(!renderer.isVisible)
+			Destroy(gameObject);
+	}
+
 	void OnTriggerEnter2D(Collider2D other)
     {
 		if(isPlayer && other.tag == "Enemy")

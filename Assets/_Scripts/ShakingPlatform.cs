@@ -5,22 +5,19 @@ public class ShakingPlatform : MonoBehaviour {
 
 	public float speed = 1f;
 	public float dropDelay = 2f;
-	public bool shake = false;
 
+	private bool b_shake = false;
 	private bool b_drop = false;
 	private float f_dropTimer;
-	private Transform m_transform;
 	private Rigidbody2D r_rigidbody;
-	private Vector3 v_pos;
 	// Use this for initialization
 	void Start () {
 		r_rigidbody = rigidbody2D;
-		m_transform = transform;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(shake)
+		if(b_shake)
 			Shake();
 	}
 
@@ -29,10 +26,9 @@ public class ShakingPlatform : MonoBehaviour {
 		if(!b_drop)
 		{
 			if(other.tag == "Player"){
-				if(!shake)
+				if(!b_shake)
 					f_dropTimer = Time.time;
-				shake = true;
-				v_pos = m_transform.position;
+				b_shake = true;
 			}
 		}
 	}
@@ -48,7 +44,7 @@ public class ShakingPlatform : MonoBehaviour {
 	{
 		r_rigidbody.velocity = Vector2.zero;
 		b_drop = true;
-		shake = false;
+		b_shake = false;
 		r_rigidbody.isKinematic = false;
 	}
 }

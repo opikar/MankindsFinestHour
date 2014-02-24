@@ -17,7 +17,7 @@ public class Movement : MonoBehaviour
 	public float f_jumpForce = 13f;
 	public bool b_grounded = true;
 	private bool b_doubleJump = false;
-	private bool b_flipped = false;
+	public bool flipped = false;
 
 	private Transform m_groundCheck;
     private Transform m_groundCheck2;
@@ -66,7 +66,7 @@ public class Movement : MonoBehaviour
         {
             if (transform.position.x + Mathf.Abs(transform.localScale.x / 2) >= other.transform.position.x - other.transform.localScale.x / 2 &&
                transform.position.x - Mathf.Abs(transform.localScale.x / 2) <= other.transform.position.x + other.transform.localScale.x / 2 &&
-			    !b_flipped)
+			    !flipped)
             {
 				if(other.gameObject.name == "MovingPlatform")
 				{
@@ -99,18 +99,16 @@ public class Movement : MonoBehaviour
 	/// <param name="direction">Direction.</param>
 	public void Move(float direction)
     {
-		b_flipped = false;
+		flipped = false;
 		if(rigidbody2D.velocity.y > 0)
 			rigidbody2D.gravityScale = 1;
 		
 		if(rigidbody2D.velocity.x > 0 && !facingRight)
 		{
-			facingRight = true;
 			Flip();
 		}
 		if(rigidbody2D.velocity.x < 0 && facingRight)
 		{
-			facingRight = false;
 			Flip ();
 		}
 
@@ -152,7 +150,8 @@ public class Movement : MonoBehaviour
 
 	private void Flip()
     {
-		b_flipped = true;
+		facingRight = !facingRight;
+		flipped = true;
 		Vector3 scale = transform.localScale;
 		scale.x *= -1f;
 		transform.localScale = scale;

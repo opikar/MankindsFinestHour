@@ -82,5 +82,10 @@ public abstract class Character : MonoBehaviour
 	{
 		return health.fullHP;
 	}
+
+	public bool GetFlipped()
+	{
+		return movement.flipped;
+	}
     #endregion
 }

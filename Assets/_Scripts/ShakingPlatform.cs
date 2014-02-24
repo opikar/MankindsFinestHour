@@ -23,7 +23,7 @@ public class ShakingPlatform : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if(!b_drop)
+		if(!b_drop && other.transform.position.y > transform.position.y)
 		{
 			if(other.tag == "Player"){
 				if(!b_shake)

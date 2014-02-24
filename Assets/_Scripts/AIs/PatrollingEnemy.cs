@@ -54,7 +54,6 @@ public class PatrollingEnemy : BasicAI {
 
 	void SetPatrolRoute(Transform other){
 		f_move = -1f;
-		print ("setting patrol");
 		v_leftWaypoint = new Vector3(other.position.x - other.localScale.x * .5f, m_transform.position.y, 0);
 		v_rightWaypoint = new Vector3(other.position.x + other.localScale.x * .5f, m_transform.position.y, 0);
 		v_target = v_leftWaypoint;
@@ -69,13 +68,6 @@ public class PatrollingEnemy : BasicAI {
 		if(Vector3.SqrMagnitude(v_target - m_transform.position) < 4f)
 			ChangeDirection();
 
-		/*if(Vector3.SqrMagnitude(v_rightWaypoint - m_transform.position) < 4f && v_target == v_rightWaypoint){
-			ChangeDirection();
-		}
-		else if(Vector3.SqrMagnitude(v_leftWaypoint - m_transform.position) < 4f && v_target == v_leftWaypoint ){
-			//this gets called 3-10 times when enemy reaches the left corner.
-			ChangeDirection();
-		}*/
 		if(v_leftWaypoint == Vector3.zero && v_rightWaypoint == Vector3.zero)
 			f_move = 0;
 		if(enemyManager.GetFacingRight())

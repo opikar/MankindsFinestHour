@@ -5,8 +5,7 @@ public class Movement : MonoBehaviour
 {
 
     #region MEMBERS
-    [SerializeField]
-	private float f_speed = 10f;
+	public float f_speed = 10f;
 	
 	public bool facingRight 
     {
@@ -15,9 +14,8 @@ public class Movement : MonoBehaviour
 	}
 	
 	//jumping variables
-	[SerializeField]
-	private float f_jumpForce = 13f;
-	private bool b_grounded = true;
+	public float f_jumpForce = 13f;
+	public bool b_grounded = true;
 	private bool b_doubleJump = false;
 	private bool b_flipped = false;
 

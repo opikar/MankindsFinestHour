@@ -165,7 +165,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 100010}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: 1, y: 1}
   m_Center: {x: 0, y: 0}
 --- !u!114 &11400000
@@ -218,6 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullHP: 1
+  f_currentHP: 0
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1

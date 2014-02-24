@@ -68,7 +68,6 @@ public class Movement : MonoBehaviour
         {
             if (transform.position.x + Mathf.Abs(transform.localScale.x / 2) >= other.transform.position.x - other.transform.localScale.x / 2 &&
                transform.position.x - Mathf.Abs(transform.localScale.x / 2) <= other.transform.position.x + other.transform.localScale.x / 2 &&
-			    other.transform.position.y - other.transform.localScale.y * .5f > transform.position.y * transform.localScale.y * .5f &&
 			    !b_flipped)
             {
 				if(other.gameObject.name == "MovingPlatform")

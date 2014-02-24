@@ -39,6 +39,8 @@ public class PatrollingEnemy : BasicAI {
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.gameObject.tag == "Ground" && !enemyManager.GetFlipped())
 			SetPatrolRoute(other.gameObject.transform);
+		else if(other.tag == "Enemy")
+			ChangeDirection();
 	}
 
 	void OnTriggerExit2D(Collider2D other){

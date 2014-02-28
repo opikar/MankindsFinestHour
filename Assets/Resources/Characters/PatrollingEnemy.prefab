@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f381df6a332944ab616a8c5e9bca44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fullHP: 1
+  fullHP: 8
   f_currentHP: 0
 --- !u!114 &11400008
 MonoBehaviour:
@@ -232,6 +232,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   f_speed: 2
   f_jumpForce: 13
+  b_grounded: 1
+  flipped: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

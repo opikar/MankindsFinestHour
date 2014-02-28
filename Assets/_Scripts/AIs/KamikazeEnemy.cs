@@ -10,18 +10,16 @@ public class KamikazeEnemy : PatrollingEnemy {
 	private float f_chargeSpeed = 20f;
 	private float f_chargeStart;
 	private PlayerManager m_playerManager;
-	private Transform m_player;
 	// Use this for initialization
 	protected override void Start () {
 		base.Start();
-		m_player = GameObject.Find("Player").GetComponent<Transform>();
 		m_playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
 		f_chargeStart = Time.time;
 	}
 	
 	// Update is called once per frame
 	protected override void Update () {
-		b_seePlayer = (SeePlayer(seePlayerDistance) || b_seePlayer) && renderer.isVisible;
+		b_seePlayer = (SeePlayer(seePlayerDistance) || b_seePlayer); //&& renderer.isVisible;
 		if(!b_seePlayer){
 			Move();
 			b_charge = true;

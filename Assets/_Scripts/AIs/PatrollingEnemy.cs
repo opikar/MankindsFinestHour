@@ -9,10 +9,12 @@ public class PatrollingEnemy : BasicAI {
 	protected Vector3 v_rightWaypoint;
 	protected Vector3 v_leftWaypoint;
 	protected Vector3 v_target;
+	protected Transform m_player;
 	protected float f_move;
 
 	// Use this for initialization
 	protected virtual void Start () {
+		m_player = GameObject.Find("Player").GetComponent<Transform>();
 		m_transform = transform;
 		enemyManager = GetComponent<EnemyManager>();
 		i_mask = 1 << LayerMask.NameToLayer("Player");
@@ -21,7 +23,8 @@ public class PatrollingEnemy : BasicAI {
 	// Update is called once per frame
 	protected virtual void Update () {
 		Move ();
-		if(SeePlayer(seePlayerDistance)){
+		if(SeePlayerHalfCircle(seePlayerDistance, m_player.position, enemyManager.GetFacingRight())){
+			AimVertical();
 			enemyManager.ShootPrimaryWeapon();
 			f_move = 0;
 		}
@@ -86,4 +89,15 @@ public class PatrollingEnemy : BasicAI {
 
 	}
 	
+	void AimVertical ()
+	{
+		float direction = m_player.position.y - m_transform.position.y;
+		float scale = m_player.localScale.y + m_transform.localScale.y;
+		if (direction > scale)
+			enemyManager.AimVertical (1f, 1f);
+		else if (direction < -scale)
+			enemyManager.AimVertical (-1f, -1f);
+		else
+			enemyManager.AimVertical (0, 0);
+	}
 }

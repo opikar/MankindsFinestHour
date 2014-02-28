@@ -53,6 +53,11 @@ public abstract class Character : MonoBehaviour
 		health.ApplyDamage(damage);
 	}
 
+	public void AimVertical (float axisVertical, float axisHorizontal)
+	{
+		weapon.MoveShootingTarget(axisVertical, axisHorizontal);
+	}
+
 	public void ShootPrimaryWeapon()
     {
 		weapon.ShootPrimaryWeapon();

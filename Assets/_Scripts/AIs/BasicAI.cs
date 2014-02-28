@@ -21,4 +21,21 @@ public class BasicAI : MonoBehaviour {
 		}
 		return false;
 	}
+	
+	protected bool SeePlayerHalfCircle(float seePlayerDistance, Vector3 playerPosition, bool facingRight)
+	{
+		if (seePlayerDistance * seePlayerDistance > (playerPosition - m_transform.position).sqrMagnitude) 
+		{
+			Vector3 distance = playerPosition - m_transform.position;
+			if(distance.x + 5f > distance.y)
+			{
+			}
+			else if(!facingRight && playerPosition.x < m_transform.position.x || 
+			        facingRight && playerPosition.x > m_transform.position.x)
+			{
+				return true;
+			}
+		} 
+		return false;
+	}
 }

@@ -16,15 +16,15 @@ public abstract class ScriptedEnemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(!actionRunning) {
-			foreach(Action action in currentState.GetAction().GetInvocationList()) {
-				StartCoroutine(RunAction (action));
-			}
+			StartCoroutine(RunAction ());
 		}
 	}
 
-	IEnumerator RunAction(Action action) {
+	IEnumerator RunAction() {
 		actionRunning = true;
-		yield return StartCoroutine (action());
+		foreach(Action action in currentState.GetAction().GetInvocationList()) {
+			yield return StartCoroutine(action());
+		}
 		actionRunning = false;
 	}
 

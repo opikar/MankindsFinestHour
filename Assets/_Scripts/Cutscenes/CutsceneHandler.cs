@@ -7,8 +7,10 @@ public class CutsceneHandler : MonoBehaviour
 	// I tried (string[size]) where "size" would be int, 
 	// but for some non-apparent reason it didn't work. Wrong syntax? - Panu
 	
+	public string LevelName;
 	public GameObject[] texture;
 	public string[] story;
+	
 	int index = 0;
 	
 	// Use this for initialization
@@ -33,7 +35,7 @@ public class CutsceneHandler : MonoBehaviour
 		{
 			if(index + 1 == texture.Length) 
 			{
-				Application.LoadLevel("Level1");
+				Application.LoadLevel(LevelName);
 			}
 			else if(texture[index].activeSelf && !texture[index+1].activeSelf)
 			{
@@ -41,6 +43,11 @@ public class CutsceneHandler : MonoBehaviour
 				index++;
 				Debug.Log(index + " " + texture.Length);
 				texture[index].SetActive(true);
+				guiText.text = story[index];
+			}
+			else if(texture[index].activeSelf && texture[index+1].activeSelf){
+				index++;
+				Debug.Log(index + " " + texture.Length);
 				guiText.text = story[index];
 			}
 		}

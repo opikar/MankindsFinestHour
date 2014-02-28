@@ -3,6 +3,8 @@ using System.Collections;
 
 public class MainMenuScroll : MonoBehaviour {
 
+	public float speed = 1f;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -14,6 +16,6 @@ public class MainMenuScroll : MonoBehaviour {
 		{
 			transform.position = new Vector3(18.8f, 1, 0);
 		}
-		transform.position -= new Vector3(0.2f, 0, 0) * Time.deltaTime;
+		transform.position -= new Vector3(0.2f, 0, 0) * Time.deltaTime * speed;
 	}
 }

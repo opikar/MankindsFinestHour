@@ -51,6 +51,12 @@ public class MainButtons : MonoBehaviour
 					Debug.Log("Quit");
 					Application.Quit();
 				}
+				else if(guiTexture.name == "ToMainMenu")
+				{
+					//Shut down the game
+					Debug.Log("Go To Main Menu");
+					Application.LoadLevel("MainMenu");
+				}
 			}
 		}
 		//Return color to normal

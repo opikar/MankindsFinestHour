@@ -17,3 +17,5 @@ EditorBuildSettings:
     path: Assets/_Scenes/TrueLevel1.unity
   - enabled: 1
     path: Assets/_Scenes/testlevel.unity
+  - enabled: 1
+    path: Assets/_Scenes/Cutscenes/Cutscene1.unity

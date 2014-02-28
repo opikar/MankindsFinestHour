@@ -20,13 +20,12 @@ public class CutsceneHandler : MonoBehaviour
         {
             Debug.Log("Not same amount of texture and story");
         }
-		texture[0].SetActive(true);
 		guiText.text = story[0];
-		for (int i = 1; i < texture.Length; i++)
+		for (int i = 0; i < texture.Length; i++)
 		{
 			texture[i].SetActive(false);
 		}
-
+		texture[0].SetActive(true);
 	}
 	
 	// Update is called once per frame

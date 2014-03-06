@@ -55,12 +55,12 @@ public static class GameState {
 			}
 		} else {
 			foreach(WeakReference reference in objects[name]) {
-				if(!reference.IsAlive) {
+				tmp = reference.Target as GameObject;
+				if(tmp == null) {
 					tmp = MonoBehaviour.Instantiate(prefabs[name]) as GameObject;
 					reference.Target = tmp;
 					return tmp;
 				} else {
-					tmp = reference.Target as GameObject;
 					if(!tmp.activeSelf) {
 						tmp.SetActive(true);
 						return tmp;

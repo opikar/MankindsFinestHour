@@ -26,16 +26,14 @@ public class BasicAI : MonoBehaviour {
 	{
 		if (seePlayerDistance * seePlayerDistance > (playerPosition - m_transform.position).sqrMagnitude) 
 		{
-			Vector3 distance = playerPosition - m_transform.position;
-			if(distance.x + 5f > distance.y)
-			{
-			}
-			else if(!facingRight && playerPosition.x < m_transform.position.x || 
-			        facingRight && playerPosition.x > m_transform.position.x)
+			float angle = 30f;
+			float dot = Vector2.Dot((playerPosition - m_transform.position).normalized, m_transform.up);
+			dot = Mathf.Rad2Deg * dot;
+			if(dot >= -angle && dot <= angle)
 			{
 				return true;
 			}
-		} 
+		}
 		return false;
 	}
 }

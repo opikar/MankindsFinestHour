@@ -31,6 +31,12 @@ public class PlayerManager : Character
 			em = other.GetComponent<EnemyManager>();
 			if(em != null && hit.normal == Vector2.up)
 				em.Die();
+			Vector2 force = new Vector2(Mathf.Sign(m_transform.position.x - other.transform.position.x), .3f);
+			force.Normalize();
+			float forceStrength = 500f;
+			print (force);
+			rigidbody2D.velocity = Vector2.zero;
+			rigidbody2D.AddForce( force * forceStrength);
 		}
 	}
     #endregion

@@ -23,21 +23,36 @@ public class PlayerManager : Character
 	}
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.tag == "Enemy") 
+		if (other.tag == "Enemy" && gameManager.GetState() == State.Running) 
 		{
 			RaycastHit2D hit;
 			EnemyManager em = null;
+			Vector2 force;
+			float forceStrength = 500f;
 			hit = Physics2D.Raycast(m_transform.position, -m_transform.up, 3, 1 << LayerMask.NameToLayer("Enemy"));
 			em = other.GetComponent<EnemyManager>();
 			if(em != null && hit.normal == Vector2.up)
+			{
+				force = Vector2.up;
 				em.Die();
-			Vector2 force = new Vector2(Mathf.Sign(m_transform.position.x - other.transform.position.x), .3f);
-			force.Normalize();
-			float forceStrength = 500f;
-			print (force);
+			}
+			else
+			{
+				force = new Vector2(Mathf.Sign(m_transform.position.x - other.transform.position.x), 1.5f);
+				force.Normalize();
+				forceStrength = 1000f;
+				gameManager.SetState(State.Hurt);
+			}
 			rigidbody2D.velocity = Vector2.zero;
 			rigidbody2D.AddForce( force * forceStrength);
 		}
+		if (other.tag == "Ground" && gameManager.GetState () == State.Hurt)
+			gameManager.SetState (State.Running);
+	}
+	void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject.tag == "Ground" && gameManager.GetState () == State.Hurt)
+			gameManager.SetState (State.Running);
 	}
     #endregion
 

@@ -7,9 +7,8 @@ public class EnemyManager : Character {
     #endregion
 
     #region UNITY_METHODS
-    override public void Start()
+    public void Start()
     {
-        base.Start();
     }
 
     public override void Die()

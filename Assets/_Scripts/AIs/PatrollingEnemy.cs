@@ -23,13 +23,15 @@ public class PatrollingEnemy : BasicAI {
 	// Update is called once per frame
 	protected virtual void Update () {
 		Move ();
-		if(SeePlayerHalfCircle(seePlayerDistance, m_player.position, enemyManager.GetFacingRight())){
-			AimVertical();
-			enemyManager.ShootPrimaryWeapon();
-			f_move = 0;
+		if(i_viewDirection == Mathf.Sign(m_player.position.x - m_transform.position.x)){
+			if(SeePlayerHalfCircle(seePlayerDistance, m_player.position, enemyManager.GetFacingRight())){
+				AimVertical();
+				enemyManager.ShootPrimaryWeapon();
+				f_move = 0;
+			}
+			else if(f_move == 0)
+				f_move = i_viewDirection;
 		}
-		else if(f_move == 0)
-			f_move = i_viewDirection;
 		enemyManager.Move(f_move);
 	}
 
@@ -92,7 +94,7 @@ public class PatrollingEnemy : BasicAI {
 	void AimVertical ()
 	{
 		float direction = m_player.position.y - m_transform.position.y;
-		float scale = m_player.localScale.y + m_transform.localScale.y;
+		float scale = (m_player.localScale.y + m_transform.localScale.y) * .5f;
 		if (direction > scale)
 			enemyManager.AimVertical (1f, 1f);
 		else if (direction < -scale)

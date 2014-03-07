@@ -81,5 +81,6 @@ public enum State{
 	Win=16,
 	Loss=32,
 	PauseMenu=64,
-    Lobby = 128
+    Lobby = 128,
+	Hurt = 256
 }

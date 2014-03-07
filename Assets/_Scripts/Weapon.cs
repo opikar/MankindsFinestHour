@@ -74,7 +74,7 @@ public class Weapon : MonoBehaviour {
 	{
 		shootSpawn.position = m_transform.position;
 		shootSpawn.position += (target.position - m_transform.position).normalized;
-		print (shootSpawn.position);
+		//print (shootSpawn.position);
 	}
 	/*public void MoveShootingTarget(float axis){
 		if((angle < 90 || axis == -1) && (angle > -90 || axis == 1))

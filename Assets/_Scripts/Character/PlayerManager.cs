@@ -5,6 +5,7 @@ public class PlayerManager : Character
 {
     #region MEMBERS
     private GUIManager m_guiManager;
+	private int lives = 3;
     #endregion
 
     #region UNITY_METHODS
@@ -27,7 +28,12 @@ public class PlayerManager : Character
 
 	public override void Die()
     {
-		gameManager.SetState(State.Loss);
+		Debug.Log(lives);
+		if (--lives >= 0) { 
+			Application.LoadLevel(Application.loadedLevel);
+		} else {
+			gameObject.SetActive(false);
+		}
     }
     #endregion
 }

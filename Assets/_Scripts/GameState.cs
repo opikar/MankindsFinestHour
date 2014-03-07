@@ -13,7 +13,10 @@ public static class GameState {
 		GameObject[] objs = Resources.LoadAll<GameObject>("Characters");
 		foreach(GameObject obj in objs) {
 			if(Array.IndexOf<string>(uniqueNames, obj.name) >= 0) {
-				uniques.Add(obj.name, null);
+				GameObject tmp = MonoBehaviour.Instantiate(obj) as GameObject;
+				MonoBehaviour.DontDestroyOnLoad(tmp);
+				tmp.name = obj.name;
+				uniques.Add(obj.name, tmp);
 			}
 			prefabs.Add(obj.name, obj);
 		}
@@ -35,7 +38,6 @@ public static class GameState {
 		if(uniques.ContainsKey(name)) {
 			if(uniques[name] == null) {
 				tmp = MonoBehaviour.Instantiate(prefabs[name]) as GameObject;
-				MonoBehaviour.DontDestroyOnLoad(tmp);
 				uniques[name] = tmp;
 				return tmp;
 			} else {

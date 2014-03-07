@@ -19,6 +19,7 @@ public class SpawnScriptEditor : Editor {
 
 		SpawnerScript tmp = target as SpawnerScript;
 		tmp.choice = keys[index];
+		tmp.gameObject.name = keys[index];
 
 		EditorUtility.SetDirty(target);
 	}

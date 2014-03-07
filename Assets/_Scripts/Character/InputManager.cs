@@ -28,15 +28,8 @@ public class InputManager : MonoBehaviour
 	void Update () 
     {
         //Pause handling
-        if(Input.GetKeyDown(KeyCode.P)){
-            if(m_gameManager.GetState() == State.Running){
-                m_gameManager.SetState(State.PauseMenu);
-                Time.timeScale = 0f;
-            }
-            else{
-                m_gameManager.SetState(State.Running);
-                Time.timeScale = 1f;
-            }
+        if(Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)){
+            m_playerManager.Pause();
         }
 
 		if(m_gameManager.GetState() != State.Running) return;

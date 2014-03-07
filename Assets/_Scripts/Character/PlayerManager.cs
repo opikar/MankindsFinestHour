@@ -47,5 +47,17 @@ public class PlayerManager : Character
 			gameObject.SetActive(false);
 		}
     }
+
+    public void Pause()
+    {
+		if(gameManager.GetState() == State.Running){
+			gameManager.SetState(State.PauseMenu);
+			Time.timeScale = 0f;
+		}
+		else{
+			gameManager.SetState(State.Running);
+			Time.timeScale = 1f;
+		}
+	}
     #endregion
 }

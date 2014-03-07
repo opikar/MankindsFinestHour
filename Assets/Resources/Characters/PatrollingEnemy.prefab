@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23519bfd455c34594936e71ec82fbbde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seePlayerDistance: 20
+  seePlayerDistance: 40
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -204,7 +204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 100000, guid: 69d8256add33a0b4cbb0cadf229aea22, type: 2}
   shootSpawn: {fileID: 400008}
-  rateOfFire: .300000012
+  rateOfFire: 1
   autoShoot: 1
 --- !u!114 &11400006
 MonoBehaviour:

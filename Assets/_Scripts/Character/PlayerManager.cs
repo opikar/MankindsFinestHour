@@ -22,6 +22,18 @@ public class PlayerManager : Character
             Debug.LogError("Component did not load properly in PlayerManager");
         }
 	}
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.tag == "Enemy") 
+		{
+			RaycastHit2D hit;
+			EnemyManager em = null;
+			hit = Physics2D.Raycast(m_transform.position, -m_transform.up, 3, 1 << LayerMask.NameToLayer("Enemy"));
+			em = other.GetComponent<EnemyManager>();
+			if(em != null && hit.normal == Vector2.up)
+				em.Die();
+		}
+	}
     #endregion
 
     #region METHODS

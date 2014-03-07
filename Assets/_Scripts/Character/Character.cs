@@ -12,11 +12,13 @@ public abstract class Character : MonoBehaviour
 	protected Health health;
 	protected Weapon weapon;
 	protected Movement movement;
+	protected Transform m_transform;
     #endregion
 
     #region UNITY_METHODS
     public virtual void Start () 
     {
+		m_transform = transform;
 		movement = GetComponent<Movement>();
         if (movement == null) 
         {

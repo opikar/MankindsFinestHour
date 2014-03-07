@@ -58,7 +58,6 @@ public class MovingPlatform : MonoBehaviour {
 		{
 			if(t[i].tag == str)//"PlatformWaypoint")
 				gos.Add(t[i].gameObject);
-			print (t[i].position);
 		}
 
 		List<Transform> waypoints = new List<Transform>();

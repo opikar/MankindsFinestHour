@@ -9,9 +9,8 @@ public class PlayerManager : Character
     #endregion
 
     #region UNITY_METHODS
-    override public void Start () 
+    public void Start () 
     {
-		base.Start();
         m_guiManager = GetComponent<GUIManager>();
         if (m_guiManager == null)
         {
@@ -40,7 +39,6 @@ public class PlayerManager : Character
 
 	public override void Die()
     {
-		Debug.Log(lives);
 		if (--lives >= 0) { 
 			Application.LoadLevel(Application.loadedLevel);
 		} else {

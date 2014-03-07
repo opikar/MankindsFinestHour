@@ -25,5 +25,9 @@ public class Health : MonoBehaviour
 		if(f_currentHP <= 0f)
 			m_character.Die();
     }
+
+	public void RestoreHP() {
+		f_currentHP = fullHP;
+	}
     #endregion
 }

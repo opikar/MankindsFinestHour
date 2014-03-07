@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEditor;
 using System.Collections;
 
@@ -12,8 +12,8 @@ public class SpawnerScript : MonoBehaviour {
 		if(collider.name == "Spawner") {
 			GameObject character = GameState.GetCharacter(choice);
 
+			character.GetComponent<Character>().Reset();
 			character.transform.position = transform.position;
-			character.rigidbody2D.velocity = new Vector2(0, 0);
 
 			Destroy (gameObject);
 		}

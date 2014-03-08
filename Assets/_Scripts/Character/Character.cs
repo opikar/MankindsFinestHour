@@ -99,6 +99,7 @@ public abstract class Character : MonoBehaviour
 	{
 		health.RestoreHP();
 		rigidbody2D.velocity = new Vector2(0, 0);
+        gameManager = GameManager.instance;
 	}
     #endregion
 }

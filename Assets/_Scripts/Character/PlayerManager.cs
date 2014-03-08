@@ -6,6 +6,11 @@ public class PlayerManager : Character
     #region MEMBERS
     private GUIManager m_guiManager;
 	private int lives = 3;
+
+    public Rect healthBar = new Rect(40, 25, 200, 30);
+    private Rect currentHealthBar;
+    private Texture2D healthTexture;
+    private Texture2D barTexture;
     #endregion
 
     #region UNITY_METHODS
@@ -20,6 +25,8 @@ public class PlayerManager : Character
         {
             Debug.LogError("Component did not load properly in PlayerManager");
         }
+
+        InitHealthDisplay();
 	}
 	void OnTriggerEnter2D(Collider2D other)
 	{
@@ -57,6 +64,31 @@ public class PlayerManager : Character
     #endregion
 
     #region METHODS
+
+    void InitHealthDisplay()
+    {
+        healthTexture = new Texture2D(1, 1);
+        healthTexture.SetPixel(0, 0, Color.green);
+        barTexture = new Texture2D(1, 1);
+        barTexture.SetPixel(0, 0, Color.red);
+        healthTexture.Apply();
+        barTexture.Apply();
+        currentHealthBar = healthBar;
+
+        GUIManager.OnDraw += OnDrawHealth;
+    }
+
+    void OnDrawHealth()
+    {
+        GUI.DrawTexture(healthBar, barTexture);
+        currentHealthBar.width = health.f_currentHP / health.fullHP * healthBar.width;
+        GUI.DrawTexture(currentHealthBar, healthTexture);
+    }
+
+    void OnDestroy()
+    {
+        GUIManager.OnDraw -= OnDrawHealth;
+    }
 
 	public override void Die()
     {

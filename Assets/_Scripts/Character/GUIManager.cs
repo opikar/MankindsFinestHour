@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GUIManager : MonoBehaviour {
+public class GUIManager : MonoBehaviour
+{
+    public delegate void DrawGUI();
+    public static event DrawGUI OnDraw = delegate { };
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    void OnGUI()
+    {
+        if (GameManager.instance.GetState() == State.Running)
+        {
+            OnDraw();
+        }
+    }
 }

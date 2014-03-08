@@ -4,6 +4,10 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
+    public delegate void ResolutionChanged();
+    public static event ResolutionChanged resolutionChanged = delegate { };
+    private int screenWidth;
+    private int screenHeight;
 
 	protected State e_state;
 	
@@ -19,8 +23,21 @@ public class GameManager : MonoBehaviour
 
 		instance = this;
 
+        screenWidth = Screen.width;
+        screenHeight = Screen.height;
+
         SetState(State.StartMenu);
 	}
+
+    void Update()
+    {
+        if (Screen.width != screenWidth || Screen.height != screenHeight)
+        {
+            screenWidth = Screen.width;
+            screenHeight = Screen.height;
+            resolutionChanged();
+        }
+    }
 	
 	/// <summary>
 	/// Sets the current state of the GameManager.

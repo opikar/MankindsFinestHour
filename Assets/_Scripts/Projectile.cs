@@ -19,12 +19,6 @@ public class Projectile : MonoBehaviour
         sp.sprite = sprite;
 	}
 
-	void Update()
-	{
-		if(!renderer.isVisible)
-			Destroy(gameObject);
-	}
-
 	void OnTriggerEnter2D(Collider2D other)
     {
 		if(isPlayer && other.tag == "Enemy")
@@ -38,5 +32,9 @@ public class Projectile : MonoBehaviour
 			Destroy(gameObject);
 		}
     }
+
+	void OnBecameInvisible() {
+		Destroy(gameObject);
+	}
     #endregion
 }

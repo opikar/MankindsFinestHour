@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class PlayerManager : Character
 {
     #region MEMBERS
     private GUIManager m_guiManager;
 	private int lives = 3;
+	private PlayerState p_state;
 
     public Rect healthBar = new Rect(40, 25, 200, 30);
     private Rect currentHealthBar;
@@ -16,6 +18,7 @@ public class PlayerManager : Character
     #region UNITY_METHODS
     public void Start () 
     {
+		p_state = PlayerState.Normal;
         m_guiManager = GetComponent<GUIManager>();
         if (m_guiManager == null)
         {
@@ -48,18 +51,18 @@ public class PlayerManager : Character
 				force = new Vector2(Mathf.Sign(m_transform.position.x - other.transform.position.x), 1.5f);
 				force.Normalize();
 				forceStrength = 1000f;
-				gameManager.SetState(State.Hurt);
+				SetPlayerState(PlayerState.Hurt);
 			}
 			rigidbody2D.velocity = Vector2.zero;
 			rigidbody2D.AddForce( force * forceStrength);
 		}
-		if (other.tag == "Ground" && gameManager.GetState () == State.Hurt)
-			gameManager.SetState (State.Running);
+		if (other.tag == "Ground" && GetPlayerState () == PlayerState.Hurt)
+			SetPlayerState (PlayerState.Normal);
 	}
 	void OnCollisionEnter2D(Collision2D collision)
 	{
-		if (collision.gameObject.tag == "Ground" && gameManager.GetState () == State.Hurt)
-			gameManager.SetState (State.Running);
+		if (collision.gameObject.tag == "Ground" && GetPlayerState () == PlayerState.Hurt)
+			SetPlayerState (PlayerState.Normal);
 	}
     #endregion
 
@@ -110,5 +113,22 @@ public class PlayerManager : Character
 			Time.timeScale = 1f;
 		}
 	}
+
+	public void SetPlayerState(PlayerState state)
+	{
+		p_state = state;
+	}
+
+	public PlayerState GetPlayerState()
+	{
+		return p_state;
+	}
+
     #endregion
+}
+[Flags]
+public enum PlayerState
+{
+	Hurt,
+	Normal
 }

@@ -32,7 +32,7 @@ public class InputManager : MonoBehaviour
             m_playerManager.Pause();
         }
 
-		if(m_gameManager.GetState() != State.Running) return;
+		if(m_gameManager.GetState() != State.Running || m_playerManager.GetPlayerState() != PlayerState.Normal) return;
 		float axisVertical = Input.GetAxisRaw("Vertical");
 		float axisHorizontal = Input.GetAxisRaw("Horizontal");
 		m_playerManager.AimVertical(axisVertical, axisHorizontal);

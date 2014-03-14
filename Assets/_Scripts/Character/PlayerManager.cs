@@ -37,8 +37,21 @@ public class PlayerManager : Character
 		GameManager.resolutionChanged += InitScorePos;
 		GUIManager.OnDraw += OnDrawScore;
 	}
+
+	void HandlePickup(PickupScript pickup) {
+		switch(pickup.type) {
+		case PickupType.health:
+			health.RestoreAmount(pickup.amount);
+			break;
+		}
+	}
+
 	void OnTriggerEnter2D(Collider2D other)
 	{
+		if(other.name == "pickup") {
+			HandlePickup (other.gameObject.GetComponent<PickupScript>());
+		}
+
 		if (other.tag == "Enemy" && gameManager.GetState() == State.Running) 
 		{
 			RaycastHit2D hit;
@@ -103,6 +116,7 @@ public class PlayerManager : Character
     void OnDestroy()
     {
         GUIManager.OnDraw -= OnDrawHealth;
+		GUIManager.OnDraw -= OnDrawScore;
     }
 
 	public override void Die()

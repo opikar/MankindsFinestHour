@@ -29,5 +29,10 @@ public class Health : MonoBehaviour
 	public void RestoreHP() {
 		f_currentHP = fullHP;
 	}
+
+	public void RestoreAmount(int amount) {
+		f_currentHP += amount;
+		f_currentHP = f_currentHP > fullHP ? fullHP : f_currentHP;
+	}
     #endregion
 }

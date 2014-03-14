@@ -52,7 +52,7 @@ public class PlayerManager : Character
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if(other.name == "pickup") {
+		if(other.tag == "Pickup") {
 			HandlePickup (other.gameObject.GetComponent<PickupScript>());
 		}
 
@@ -96,6 +96,7 @@ public class PlayerManager : Character
 
 	void InitScorePos() {
 		scoreArea.x = Screen.width - scoreArea.x - scoreArea.width;
+		Debug.Log ("Resolution Changed " + scoreArea.x);
 	}
 
 	void OnDrawScore() {

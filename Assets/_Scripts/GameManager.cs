@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         {
             screenWidth = Screen.width;
             screenHeight = Screen.height;
-            resolutionChanged();
+			resolutionChanged();
         }
     }
 	

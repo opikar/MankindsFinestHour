@@ -20,6 +20,7 @@ public class PickupScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
-		Destroy (gameObject);
+		if(col.name == "Player")
+			Destroy (gameObject);
 	}
 }

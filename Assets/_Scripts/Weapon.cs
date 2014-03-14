@@ -31,7 +31,6 @@ public class Weapon : MonoBehaviour {
 		m_movement = GetComponent<Movement>();
 		v_shootDirection = m_transform.right;
 		laser = gameObject.AddComponent<LineRenderer>();
-		Debug.Log(laser);
 		laser.SetVertexCount(2);
 	}
 	

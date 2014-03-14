@@ -10,6 +10,8 @@ public class Weapon : MonoBehaviour {
 	public bool autoShoot;
 
     private Transform m_transform;
+	private LineRenderer laser;
+	private float laserAmmo = 10000;
 	private bool b_shootRight;
 	private GameObject m_clone;
 	private float f_bulletSpeed = 25f;	
@@ -28,13 +30,15 @@ public class Weapon : MonoBehaviour {
 		m_transform = transform;
 		m_movement = GetComponent<Movement>();
 		v_shootDirection = m_transform.right;
+		laser = gameObject.AddComponent<LineRenderer>();
+		Debug.Log(laser);
+		laser.SetVertexCount(2);
 	}
 	
 	// Update is called once per frame
 	void Update () 
     {
 		Debug.DrawLine(transform.position, shootSpawn.position);
-		
 	}
     #endregion
     public void ShootPrimaryWeapon()
@@ -46,9 +50,23 @@ public class Weapon : MonoBehaviour {
 			Destroy(m_clone, 5f);
 		}
 	}
+
 	public void ShootSpecialGun()
     {
+		if(laserAmmo > 0) {
+			laserAmmo -= Time.deltaTime;
+			laser.SetPosition (0, shootSpawn.position);
+			//Everyone has wide-screen nowadays right?
+			Vector3 direction = (shootSpawn.position - transform.position).normalized;
+			laser.SetPosition (1, shootSpawn.position + direction * Screen.width);
+			laser.enabled = true;
 
+			RaycastHit2D hit = Physics2D.Raycast(shootSpawn.position, direction, Screen.width, 1 << LayerMask.NameToLayer("Enemy"));
+			if(hit) {
+				hit.collider.GetComponent<Character>().ApplyDamage (10*Time.deltaTime);
+			}
+			Debug.Log (direction);
+		}
 	}
 	public void MeleeAttack()
     {

@@ -11,6 +11,7 @@ public class PlayerManager : Character
 
     public Rect healthBar = new Rect(40, 25, 200, 30);
 	public Rect scoreArea = new Rect(40, 25, 100, 30);
+	public static int score = 0;
     private Rect currentHealthBar;
     private Texture2D healthTexture;
     private Texture2D barTexture;
@@ -42,6 +43,9 @@ public class PlayerManager : Character
 		switch(pickup.type) {
 		case PickupType.health:
 			health.RestoreAmount(pickup.amount);
+			break;
+		case PickupType.score:
+			score += pickup.amount;
 			break;
 		}
 	}
@@ -95,7 +99,7 @@ public class PlayerManager : Character
 	}
 
 	void OnDrawScore() {
-		GUI.Box (scoreArea, "Score here");
+		GUI.Box (scoreArea, score.ToString());
 	}
 
     void OnDestroy()

@@ -2,7 +2,8 @@
 using System.Collections;
 
 public enum PickupType {
-	health
+	health,
+	score
 }
 
 public class PickupScript : MonoBehaviour {

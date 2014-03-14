@@ -48,6 +48,8 @@ public class InputManager : MonoBehaviour
 		}
 		if(Input.GetKeyDown(KeyCode.Z))
 			m_playerManager.ShootPrimaryWeapon();
+		if(Input.GetKey (KeyCode.X))
+			m_playerManager.ShootSpecialWeapon();
     }
     #endregion
 }

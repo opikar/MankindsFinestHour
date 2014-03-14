@@ -6,8 +6,8 @@ public class WallScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		leftWall = GameObject.Find("CameraWallLeft").transform;
-		rightWall = GameObject.Find("CameraWallRight").transform;
+		leftWall = transform.Find("CameraWallLeft");
+		rightWall = transform.Find("CameraWallRight");
 	}
 	
 	// Update is called once per frame

@@ -54,26 +54,11 @@ public class PlayerManager : Character
 
 		if (other.tag == "Enemy" && gameManager.GetState() == State.Running) 
 		{
-			RaycastHit2D hit;
 			EnemyManager em = null;
-			Vector2 force;
-			float forceStrength = 500f;
-			hit = Physics2D.Raycast(m_transform.position, -m_transform.up, 3, 1 << LayerMask.NameToLayer("Enemy"));
 			em = other.GetComponent<EnemyManager>();
-			if(em != null && hit.normal == Vector2.up)
-			{
-				force = Vector2.up;
-				em.Die();
-			}
-			else
-			{
-				force = new Vector2(Mathf.Sign(m_transform.position.x - other.transform.position.x), 1.5f);
-				force.Normalize();
-				forceStrength = 1000f;
-				SetPlayerState(PlayerState.Hurt);
-			}
-			rigidbody2D.velocity = Vector2.zero;
-			rigidbody2D.AddForce( force * forceStrength);
+			if(em != null)
+				HitEnemy(em, other.transform.position);
+
 		}
 		if (other.tag == "Ground" && GetPlayerState () == PlayerState.Hurt)
 			SetPlayerState (PlayerState.Normal);
@@ -127,6 +112,45 @@ public class PlayerManager : Character
 			gameObject.SetActive(false);
 		}
     }
+
+	public void HitEnemy(EnemyManager em, Vector3 position)
+	{
+		RaycastHit2D hit;
+		Vector2 force = Vector2.zero;
+		bool isHit = false;
+		float forceStrength = 500f;
+		hit = Physics2D.Raycast(m_transform.position, -m_transform.up, 3, 1 << LayerMask.NameToLayer("Enemy"));
+		//hit2 = Physics2D.Raycast(m_transform.position, m_transform.up, 3, 1 << LayerMask.NameToLayer("Enemy"));
+		for (int i = 0; i < 3; i++) 
+		{
+			Vector3 pos = new Vector3(m_transform.position.x - m_transform.localScale.x * .5f + m_transform.localScale.x * i * 0.5f, m_transform.position.y, m_transform.position.z);
+			hit = Physics2D.Raycast(pos, -m_transform.up, 3, 1 << LayerMask.NameToLayer("Enemy"));
+			if (hit.normal == Vector2.up) 
+			{
+				force = Vector2.up;
+				em.Die ();
+				isHit = true;
+				break;
+			}
+			hit = Physics2D.Raycast(pos, m_transform.up, 3, 1 << LayerMask.NameToLayer("Enemy"));
+			if(hit.normal == -Vector2.up)
+			{
+				rigidbody2D.velocity = Vector2.zero;
+				force = Vector2.zero;
+				isHit = true;
+				break;
+			}
+		}
+		if(!isHit)
+		{
+			force = new Vector2(Mathf.Sign(m_transform.position.x - position.x), 1.5f);
+			force.Normalize();
+			forceStrength = 1000f;
+			SetPlayerState(PlayerState.Hurt);
+		}
+		rigidbody2D.velocity = Vector2.zero;
+		rigidbody2D.AddForce( force * forceStrength);
+	}
 
     public void Pause()
     {

@@ -10,6 +10,7 @@ public class PlayerManager : Character
 	private PlayerState p_state;
 
     public Rect healthBar = new Rect(40, 25, 200, 30);
+	public Rect scoreArea = new Rect(40, 25, 100, 30);
     private Rect currentHealthBar;
     private Texture2D healthTexture;
     private Texture2D barTexture;
@@ -30,6 +31,11 @@ public class PlayerManager : Character
         }
 
         InitHealthDisplay();
+		GUIManager.OnDraw += OnDrawHealth;
+
+		InitScorePos();
+		GameManager.resolutionChanged += InitScorePos;
+		GUIManager.OnDraw += OnDrawScore;
 	}
 	void OnTriggerEnter2D(Collider2D other)
 	{
@@ -62,8 +68,6 @@ public class PlayerManager : Character
         healthTexture.Apply();
         barTexture.Apply();
         currentHealthBar = healthBar;
-
-        GUIManager.OnDraw += OnDrawHealth;
     }
 
     void OnDrawHealth()
@@ -72,6 +76,14 @@ public class PlayerManager : Character
         currentHealthBar.width = health.f_currentHP / health.fullHP * healthBar.width;
         GUI.DrawTexture(currentHealthBar, healthTexture);
     }
+
+	void InitScorePos() {
+		scoreArea.x = Screen.width - scoreArea.x - scoreArea.width;
+	}
+
+	void OnDrawScore() {
+		GUI.Box (scoreArea, "Score here");
+	}
 
     void OnDestroy()
     {

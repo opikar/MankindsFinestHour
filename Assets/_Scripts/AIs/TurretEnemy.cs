@@ -18,8 +18,9 @@ public class TurretEnemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		enemyManager.SetTarget(t_player);
-		if(Vector3.SqrMagnitude(t_player.position - m_transform.position) < distance)
+		if(Vector3.SqrMagnitude(t_player.position - m_transform.position) < distance) {
+			enemyManager.SetTarget(t_player);
 			enemyManager.ShootPrimaryWeapon();
+		}
 	}
 }

@@ -12,7 +12,8 @@ public class ShakingPlatform : MonoBehaviour {
 	private Rigidbody2D r_rigidbody;
 	// Use this for initialization
 	void Start () {
-		r_rigidbody = rigidbody2D;
+		r_rigidbody = transform.Find("Sprite").GetComponent<Rigidbody2D>();
+		print (r_rigidbody.gameObject.name);
 	}
 	
 	// Update is called once per frame
@@ -42,9 +43,10 @@ public class ShakingPlatform : MonoBehaviour {
 	}
 	void Drop()
 	{
-		r_rigidbody.velocity = Vector2.zero;
+		rigidbody2D.velocity = r_rigidbody.velocity = Vector2.zero;
 		b_drop = true;
 		b_shake = false;
-		r_rigidbody.isKinematic = false;
+		rigidbody2D.isKinematic = r_rigidbody.isKinematic = false;
+
 	}
 }

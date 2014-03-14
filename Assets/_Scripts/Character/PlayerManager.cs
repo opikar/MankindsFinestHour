@@ -11,6 +11,7 @@ public class PlayerManager : Character
 
     public Rect healthBar = new Rect(40, 25, 200, 30);
 	public Rect scoreArea = new Rect(40, 25, 100, 30);
+	private float scoreOrgPos;
 	public static int score = 0;
     private Rect currentHealthBar;
     private Texture2D healthTexture;
@@ -34,6 +35,7 @@ public class PlayerManager : Character
         InitHealthDisplay();
 		GUIManager.OnDraw += OnDrawHealth;
 
+		scoreOrgPos = scoreArea.x;
 		InitScorePos();
 		GameManager.resolutionChanged += InitScorePos;
 		GUIManager.OnDraw += OnDrawScore;
@@ -95,8 +97,7 @@ public class PlayerManager : Character
     }
 
 	void InitScorePos() {
-		scoreArea.x = Screen.width - scoreArea.x - scoreArea.width;
-		Debug.Log ("Resolution Changed " + scoreArea.x);
+		scoreArea.x = Screen.width - scoreOrgPos - scoreArea.width;
 	}
 
 	void OnDrawScore() {

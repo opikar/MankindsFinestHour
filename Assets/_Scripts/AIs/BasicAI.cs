@@ -22,7 +22,7 @@ public class BasicAI : MonoBehaviour {
 		return false;
 	}
 	
-	protected bool SeePlayerHalfCircle(float seePlayerDistance, Vector3 playerPosition, bool facingRight)
+	protected bool SeePlayerCone(float seePlayerDistance, Vector3 playerPosition, bool facingRight)
 	{
 		if (seePlayerDistance * seePlayerDistance > (playerPosition - m_transform.position).sqrMagnitude) 
 		{

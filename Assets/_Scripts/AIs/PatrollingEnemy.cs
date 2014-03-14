@@ -24,7 +24,7 @@ public class PatrollingEnemy : BasicAI {
 	protected virtual void Update () {
 		Move ();
 		if(i_viewDirection == Mathf.Sign(m_player.position.x - m_transform.position.x)){
-			if(SeePlayerHalfCircle(seePlayerDistance, m_player.position, enemyManager.GetFacingRight())){
+			if(SeePlayerCone(seePlayerDistance, m_player.position, enemyManager.GetFacingRight())){
 				AimVertical();
 				enemyManager.ShootPrimaryWeapon();
 				f_move = 0;

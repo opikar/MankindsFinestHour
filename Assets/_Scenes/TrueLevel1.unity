@@ -203,7 +203,7 @@ GameObject:
   - 114: {fileID: 8129613}
   - 61: {fileID: 8129612}
   m_Layer: 13
-  m_Name: SpawnPoint
+  m_Name: DepressedBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -836,7 +836,7 @@ GameObject:
   - 114: {fileID: 85439824}
   - 61: {fileID: 85439823}
   m_Layer: 13
-  m_Name: SpawnPoint
+  m_Name: PatrollingEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -875,10 +875,10 @@ Transform:
   m_PrefabInternal: {fileID: 1091469610}
   m_GameObject: {fileID: 85439822}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 599.708618, y: 30.9567795, z: 0}
+  m_LocalPosition: {x: 509.536987, y: 31.3041077, z: 21.3789062}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 751674967}
 --- !u!1001 &109306711
 Prefab:
   m_ObjectHideFlags: 0
@@ -916,6 +916,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: choice
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
+      propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4757,6 +4761,9 @@ Transform:
   - {fileID: 1043513133}
   - {fileID: 401469966}
   - {fileID: 648077544}
+  - {fileID: 85439825}
+  - {fileID: 1872097941}
+  - {fileID: 811253232}
   - {fileID: 1699006046}
   - {fileID: 1448652175}
   - {fileID: 751103501}
@@ -4930,7 +4937,7 @@ GameObject:
   - 114: {fileID: 811253231}
   - 61: {fileID: 811253230}
   m_Layer: 13
-  m_Name: SpawnPoint
+  m_Name: PatrollingEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4969,7 +4976,59 @@ Transform:
   m_PrefabInternal: {fileID: 1268677160}
   m_GameObject: {fileID: 811253229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 423.923798, y: 8.43158531, z: 0}
+  m_LocalPosition: {x: 333.752167, y: 8.7789135, z: 21.3789062}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 751674967}
+--- !u!1 &830485998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: a883e2fc64babd646888dd76d25b82fc, type: 2}
+  m_PrefabInternal: {fileID: 1320145843}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 830486001}
+  - 61: {fileID: 830486000}
+  - 114: {fileID: 830485999}
+  m_Layer: 0
+  m_Name: Destroyer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &830485999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: a883e2fc64babd646888dd76d25b82fc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1320145843}
+  m_GameObject: {fileID: 830485998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fba3ff2142d1b9c458882cb755650466, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &830486000
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6100000, guid: a883e2fc64babd646888dd76d25b82fc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1320145843}
+  m_GameObject: {fileID: 830485998}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 3000, y: 1}
+  m_Center: {x: 0, y: 0}
+--- !u!4 &830486001
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: a883e2fc64babd646888dd76d25b82fc, type: 2}
+  m_PrefabInternal: {fileID: 1320145843}
+  m_GameObject: {fileID: 830485998}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 452.834869, y: -28.8813171, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5522,6 +5581,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: choice
+      value: DepressedBoss
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
+      propertyPath: m_Name
       value: DepressedBoss
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6212,19 +6275,19 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 751674967}
     m_Modifications:
     - target: {fileID: 400000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 599.708618
+      value: 509.536987
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 30.9567795
+      value: 31.3041077
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 21.3789062
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: m_LocalRotation.x
@@ -6244,6 +6307,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: choice
+      value: PatrollingEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
+      propertyPath: m_Name
       value: PatrollingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6419,19 +6486,19 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 751674967}
     m_Modifications:
     - target: {fileID: 400000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 633.520447
+      value: 543.348816
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 15.2845974
+      value: 15.6319256
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 21.3789062
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: m_LocalRotation.x
@@ -6456,6 +6523,10 @@ Prefab:
     - target: {fileID: 400000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: m_LocalScale.y
       value: .824999213
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
+      propertyPath: m_Name
+      value: PatrollingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
@@ -7122,7 +7193,7 @@ GameObject:
   - 114: {fileID: 1260244951}
   - 61: {fileID: 1260244950}
   m_Layer: 13
-  m_Name: SpawnPoint
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7222,19 +7293,19 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 751674967}
     m_Modifications:
     - target: {fileID: 400000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 423.923798
+      value: 333.752167
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8.43158531
+      value: 8.7789135
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 21.3789062
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: m_LocalRotation.x
@@ -7254,6 +7325,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: choice
+      value: PatrollingEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
+      propertyPath: m_Name
       value: PatrollingEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7600,6 +7675,46 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cb53457959ae6f459fc864983e46256, type: 2}
   m_RootGameObject: {fileID: 1098113967}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
+--- !u!1001 &1320145843
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: a883e2fc64babd646888dd76d25b82fc, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 452.834869
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a883e2fc64babd646888dd76d25b82fc, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -28.8813171
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a883e2fc64babd646888dd76d25b82fc, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a883e2fc64babd646888dd76d25b82fc, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a883e2fc64babd646888dd76d25b82fc, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a883e2fc64babd646888dd76d25b82fc, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a883e2fc64babd646888dd76d25b82fc, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a883e2fc64babd646888dd76d25b82fc, type: 2}
+  m_RootGameObject: {fileID: 830485998}
   m_IsPrefabParent: 0
   m_IsExploded: 1
 --- !u!1001 &1326214999
@@ -10503,7 +10618,7 @@ GameObject:
   - 114: {fileID: 1872097940}
   - 61: {fileID: 1872097939}
   m_Layer: 13
-  m_Name: SpawnPoint
+  m_Name: PatrollingEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10542,10 +10657,10 @@ Transform:
   m_PrefabInternal: {fileID: 1098496925}
   m_GameObject: {fileID: 1872097938}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 633.520447, y: 15.2845974, z: 0}
+  m_LocalPosition: {x: 543.348816, y: 15.6319256, z: 21.3789062}
   m_LocalScale: {x: 1, y: .824999213, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 751674967}
 --- !u!1 &1875386862
 GameObject:
   m_ObjectHideFlags: 0

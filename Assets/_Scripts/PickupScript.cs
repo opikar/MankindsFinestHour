@@ -7,13 +7,31 @@ public enum PickupType {
 	laser
 }
 
+
 public class PickupScript : MonoBehaviour {
 	public PickupType type;
 	public int amount;
 
 	Vector2 size;
+
 	void Start() {
 		size = transform.localScale;
+
+		Color color;
+		switch(type) {
+		case PickupType.health:
+			color = Color.red;
+			break;
+		case PickupType.laser:
+			color = new Color(255, 0, 255);
+			break;
+		case PickupType.score:
+			color = Color.yellow;
+			break;
+		default:
+			color = Color.gray;
+			break;
+		}
 	}
 
 	void Update() {

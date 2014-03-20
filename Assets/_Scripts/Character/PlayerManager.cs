@@ -125,10 +125,14 @@ public class PlayerManager : Character
 		Vector2 force = Vector2.zero;
 		bool isHit = false;
 		float forceStrength = 500f;
-		hit = Physics2D.Raycast(m_transform.position, -m_transform.up, 3, 1 << LayerMask.NameToLayer("Enemy"));
+		Vector3 scale = new Vector3(m_transform.localScale.x * .5f, m_transform.localScale.y * 0.25f, 0);
+		Debug.DrawRay (m_transform.position + scale, m_transform.right * Mathf.Sign(m_transform.localScale.x));
+		hit = Physics2D.Raycast(m_transform.position + scale, m_transform.right, scale.x * 2f, 1 << LayerMask.NameToLayer("Enemy"));
 		//hit2 = Physics2D.Raycast(m_transform.position, m_transform.up, 3, 1 << LayerMask.NameToLayer("Enemy"));
 		for (int i = 0; i < 3; i++) 
 		{
+			if(hit)
+				break;
 			Vector3 pos = new Vector3(m_transform.position.x - m_transform.localScale.x * .5f + m_transform.localScale.x * i * 0.5f, m_transform.position.y, m_transform.position.z);
 			hit = Physics2D.Raycast(pos, -m_transform.up, 3, 1 << LayerMask.NameToLayer("Enemy"));
 			if (hit.normal == Vector2.up) 

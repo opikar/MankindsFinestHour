@@ -13,7 +13,7 @@ public class EnemyManager : Character {
 
     public override void Die()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
 	public void Move(float direction){

@@ -12,6 +12,7 @@ public class Weapon : MonoBehaviour {
     private Transform m_transform;
 	private LineRenderer laser;
 	private float laserAmmo = 10000;
+	private bool laserShot = false;
 	private bool b_shootRight;
 	private GameObject m_clone;
 	private float f_bulletSpeed = 25f;	
@@ -38,6 +39,11 @@ public class Weapon : MonoBehaviour {
 	void Update () 
     {
 		Debug.DrawLine(transform.position, shootSpawn.position);
+
+		if(!laserShot)
+			laser.enabled = false;
+		else
+			laserShot = false;
 	}
     #endregion
     public void ShootPrimaryWeapon()
@@ -59,12 +65,12 @@ public class Weapon : MonoBehaviour {
 			Vector3 direction = (shootSpawn.position - transform.position).normalized;
 			laser.SetPosition (1, shootSpawn.position + direction * Screen.width);
 			laser.enabled = true;
+			laserShot = true;
 
 			RaycastHit2D hit = Physics2D.Raycast(shootSpawn.position, direction, Screen.width, 1 << LayerMask.NameToLayer("Enemy"));
 			if(hit) {
 				hit.collider.GetComponent<Character>().ApplyDamage (10*Time.deltaTime);
 			}
-			Debug.Log (direction);
 		}
 	}
 	public void MeleeAttack()

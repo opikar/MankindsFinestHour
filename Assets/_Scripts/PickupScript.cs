@@ -7,11 +7,13 @@ public enum PickupType {
 	laser
 }
 
+
 public class PickupScript : MonoBehaviour {
 	public PickupType type;
 	public int amount;
 
 	Vector2 size;
+
 	void Start() {
 		size = transform.localScale;
 	}

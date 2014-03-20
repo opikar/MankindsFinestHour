@@ -4,7 +4,7 @@ using System.Collections;
 
 [CustomEditor(typeof(PickupScript))]
 public class PickupEditor : Editor {
-	public void UpdateColor() {
+	private void UpdateColor() {
 		Color color;
 		PickupScript script = target as PickupScript;
 		switch(script.type) {
@@ -24,12 +24,19 @@ public class PickupEditor : Editor {
 		script.GetComponent<SpriteRenderer>().color = color;
 	}
 
+	private void ChangeName() {
+		PickupScript script = target as PickupScript;
+		target.name = script.type.ToString();
+	}
+
 	public void OnEnable() {
 		UpdateColor ();
+		ChangeName();
 	}
 
 	public void OnDisable() {
 		UpdateColor ();
+		ChangeName();
 	}
 }
 

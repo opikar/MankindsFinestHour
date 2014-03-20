@@ -9,7 +9,7 @@ public class Weapon : MonoBehaviour {
 	public float rateOfFire = .3f;
 	public bool autoShoot;
 	public float laserDamage = 20;
-	public float laserAmmo = 3;
+	public float laserAmmo = 300000;
 
     private Transform m_transform;
 	private LineRenderer laser;
@@ -34,7 +34,9 @@ public class Weapon : MonoBehaviour {
 		v_shootDirection = m_transform.right;
 		laser = gameObject.AddComponent<LineRenderer>();
 		laser.SetVertexCount(2);
-		laser.SetWidth(0.2f, 0.1f);
+		//laser.SetWidth(0.2f, 0.1f);
+		laser.material = Resources.Load<Material>("LaserMaterial");
+		//laser.material.color = Color.red;
 	}
 	
 	// Update is called once per frame
@@ -65,7 +67,9 @@ public class Weapon : MonoBehaviour {
 			laser.SetPosition (0, shootSpawn.position);
 			//Everyone has wide-screen nowadays right?
 			Vector3 direction = (shootSpawn.position - transform.position).normalized;
-			laser.SetPosition (1, shootSpawn.position + direction * Screen.width);
+
+			float length = Camera.main.ScreenToWorldPoint (new Vector3 (Screen.width, 0)).x;
+			laser.SetPosition (1, shootSpawn.position + direction * length);
 			laser.enabled = true;
 			laserShot = true;
 

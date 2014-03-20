@@ -24,7 +24,7 @@ public class PickupEditor : Editor {
 		}
 		if(renderer.color != color) {
 		 	renderer.color = color;
-			EditorUtility.SetDirty(target);
+			EditorUtility.SetDirty(renderer);
 		}
 	}
 

@@ -5,7 +5,7 @@ using System.Collections;
 [CustomEditor(typeof(PickupScript))]
 public class PickupEditor : Editor {
 	private void UpdateColor() {
-		Color color, org;
+		Color color;
 		PickupScript script = target as PickupScript;
 		SpriteRenderer renderer = script.GetComponent<SpriteRenderer>();
 		switch(script.type) {
@@ -36,12 +36,10 @@ public class PickupEditor : Editor {
 		}
 	}
 
-	public void OnEnable() {
-		UpdateColor ();
-		ChangeName();
-	}
-
-	public void OnDisable() {
+	public override void OnInspectorGUI ()
+	{
+		DrawDefaultInspector();
+		
 		UpdateColor ();
 		ChangeName();
 	}

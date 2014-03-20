@@ -3,7 +3,8 @@ using System.Collections;
 
 public enum PickupType {
 	health,
-	score
+	score,
+	laser
 }
 
 public class PickupScript : MonoBehaviour {

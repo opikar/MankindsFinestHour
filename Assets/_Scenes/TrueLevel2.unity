@@ -3481,9 +3481,9 @@ GameObject:
   - 212: {fileID: 242993233}
   - 114: {fileID: 242993232}
   - 60: {fileID: 242993231}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: Health
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5228,9 +5228,9 @@ GameObject:
   - 212: {fileID: 378720484}
   - 114: {fileID: 378720483}
   - 60: {fileID: 378720482}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: Health
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18090,8 +18090,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1572084742}
-  - {fileID: 1275711874}
   - {fileID: 242993234}
+  - {fileID: 1275711874}
   - {fileID: 378720485}
   m_Father: {fileID: 0}
 --- !u!1001 &1118420629
@@ -20863,9 +20863,9 @@ GameObject:
   - 212: {fileID: 1275711873}
   - 114: {fileID: 1275711872}
   - 60: {fileID: 1275711871}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: Health
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24056,9 +24056,9 @@ GameObject:
   - 212: {fileID: 1572084741}
   - 114: {fileID: 1572084740}
   - 60: {fileID: 1572084739}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: Health
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

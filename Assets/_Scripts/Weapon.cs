@@ -9,10 +9,10 @@ public class Weapon : MonoBehaviour {
 	public float rateOfFire = .3f;
 	public bool autoShoot;
 	public float laserDamage = 20;
+	public float laserAmmo = 3;
 
     private Transform m_transform;
 	private LineRenderer laser;
-	private float laserAmmo = 3;
 	private bool laserShot = false;
 	private bool b_shootRight;
 	private GameObject m_clone;
@@ -34,6 +34,7 @@ public class Weapon : MonoBehaviour {
 		v_shootDirection = m_transform.right;
 		laser = gameObject.AddComponent<LineRenderer>();
 		laser.SetVertexCount(2);
+		laser.SetWidth(0.2f, 0.1f);
 	}
 	
 	// Update is called once per frame

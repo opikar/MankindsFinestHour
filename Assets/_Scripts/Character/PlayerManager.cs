@@ -49,6 +49,9 @@ public class PlayerManager : Character
 		case PickupType.score:
 			score += pickup.amount;
 			break;
+		case PickupType.laser:
+			weapon.laserAmmo += pickup.amount;
+			break;
 		}
 	}
 

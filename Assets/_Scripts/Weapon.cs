@@ -8,10 +8,11 @@ public class Weapon : MonoBehaviour {
 	public Transform shootSpawn;
 	public float rateOfFire = .3f;
 	public bool autoShoot;
+	public float laserDamage = 20;
 
     private Transform m_transform;
 	private LineRenderer laser;
-	private float laserAmmo = 10000;
+	private float laserAmmo = 3;
 	private bool laserShot = false;
 	private bool b_shootRight;
 	private GameObject m_clone;
@@ -67,9 +68,9 @@ public class Weapon : MonoBehaviour {
 			laser.enabled = true;
 			laserShot = true;
 
-			RaycastHit2D hit = Physics2D.Raycast(shootSpawn.position, direction, Screen.width, 1 << LayerMask.NameToLayer("Enemy"));
-			if(hit) {
-				hit.collider.GetComponent<Character>().ApplyDamage (10*Time.deltaTime);
+			RaycastHit2D[] hits = Physics2D.RaycastAll(shootSpawn.position, direction, Screen.width, 1 << LayerMask.NameToLayer("Enemy"));
+			foreach(RaycastHit2D hit in hits) {
+				hit.collider.GetComponent<Character>().ApplyDamage (laserDamage*Time.deltaTime);
 			}
 		}
 	}

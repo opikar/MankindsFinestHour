@@ -19,6 +19,7 @@ public class Movement : MonoBehaviour
 	private bool b_doubleJump = false;
 	public bool flipped = false;
 
+	private Animator animator = null;
 	private Transform m_groundCheck;
     private Transform m_groundCheck2;
     private LayerMask m_groundMask;
@@ -36,6 +37,7 @@ public class Movement : MonoBehaviour
     {
         // Here we call the base.variable which is the slow one
         // and store that value into our new one.
+		animator = GetComponent<Animator> ();
         rigidbody2D = base.rigidbody2D;
         transform = base.transform;
 		m_groundCheck = transform.Find ("groundCheck");
@@ -123,6 +125,8 @@ public class Movement : MonoBehaviour
 
 
 		rigidbody2D.velocity = new Vector2(f_speed * direction, rigidbody2D.velocity.y);
+		if(animator != null)
+			animator.SetFloat ("Speed", Mathf.Abs(rigidbody2D.velocity.x));
 	}
 
 	/// <summary>

@@ -2126,7 +2126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69d1e4a005354e0ab09eb4785b5a7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedToWaypoint: 4.5
+  SpeedToWaypoint: 20
 --- !u!4 &149929452
 Transform:
   m_ObjectHideFlags: 0
@@ -3482,7 +3482,7 @@ GameObject:
   - 114: {fileID: 242993232}
   - 60: {fileID: 242993231}
   m_Layer: 0
-  m_Name: Health
+  m_Name: health
   m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4431,7 +4431,7 @@ Transform:
   m_PrefabInternal: {fileID: 716848573}
   m_GameObject: {fileID: 297814414}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 57.8169174, y: 0, z: -10}
   m_LocalScale: {x: 2.27499986, y: 1, z: 1}
   m_Children:
   - {fileID: 359039640}
@@ -5181,7 +5181,7 @@ GameObject:
   - 114: {fileID: 378720483}
   - 60: {fileID: 378720482}
   m_Layer: 0
-  m_Name: Health
+  m_Name: score
   m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5252,7 +5252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371f037d6b3ff4a9682f14c5724ee305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
   amount: 20
 --- !u!212 &378720484
 SpriteRenderer:
@@ -5277,7 +5277,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: d19dbc57dd0d89a4b8b61f8937a71ba9, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: .921568632, b: .0156862754, a: 1}
 --- !u!4 &378720485
 Transform:
   m_ObjectHideFlags: 0
@@ -10852,7 +10852,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 64f178e5a92bbc94483022387f9bdd12, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 57.8169174
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 64f178e5a92bbc94483022387f9bdd12, type: 2}
       propertyPath: m_LocalPosition.y
@@ -11589,30 +11589,30 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -21.3789062}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1748684936}
+  - {fileID: 100833056}
+  - {fileID: 238078878}
+  - {fileID: 863453406}
   - {fileID: 595099480}
   - {fileID: 812968926}
-  - {fileID: 100833056}
-  - {fileID: 863453406}
+  - {fileID: 1748684936}
   - {fileID: 1916520291}
   - {fileID: 2033066099}
   - {fileID: 454889718}
   - {fileID: 1229402488}
   - {fileID: 1719971542}
-  - {fileID: 238078878}
   - {fileID: 1089921294}
-  - {fileID: 477589673}
-  - {fileID: 828459679}
   - {fileID: 257037157}
   - {fileID: 2010597894}
-  - {fileID: 1521714513}
-  - {fileID: 693856033}
-  - {fileID: 999599507}
-  - {fileID: 2096388648}
-  - {fileID: 894925059}
+  - {fileID: 828459679}
+  - {fileID: 477589673}
   - {fileID: 1765405509}
+  - {fileID: 999599507}
+  - {fileID: 1521714513}
   - {fileID: 1365578997}
+  - {fileID: 894925059}
   - {fileID: 1802568006}
+  - {fileID: 693856033}
+  - {fileID: 2096388648}
   m_Father: {fileID: 0}
 --- !u!1001 &752753819
 Prefab:
@@ -18047,10 +18047,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1572084742}
-  - {fileID: 1275711874}
-  - {fileID: 242993234}
-  - {fileID: 378720485}
   - {fileID: 1699616458}
+  - {fileID: 242993234}
+  - {fileID: 1275711874}
+  - {fileID: 378720485}
   m_Father: {fileID: 0}
 --- !u!1001 &1118420629
 Prefab:
@@ -20768,7 +20768,7 @@ GameObject:
   - 114: {fileID: 1275711872}
   - 60: {fileID: 1275711871}
   m_Layer: 0
-  m_Name: Health
+  m_Name: laser
   m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20839,7 +20839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371f037d6b3ff4a9682f14c5724ee305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 2
   amount: 20
 --- !u!212 &1275711873
 SpriteRenderer:
@@ -20864,7 +20864,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: d19dbc57dd0d89a4b8b61f8937a71ba9, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 255, g: 0, b: 255, a: 1}
 --- !u!4 &1275711874
 Transform:
   m_ObjectHideFlags: 0
@@ -21634,7 +21634,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 9a85118d0d96e4740afc32080815d95a, type: 2}
       propertyPath: SpeedToWaypoint
-      value: 4.5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9a85118d0d96e4740afc32080815d95a, type: 2}
       propertyPath: m_IsActive
@@ -22690,7 +22690,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
       propertyPath: m_Name
-      value: Health
+      value: health
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
+      propertyPath: type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
+      propertyPath: m_Color.b
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
@@ -23961,7 +23973,7 @@ GameObject:
   - 114: {fileID: 1572084740}
   - 60: {fileID: 1572084739}
   m_Layer: 0
-  m_Name: Health
+  m_Name: health
   m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25918,7 +25930,7 @@ GameObject:
   - 114: {fileID: 1699616460}
   - 60: {fileID: 1699616459}
   m_Layer: 0
-  m_Name: Laser
+  m_Name: health
   m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26000,7 +26012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371f037d6b3ff4a9682f14c5724ee305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 2
+  type: 0
   amount: 20
 --- !u!212 &1699616461
 SpriteRenderer:
@@ -26025,7 +26037,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: d19dbc57dd0d89a4b8b61f8937a71ba9, type: 3}
-  m_Color: {r: 1, g: 0, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1001 &1703237235
 Prefab:
   m_ObjectHideFlags: 0
@@ -26178,7 +26190,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
       propertyPath: m_Name
-      value: Health
+      value: laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
+      propertyPath: type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
+      propertyPath: m_Color.r
+      value: 255
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
+      propertyPath: m_Color.b
+      value: 255
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
@@ -27023,11 +27051,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
       propertyPath: type
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 21200000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
       propertyPath: m_Color.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 21200000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
       propertyPath: m_Color.r
@@ -27039,7 +27067,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
       propertyPath: m_Name
-      value: Laser
+      value: health
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
@@ -30030,7 +30058,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
       propertyPath: m_Name
-      value: Health
+      value: health
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
+      propertyPath: type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
+      propertyPath: m_Color.b
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
@@ -33543,7 +33583,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
       propertyPath: m_Name
-      value: Health
+      value: score
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}

@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21200000}
   - 114: {fileID: 11400000}
   - 60: {fileID: 6000000}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -2126,7 +2126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69d1e4a005354e0ab09eb4785b5a7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedToWaypoint: 20
+  SpeedToWaypoint: 4.5
 --- !u!4 &149929452
 Transform:
   m_ObjectHideFlags: 0
@@ -4431,7 +4431,7 @@ Transform:
   m_PrefabInternal: {fileID: 716848573}
   m_GameObject: {fileID: 297814414}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 57.8169174, y: 0, z: -10}
+  m_LocalPosition: {x: 5.05531311, y: 0, z: -10}
   m_LocalScale: {x: 2.27499986, y: 1, z: 1}
   m_Children:
   - {fileID: 359039640}
@@ -7412,11 +7412,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -33.8215332
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -11.0227203
+      value: -12.3755817
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7445,6 +7445,10 @@ Prefab:
     - target: {fileID: 100000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
@@ -10852,7 +10856,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 64f178e5a92bbc94483022387f9bdd12, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 57.8169174
+      value: 5.05531311
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 64f178e5a92bbc94483022387f9bdd12, type: 2}
       propertyPath: m_LocalPosition.y
@@ -21634,7 +21638,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 9a85118d0d96e4740afc32080815d95a, type: 2}
       propertyPath: SpeedToWaypoint
-      value: 20
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9a85118d0d96e4740afc32080815d95a, type: 2}
       propertyPath: m_IsActive
@@ -22874,7 +22878,7 @@ Transform:
   m_PrefabInternal: {fileID: 536387632}
   m_GameObject: {fileID: 1463178138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -11.0227203, z: 0}
+  m_LocalPosition: {x: -33.8215332, y: -12.3755817, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

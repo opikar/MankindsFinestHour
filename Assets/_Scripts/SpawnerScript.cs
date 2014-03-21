@@ -1,6 +1,9 @@
 using UnityEngine;
-using UnityEditor;
 using System.Collections;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class SpawnerScript : MonoBehaviour {
 	[HideInInspector]
@@ -19,9 +22,11 @@ public class SpawnerScript : MonoBehaviour {
 		}
 	}
 
+#if UNITY_EDITOR
 	void OnDrawGizmos() {
 		Gizmos.color = Color.cyan;
 		Gizmos.DrawCube(transform.position, gizmoSize);
 		Handles.Label(transform.position + new Vector3(-gizmoSize.x/2, gizmoSize.y, 0), choice);
 	}
+#endif
 }

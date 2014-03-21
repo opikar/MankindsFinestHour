@@ -46,10 +46,11 @@ public class InputManager : MonoBehaviour
 			else
 				m_movement.Jump();
 		}
-		if(Input.GetKeyDown(KeyCode.Z))
-			m_playerManager.ShootPrimaryWeapon();
-		if(Input.GetKey (KeyCode.X))
+
+		if(Input.GetButton ("Fire2"))
 			m_playerManager.ShootSpecialWeapon();
+		else if(Input.GetButtonDown("Fire1"))
+			m_playerManager.ShootPrimaryWeapon();
     }
     #endregion
 }

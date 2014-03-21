@@ -1,0 +1,265 @@
+fileFormatVersion: 2
+guid: 36aa681f83b13ba498004dae7e16897b
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: Hiro_JumpSmall_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 78
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Hiro_JumpSmall_1
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 0
+        width: 78
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Hiro_JumpSmall_2
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 0
+        width: 78
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Hiro_JumpSmall_3
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 0
+        width: 78
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Hiro_JumpSmall_4
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 0
+        width: 78
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Hiro_JumpSmall_5
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 0
+        width: 78
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Hiro_JumpSmall_6
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 0
+        width: 78
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Hiro_JumpSmall_7
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 0
+        width: 78
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Hiro_JumpSmall_8
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 0
+        width: 78
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Hiro_JumpSmall_9
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 0
+        width: 78
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Hiro_JumpSmall_10
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 0
+        width: 78
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Hiro_JumpSmall_11
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 0
+        width: 78
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Hiro_JumpSmall_12
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 0
+        width: 78
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Hiro_JumpSmall_13
+      rect:
+        serializedVersion: 2
+        x: 1014
+        y: 0
+        width: 78
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Hiro_JumpSmall_14
+      rect:
+        serializedVersion: 2
+        x: 1092
+        y: 0
+        width: 78
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Hiro_JumpSmall_15
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 0
+        width: 78
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Hiro_JumpSmall_16
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 0
+        width: 78
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Hiro_JumpSmall_17
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 0
+        width: 78
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Hiro_JumpSmall_18
+      rect:
+        serializedVersion: 2
+        x: 1404
+        y: 0
+        width: 78
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Hiro_JumpSmall_19
+      rect:
+        serializedVersion: 2
+        x: 1482
+        y: 0
+        width: 78
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Hiro_JumpSmall_20
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 0
+        width: 78
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Hiro_JumpSmall_21
+      rect:
+        serializedVersion: 2
+        x: 1638
+        y: 0
+        width: 78
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Hiro_JumpSmall_22
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 0
+        width: 78
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+    - name: Hiro_JumpSmall_23
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 0
+        width: 78
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+  spritePackingTag: 
+  userData: 

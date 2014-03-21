@@ -24,6 +24,7 @@ public class Movement : MonoBehaviour
     private Transform m_groundCheck2;
     private LayerMask m_groundMask;
     private float f_groundRadius = 0.30f;
+	private MovingPlatform platform;
     // Here I am just creating a variable with the same name as inherited members
     // The compiler will complain that it is hiding existing member
     // Using new on the front I explicitely tell to hide
@@ -72,6 +73,7 @@ public class Movement : MonoBehaviour
             {
 				if(other.gameObject.name == "MovingPlatform")
 				{
+					platform = other.gameObject.GetComponent<MovingPlatform>();
 					transform.parent = other.gameObject.transform;
 				}
                 rigidbody2D.gravityScale = 0;
@@ -87,6 +89,7 @@ public class Movement : MonoBehaviour
 		{
 			if(other.gameObject.name == "MovingPlatform")
 			{
+				platform = null;
 				transform.parent = null;
 			}
         	rigidbody2D.gravityScale = 1;
@@ -124,7 +127,21 @@ public class Movement : MonoBehaviour
 			b_doubleJump = false;
 
 
-		rigidbody2D.velocity = new Vector2(f_speed * direction, rigidbody2D.velocity.y);
+		if (platform != null)
+		{
+			float platformVelocity = 0;
+			platformVelocity = platform.MoveDirection.x;
+			Vector2 vel = new Vector2(f_speed, rigidbody2D.velocity.y);
+			if(platformVelocity > 0 && direction < 0)
+				vel.x += platformVelocity;
+			else if(platformVelocity < 0 && direction > 0)
+				vel.x -= platformVelocity;
+			vel.x *= direction;
+			rigidbody2D.velocity = vel;
+			print (platformVelocity);
+		}
+		else
+			rigidbody2D.velocity = new Vector2(f_speed * direction, rigidbody2D.velocity.y);
 		if(animator != null)
 			animator.SetFloat ("Speed", Mathf.Abs(rigidbody2D.velocity.x));
 	}

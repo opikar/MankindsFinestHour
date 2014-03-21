@@ -7,6 +7,10 @@ public class MovingPlatform : MonoBehaviour {
 	public GameObject start;
 	public float speed = 10f;
 	public bool moveAlways;
+	public Vector3 MoveDirection
+	{
+		get{return v_moveDirection * speed;}
+	}
 
 	private int i_index;
 	private Transform m_transform;

@@ -202,10 +202,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e8447fdfe6c548b39a18d5695ce4255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 100000, guid: 69d8256add33a0b4cbb0cadf229aea22, type: 2}
+  bullet: {fileID: 100000, guid: d22c7d7edfc974170b77d8c2f8aad8c7, type: 2}
   shootSpawn: {fileID: 400008}
   rateOfFire: 1
   autoShoot: 1
+  laserDamage: 20
+  laserAmmo: 300000
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1

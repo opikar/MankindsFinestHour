@@ -4,8 +4,7 @@ using System.Collections;
 public class PatrollingEnemy : BasicAI {
 
 	public float seePlayerDistance = 20f;
-
-	protected EnemyManager enemyManager;
+	
 	protected Vector3 v_rightWaypoint;
 	protected Vector3 v_leftWaypoint;
 	protected Vector3 v_target;
@@ -13,10 +12,9 @@ public class PatrollingEnemy : BasicAI {
 	protected float f_move;
 
 	// Use this for initialization
-	protected virtual void Start () {
+	protected override void Start () {
 		m_player = GameObject.Find("Player").GetComponent<Transform>();
 		m_transform = transform;
-		enemyManager = GetComponent<EnemyManager>();
 		i_mask = 1 << LayerMask.NameToLayer("Player");
 	}
 	
@@ -24,25 +22,25 @@ public class PatrollingEnemy : BasicAI {
 	protected virtual void Update () {
 		Move ();
 		if(i_viewDirection == Mathf.Sign(m_player.position.x - m_transform.position.x)){
-			if(SeePlayerCone(seePlayerDistance, m_player.position, enemyManager.GetFacingRight())){
+			if(SeePlayerCone(seePlayerDistance, m_player.position, GetFacingRight())){
 				AimVertical();
-				enemyManager.ShootPrimaryWeapon();
+				ShootPrimaryWeapon();
 				f_move = 0;
 			}
 			else if(f_move == 0)
 				f_move = i_viewDirection;
 		}
-		enemyManager.Move(f_move);
+		Move(f_move);
 	}
 
 	//when the enemy steps on a platform set 2 points at each end of the platform and start patrolling that route
 	void OnCollisionEnter2D(Collision2D other){
-		if(other.gameObject.tag == "Ground" && !enemyManager.GetFlipped())
+		if(other.gameObject.tag == "Ground" && !GetFlipped())
 			SetPatrolRoute(other.gameObject.transform);
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		if(other.gameObject.tag == "Ground" && !enemyManager.GetFlipped())
+		if(other.gameObject.tag == "Ground" && !GetFlipped())
 			SetPatrolRoute(other.gameObject.transform);
 		else if(other.tag == "Enemy")
 			ChangeDirection();
@@ -75,10 +73,16 @@ public class PatrollingEnemy : BasicAI {
 
 		if(v_leftWaypoint == Vector3.zero && v_rightWaypoint == Vector3.zero)
 			f_move = 0;
-		if(enemyManager.GetFacingRight())
+		if(GetFacingRight())
 			i_viewDirection = 1;
 		else
 			i_viewDirection = -1;
+	}
+
+	public override void Reset ()
+	{
+		base.Reset ();
+		ResetPatrolRoute();
 	}
 
 	void ChangeDirection()
@@ -96,10 +100,10 @@ public class PatrollingEnemy : BasicAI {
 		float direction = m_player.position.y - m_transform.position.y;
 		float scale = (m_player.localScale.y + m_transform.localScale.y) * .5f;
 		if (direction > scale)
-			enemyManager.AimVertical (1f, 1f);
+			AimVertical (1f, 1f);
 		else if (direction < -scale)
-			enemyManager.AimVertical (-1f, -1f);
+			AimVertical (-1f, -1f);
 		else
-			enemyManager.AimVertical (0, 0);
+			AimVertical (0, 0);
 	}
 }

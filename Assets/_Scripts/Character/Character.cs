@@ -16,7 +16,7 @@ public abstract class Character : MonoBehaviour
     #endregion
 
     #region UNITY_METHODS
-    public virtual void Awake () 
+    protected virtual void Awake () 
     {
 		m_transform = transform;
 		movement = GetComponent<Movement>();
@@ -95,11 +95,12 @@ public abstract class Character : MonoBehaviour
 		return movement.flipped;
 	}
 
-	public void Reset()
+	public virtual void Reset()
 	{
 		health.RestoreHP();
 		rigidbody2D.velocity = new Vector2(0, 0);
         gameManager = GameManager.instance;
+		rigidbody2D.gravityScale = 1;
 	}
     #endregion
 }

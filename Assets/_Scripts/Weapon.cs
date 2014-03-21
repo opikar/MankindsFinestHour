@@ -16,7 +16,6 @@ public class Weapon : MonoBehaviour {
 	private bool laserShot = false;
 	private bool b_shootRight;
 	private GameObject m_clone;
-	private float f_bulletSpeed = 25f;	
 	private float f_lastShot;
 #pragma warning disable 414
 	private Vector3 v_shootDirection;
@@ -65,10 +64,10 @@ public class Weapon : MonoBehaviour {
 		if(laserAmmo > 0) {
 			laserAmmo -= Time.deltaTime;
 			laser.SetPosition (0, shootSpawn.position);
-			//Everyone has wide-screen nowadays right?
 			Vector3 direction = (shootSpawn.position - transform.position).normalized;
 
-			float length = Camera.main.ScreenToWorldPoint (new Vector3 (Screen.width, 0)).x;
+
+			float length = Camera.main.ScreenToWorldPoint (new Vector3 (Screen.width, 0)).x * 2;
 			laser.SetPosition (1, shootSpawn.position + direction * length);
 			laser.enabled = true;
 			laserShot = true;

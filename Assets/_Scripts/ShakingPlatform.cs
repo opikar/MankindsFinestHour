@@ -13,7 +13,7 @@ public class ShakingPlatform : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		r_rigidbody = transform.Find("Sprite").GetComponent<Rigidbody2D>();
-		print (r_rigidbody.gameObject.name);
+		//print (r_rigidbody.gameObject.name);
 	}
 	
 	// Update is called once per frame

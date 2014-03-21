@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BasicAI : MonoBehaviour {
+public class BasicAI : EnemyManager {
 	
 	private RaycastHit2D hit;
 
 	protected int i_mask;
 	protected int i_viewDirection;
-	protected Transform m_transform;
 
 	protected bool SeePlayer(float seePlayerDistance){
 		//for loop for more precise vision.

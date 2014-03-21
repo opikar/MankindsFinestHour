@@ -7,7 +7,7 @@ public class EnemyManager : Character {
     #endregion
 
     #region UNITY_METHODS
-    public void Start()
+    protected virtual void Start()
     {
     }
 

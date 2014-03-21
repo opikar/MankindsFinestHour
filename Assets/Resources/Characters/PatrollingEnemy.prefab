@@ -46,6 +46,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &100006
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400006}
+  m_Layer: 12
+  m_Name: ShootSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &100008
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,10 +89,9 @@ GameObject:
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400004}
-  - 114: {fileID: 11400002}
   - 114: {fileID: 11400000}
   m_Layer: 12
-  m_Name: PatrollingEnemy
+  m_Name: KamikazeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,6 +130,17 @@ Transform:
   m_LocalScale: {x: .247999996, y: .204999998, z: 1}
   m_Children: []
   m_Father: {fileID: 400010}
+--- !u!4 &400006
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100006}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.5, y: 0, z: 0}
+  m_LocalScale: {x: .5, y: .333333343, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400010}
 --- !u!4 &400008
 Transform:
   m_ObjectHideFlags: 1
@@ -134,11 +159,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.7831593, y: .0647991598, z: 0}
+  m_LocalPosition: {x: 21.5392323, y: -7.50466156, z: 0}
   m_LocalScale: {x: 2, y: 3, z: 1}
   m_Children:
   - {fileID: 400002}
   - {fileID: 400000}
+  - {fileID: 400006}
   - {fileID: 400004}
   - {fileID: 400008}
   m_Father: {fileID: 0}
@@ -176,21 +202,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 100010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23519bfd455c34594936e71ec82fbbde, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f01024196f0cd146a5452d09c100981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seePlayerDistance: 40
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a21c2289a1ac54efea0302f85336d64c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  seePlayerDistance: 20
+  reactionTime: 1
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -202,9 +218,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e8447fdfe6c548b39a18d5695ce4255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 100000, guid: 6abb1ea1f8d08b14db22176e4f1721d1, type: 2}
+  bullet: {fileID: 100000, guid: 69d8256add33a0b4cbb0cadf229aea22, type: 2}
   shootSpawn: {fileID: 400008}
-  rateOfFire: 1
+  rateOfFire: .300000012
   autoShoot: 1
   laserDamage: 20
   laserAmmo: 300000
@@ -219,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f381df6a332944ab616a8c5e9bca44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fullHP: 6
+  fullHP: 8
   f_currentHP: 0
 --- !u!114 &11400008
 MonoBehaviour:

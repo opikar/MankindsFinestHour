@@ -138,7 +138,7 @@ public class Movement : MonoBehaviour
 				vel.x -= platformVelocity;
 			vel.x *= direction;
 			rigidbody2D.velocity = vel;
-			print (platformVelocity);
+			//print (platformVelocity);
 		}
 		else
 			rigidbody2D.velocity = new Vector2(f_speed * direction, rigidbody2D.velocity.y);

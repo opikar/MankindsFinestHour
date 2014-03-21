@@ -32,7 +32,7 @@ public class KamikazeEnemy : PatrollingEnemy {
 		}
 		else
 			f_move = 0;
-		enemyManager.Move(f_move);
+		Move(f_move);
 	}
 
 	void Charge(){
@@ -41,14 +41,14 @@ public class KamikazeEnemy : PatrollingEnemy {
 			b_charge = false;
 			Explode();
 		}
-		enemyManager.SetMoveSpeed(f_chargeSpeed);
+		SetMoveSpeed(f_chargeSpeed);
 	}
 
 	void Explode()
 	{
 		//still need and exploding animation
 		m_playerManager.ApplyDamage(m_playerManager.GetMaxHealth() * .5f);
-		enemyManager.Die();
+		Die();
 	}
 
 

@@ -24,7 +24,6 @@ public class Movement : MonoBehaviour
     private Transform m_groundCheck2;
     private LayerMask m_groundMask;
     private float f_groundRadius = 0.30f;
-	private float f_colliderY;
 	private MovingPlatform platform;
     // Here I am just creating a variable with the same name as inherited members
     // The compiler will complain that it is hiding existing member
@@ -39,8 +38,6 @@ public class Movement : MonoBehaviour
     {
         // Here we call the base.variable which is the slow one
         // and store that value into our new one.
-		BoxCollider2D c = GetComponent<BoxCollider2D> ();
-		f_colliderY = c.size.y;
 		animator = GetComponent<Animator> ();
         rigidbody2D = base.rigidbody2D;
         transform = base.transform;

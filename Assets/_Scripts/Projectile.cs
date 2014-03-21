@@ -10,6 +10,7 @@ public class Projectile : MonoBehaviour
 	public float damage;
 	public bool gravity;
 	public bool isPlayer;
+	public float speed = 50f;
     #endregion
 
     #region UNITY_METHODS
@@ -17,6 +18,8 @@ public class Projectile : MonoBehaviour
     {
         SpriteRenderer sp = GetComponent<SpriteRenderer>();
         sp.sprite = sprite;
+		rigidbody2D.velocity *= speed;
+
 	}
 
 	void OnTriggerEnter2D(Collider2D other)

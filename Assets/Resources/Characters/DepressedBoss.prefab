@@ -209,6 +209,13 @@ MonoBehaviour:
   states:
   - stateName: 
     position: {fileID: 0}
+  shootingTime: .300000012
+  bulletPerSecond: 30
+  waitAfterAction: 1
+  maxY: 0
+  minY: 0
+  maxX: 0
+  minX: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -234,7 +241,9 @@ MonoBehaviour:
   bullet: {fileID: 100000, guid: 69d8256add33a0b4cbb0cadf229aea22, type: 2}
   shootSpawn: {fileID: 400008}
   rateOfFire: .300000012
-  autoShoot: 1
+  autoShoot: 0
+  laserDamage: 20
+  laserAmmo: 300000
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -246,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f381df6a332944ab616a8c5e9bca44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fullHP: 8
+  fullHP: 800
   f_currentHP: 0
 --- !u!114 &11400008
 MonoBehaviour:
@@ -260,7 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   f_speed: 2
-  f_jumpForce: 13
+  f_jumpForce: 40
   b_grounded: 1
   flipped: 0
 --- !u!212 &21200000

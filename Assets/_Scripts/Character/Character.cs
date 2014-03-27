@@ -75,6 +75,19 @@ public abstract class Character : MonoBehaviour
 		weapon.SetTarget(shootSpawn);
 	}
 
+	public void Jump()
+	{
+		movement.Jump ();
+	}
+	public void Flip()
+	{
+		movement.Flip ();
+	}
+	public void Drop()
+	{
+		movement.Drop ();
+	}
+
 
 	public bool GetFacingRight(){
 		return movement.facingRight;

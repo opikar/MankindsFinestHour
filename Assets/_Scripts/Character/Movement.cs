@@ -169,7 +169,7 @@ public class Movement : MonoBehaviour
 			rigidbody2D.gravityScale = 1f;
 	}
 
-	private void Flip()
+	public void Flip()
     {
 		facingRight = !facingRight;
 		flipped = true;

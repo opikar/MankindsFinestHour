@@ -2,21 +2,24 @@
 using System.Collections;
 
 public class WallScript : MonoBehaviour {
-	Transform leftWall, rightWall;
+	public Transform leftWall, rightWall;
 
-	// Use this for initialization
-	void Start () {
-		leftWall = transform.Find("CameraWallLeft");
-		rightWall = transform.Find("CameraWallRight");
+	void Start() {
+		MoveWalls ();
+		GetComponentInChildren<CameraSpawnerScript>().UpdateScale();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
+		MoveWalls();
+	}
+
+	void MoveWalls() {
 		Vector3 right = Camera.main.ScreenToWorldPoint (new Vector3 (Screen.width, 0));
 		Vector3 left = Camera.main.ScreenToWorldPoint (new Vector3(0, 0));
-
+		
 		right.y = left.y = transform.position.y;
-
+		
 		rightWall.position = right;
 		leftWall.position = left;
 	}

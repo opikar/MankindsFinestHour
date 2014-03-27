@@ -219,7 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 100000, guid: 69d8256add33a0b4cbb0cadf229aea22, type: 2}
   shootSpawn: {fileID: 400008}
-  rateOfFire: .300000012
+  rateOfFire: .400000006
   autoShoot: 1
   laserDamage: 20
   laserAmmo: 300000

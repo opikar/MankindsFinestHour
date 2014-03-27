@@ -89,7 +89,8 @@ public abstract class Character : MonoBehaviour
 	}
 
 
-	public bool GetFacingRight(){
+	public bool GetFacingRight()
+	{
 		return movement.facingRight;
 	}
 

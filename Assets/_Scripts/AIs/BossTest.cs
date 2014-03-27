@@ -7,25 +7,26 @@ public class BossTest : ScriptedEnemy {
 	public float bulletPerSecond;
 	public float waitAfterAction = 1.5f;
 
-	public float maxY, minY, maxX, minX;
-	private EnemyManager manager;
+	private float timer;
+	private float maxY, minY;
 	private Transform player;
 	private bool shootLeft;
-	private Transform m_transform;
+	private Action lastAction;
 
-	void Start () {
-		m_transform = transform;
-		Transform topleft = GameObject.Find ("BossTopLeftPosition").transform;
-		Transform downRight = GameObject.Find ("BossDownRightPosition").transform;
-		maxY = topleft.position.y;
-		maxX = downRight.position.x;
-		minX = topleft.position.x;
-		minY = downRight.position.y;
+	override protected void Start () {
+		base.Start ();
+		lastAction = null;
+		Transform top = GameObject.Find ("BossMaxYPosition").transform;
+		Transform down = GameObject.Find ("BossMinYPosition").transform;
+		maxY = top.position.y;
+		minY = down.position.y;
+
 		bulletPerSecond = 1 / bulletPerSecond;
-		manager = GetComponent<EnemyManager> ();
 		player = GameObject.Find ("Player").GetComponent<Transform>();
 
-		Action action1 = ShootOnce;
+		FlipBoss ();
+
+		Action action1 = Shoot;
 		Action action2 = Jump;
 		Action action3 = ShootRapidly;
 		Action action4 = Drop;
@@ -39,14 +40,16 @@ public class BossTest : ScriptedEnemy {
 	protected override void Update()
 	{
 		base.Update ();
-		if (!manager.GetFlipped ()) 
-		{
-			if (!manager.GetFacingRight() && player.transform.position.x > m_transform.position.x)
-				manager.Flip ();
-			else if (manager.GetFacingRight() && player.transform.position.x < m_transform.position.x)
-				manager.Flip ();
-		}
-		manager.Move (0);
+		FlipBoss ();
+	}
+
+	void FlipBoss()
+	{
+		if (!GetFacingRight() && player.transform.position.x > m_transform.position.x)
+			Flip ();
+		else if (GetFacingRight() && player.transform.position.x < m_transform.position.x)
+			Flip ();
+		Move (0);
 	}
 
 	IEnumerator Suicide() {
@@ -56,38 +59,49 @@ public class BossTest : ScriptedEnemy {
 	}
 	IEnumerator Jump()
 	{
-		if(m_transform.position.y < maxY)
+		if(m_transform.position.y < maxY && lastAction != Drop)
 		{
-			manager.Jump ();
+			lastAction = Jump;
+			Jump ();
 			yield return new WaitForSeconds(waitAfterAction);
 		}
 		else
 			yield return null;
 	}
-	IEnumerator ShootOnce()
+	IEnumerator Shoot()
 	{
-		manager.SetTarget (player);
-		manager.ShootPrimaryWeapon ();
+		lastAction = Shoot;
+		timer = 0;
+		int num = Random.Range (1, 6);
+		while (timer < num) 
+		{
+			SetTarget (player);
+			ShootPrimaryWeapon ();
+			yield return new WaitForSeconds(0.15f);
+			timer++;
+		}
 		yield return new WaitForSeconds(waitAfterAction);
 	}
 
 	IEnumerator ShootRapidly()
 	{
-		manager.SetTarget (player);
-		float timer = 0;
+		lastAction = ShootRapidly;
+		SetTarget (player);
+		timer = 0;
 		while (timer < shootingTime) 
 		{
 			timer += Time.deltaTime;
-			manager.ShootPrimaryWeapon();
+			ShootPrimaryWeapon();
 			yield return new WaitForSeconds(bulletPerSecond);
 		}
 		yield return new WaitForSeconds(waitAfterAction);
 	}
 	IEnumerator Drop()
 	{
-		if (m_transform.position.y > minY) 
+		if (m_transform.position.y > minY && lastAction != Jump) 
 		{
-			manager.Drop ();
+			lastAction = Drop;
+			Drop ();
 			yield return new WaitForSeconds (waitAfterAction);
 		} 
 		else

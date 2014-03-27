@@ -4,12 +4,13 @@ using System;
 
 public delegate IEnumerator Action();
 
-public abstract class ScriptedEnemy : MonoBehaviour {
+public abstract class ScriptedEnemy : EnemyManager {
 	public ActionState[] states;
 	bool actionRunning = false;
 	protected ActionState currentState;
 
-	virtual protected void Awake() {
+	override protected void Awake() {
+		base.Awake ();
 		currentState = states[0];
 	}
 

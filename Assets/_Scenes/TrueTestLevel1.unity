@@ -259,7 +259,6 @@ GameObject:
   - 124: {fileID: 17813270}
   - 81: {fileID: 17813269}
   - 114: {fileID: 17813274}
-  - 114: {fileID: 17813276}
   - 45: {fileID: 17813277}
   - 114: {fileID: 17813275}
   m_Layer: 0
@@ -360,20 +359,6 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 17813268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5316159c47a754825aabe99c9dc0c265, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftWall: {fileID: 0}
-  rightWall: {fileID: 0}
---- !u!114 &17813276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400002, guid: 64f178e5a92bbc94483022387f9bdd12,
-    type: 2}
-  m_PrefabInternal: {fileID: 1441517390}
   m_GameObject: {fileID: 17813268}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1970,7 +1955,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 251297600}
   m_Layer: 0
-  m_Name: BossDownRightPosition
+  m_Name: BossMaxYPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1983,7 +1968,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 251297599}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.49090576, y: -10.1238403, z: 0}
+  m_LocalPosition: {x: 4.97613525, y: 6.52039719, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1954213371}
@@ -8699,7 +8684,8 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11400002, guid: 64f178e5a92bbc94483022387f9bdd12, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 64f178e5a92bbc94483022387f9bdd12, type: 2}
   m_RootGameObject: {fileID: 17813268}
   m_IsPrefabParent: 0
@@ -12261,7 +12247,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2023209797}
   m_Layer: 0
-  m_Name: BossTopLeftPosition
+  m_Name: BossMinYPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12274,7 +12260,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2023209796}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.3306274, y: 6.5204277, z: 0}
+  m_LocalPosition: {x: 4.46136475, y: -9.95223999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1954213371}

@@ -261,7 +261,6 @@ GameObject:
   - 114: {fileID: 17813274}
   - 114: {fileID: 17813276}
   - 45: {fileID: 17813277}
-  - 114: {fileID: 17813275}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -331,7 +330,7 @@ Transform:
   m_GameObject: {fileID: 17813268}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 2.27499986, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1641542249}
   - {fileID: 2055981195}
@@ -355,17 +354,6 @@ MonoBehaviour:
   - {fileID: 46723324}
   - {fileID: 1463466711}
   i_index: 0
---- !u!114 &17813275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 17813268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5316159c47a754825aabe99c9dc0c265, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &17813276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,6 +366,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5316159c47a754825aabe99c9dc0c265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftWall: {fileID: 448499525}
+  rightWall: {fileID: 2055981195}
 --- !u!45 &17813277
 Skybox:
   m_ObjectHideFlags: 0
@@ -8206,7 +8196,7 @@ Prefab:
       objectReference: {fileID: 1463466711}
     - target: {fileID: 400006, guid: 64f178e5a92bbc94483022387f9bdd12, type: 2}
       propertyPath: m_LocalScale.x
-      value: 2.27499986
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 64f178e5a92bbc94483022387f9bdd12, type: 2}
       propertyPath: m_LocalScale.y
@@ -8247,6 +8237,10 @@ Prefab:
     - target: {fileID: 400002, guid: 64f178e5a92bbc94483022387f9bdd12, type: 2}
       propertyPath: m_LocalScale.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: 64f178e5a92bbc94483022387f9bdd12, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64f178e5a92bbc94483022387f9bdd12, type: 2}
@@ -10198,6 +10192,7 @@ GameObject:
   - 4: {fileID: 1875386863}
   - 61: {fileID: 1875386864}
   - 50: {fileID: 1875386865}
+  - 114: {fileID: 1875386866}
   m_Layer: 13
   m_Name: Spawner
   m_TagString: Untagged
@@ -10213,7 +10208,7 @@ Transform:
   m_GameObject: {fileID: 1875386862}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 60, y: 60, z: 1}
+  m_LocalScale: {x: 60, y: 75, z: 1}
   m_Children: []
   m_Father: {fileID: 17813273}
 --- !u!61 &1875386864
@@ -10244,6 +10239,20 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!114 &1875386866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400004, guid: 64f178e5a92bbc94483022387f9bdd12,
+    type: 2}
+  m_PrefabInternal: {fileID: 1441517390}
+  m_GameObject: {fileID: 1875386862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42702b0edf1d941dfb2c234393612367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftWall: {fileID: 448499525}
+  rightWall: {fileID: 2055981195}
 --- !u!1001 &1886880696
 Prefab:
   m_ObjectHideFlags: 0

@@ -119,6 +119,7 @@ public class PlayerManager : Character
 			Application.LoadLevel(Application.loadedLevel);
 		} else {
 			gameObject.SetActive(false);
+			Application.LoadLevel ("MainMenu");
 		}
     }
 

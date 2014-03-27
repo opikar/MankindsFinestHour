@@ -3,18 +3,14 @@ using System.Collections;
 
 public class CameraSpawnerScript : MonoBehaviour {
 
-	Transform leftWall, rightWall;
+	public Transform leftWall, rightWall;
 
 	// Use this for initialization
 	void Start () {
-		leftWall = transform.parent.Find("CameraWallLeft");
-		rightWall = transform.parent.Find("CameraWallRight");
-
 		GameManager.resolutionChanged += UpdateScale;
-		UpdateScale ();
 	}
 
-	void UpdateScale() {
+	public void UpdateScale() {
 		float magicNumber = 3;
 		Vector3 scale = transform.localScale;
 		scale.x = rightWall.position.x - leftWall.position.x+magicNumber;

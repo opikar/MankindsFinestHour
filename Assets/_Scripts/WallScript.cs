@@ -2,13 +2,11 @@
 using System.Collections;
 
 public class WallScript : MonoBehaviour {
-	Transform leftWall, rightWall;
+	public Transform leftWall, rightWall;
 
-	void Awake() {
-		leftWall = transform.Find("CameraWallLeft");
-		rightWall = transform.Find("CameraWallRight");
-
+	void Start() {
 		MoveWalls ();
+		GetComponentInChildren<CameraSpawnerScript>().UpdateScale();
 	}
 
 	// Update is called once per frame

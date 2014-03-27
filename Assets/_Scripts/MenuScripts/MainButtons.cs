@@ -57,6 +57,24 @@ public class MainButtons : MonoBehaviour
 					Debug.Log("Go To Main Menu");
 					Application.LoadLevel("MainMenu");
 				}
+				else if(guiTexture.name == "Lvl1")
+				{
+					//Shut down the game
+					Debug.Log("Lvl1");
+					Application.LoadLevel("TrueLevel1");
+				}
+				else if(guiTexture.name == "Lvl2")
+				{
+					//Shut down the game
+					Debug.Log("Lvl2");
+					Application.LoadLevel("TrueLevel2");
+				}
+				else if(guiTexture.name == "Lvl3")
+				{
+					//Shut down the game
+					Debug.Log("Lvl3");
+					Application.LoadLevel("TrueLevel3");
+				}
 			}
 		}
 		//Return color to normal

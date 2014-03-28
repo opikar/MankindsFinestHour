@@ -1,15 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FlappyBoss : MonoBehaviour {
+public class FlappyBoss : ScriptedEnemy {
 
-	// Use this for initialization
-	void Start () {
-	
+
+	override protected void Start () 
+	{
+		base.Start ();
+
+		Action action1 = Suicide;
+
+		currentState.AddAction (action1);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	IEnumerator Suicide() {
+		Debug.Log("The boss had killed itself in the dressing room.");
+		Application.LoadLevel("Cutscene1");
+		yield return null;
 	}
 }

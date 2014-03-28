@@ -16,25 +16,25 @@ public class Movement : MonoBehaviour
 	//jumping variables
 	public float f_jumpForce = 13f;
 	public bool b_grounded = true;
-	private bool b_doubleJump = false;
+	protected bool b_doubleJump = false;
 	public bool flipped = false;
 
-	private Animator animator = null;
-	private Transform m_groundCheck;
-    private Transform m_groundCheck2;
-    private LayerMask m_groundMask;
-    private float f_groundRadius = 0.30f;
-	private MovingPlatform platform;
+	protected Animator animator = null;
+	protected Transform m_groundCheck;
+	protected Transform m_groundCheck2;
+	protected LayerMask m_groundMask;
+	protected float f_groundRadius = 0.30f;
+	protected MovingPlatform platform;
     // Here I am just creating a variable with the same name as inherited members
     // The compiler will complain that it is hiding existing member
     // Using new on the front I explicitely tell to hide
     // Then I can use the variable just like the normal ones but faster
-    private new Rigidbody2D rigidbody2D;
-    private new Transform transform;
+	protected new Rigidbody2D rigidbody2D;
+	protected new Transform transform;
     #endregion
 
     #region UNITY_METHODS
-    void Start () 
+    protected void Start () 
     {
         // Here we call the base.variable which is the slow one
         // and store that value into our new one.
@@ -63,7 +63,7 @@ public class Movement : MonoBehaviour
 		f_speed = speed;
 	}
 
-    void OnTriggerEnter2D(Collider2D other)
+    protected void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Ground" && rigidbody2D.velocity.y < 0)
         {
@@ -83,7 +83,7 @@ public class Movement : MonoBehaviour
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    protected void OnTriggerExit2D(Collider2D other)
     {
 		if(other.tag == "Ground")
 		{
@@ -102,7 +102,7 @@ public class Movement : MonoBehaviour
 	/// Set the horizontal speed of the gameobject to given direction -1 for left and 1 for right
 	/// </summary>
 	/// <param name="direction">Direction.</param>
-	public void Move(float direction)
+	public virtual void Move(float direction)
     {
 		flipped = false;
 		if(rigidbody2D.velocity.y > 0)

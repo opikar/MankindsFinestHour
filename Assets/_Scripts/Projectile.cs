@@ -10,7 +10,10 @@ public class Projectile : MonoBehaviour
 	public float damage;
 	public bool gravity;
 	public bool isPlayer;
+	public bool collideWithGround;
 	public float speed = 50f;
+
+	private string ground = "Ground";
     #endregion
 
     #region UNITY_METHODS
@@ -24,16 +27,18 @@ public class Projectile : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other)
     {
-		if(isPlayer && other.tag == "Enemy")
-        {
-			other.GetComponent<Character>().ApplyDamage(damage);
-			Destroy(gameObject);
-		}
-		else if(!isPlayer && other.tag == "Player")
-        {
-			other.GetComponent<Character>().ApplyDamage(damage);
-			Destroy(gameObject);
-		}
+		if (isPlayer && other.tag == "Enemy") 
+		{
+			other.GetComponent<Character> ().ApplyDamage (damage);
+			Destroy (gameObject);
+		} 
+		else if (!isPlayer && other.tag == "Player") 
+		{
+			other.GetComponent<Character> ().ApplyDamage (damage);
+			Destroy (gameObject);
+		} 
+		else if (other.gameObject.name == ground && collideWithGround)
+			Destroy (gameObject);
     }
 
 	void OnBecameInvisible() {

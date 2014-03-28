@@ -131,6 +131,8 @@ MonoBehaviour:
   damage: 2
   gravity: 0
   isPlayer: 1
+  collideWithGround: 1
+  speed: 50
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

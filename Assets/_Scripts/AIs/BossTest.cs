@@ -26,10 +26,10 @@ public class BossTest : ScriptedEnemy {
 
 		FlipBoss ();
 
-		Action action1 = Shoot;
-		Action action2 = Jump;
-		Action action3 = ShootRapidly;
-		Action action4 = Drop;
+		Action action1 = ShootAction;
+		Action action2 = JumpAction;
+		Action action3 = ShootRapidlyAction;
+		Action action4 = DropAction;
 
 		currentState.AddAction (action1);
 		currentState.AddAction (action2);
@@ -57,20 +57,20 @@ public class BossTest : ScriptedEnemy {
 		Application.LoadLevel("Cutscene1");
 		yield return null;
 	}
-	IEnumerator Jump()
+	IEnumerator JumpAction()
 	{
-		if(m_transform.position.y < maxY && lastAction != Drop)
+		if(m_transform.position.y < maxY)
 		{
-			lastAction = Jump;
+			lastAction = JumpAction;
 			Jump ();
 			yield return new WaitForSeconds(waitAfterAction);
 		}
 		else
 			yield return null;
 	}
-	IEnumerator Shoot()
+	IEnumerator ShootAction()
 	{
-		lastAction = Shoot;
+		lastAction = ShootAction;
 		timer = 0;
 		int num = Random.Range (1, 6);
 		while (timer < num) 
@@ -83,9 +83,9 @@ public class BossTest : ScriptedEnemy {
 		yield return new WaitForSeconds(waitAfterAction);
 	}
 
-	IEnumerator ShootRapidly()
+	IEnumerator ShootRapidlyAction()
 	{
-		lastAction = ShootRapidly;
+		lastAction = ShootRapidlyAction;
 		SetTarget (player);
 		timer = 0;
 		while (timer < shootingTime) 
@@ -96,11 +96,11 @@ public class BossTest : ScriptedEnemy {
 		}
 		yield return new WaitForSeconds(waitAfterAction);
 	}
-	IEnumerator Drop()
+	IEnumerator DropAction()
 	{
-		if (m_transform.position.y > minY && lastAction != Jump) 
+		if (m_transform.position.y > minY) 
 		{
-			lastAction = Drop;
+			lastAction = DropAction;
 			Drop ();
 			yield return new WaitForSeconds (waitAfterAction);
 		} 

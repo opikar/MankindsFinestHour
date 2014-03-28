@@ -13,11 +13,13 @@ public abstract class Character : MonoBehaviour
 	protected Weapon weapon;
 	protected Movement movement;
 	protected Transform m_transform;
+	protected Animator animator;
     #endregion
 
     #region UNITY_METHODS
     protected virtual void Awake () 
     {
+		animator = GetComponent<Animator> ();
 		m_transform = transform;
 		movement = GetComponent<Movement>();
         if (movement == null) 
@@ -57,6 +59,7 @@ public abstract class Character : MonoBehaviour
 
 	public void AimVertical (float axisVertical, float axisHorizontal)
 	{
+		SetAnimatorAim (axisVertical);
 		weapon.MoveShootingTarget(axisVertical, axisHorizontal);
 	}
 
@@ -115,6 +118,28 @@ public abstract class Character : MonoBehaviour
 		rigidbody2D.velocity = new Vector2(0, 0);
         gameManager = GameManager.instance;
 		rigidbody2D.gravityScale = 1;
+	}
+
+	public void SetAnimatorSpeed(float speed)
+	{
+		if (animator != null) 
+		{
+			animator.SetFloat ("Speed", speed);
+		}
+	}
+	public void SetAnimatorYVelocity(float velocity)
+	{
+		if (animator != null) 
+		{
+			animator.SetFloat ("YVelocity", velocity);
+		}
+	}
+	public void SetAnimatorAim(float aim)
+	{
+		if (animator != null) 
+		{
+			animator.SetFloat ("Aim", aim);
+		}
 	}
     #endregion
 }

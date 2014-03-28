@@ -19,6 +19,8 @@ public class Movement : MonoBehaviour
 	protected bool b_doubleJump = false;
 	public bool flipped = false;
 
+	private Character character;
+
 	protected Animator animator = null;
 	protected Transform m_groundCheck;
 	protected Transform m_groundCheck2;
@@ -31,6 +33,7 @@ public class Movement : MonoBehaviour
     // Then I can use the variable just like the normal ones but faster
 	protected new Rigidbody2D rigidbody2D;
 	protected new Transform transform;
+	protected Vector2 colliderSize;
     #endregion
 
     #region UNITY_METHODS
@@ -38,13 +41,15 @@ public class Movement : MonoBehaviour
     {
         // Here we call the base.variable which is the slow one
         // and store that value into our new one.
-		animator = GetComponent<Animator> ();
+		character = GetComponent<Character> ();
         rigidbody2D = base.rigidbody2D;
         transform = base.transform;
 		m_groundCheck = transform.Find ("groundCheck");
 		m_groundCheck2 = transform.Find ("groundCheck2");
 		m_groundMask = 1 << LayerMask.NameToLayer("Ground");
 		facingRight = true;
+		colliderSize = GetComponent<BoxCollider2D>().size;
+		print (colliderSize);
 	}
 	
 
@@ -78,7 +83,7 @@ public class Movement : MonoBehaviour
 				}
                 rigidbody2D.gravityScale = 0;
                 rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);
-                transform.position = new Vector3(transform.position.x, other.transform.position.y + (0.5f * (other.transform.localScale.y + transform.localScale.y)), transform.position.z);
+				transform.position = new Vector3(transform.position.x, other.transform.position.y + (0.5f * (colliderSize.y + other.transform.localScale.y)) /*other.transform.position.y + (1.5f * (other.transform.localScale.y + transform.localScale.y))*/, transform.position.z);
             }
         }
     }
@@ -142,8 +147,7 @@ public class Movement : MonoBehaviour
 		}
 		else
 			rigidbody2D.velocity = new Vector2(f_speed * direction, rigidbody2D.velocity.y);
-		if(animator != null)
-			animator.SetFloat ("Speed", Mathf.Abs(rigidbody2D.velocity.x));
+		character.SetAnimatorSpeed (Mathf.Abs (rigidbody2D.velocity.x));
 	}
 
 	/// <summary>

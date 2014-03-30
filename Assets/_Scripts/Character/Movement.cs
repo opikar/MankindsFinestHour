@@ -148,6 +148,8 @@ public class Movement : MonoBehaviour
 		else
 			rigidbody2D.velocity = new Vector2(f_speed * direction, rigidbody2D.velocity.y);
 		character.SetAnimatorSpeed (Mathf.Abs (rigidbody2D.velocity.x));
+		character.SetAnimatorGrounded (b_grounded);
+		character.SetAnimatorYVelocity (rigidbody2D.velocity.y);
 	}
 
 	/// <summary>

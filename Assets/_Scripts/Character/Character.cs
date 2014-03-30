@@ -141,5 +141,12 @@ public abstract class Character : MonoBehaviour
 			animator.SetFloat ("Aim", aim);
 		}
 	}
+	public void SetAnimatorGrounded(bool grounded)
+	{
+		if (animator != null) 
+		{
+			animator.SetBool("Grounded", grounded);
+		}
+	}
     #endregion
 }

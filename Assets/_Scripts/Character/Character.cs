@@ -91,6 +91,10 @@ public abstract class Character : MonoBehaviour
 		movement.Drop ();
 	}
 
+    public bool GetGrounded()
+    {
+        return movement.b_grounded;
+    }
 
 	public bool GetFacingRight()
 	{

@@ -9482,12 +9482,12 @@ Transform:
   - {fileID: 1962540019}
   - {fileID: 245393083}
   - {fileID: 58826530}
-  - {fileID: 1539999568}
-  - {fileID: 1192165681}
   - {fileID: 328172016}
-  - {fileID: 124642125}
-  - {fileID: 2018108688}
+  - {fileID: 1192165681}
   - {fileID: 60114029}
+  - {fileID: 1539999568}
+  - {fileID: 2018108688}
+  - {fileID: 124642125}
   m_Father: {fileID: 0}
 --- !u!1001 &360693990
 Prefab:
@@ -31305,7 +31305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   start: {fileID: 709752670}
   speed: 5
-  moveAlways: 1
+  moveAlways: 0
 --- !u!61 &1222203843
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -37355,7 +37355,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: aa4722270579f284aa4a7c42e936c72f, type: 2}
       propertyPath: moveAlways
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: aa4722270579f284aa4a7c42e936c72f, type: 2}
       propertyPath: start

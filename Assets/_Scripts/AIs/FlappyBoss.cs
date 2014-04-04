@@ -8,7 +8,9 @@ public class FlappyBoss : ScriptedEnemy {
 	{
 		base.Start ();
 
-		Action action1 = Suicide;
+		Action action1 = ShootAction;
+        Action action2 = ShootRapidlyAction;
+        Action action3 = JumpAction;
 
 		currentState.AddAction (action1);
 	}

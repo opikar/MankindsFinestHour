@@ -175,11 +175,12 @@ public abstract class ScriptedEnemy : EnemyManager {
     protected IEnumerator MoveToPoint(float pointX)
     { 
         float moving = 0;
+        float sign = Mathf.Sign(transform.position.x - pointX);
         if (pointX > transform.position.x)
             moving = 1f;
         else if (pointX < transform.position.x)
             moving = -1f;
-        while (Mathf.Abs(transform.position.x - pointX) > 0.2f)
+        while (Mathf.Abs(transform.position.x - pointX) > 0.2f && Mathf.Sign(transform.position.x - pointX) == sign)
         {
             Move(moving);
             yield return null;

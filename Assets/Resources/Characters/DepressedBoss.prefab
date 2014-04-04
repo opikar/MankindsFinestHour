@@ -210,7 +210,7 @@ MonoBehaviour:
     position: {fileID: 0}
   shootingTime: .300000012
   bulletPerSecond: 30
-  waitAfterAction: 1
+  waitAfterAction: 1.5
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

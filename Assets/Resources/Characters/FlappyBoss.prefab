@@ -254,7 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   f_speed: 18
   f_jumpForce: 37
-  b_grounded: 1
+  b_grounded: 0
   flipped: 0
 --- !u!212 &21200000
 SpriteRenderer:

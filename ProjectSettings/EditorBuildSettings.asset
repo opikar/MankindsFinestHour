@@ -23,3 +23,5 @@ EditorBuildSettings:
     path: Assets/_Scenes/Cutscenes/IntroCutscene.unity
   - enabled: 1
     path: Assets/_Scenes/Cutscenes/Cutscene1.unity
+  - enabled: 1
+    path: Assets/_Scenes/BossLevel1.unity

@@ -248,7 +248,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .743995726, g: .0115700811, b: .786764741, a: .0196078438}
+  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -299,7 +299,7 @@ MonoBehaviour:
   - {fileID: 149929452}
   - {fileID: 46723324}
   - {fileID: 1463466711}
-  i_index: 2
+  i_index: 0
 --- !u!114 &17813276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,7 +322,7 @@ Skybox:
   m_PrefabInternal: {fileID: 1574445747}
   m_GameObject: {fileID: 17813268}
   m_Enabled: 1
-  m_CustomSkybox: {fileID: 0}
+  m_CustomSkybox: {fileID: 2100000, guid: 16522f49031ff414abdf1f83f1b6a36c, type: 2}
 --- !u!1001 &18365113
 Prefab:
   m_ObjectHideFlags: 0

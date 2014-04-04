@@ -18,6 +18,7 @@ public abstract class ScriptedEnemy : EnemyManager {
     private float timer;
     private Action lastAction;
     private Vector3 platformPosition, platformScale;
+	private HealthBar hpBar;
 
 	override protected void Awake() {
 		base.Awake ();
@@ -39,7 +40,22 @@ public abstract class ScriptedEnemy : EnemyManager {
         player = GameObject.Find("Player").GetComponent<Transform>();
 
         FlipBoss();
+
+		InitializeHpBar();
     }
+
+	void InitializeHpBar() {
+		Rect location = new Rect(0, Screen.height, Screen.width, -10);
+
+		Texture2D healthTexture = new Texture2D(1, 1);
+		healthTexture.SetPixel(0, 0, Color.green);
+		Texture2D barTexture = new Texture2D(1, 1);
+		barTexture.SetPixel(0, 0, Color.red);
+		healthTexture.Apply();
+		barTexture.Apply();
+
+		hpBar = new HealthBar(health, location, barTexture, healthTexture);
+	}
 
 	// Update is called once per frame
 	protected virtual void Update () {

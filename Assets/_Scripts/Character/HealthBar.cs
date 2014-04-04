@@ -12,8 +12,10 @@ using UnityEngine;
 
 public class HealthBar
 {
+	//assume default resolution for scaling elements
 	private Health health;
 	private Rect healthBar = new Rect(40, 25, 200, 30);
+	private Rect healthBarScaled;
 	private Rect currentHealthBar;
 	private Texture2D healthTexture;
 	private Texture2D barTexture;
@@ -24,22 +26,37 @@ public class HealthBar
 		this.healthBar = location;
 		this.barTexture = barTexture;
 		this.healthTexture = healthTexture;
-		currentHealthBar = healthBar;
+
+		ScaleHealth();
 
 		GUIManager.OnDraw += OnDrawHealth;
+		GameManager.resolutionChanged += ScaleHealth;
 	}
 		
 	void OnDrawHealth()
 	{
-		if(!health.gameObject.activeSelf)
+		if(health == null || !health.gameObject.activeSelf)
 			return;
-		GUI.DrawTexture(healthBar, barTexture);
-		currentHealthBar.width = health.f_currentHP / health.fullHP * healthBar.width;
+		GUI.DrawTexture(healthBarScaled, barTexture);
+		currentHealthBar.width = health.f_currentHP / health.fullHP * healthBarScaled.width;
 		GUI.DrawTexture(currentHealthBar, healthTexture);
+	}
+
+	void ScaleHealth() {
+		float xScale = Screen.width / GameManager.screenScale.x;
+		float yScale = Screen.height / GameManager.screenScale.y;
+
+		healthBarScaled = new Rect(healthBar);
+		healthBarScaled.x *= xScale;
+		healthBarScaled.width *= xScale;
+		healthBarScaled.y *= yScale;
+		healthBarScaled.height *= yScale;
+		currentHealthBar = new Rect(healthBarScaled);
 	}
 
 	~HealthBar() {
 		GUIManager.OnDraw -= OnDrawHealth;
+		GameManager.resolutionChanged += ScaleHealth;
 	}
 }
 

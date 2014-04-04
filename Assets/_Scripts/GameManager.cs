@@ -4,6 +4,8 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
+	//Constant for scaling ui-elements
+	public static readonly Vector2 screenScale = new Vector2(1920, 1080);
     public delegate void ResolutionChanged();
     public static event ResolutionChanged resolutionChanged = delegate { };
     private int screenWidth;

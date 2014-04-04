@@ -25,7 +25,8 @@ public class CameraController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if(i_index == -1)return;
+		if(i_index == -1)
+            Application.LoadLevel("BossLevel1");
 		
 		m_transform.Translate(direction*f_speed*Time.deltaTime);
 

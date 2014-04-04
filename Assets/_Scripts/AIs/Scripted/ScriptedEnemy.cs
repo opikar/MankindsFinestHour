@@ -107,31 +107,37 @@ public abstract class ScriptedEnemy : EnemyManager {
     }
     protected IEnumerator ShootAction()
     {
-        lastAction = ShootAction;
-        timer = 0;
-        int num = UnityEngine.Random.Range(1, 6);
-        while (timer < num)
+        if (GetGrounded())
         {
-            SetTarget(player);
-            ShootPrimaryWeapon();
-            yield return new WaitForSeconds(0.15f);
-            timer++;
+            lastAction = ShootAction;
+            timer = 0;
+            int num = UnityEngine.Random.Range(1, 6);
+            while (timer < num)
+            {
+                SetTarget(player);
+                ShootPrimaryWeapon();
+                yield return new WaitForSeconds(0.15f);
+                timer++;
+            }
+            yield return new WaitForSeconds(waitAfterAction);
         }
-        yield return new WaitForSeconds(waitAfterAction);
     }
 
     protected IEnumerator ShootRapidlyAction()
     {
-        lastAction = ShootRapidlyAction;
-        SetTarget(player);
-        timer = 0;
-        while (timer < shootingTime)
+        if (GetGrounded())
         {
-            timer += Time.deltaTime;
-            ShootPrimaryWeapon();
-            yield return new WaitForSeconds(bulletPerSecond);
+            lastAction = ShootRapidlyAction;
+            SetTarget(player);
+            timer = 0;
+            while (timer < shootingTime)
+            {
+                timer += Time.deltaTime;
+                ShootPrimaryWeapon();
+                yield return new WaitForSeconds(bulletPerSecond);
+            }
+            yield return new WaitForSeconds(waitAfterAction);
         }
-        yield return new WaitForSeconds(waitAfterAction);
     }
     protected IEnumerator DropAction()
     {

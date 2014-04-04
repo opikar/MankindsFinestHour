@@ -13,9 +13,9 @@ public class PlayerManager : Character
 	public Rect scoreArea = new Rect(40, 25, 100, 30);
 	private float scoreOrgPos;
 	public static int score = 0;
-    private Rect currentHealthBar;
     private Texture2D healthTexture;
     private Texture2D barTexture;
+	private HealthBar hpBar;
     #endregion
 
     #region UNITY_METHODS
@@ -33,7 +33,6 @@ public class PlayerManager : Character
         }
 
         InitHealthDisplay();
-		GUIManager.OnDraw += OnDrawHealth;
 
 		scoreOrgPos = scoreArea.x;
 		InitScorePos();
@@ -89,14 +88,8 @@ public class PlayerManager : Character
         barTexture.SetPixel(0, 0, Color.red);
         healthTexture.Apply();
         barTexture.Apply();
-        currentHealthBar = healthBar;
-    }
-
-    void OnDrawHealth()
-    {
-        GUI.DrawTexture(healthBar, barTexture);
-        currentHealthBar.width = health.f_currentHP / health.fullHP * healthBar.width;
-        GUI.DrawTexture(currentHealthBar, healthTexture);
+        
+		hpBar = new HealthBar(health, healthBar, barTexture, healthTexture);
     }
 
 	void InitScorePos() {
@@ -109,7 +102,6 @@ public class PlayerManager : Character
 
     void OnDestroy()
     {
-        GUIManager.OnDraw -= OnDrawHealth;
 		GUIManager.OnDraw -= OnDrawScore;
     }
 

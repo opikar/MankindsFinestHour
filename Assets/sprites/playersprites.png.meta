@@ -53,7 +53,7 @@ TextureImporter:
         width: 390
         height: 328
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
     - name: playersprites_1
       rect:
         serializedVersion: 2
@@ -62,7 +62,7 @@ TextureImporter:
         width: 390
         height: 328
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
     - name: playersprites_2
       rect:
         serializedVersion: 2
@@ -71,7 +71,7 @@ TextureImporter:
         width: 390
         height: 328
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
     - name: playersprites_3
       rect:
         serializedVersion: 2
@@ -80,7 +80,7 @@ TextureImporter:
         width: 390
         height: 328
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
     - name: playersprites_4
       rect:
         serializedVersion: 2
@@ -89,7 +89,7 @@ TextureImporter:
         width: 390
         height: 328
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
     - name: playersprites_5
       rect:
         serializedVersion: 2
@@ -98,7 +98,7 @@ TextureImporter:
         width: 390
         height: 328
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
     - name: playersprites_6
       rect:
         serializedVersion: 2
@@ -107,7 +107,7 @@ TextureImporter:
         width: 390
         height: 328
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
     - name: playersprites_7
       rect:
         serializedVersion: 2
@@ -116,7 +116,7 @@ TextureImporter:
         width: 390
         height: 328
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
     - name: playersprites_8
       rect:
         serializedVersion: 2
@@ -125,7 +125,7 @@ TextureImporter:
         width: 390
         height: 328
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
     - name: playersprites_9
       rect:
         serializedVersion: 2
@@ -134,7 +134,7 @@ TextureImporter:
         width: 390
         height: 328
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
     - name: playersprites_10
       rect:
         serializedVersion: 2
@@ -143,7 +143,7 @@ TextureImporter:
         width: 390
         height: 328
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
     - name: playersprites_11
       rect:
         serializedVersion: 2
@@ -152,7 +152,7 @@ TextureImporter:
         width: 390
         height: 328
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
     - name: playersprites_12
       rect:
         serializedVersion: 2
@@ -161,7 +161,7 @@ TextureImporter:
         width: 390
         height: 328
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
     - name: playersprites_13
       rect:
         serializedVersion: 2
@@ -399,10 +399,10 @@ TextureImporter:
     - name: playersprites_52
       rect:
         serializedVersion: 2
-        x: 113
-        y: 444
+        x: 118
+        y: 394
         width: 327
-        height: 415
+        height: 464
       alignment: 0
       pivot: {x: .5, y: .5}
     - name: playersprites_53

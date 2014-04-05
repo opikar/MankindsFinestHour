@@ -6,7 +6,6 @@ public class DepressedBoss : ScriptedEnemy {
 
 	override protected void Start () {
 		base.Start ();
-
 		Action action1 = JumpAction;
 		Action action2 = ShootRapidlyAction;
 		Action action3 = DropAction;

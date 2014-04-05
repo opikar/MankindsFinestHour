@@ -202,17 +202,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 100010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dc83a7e8d9fa4d5cb4a2463a520b8c6, type: 3}
+  m_Script: {fileID: 11500000, guid: af5d0d22047e846c8af8954a47cc993c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  states:
-  - stateName: 
-    position: {fileID: 0}
-  shootingTime: .300000012
-  bulletPerSecond: 30
-  waitAfterAction: 1.5
-  shootingTime: .300000012
-  bulletPerSecond: 30
+  states: []
+  shootingTime: 2
+  bulletPerSecond: 0
   waitAfterAction: 1.5
 --- !u!114 &11400004
 MonoBehaviour:

@@ -9,7 +9,7 @@ public class PlayerManager : Character
 	private int lives = 3;
 	private PlayerState p_state;
 
-    public Rect healthBar = new Rect(40, 25, 200, 30);
+    public Rect healthBar = new Rect(50, 30, 300, 40);
 	public Rect scoreArea = new Rect(40, 25, 100, 30);
 	private float scoreOrgPos;
 	public static int score = 0;

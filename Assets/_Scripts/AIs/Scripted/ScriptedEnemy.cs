@@ -47,7 +47,7 @@ public abstract class ScriptedEnemy : EnemyManager {
    
 
 	void InitializeHpBar() {
-		Rect location = new Rect(0, Screen.height, Screen.width, -10);
+		Rect location = new Rect(0, 1070, 1920, 10);
 
 		Texture2D healthTexture = new Texture2D(1, 1);
 		healthTexture.SetPixel(0, 0, Color.green);

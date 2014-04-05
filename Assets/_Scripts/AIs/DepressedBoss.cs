@@ -13,8 +13,13 @@ public class DepressedBoss : ScriptedEnemy {
         Action action4 = ShootAction;
 
 		currentState.AddAction (action1);
-		currentState.AddAction (action2);
+		//currentState.AddAction (action2);
 		currentState.AddAction (action3);
-		currentState.AddAction (action4);
+		//currentState.AddAction (action4);
 	}
+
+    public override void Stomped()
+    {
+        print("depressed");
+    }
 }

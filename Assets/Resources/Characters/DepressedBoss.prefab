@@ -205,7 +205,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af5d0d22047e846c8af8954a47cc993c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  states: []
+  states:
+  - stateName: 
+    position: {fileID: 0}
   shootingTime: 2
   bulletPerSecond: 0
   waitAfterAction: 1.5

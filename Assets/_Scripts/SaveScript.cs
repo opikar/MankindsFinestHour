@@ -12,7 +12,7 @@ public class SaveScript : MonoBehaviour {
 	int lives;
 
     private string[] levels = new string[5] { "TrueLevel1", "TrueLevel2", "TrueLevel3", "TrueLevel4", "TrueLevel5" };
-    Dictionary<string, bool> passedLevels;
+    public Dictionary<string, bool> passedLevels;
 
     SaveScript()
     {
@@ -39,10 +39,28 @@ public class SaveScript : MonoBehaviour {
         return levels[level];
     }
 
+    public void CompleteLevel(string level)
+    {
+        passedLevels[level] = true;
+    }
+
+    public void ResetLevel(string level)
+    {
+        passedLevels[level] = false;
+    }
+
+    public void ResetAllLevels()
+    {
+        passedLevels[levels[0]] = false;
+        passedLevels[levels[1]] = false;
+        passedLevels[levels[2]] = false;
+        passedLevels[levels[3]] = false;
+        passedLevels[levels[4]] = false;
+    }
+
 	void Save()
 	{
-        if (passedLevels["TrueLevel1"])
-        { }
+        
     }
 	void Load()
 	{}

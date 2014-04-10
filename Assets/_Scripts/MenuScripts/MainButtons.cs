@@ -62,31 +62,31 @@ public class MainButtons : MonoBehaviour
 					Debug.Log("Go To Main Menu");
 					Application.LoadLevel("MainMenu");
 				}
-				else if(guiTexture.name == "Lvl1")
+				else if(guiTexture.name == "TrueLevel1")
 				{
 					//Level1
 					Debug.Log("Lvl1");
 					Application.LoadLevel("TrueLevel1");
 				}
-				else if(guiTexture.name == "Lvl2")
+				else if(guiTexture.name == "TrueLevel2")
 				{
 					//Level2
 					Debug.Log("Lvl2");
 					Application.LoadLevel("TrueLevel2");
 				}
-				else if(guiTexture.name == "Lvl3")
+				else if(guiTexture.name == "TrueLevel3")
 				{
 					//Level3
 					Debug.Log("Lvl3");
 					Application.LoadLevel("TrueLevel3");
 				}
-				else if(guiTexture.name == "Lvl4")
+				else if(guiTexture.name == "TrueLevel4")
 				{
 					//Level4
 					Debug.Log("Lvl4");
 					Application.LoadLevel("TrueLevel4");
 				}
-				else if(guiTexture.name == "Lvl5")
+				else if(guiTexture.name == "TrueLevel5")
 				{
 					//Level5
 					Debug.Log("Lvl5");

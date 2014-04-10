@@ -3,5 +3,5 @@ using System.Collections;
 
 public abstract class LevelManager : MonoBehaviour {
 
-    protected abstract void CompleteLevel();
+    public abstract void CompleteLevel();
 }

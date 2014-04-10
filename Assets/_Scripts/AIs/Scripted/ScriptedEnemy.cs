@@ -141,6 +141,17 @@ public abstract class ScriptedEnemy : EnemyManager {
         }
     }
 
+    protected IEnumerator ShootOnce()
+    {
+        if (GetGrounded())
+        {
+            lastAction = ShootOnce;
+            SetTarget(player);
+            ShootPrimaryWeapon();
+            yield return new WaitForSeconds(waitAfterAction);
+        }
+    }
+
     protected IEnumerator ShootRapidlyAction()
     {
         if (GetGrounded())

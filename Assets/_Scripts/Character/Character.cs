@@ -124,6 +124,15 @@ public abstract class Character : MonoBehaviour
 		rigidbody2D.gravityScale = 1;
 	}
 
+    public void SwapBullet()
+    {
+        weapon.SwapBullet();
+    }
+    public void SwapBullet(int bullet)
+    {
+        weapon.SwapBullet(bullet);
+    }
+
 	public void SetAnimatorSpeed(float speed)
 	{
 		if (animator != null) 

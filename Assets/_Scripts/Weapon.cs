@@ -4,7 +4,9 @@ using System.Collections;
 public class Weapon : MonoBehaviour {
 
 	#region MEMBERS
-	public GameObject bullet;
+	private GameObject bullet;
+    public int bulletIndex;
+    public GameObject[] bullets;
 	public Transform shootSpawn;
 	public float rateOfFire = .3f;
 	public bool autoShoot;
@@ -27,6 +29,7 @@ public class Weapon : MonoBehaviour {
     #region UNITY_METHODS
     void Start () 
     {
+        bullet = bullets[bulletIndex];
 		f_lastShot = Time.time;
 		m_transform = transform;
 		m_movement = GetComponent<Movement>();
@@ -104,6 +107,18 @@ public class Weapon : MonoBehaviour {
 		shootSpawn.position += (target.position - m_transform.position).normalized;
 		//print (shootSpawn.position);
 	}
+    public void SwapBullet()
+    {
+        if (++bulletIndex >= bullets.Length)
+        {
+            bulletIndex = 0;
+        }
+        bullet = bullets[bulletIndex];
+    }
+    public void SwapBullet(int b)
+    {
+        bullet = bullets[b];
+    }
 	/*public void MoveShootingTarget(float axis){
 		if((angle < 90 || axis == -1) && (angle > -90 || axis == 1))
 			angle += axis * Time.deltaTime * 100f;

@@ -202,7 +202,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e8447fdfe6c548b39a18d5695ce4255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 100000, guid: 0470ec2076449644481863434ed08ebf, type: 2}
+  bulletIndex: 0
+  bullets:
+  - {fileID: 100000, guid: 0470ec2076449644481863434ed08ebf, type: 2}
   shootSpawn: {fileID: 400008}
   rateOfFire: 1
   autoShoot: 1

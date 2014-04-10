@@ -44,6 +44,8 @@ public abstract class ScriptedEnemy : EnemyManager {
 		InitializeHpBar();
     }
 
+   
+
 	void InitializeHpBar() {
 		Rect location = new Rect(0, 1070, 1920, 10);
 

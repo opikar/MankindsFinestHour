@@ -134,7 +134,7 @@ public class PlayerManager : Character
 			if (hit.normal == Vector2.up) 
 			{
 				force = Vector2.up;
-				em.Die ();
+				em.Stomped ();
 				isHit = true;
 				break;
 			}

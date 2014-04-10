@@ -16,6 +16,11 @@ public class EnemyManager : Character {
         gameObject.SetActive(false);
     }
 
+    public virtual void Stomped()
+    {
+        Die();
+    }
+
 	public void Move(float direction){
 		movement.Move(direction);
 	}

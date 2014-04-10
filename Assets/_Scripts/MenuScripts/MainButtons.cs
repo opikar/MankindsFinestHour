@@ -8,9 +8,14 @@ public class MainButtons : MonoBehaviour
 	//off = idle shading
 	//press = when item is clicked
 
+	private GameManager m_gameManager;
 	public Color on = new Color(0.7f,0.7f,0.7f,1f);
 	public Color off = new Color(0.5f,0.5f,0.5f,1f);
 	public Color press = new Color(0.3f,0.3f,0.3f,1f);
+
+	void Start () {
+		//m_gameManager = GameObject.Find("Manager").GetComponent<GameManager>();
+	}
 
 	void Update () 
     {
@@ -53,37 +58,37 @@ public class MainButtons : MonoBehaviour
 				}
 				else if(guiTexture.name == "ToMainMenu")
 				{
-					//Shut down the game
+					// Go to main menu
 					Debug.Log("Go To Main Menu");
 					Application.LoadLevel("MainMenu");
 				}
 				else if(guiTexture.name == "Lvl1")
 				{
-					//Shut down the game
+					//Level1
 					Debug.Log("Lvl1");
 					Application.LoadLevel("TrueLevel1");
 				}
 				else if(guiTexture.name == "Lvl2")
 				{
-					//Shut down the game
+					//Level2
 					Debug.Log("Lvl2");
 					Application.LoadLevel("TrueLevel2");
 				}
 				else if(guiTexture.name == "Lvl3")
 				{
-					//Shut down the game
+					//Level3
 					Debug.Log("Lvl3");
 					Application.LoadLevel("TrueLevel3");
 				}
 				else if(guiTexture.name == "Lvl4")
 				{
-					//Shut down the game
+					//Level4
 					Debug.Log("Lvl4");
 					Application.LoadLevel("TrueLevel4");
 				}
 				else if(guiTexture.name == "Lvl5")
 				{
-					//Shut down the game
+					//Level5
 					Debug.Log("Lvl5");
 					Application.LoadLevel("TrueLevel5");
 				}

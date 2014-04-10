@@ -51,7 +51,7 @@ public class SaveScript : MonoBehaviour {
 
     public void ResetAllLevels()
     {
-        availableLevels[levels[0]] = false;
+        availableLevels[levels[0]] = true;
         availableLevels[levels[1]] = false;
         availableLevels[levels[2]] = false;
         availableLevels[levels[3]] = false;

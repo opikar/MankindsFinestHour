@@ -21,4 +21,9 @@ public class DepressedBoss : ScriptedEnemy {
     {
         print("depressed");
     }
+    public override void Die()
+    {
+        GameObject.Find("LevelManager").SendMessage("CompleteLevel", SendMessageOptions.DontRequireReceiver);
+        print("Boss died");
+    }
 }

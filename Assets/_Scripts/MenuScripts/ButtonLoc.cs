@@ -3,7 +3,8 @@ using System.Collections;
 
 public class ButtonLoc : MonoBehaviour {
 
-	public int widthPercent, pos;
+	public int widthPercent;
+	public float pos;
 	private float widthPos;
 
 	// Use this for initialization

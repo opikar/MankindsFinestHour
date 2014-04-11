@@ -10,16 +10,16 @@ public class MechListLoc : MonoBehaviour {
 	void Start () {
 		SaveScript.save.availableLevels["TrueLevel1"] = true;
 		GUITexture tex = GetComponent<GUITexture>();
-		tex.enabled = false;
+		tex.enabled = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		GUITexture tex = GetComponent<GUITexture>();
+		widthPos = (Screen.width/100) * widthPercent;
+		tex.pixelInset = new Rect((-widthPos/2)-(widthPos/2.5f),-(widthPos*(1f/4f))*pos,widthPos,(widthPos*(1f/4f)));
 		if(SaveScript.save.availableLevels[gameObject.name]){
 			tex.enabled = true;
-			widthPos = (Screen.width/100) * widthPercent;
-			tex.pixelInset = new Rect((-widthPos/2)-(widthPos/2.5f),-(widthPos*(1f/4f))*pos,widthPos,(widthPos*(1f/4f)));
 		}
 	}
 }

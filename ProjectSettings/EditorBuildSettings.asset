@@ -10,18 +10,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/MechList.unity
   - enabled: 1
-    path: Assets/_Scenes/Level1.unity
-  - enabled: 1
-    path: Assets/_Scenes/testlevel.unity
-  - enabled: 1
     path: Assets/_Scenes/TrueLevel1.unity
+  - enabled: 1
+    path: Assets/_Scenes/BossLevel1.unity
   - enabled: 1
     path: Assets/_Scenes/TrueLevel2.unity
   - enabled: 1
     path: Assets/_Scenes/TrueLevel3.unity
   - enabled: 1
+    path: Assets/_Scenes/TrueLevel4.unity
+  - enabled: 1
     path: Assets/_Scenes/Cutscenes/IntroCutscene.unity
   - enabled: 1
     path: Assets/_Scenes/Cutscenes/Level1CutsceneFinal.unity
-  - enabled: 1
-    path: Assets/_Scenes/BossLevel1.unity

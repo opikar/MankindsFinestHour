@@ -56,20 +56,24 @@ public class PlayerManager : Character
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if(other.tag == "Pickup") {
-			HandlePickup (other.gameObject.GetComponent<PickupScript>());
-		}
+        if (gameObject.activeSelf)
+        {
+            if (other.tag == "Pickup")
+            {
+                HandlePickup(other.gameObject.GetComponent<PickupScript>());
+            }
 
-		if (other.tag == "Enemy" && gameManager.GetState() == State.Running) 
-		{
-			EnemyManager em = null;
-			em = other.GetComponent<EnemyManager>();
-			if(em != null)
-				HitEnemy(em, other.transform.position);
+            if (other.tag == "Enemy" && gameManager.GetState() == State.Running)
+            {
+                EnemyManager em = null;
+                em = other.GetComponent<EnemyManager>();
+                if (em != null)
+                    HitEnemy(em, other.transform.position);
 
-		}
-		if (other.tag == "Ground" && GetPlayerState () == PlayerState.Hurt)
-			SetPlayerState (PlayerState.Normal);
+            }
+            if (other.tag == "Ground" && GetPlayerState() == PlayerState.Hurt)
+                SetPlayerState(PlayerState.Normal);
+        }
 	}
 	void OnCollisionEnter2D(Collision2D collision)
 	{

@@ -24,5 +24,9 @@ public class EnemyManager : Character {
 	public void Move(float direction){
 		movement.Move(direction);
 	}
+
+	void OnBecameInvisible() {
+		Die();
+	}
     #endregion
 }

@@ -88,8 +88,8 @@ GameObject:
   - 61: {fileID: 6100000}
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400006}
-  - 114: {fileID: 11400004}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
   m_Layer: 12
   m_Name: KamikazeEnemy
   m_TagString: Enemy
@@ -207,7 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seePlayerDistance: 20
   reactionTime: 1
---- !u!114 &11400004
+--- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -218,10 +218,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e8447fdfe6c548b39a18d5695ce4255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 100000, guid: 69d8256add33a0b4cbb0cadf229aea22, type: 2}
-  shootSpawn: {fileID: 400008}
+  bulletIndex: 0
+  bullets:
+  - {fileID: 100000, guid: 69d8256add33a0b4cbb0cadf229aea22, type: 2}
+  shootSpawn: {fileID: 400006}
   rateOfFire: .300000012
-  autoShoot: 1
+  autoShoot: 0
   laserDamage: 20
   laserAmmo: 300000
 --- !u!114 &11400006

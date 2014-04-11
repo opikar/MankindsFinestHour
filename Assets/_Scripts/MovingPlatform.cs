@@ -12,22 +12,22 @@ public class MovingPlatform : MonoBehaviour {
 		get{return v_moveDirection * speed;}
 	}
 
-	private int i_index;
-	private Transform m_transform;
-	private float f_range = 5f;
-	private Vector3 v_moveDirection;
-	private List<Transform> waypoint;
-	private bool b_moving = false;
-	private float f_timer;
-	private float f_delay = 2f;
+    protected int i_index;
+    protected Transform m_transform;
+    protected float f_range = 5f;
+    protected Vector3 v_moveDirection;
+    protected List<Transform> waypoint;
+    protected bool b_moving = false;
+    protected float f_timer;
+    protected float f_delay = 2f;
 
-	void Start()
+    protected void Start()
 	{
 		m_transform = transform;
 		waypoint = GetPath();
 	}
 
-	void Update()
+    protected void Update()
 	{
 		if(b_moving || moveAlways)
 		{
@@ -46,12 +46,12 @@ public class MovingPlatform : MonoBehaviour {
 		}
 	}
 
-	void NextIndex()
+	protected virtual void NextIndex()
 	{
 		if (++i_index >= waypoint.Count) i_index = 0;
 	}
 
-	List<Transform> GetPath()
+    protected List<Transform> GetPath()
 	{
 		string str = null;
 		int index=0;
@@ -76,7 +76,8 @@ public class MovingPlatform : MonoBehaviour {
 		return waypoints;
 	}
 
-	Transform FindClosest(Transform start, List<GameObject> obj){
+    protected Transform FindClosest(Transform start, List<GameObject> obj)
+    {
 		Transform closest = null;
 		float distance = Mathf.Infinity;
 		foreach(GameObject go in obj){
@@ -97,7 +98,7 @@ public class MovingPlatform : MonoBehaviour {
 		return closest;
 	}
 
-	void OnTriggerEnter2D(Collider2D other)
+    protected virtual void OnTriggerEnter2D(Collider2D other)
 	{
 		if(other.tag == "Player" && other.transform.position.y > m_transform.position.y)
 			b_moving = true;

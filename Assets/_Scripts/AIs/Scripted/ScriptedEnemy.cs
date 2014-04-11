@@ -94,6 +94,12 @@ public abstract class ScriptedEnemy : EnemyManager {
 		}
 	}
 
+    public override void Die()
+    {
+        GameObject.Find("LevelManager").GetComponent<LevelManager>().CompleteLevel();
+        print("Boss died");
+    }
+
 
     //ACTIONS FOR ALL THE BOSSES
 
@@ -139,6 +145,15 @@ public abstract class ScriptedEnemy : EnemyManager {
             }
             yield return new WaitForSeconds(waitAfterAction);
         }
+    }
+
+    protected IEnumerator ShootBigBullet()
+    {
+        if (!GetGrounded()) yield break;
+        lastAction = ShootBigBullet;
+        SwapBullet();
+        yield return StartCoroutine(ShootOnce());
+        SwapBullet();
     }
 
     protected IEnumerator ShootOnce()

@@ -203,7 +203,7 @@ GameObject:
   - 114: {fileID: 8129613}
   - 61: {fileID: 8129612}
   m_Layer: 13
-  m_Name: DepressedBoss
+  m_Name: TestBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d62cf344385264e479b27d952343f58b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  choice: DepressedBoss
+  choice: TestBoss
   gizmoSize: {x: 2, y: 3}
 --- !u!4 &8129614
 Transform:
@@ -5400,11 +5400,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: choice
-      value: DepressedBoss
+      value: TestBoss
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: m_Name
-      value: DepressedBoss
+      value: TestBoss
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: m_IsActive

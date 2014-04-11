@@ -14,7 +14,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 82: {fileID: 8200000}
   m_Layer: 0
-  m_Name: Bullet2DTurretEnemy
+  m_Name: BulletBig2DBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 19.5288277, y: -34.8600159, z: -.0539855957}
-  m_LocalScale: {x: .264507562, y: .264507264, z: 1}
+  m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!50 &5000000
@@ -132,7 +132,7 @@ MonoBehaviour:
   gravity: 0
   isPlayer: 0
   collideWithGround: 0
-  speed: 25
+  speed: 40
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

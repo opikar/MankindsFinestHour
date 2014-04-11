@@ -56,7 +56,7 @@ public class Weapon : MonoBehaviour {
     {
 		if(!autoShoot || rateOfFire + f_lastShot < Time.time){
 			f_lastShot = Time.time;
-			m_clone = Instantiate(bullet, shootSpawn.position, Quaternion.identity) as GameObject;
+			m_clone = Instantiate(bullets[bulletIndex], shootSpawn.position, Quaternion.identity) as GameObject;
 			m_clone.rigidbody2D.velocity = (shootSpawn.position - transform.position).normalized;
 			Destroy(m_clone, 5f);
 		}

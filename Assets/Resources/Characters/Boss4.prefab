@@ -226,6 +226,7 @@ MonoBehaviour:
   bulletIndex: 0
   bullets:
   - {fileID: 100000, guid: 6abb1ea1f8d08b14db22176e4f1721d1, type: 2}
+  - {fileID: 100000, guid: ba12a8996ec95ff4a81a828178e10df7, type: 2}
   shootSpawn: {fileID: 400008}
   rateOfFire: .300000012
   autoShoot: 0

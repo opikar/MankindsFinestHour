@@ -7,7 +7,7 @@ public class Boss4 : ScriptedEnemy {
 
     private Vector3 north, northEast, northWest, west, east, south, southEast, southWest, target, middle, topLeftCorner, topRightCorner;
     private int nextAction;
-    public float moveSpeed = 0.001f;
+    public float moveSpeed = 10f;
 
 	override protected void Start () {
 		base.Start ();
@@ -64,7 +64,6 @@ public class Boss4 : ScriptedEnemy {
         }
 
         target = north;
-        yield return null;
     }
 
     public IEnumerator Barrage()
@@ -74,9 +73,13 @@ public class Boss4 : ScriptedEnemy {
         else if (target == topRightCorner)
             target = topLeftCorner;
 
+        int shotCount = 0;
+        float originalX = transform.position.x;
         while (Vector3.SqrMagnitude(target - transform.position) > 0.5f)
         {
             transform.Translate((target - transform.position).normalized * Time.deltaTime * moveSpeed);
+            if(originalX + shotCount * 5f < target.x - transform.position.x && target == topLeftCorner)
+            StartCoroutine(ShootBigBullet());
             yield return null;
         }
 
@@ -100,6 +103,22 @@ public class Boss4 : ScriptedEnemy {
             timer++;
         }
         yield return new WaitForSeconds(waitAfterAction);
+    }
+
+    protected virtual IEnumerator ShootBigBullet()
+    {
+        lastAction = ShootBigBullet;
+        SwapBullet();
+        yield return StartCoroutine(ShootOnce());
+        SwapBullet();
+    }
+
+    protected virtual IEnumerator ShootOnce()
+    {       
+        lastAction = ShootOnce;
+        AimVertical(-1f, 0);
+        ShootPrimaryWeapon();
+        yield return null;
     }
 
     private void NextTarget()

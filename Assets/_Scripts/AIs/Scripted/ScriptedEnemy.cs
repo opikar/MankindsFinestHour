@@ -147,7 +147,7 @@ public abstract class ScriptedEnemy : EnemyManager {
         }
     }
 
-    protected IEnumerator ShootBigBullet()
+    protected virtual IEnumerator ShootBigBullet()
     {
         if (!GetGrounded()) yield break;
         lastAction = ShootBigBullet;
@@ -156,7 +156,7 @@ public abstract class ScriptedEnemy : EnemyManager {
         SwapBullet();
     }
 
-    protected IEnumerator ShootOnce()
+    protected virtual IEnumerator ShootOnce()
     {
         if (GetGrounded())
         {

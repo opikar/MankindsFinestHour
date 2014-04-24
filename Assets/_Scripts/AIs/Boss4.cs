@@ -7,6 +7,7 @@ public class Boss4 : ScriptedEnemy {
 
     private Vector3 north, northEast, northWest, west, east, south, southEast, southWest, target, middle, topLeftCorner, topRightCorner;
     private int nextAction;
+    public float collisionDamage = 20f;
     public float moveSpeed = 10f;
     bool rage;
 
@@ -37,7 +38,7 @@ public class Boss4 : ScriptedEnemy {
         {
             PlayerManager pl = other.GetComponent<PlayerManager>();
             if (pl != null)
-                pl.ApplyDamage(10f);
+                pl.ApplyDamage(collisionDamage);
         }
     }
 

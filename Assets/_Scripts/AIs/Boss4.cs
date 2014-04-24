@@ -26,9 +26,24 @@ public class Boss4 : ScriptedEnemy {
         topLeftCorner = GameObject.Find("TopLeftCorner").transform.position;
         topRightCorner = GameObject.Find("TopRightCorner").transform.position;
 
-        target = east;
+        target = south;
 		currentState.AddAction (action);
 	}
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            PlayerManager pl = other.GetComponent<PlayerManager>();
+            if (pl != null)
+                pl.ApplyDamage(10f);
+        }
+    }
+
+    public override void Stomped()
+    {
+        
+    }
 
     public IEnumerator MoveToTarget() 
     {
@@ -64,22 +79,34 @@ public class Boss4 : ScriptedEnemy {
         }
 
         target = north;
+
+        while (Vector3.SqrMagnitude(target - transform.position) > 0.5f)
+        {
+            transform.Translate((target - transform.position).normalized * Time.deltaTime * moveSpeed);
+            yield return null;
+        }
     }
 
     public IEnumerator Barrage()
     {
+        float originalX = target.x;
+
         if (target == topLeftCorner)
             target = topRightCorner;
         else if (target == topRightCorner)
             target = topLeftCorner;
 
         int shotCount = 0;
-        float originalX = transform.position.x;
+        
         while (Vector3.SqrMagnitude(target - transform.position) > 0.5f)
         {
             transform.Translate((target - transform.position).normalized * Time.deltaTime * moveSpeed);
-            if(originalX + shotCount * 5f < target.x - transform.position.x && target == topLeftCorner)
-            StartCoroutine(ShootBigBullet());
+            if (originalX - shotCount * 10f > transform.position.x && target == topLeftCorner
+                || originalX + shotCount * 10f < transform.position.x && target == topRightCorner)
+            {
+                StartCoroutine(ShootBigBullet());
+                shotCount++;
+            }
             yield return null;
         }
 
@@ -105,15 +132,15 @@ public class Boss4 : ScriptedEnemy {
         yield return new WaitForSeconds(waitAfterAction);
     }
 
-    protected virtual IEnumerator ShootBigBullet()
+    protected override IEnumerator ShootBigBullet()
     {
         lastAction = ShootBigBullet;
         SwapBullet();
-        yield return StartCoroutine(ShootOnce());
+        yield return StartCoroutine(ShootDown());
         SwapBullet();
     }
 
-    protected virtual IEnumerator ShootOnce()
+    protected IEnumerator ShootDown()
     {       
         lastAction = ShootOnce;
         AimVertical(-1f, 0);
@@ -123,17 +150,22 @@ public class Boss4 : ScriptedEnemy {
 
     private void NextTarget()
     {
-        nextAction = Random.Range(0,4);
 
         if (target == north)
-
+        {
+            nextAction = Random.Range(0, 4);
             if (nextAction == 0)
                 target = northEast;
-            else
+            else if (nextAction == 1)
                 target = northWest;
-
+            else if (nextAction == 2)
+                target = topLeftCorner;
+            else
+                target = topRightCorner;
+        }
         else if (target == northEast)
-
+        {
+            nextAction = Random.Range(0, 4);
             if (nextAction == 0)
                 target = north;
             else if (nextAction == 1)
@@ -142,9 +174,10 @@ public class Boss4 : ScriptedEnemy {
                 target = northWest;
             else
                 target = topRightCorner;
-
+        }
         else if (target == northWest)
-
+        {
+            nextAction = Random.Range(0, 4);
             if (nextAction == 0)
                 target = north;
             else if (nextAction == 1)
@@ -153,43 +186,59 @@ public class Boss4 : ScriptedEnemy {
                 target = northEast;
             else
                 target = topLeftCorner;
-
+        }
         else if (target == west)
-
+        {
+            nextAction = Random.Range(0, 2);
             if (nextAction == 0)
                 target = south;
             else
                 target = northWest;
-
+        }
         else if (target == east)
-
+        {
+            nextAction = Random.Range(0, 2);
             if (nextAction == 0)
                 target = south;
             else
                 target = northEast;
-
+        }
         else if (target == south)
-
+        {
+            InvokeRepeating("ShootInvoked", 0, 0.4f);
+            nextAction = Random.Range(0, 2);
             if (nextAction == 0)
                 target = southWest;
             else
                 target = southEast;
-
+        }
         else if (target == southEast)
-
+        {
+            if (IsInvoking("ShootInvoked"))
+                CancelInvoke("ShootInvoked");
             target = east;
-
+        }
         else if (target == southWest)
-
+        {
+            if (IsInvoking("ShootInvoked"))
+                CancelInvoke("ShootInvoked");
             target = west;
-
+        }
         else if (target == topLeftCorner)
-        
+
         { }
 
         else if (target == topRightCorner)
-        
+
         { }
 
     }
+
+    void ShootInvoked()
+    {
+        lastAction = ShootOnce;
+        SetTarget(player);
+        ShootPrimaryWeapon();
+    }
+    
 }

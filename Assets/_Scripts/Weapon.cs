@@ -11,7 +11,7 @@ public class Weapon : MonoBehaviour {
 	public float rateOfFire = .3f;
 	public bool autoShoot;
 	public float laserDamage = 20;
-	public float laserAmmo = 300000;
+	public float laserAmmo = 30;
 
     private Transform m_transform;
 	private LineRenderer laser;
@@ -66,6 +66,7 @@ public class Weapon : MonoBehaviour {
     {
 		if(laserAmmo > 0) {
 			laserAmmo -= Time.deltaTime;
+			Debug.Log(Time.timeScale);
 			laser.SetPosition (0, shootSpawn.position);
 			Vector3 direction = (shootSpawn.position - transform.position).normalized;
 

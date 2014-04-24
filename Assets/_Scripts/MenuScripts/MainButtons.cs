@@ -62,6 +62,11 @@ public class MainButtons : MonoBehaviour
 					Debug.Log("Go To Main Menu");
 					Application.LoadLevel("MainMenu");
 				}
+				else if(guiTexture.name == "ToLevelSelect")
+				{
+					Debug.Log("LevelSelect");
+					Application.LoadLevel("MechList");
+				}
 				else if(guiTexture.name == "TrueLevel1")
 				{
 					//Level1

@@ -14,9 +14,9 @@ public abstract class ScriptedEnemy : EnemyManager {
     public float waitAfterAction = 1.5f;
 
     private float maxY, minY, maxX, minX;
-    private Transform player;
-    private float timer;
-    private Action lastAction;
+    protected Transform player;
+    protected float timer;
+    protected Action lastAction;
     private Vector3 platformPosition, platformScale;
 	private HealthBar hpBar;
 
@@ -129,7 +129,7 @@ public abstract class ScriptedEnemy : EnemyManager {
         else
             yield return null;
     }
-    protected IEnumerator ShootAction()
+    protected virtual IEnumerator ShootAction()
     {
         if (GetGrounded())
         {

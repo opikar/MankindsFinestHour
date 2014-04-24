@@ -14,6 +14,7 @@ public class EnemyManager : Character {
     public override void Die()
     {
         gameObject.SetActive(false);
+		PlayerManager.score += 10;
     }
 
     public virtual void Stomped()

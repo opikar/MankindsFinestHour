@@ -8,10 +8,11 @@ public class PlayerManager : Character
     private GUIManager m_guiManager;
 	private int lives = 3;
 	private PlayerState p_state;
+	public GUIStyle style;
 
-    public Rect healthBar = new Rect(50, 30, 300, 40);
-	public Rect scoreArea = new Rect(40, 25, 100, 30);
-	private float scoreOrgPos;
+    private Rect healthBar = new Rect(50, 30, 300, 40);
+	private Rect scoreArea = new Rect(1800, 30, 100, 50);
+	private Rect laserArea = new Rect(1800, 1000, 100, 50);
 	public static int score = 0;
     private Texture2D healthTexture;
     private Texture2D barTexture;
@@ -34,9 +35,7 @@ public class PlayerManager : Character
 
         InitHealthDisplay();
 
-		scoreOrgPos = scoreArea.x;
-		InitScorePos();
-		GameManager.resolutionChanged += InitScorePos;
+		GUIManager.OnDraw += OnDrawLaserAmmo;
 		GUIManager.OnDraw += OnDrawScore;
 	}
 
@@ -96,12 +95,13 @@ public class PlayerManager : Character
 		hpBar = new HealthBar(health, healthBar, barTexture, healthTexture);
     }
 
-	void InitScorePos() {
-		scoreArea.x = Screen.width - scoreOrgPos - scoreArea.width;
+	void OnDrawScore() {
+		GUI.Box (scoreArea, score.ToString(), style);
 	}
 
-	void OnDrawScore() {
-		GUI.Box (scoreArea, score.ToString());
+	void OnDrawLaserAmmo() {
+		float ammo = weapon.laserAmmo < 0 ? 0 : weapon.laserAmmo;
+		GUI.Box (laserArea, ammo.ToString("#.00"), style);
 	}
 
     void OnDestroy()
@@ -115,7 +115,7 @@ public class PlayerManager : Character
 			Application.LoadLevel(Application.loadedLevel);
 		} else {
 			gameObject.SetActive(false);
-			Application.LoadLevel ("MainMenu");
+			Application.LoadLevel ("MechList");
 		}
     }
 

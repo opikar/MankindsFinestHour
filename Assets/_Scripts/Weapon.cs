@@ -11,7 +11,7 @@ public class Weapon : MonoBehaviour {
 	public float rateOfFire = .3f;
 	public bool autoShoot;
 	public float laserDamage = 20;
-	public float laserAmmo = 300000;
+	public float laserAmmo = 30;
 
     private Transform m_transform;
 	private LineRenderer laser;

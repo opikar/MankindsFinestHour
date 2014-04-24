@@ -209,7 +209,7 @@ MonoBehaviour:
   - stateName: 
     position: {fileID: 0}
   shootingTime: 2
-  bulletPerSecond: 0
+  bulletPerSecond: 15
   waitAfterAction: 1.5
 --- !u!114 &11400004
 MonoBehaviour:

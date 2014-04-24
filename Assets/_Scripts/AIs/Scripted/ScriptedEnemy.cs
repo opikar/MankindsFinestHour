@@ -176,7 +176,8 @@ public abstract class ScriptedEnemy : EnemyManager {
             timer = 0;
             while (timer < shootingTime)
             {
-                timer += Time.deltaTime;
+                print(timer);
+                timer += bulletPerSecond;
                 ShootPrimaryWeapon();
                 yield return new WaitForSeconds(bulletPerSecond);
             }

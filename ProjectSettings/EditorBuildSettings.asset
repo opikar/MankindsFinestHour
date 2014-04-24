@@ -16,9 +16,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/TrueLevel2.unity
   - enabled: 1
+    path: Assets/_Scenes/BossLevel2.unity
+  - enabled: 1
     path: Assets/_Scenes/TrueLevel3.unity
   - enabled: 1
+    path: Assets/_Scenes/BossLevel3.unity
+  - enabled: 1
     path: Assets/_Scenes/TrueLevel4.unity
+  - enabled: 1
+    path: Assets/_Scenes/BossLevel4.unity
+  - enabled: 1
+    path: Assets/_Scenes/TrueLevel5.unity
+  - enabled: 1
+    path: Assets/_Scenes/BossLevel5.unity
   - enabled: 1
     path: Assets/_Scenes/Cutscenes/IntroCutscene.unity
   - enabled: 1

@@ -15,7 +15,7 @@ public class PauseMenuScript : MonoBehaviour {
 
 		blackBox = transform.Find("BlackBox").GetComponent<GUITexture>();
 		paused = transform.Find("Paused").GetComponent<GUITexture>();
-		toMain = transform.Find("ToMainMenu").GetComponent<GUITexture>();
+		toMain = transform.Find("ToLevelSelect").GetComponent<GUITexture>();
 	}
 	
 	// Update is called once per frame

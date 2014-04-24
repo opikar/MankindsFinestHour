@@ -8,6 +8,7 @@ public class Boss4 : ScriptedEnemy {
     private Vector3 north, northEast, northWest, west, east, south, southEast, southWest, target, middle, topLeftCorner, topRightCorner;
     private int nextAction;
     public float moveSpeed = 10f;
+    bool rage;
 
 	override protected void Start () {
 		base.Start ();
@@ -49,18 +50,23 @@ public class Boss4 : ScriptedEnemy {
     {
         while (Vector3.SqrMagnitude(target - transform.position) >= 0.5f)
         {
+            if (health.f_currentHP < GetMaxHealth() * .5f)
+                Rage();
+            
             transform.Translate((target - transform.position).normalized * Time.deltaTime * moveSpeed);
             if (Vector3.SqrMagnitude(target - transform.position) < 0.5f)
             {
-                //yield return new WaitForSeconds(waitAfterAction);
                 if (target == north)
                     yield return StartCoroutine(Swoop());
 
                 else if (target == northEast || target == northWest || target == east || target == west)
-                    StartCoroutine(ShootAction());
+                    if (!rage)
+                        yield return StartCoroutine(ShootAction());
+                    else
+                        StartCoroutine(ShootAction());
 
                 if (target == topRightCorner || target == topLeftCorner)
-                    yield return StartCoroutine(Barrage());
+                        yield return StartCoroutine(Barrage());
 
                 else
                     NextTarget();
@@ -205,7 +211,7 @@ public class Boss4 : ScriptedEnemy {
         }
         else if (target == south)
         {
-            InvokeRepeating("ShootInvoked", 0, 0.4f);
+            InvokeRepeating("ShootInvoked", 0, bulletPerSecond);
             nextAction = Random.Range(0, 2);
             if (nextAction == 0)
                 target = southWest;
@@ -232,6 +238,13 @@ public class Boss4 : ScriptedEnemy {
 
         { }
 
+    }
+
+    void Rage()
+    {
+        waitAfterAction = 0;
+        rage = true;
+        moveSpeed = 12f;
     }
 
     void ShootInvoked()

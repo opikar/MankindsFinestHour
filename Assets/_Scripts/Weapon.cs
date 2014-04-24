@@ -66,7 +66,6 @@ public class Weapon : MonoBehaviour {
     {
 		if(laserAmmo > 0) {
 			laserAmmo -= Time.deltaTime;
-			Debug.Log(Time.timeScale);
 			laser.SetPosition (0, shootSpawn.position);
 			Vector3 direction = (shootSpawn.position - transform.position).normalized;
 

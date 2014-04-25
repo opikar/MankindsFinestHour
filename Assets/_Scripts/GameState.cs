@@ -29,11 +29,17 @@ public static class GameState {
 
 	}
 
+	public static void PlayerState() {
+		Debug.Log(uniques["Player"]);
+	}
+
 	public static GameObject GetCharacter(string name) {
 		GameObject tmp;
 
 		if(uniques.ContainsKey(name)) {
+			Debug.Log(uniques[name]);
 			if(uniques[name] == null) {
+				Debug.Log("New player");
 				tmp = MonoBehaviour.Instantiate(prefabs[name]) as GameObject;
 				MonoBehaviour.DontDestroyOnLoad(tmp);
 				tmp.name = name;

@@ -14,9 +14,10 @@ public class PlayerManager : Character
 	private Rect scoreArea = new Rect(1800, 30, 100, 50);
 	private Rect laserArea = new Rect(1800, 1000, 100, 50);
 	public static int score = 0;
-    private Texture2D healthTexture;
-    private Texture2D barTexture;
 	private HealthBar hpBar;
+
+	protected new static Weapon weapon;
+	protected new static Health health;
     #endregion
 
     #region UNITY_METHODS
@@ -32,6 +33,16 @@ public class PlayerManager : Character
         {
             Debug.LogError("Component did not load properly in PlayerManager");
         }
+		health = GetComponent<Health>();
+		if (health == null)
+		{
+			gameObject.AddComponent<Health>();
+		}
+		weapon = GetComponent<Weapon>();
+		if (weapon == null)
+		{
+			gameObject.AddComponent<Weapon>();
+		}
 
         InitHealthDisplay();
 
@@ -84,15 +95,8 @@ public class PlayerManager : Character
     #region METHODS
 
     void InitHealthDisplay()
-    {
-        healthTexture = new Texture2D(1, 1);
-        healthTexture.SetPixel(0, 0, Color.green);
-        barTexture = new Texture2D(1, 1);
-        barTexture.SetPixel(0, 0, Color.red);
-        healthTexture.Apply();
-        barTexture.Apply();
-        
-		hpBar = new HealthBar(health, healthBar, barTexture, healthTexture);
+    {        
+		hpBar = new HealthBar(health, healthBar);
     }
 
 	void OnDrawScore() {

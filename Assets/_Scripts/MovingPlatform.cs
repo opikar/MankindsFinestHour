@@ -21,7 +21,7 @@ public class MovingPlatform : MonoBehaviour {
     protected float f_timer;
     protected float f_delay = 2f;
 
-    protected void Start()
+    protected virtual void Start()
 	{
 		m_transform = transform;
 		waypoint = GetPath();

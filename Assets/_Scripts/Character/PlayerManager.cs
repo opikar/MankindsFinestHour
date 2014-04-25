@@ -13,6 +13,7 @@ public class PlayerManager : Character
     private Rect healthBar = new Rect(50, 30, 300, 40);
 	private Rect scoreArea = new Rect(1800, 30, 100, 50);
 	private Rect laserArea = new Rect(1800, 1000, 100, 50);
+	private Rect livesArea = new Rect(350, 30, 100, 40);
 	public static int score = 0;
 	private HealthBar hpBar;
 
@@ -48,6 +49,7 @@ public class PlayerManager : Character
 
 		GUIManager.OnDraw += OnDrawLaserAmmo;
 		GUIManager.OnDraw += OnDrawScore;
+		GUIManager.OnDraw += OnDrawLives;
 	}
 
 	void HandlePickup(PickupScript pickup) {
@@ -98,6 +100,10 @@ public class PlayerManager : Character
     {        
 		hpBar = new HealthBar(health, healthBar);
     }
+
+	void OnDrawLives() {
+		GUI.Box(livesArea, lives.ToString(), style); 
+	}
 
 	void OnDrawScore() {
 		GUI.Box (scoreArea, score.ToString(), style);

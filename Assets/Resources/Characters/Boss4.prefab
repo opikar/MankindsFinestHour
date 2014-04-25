@@ -212,6 +212,7 @@ MonoBehaviour:
   bulletPerSecond: 10
   waitAfterAction: 3
   collisionDamage: 20
+  startRage: .5
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -227,6 +228,7 @@ MonoBehaviour:
   bullets:
   - {fileID: 100000, guid: b3aab4255fa6c764e87de92488f980a3, type: 2}
   - {fileID: 100000, guid: 3b55ca17e8ab1d344ab40bfe2aeafa1d, type: 2}
+  - {fileID: 100000, guid: fb6a270b847a8914d8c791e3a9b3ccce, type: 2}
   shootSpawn: {fileID: 400008}
   rateOfFire: .300000012
   autoShoot: 0

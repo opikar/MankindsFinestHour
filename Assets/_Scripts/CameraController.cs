@@ -27,7 +27,7 @@ public class CameraController : MonoBehaviour {
 	void Update () {
         if (i_index == -1)
         {
-            Application.LoadLevel("BossLevel1");
+            //Application.LoadLevel("BossLevel1");
             return;
         }
             

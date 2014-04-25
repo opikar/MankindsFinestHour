@@ -29,7 +29,8 @@ public class Weapon : MonoBehaviour {
     #region UNITY_METHODS
     void Start () 
     {
-        bullet = bullets[bulletIndex];
+        if(bullets.Length > 0)
+            bullet = bullets[bulletIndex];
 		f_lastShot = Time.time;
 		m_transform = transform;
 		m_movement = GetComponent<Movement>();
@@ -118,11 +119,12 @@ public class Weapon : MonoBehaviour {
     public void SwapBullet(int b)
     {
         bullet = bullets[b];
+        bulletIndex = b;
     }
 
     public void ShootFrom(Vector3 start, Vector3 direction)
     {
-        m_clone = Instantiate(bullets[0], start, Quaternion.identity) as GameObject;
+        m_clone = Instantiate(bullets[bulletIndex], start, Quaternion.identity) as GameObject;
         m_clone.rigidbody2D.velocity = (direction - start).normalized;
     }
 	/*public void MoveShootingTarget(float axis){

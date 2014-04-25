@@ -36,9 +36,8 @@ public class Boss4 : ScriptedEnemy {
     protected override IEnumerator ShootBigBullet()
     {
         lastAction = ShootBigBullet;
-        SwapBullet();
+        SwapBullet(1);
         yield return StartCoroutine(ShootOnce());
-        SwapBullet();
     }
 
     protected override IEnumerator ShootOnce()
@@ -53,6 +52,7 @@ public class Boss4 : ScriptedEnemy {
     {
         lastAction = ShootRapidlyAction;
         timer = 0;
+        SwapBullet(0);
         while (timer < shootingTime)
         {
             SetTarget(player);
@@ -66,6 +66,8 @@ public class Boss4 : ScriptedEnemy {
     protected IEnumerator CornerShot()
     {
         if (health.f_currentHP > GetMaxHealth() * 0.75f) yield break;
+
+        SwapBullet(2);
 
         lastAction = CornerShot;
         weapon.ShootFrom(topLeft, center);

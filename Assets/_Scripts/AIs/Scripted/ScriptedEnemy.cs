@@ -13,9 +13,11 @@ public abstract class ScriptedEnemy : EnemyManager {
     public float bulletPerSecond;
     public float waitAfterAction = 1.5f;
     public float collisionDamage = 20f;
+    public float startRage = 0.5f;
 
     private float maxY, minY, maxX, minX;
     protected Transform player;
+    protected bool rage;
     protected float timer;
     protected Action lastAction;
     private Vector3 platformPosition, platformScale;
@@ -72,6 +74,8 @@ public abstract class ScriptedEnemy : EnemyManager {
 		if(!actionRunning) {
 			StartCoroutine(RunAction ());
 		}
+        if (health.f_currentHP < GetMaxHealth() * .5f)
+            Rage();
         FlipBoss();
 	}
 
@@ -100,6 +104,10 @@ public abstract class ScriptedEnemy : EnemyManager {
         print("Boss died");
     }
 
+    protected virtual void Rage()
+    {
+        rage = true;
+    }
 
     //ACTIONS FOR ALL THE BOSSES
 
@@ -167,7 +175,7 @@ public abstract class ScriptedEnemy : EnemyManager {
         }
     }
 
-    protected IEnumerator ShootRapidlyAction()
+    protected virtual IEnumerator ShootRapidlyAction()
     {
         if (GetGrounded())
         {

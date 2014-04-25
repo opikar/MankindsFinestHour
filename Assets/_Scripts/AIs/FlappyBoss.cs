@@ -20,10 +20,4 @@ public class FlappyBoss : ScriptedEnemy {
         currentState.AddAction (action4);
         currentState.AddAction (action5);
 	}
-
-	IEnumerator Suicide() {
-		Debug.Log("The boss had killed itself in the dressing room.");
-		Application.LoadLevel("Cutscene1");
-		yield return null;
-	}
 }

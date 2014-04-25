@@ -119,6 +119,12 @@ public class Weapon : MonoBehaviour {
     {
         bullet = bullets[b];
     }
+
+    public void ShootFrom(Vector3 start, Vector3 direction)
+    {
+        m_clone = Instantiate(bullets[0], start, Quaternion.identity) as GameObject;
+        m_clone.rigidbody2D.velocity = (direction - start).normalized;
+    }
 	/*public void MoveShootingTarget(float axis){
 		if((angle < 90 || axis == -1) && (angle > -90 || axis == 1))
 			angle += axis * Time.deltaTime * 100f;

@@ -13,9 +13,11 @@ public abstract class ScriptedEnemy : EnemyManager {
     public float bulletPerSecond;
     public float waitAfterAction = 1.5f;
     public float collisionDamage = 20f;
+    public float startRage = 0.5f;
 
     private float maxY, minY, maxX, minX;
     protected Transform player;
+    protected bool rage;
     protected float timer;
     protected Action lastAction;
     private Vector3 platformPosition, platformScale;
@@ -64,15 +66,7 @@ public abstract class ScriptedEnemy : EnemyManager {
 
 	void InitializeHpBar() {
 		Rect location = new Rect(0, 1070, 1920, 10);
-
-		Texture2D healthTexture = new Texture2D(1, 1);
-		healthTexture.SetPixel(0, 0, Color.green);
-		Texture2D barTexture = new Texture2D(1, 1);
-		barTexture.SetPixel(0, 0, Color.red);
-		healthTexture.Apply();
-		barTexture.Apply();
-
-		hpBar = new HealthBar(health, location, barTexture, healthTexture);
+		hpBar = new HealthBar(health, location);
 	}
 
 	// Update is called once per frame
@@ -80,6 +74,8 @@ public abstract class ScriptedEnemy : EnemyManager {
 		if(!actionRunning) {
 			StartCoroutine(RunAction ());
 		}
+        if (health.f_currentHP < GetMaxHealth() * .5f)
+            Rage();
         FlipBoss();
 	}
 
@@ -103,10 +99,15 @@ public abstract class ScriptedEnemy : EnemyManager {
 
     public override void Die()
     {
+		GameManager.instance.SetState(State.Postgame);
         GameObject.Find("LevelManager").GetComponent<LevelManager>().CompleteLevel();
         print("Boss died");
     }
 
+    protected virtual void Rage()
+    {
+        rage = true;
+    }
 
     //ACTIONS FOR ALL THE BOSSES
 
@@ -174,7 +175,7 @@ public abstract class ScriptedEnemy : EnemyManager {
         }
     }
 
-    protected IEnumerator ShootRapidlyAction()
+    protected virtual IEnumerator ShootRapidlyAction()
     {
         if (GetGrounded())
         {

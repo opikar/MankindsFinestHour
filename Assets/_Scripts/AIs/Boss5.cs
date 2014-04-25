@@ -8,7 +8,6 @@ public class Boss5 : ScriptedEnemy {
     private Vector3 north, northEast, northWest, west, east, south, southEast, southWest, target, middle, topLeftCorner, topRightCorner;
     private int nextAction;
     public float moveSpeed = 10f;
-    bool rage;
 
 	override protected void Start () {
 		base.Start ();
@@ -39,10 +38,7 @@ public class Boss5 : ScriptedEnemy {
     public IEnumerator MoveToTarget() 
     {
         while (Vector3.SqrMagnitude(target - transform.position) >= 0.5f)
-        {
-            if (health.f_currentHP < GetMaxHealth() * .5f)
-                Rage();
-            
+        {   
             transform.Translate((target - transform.position).normalized * Time.deltaTime * moveSpeed);
             if (Vector3.SqrMagnitude(target - transform.position) < 0.5f)
             {
@@ -230,10 +226,10 @@ public class Boss5 : ScriptedEnemy {
 
     }
 
-    void Rage()
+    protected override void Rage()
     {
+        base.Rage();
         waitAfterAction = 0;
-        rage = true;
         moveSpeed = 12f;
     }
 

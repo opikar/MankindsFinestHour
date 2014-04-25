@@ -269,7 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0}
   sprite: {fileID: 21300000, guid: ed43dc5bf32ab4378b04b4314ab1a424, type: 3}
-  damage: 10
+  damage: 20
   gravity: 0
   isPlayer: 0
   collideWithGround: 0

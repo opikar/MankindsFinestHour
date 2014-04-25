@@ -3798,7 +3798,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 291914438}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13d71558d71c2b34cbc76f13bd70db8f, type: 3}
+  m_Script: {fileID: 11500000, guid: dc9f1bcbad3530f45a475dbd571e5a38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   start: {fileID: 886528224}
@@ -10183,7 +10183,7 @@ GameObject:
   - 4: {fileID: 712977877}
   - 114: {fileID: 712977876}
   m_Layer: 0
-  m_Name: Level4Manager
+  m_Name: LevelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28782,6 +28782,10 @@ Prefab:
     - target: {fileID: 400000, guid: c13872717e1fad2459212bc9a1ec9755, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c13872717e1fad2459212bc9a1ec9755, type: 2}
+      propertyPath: m_Name
+      value: LevelManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c13872717e1fad2459212bc9a1ec9755, type: 2}

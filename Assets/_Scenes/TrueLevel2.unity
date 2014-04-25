@@ -16271,6 +16271,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 5b7f560f90cd8f24e8aba8a5380ed4bb, type: 2}
+      propertyPath: m_Name
+      value: LevelManager
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5b7f560f90cd8f24e8aba8a5380ed4bb, type: 2}
   m_RootGameObject: {fileID: 1446584147}
@@ -22485,7 +22489,7 @@ GameObject:
   - 4: {fileID: 1446584149}
   - 114: {fileID: 1446584148}
   m_Layer: 0
-  m_Name: Level2Manager
+  m_Name: LevelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

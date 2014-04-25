@@ -85,7 +85,7 @@ GameObject:
   - 114: {fileID: 8129613}
   - 61: {fileID: 8129612}
   m_Layer: 13
-  m_Name: DepressedBoss
+  m_Name: Boss4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d62cf344385264e479b27d952343f58b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  choice: DepressedBoss
+  choice: Boss4
   gizmoSize: {x: 2, y: 3}
 --- !u!4 &8129614
 Transform:
@@ -1371,11 +1371,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: choice
-      value: DepressedBoss
+      value: Boss4
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: m_Name
-      value: DepressedBoss
+      value: Boss4
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: m_IsActive
@@ -1522,14 +1522,14 @@ Transform:
   m_LocalPosition: {x: 652.447021, y: 22.5087013, z: -21.3774414}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 962425591}
   - {fileID: 762272818}
   - {fileID: 334799480}
   - {fileID: 253156549}
-  - {fileID: 1489999812}
-  - {fileID: 58851509}
-  - {fileID: 1177876200}
-  - {fileID: 962425591}
   - {fileID: 274070195}
+  - {fileID: 1489999812}
+  - {fileID: 1177876200}
+  - {fileID: 58851509}
   m_Father: {fileID: 0}
 --- !u!1 &1141170007
 GameObject:

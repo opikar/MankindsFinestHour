@@ -91,7 +91,7 @@ GameObject:
   - 114: {fileID: 11400004}
   - 114: {fileID: 11400000}
   m_Layer: 12
-  m_Name: Boss4
+  m_Name: Boss5
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,16 +202,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 100010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d8677a5db5dc7f4aa69c9e4a11792af, type: 3}
+  m_Script: {fileID: 11500000, guid: add13603e61c90843b720c3cf04fe361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   states:
   - stateName: 
     position: {fileID: 0}
-  shootingTime: 1
-  bulletPerSecond: 10
-  waitAfterAction: 3
+  shootingTime: 2
+  bulletPerSecond: 2
+  waitAfterAction: 1.5
   collisionDamage: 20
+  moveSpeed: 8
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -225,8 +226,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletIndex: 0
   bullets:
-  - {fileID: 100000, guid: b3aab4255fa6c764e87de92488f980a3, type: 2}
-  - {fileID: 100000, guid: 3b55ca17e8ab1d344ab40bfe2aeafa1d, type: 2}
+  - {fileID: 100000, guid: 6abb1ea1f8d08b14db22176e4f1721d1, type: 2}
+  - {fileID: 100000, guid: 7da83870fdc7e4b22bd7f7e59497cca9, type: 2}
   shootSpawn: {fileID: 400008}
   rateOfFire: .300000012
   autoShoot: 0

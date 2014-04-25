@@ -12,6 +12,7 @@ public abstract class ScriptedEnemy : EnemyManager {
     public float shootingTime = 2f;
     public float bulletPerSecond;
     public float waitAfterAction = 1.5f;
+    public float collisionDamage = 20f;
 
     private float maxY, minY, maxX, minX;
     protected Transform player;
@@ -44,6 +45,21 @@ public abstract class ScriptedEnemy : EnemyManager {
 		InitializeHpBar();
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            PlayerManager pl = other.GetComponent<PlayerManager>();
+            if (pl != null)
+                pl.ApplyDamage(collisionDamage);
+        }
+        if (GetGrounded())
+        {
+            platformPosition = other.transform.position;
+            platformScale = other.transform.localScale;
+        }
+    }
+
    
 
 	void InitializeHpBar() {
@@ -66,15 +82,6 @@ public abstract class ScriptedEnemy : EnemyManager {
 		}
         FlipBoss();
 	}
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        //if (GetGrounded())
-        {
-            platformPosition = other.transform.position;
-            platformScale = other.transform.localScale;
-        }
-    }
 
     protected IEnumerator RunAction()
     {

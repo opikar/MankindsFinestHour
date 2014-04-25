@@ -64,15 +64,7 @@ public abstract class ScriptedEnemy : EnemyManager {
 
 	void InitializeHpBar() {
 		Rect location = new Rect(0, 1070, 1920, 10);
-
-		Texture2D healthTexture = new Texture2D(1, 1);
-		healthTexture.SetPixel(0, 0, Color.green);
-		Texture2D barTexture = new Texture2D(1, 1);
-		barTexture.SetPixel(0, 0, Color.red);
-		healthTexture.Apply();
-		barTexture.Apply();
-
-		hpBar = new HealthBar(health, location, barTexture, healthTexture);
+		hpBar = new HealthBar(health, location);
 	}
 
 	// Update is called once per frame
@@ -103,6 +95,7 @@ public abstract class ScriptedEnemy : EnemyManager {
 
     public override void Die()
     {
+		GameManager.instance.SetState(State.Postgame);
         GameObject.Find("LevelManager").GetComponent<LevelManager>().CompleteLevel();
         print("Boss died");
     }

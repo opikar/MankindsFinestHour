@@ -13,7 +13,7 @@ public abstract class ScriptedEnemy : EnemyManager {
     public float bulletPerSecond;
     public float waitAfterAction = 1.5f;
     public float collisionDamage = 20f;
-    public float startRage = 0.5f;
+    public float startRageHealth = 0.5f;
 
     private float maxY, minY, maxX, minX;
     protected Transform player;
@@ -74,7 +74,7 @@ public abstract class ScriptedEnemy : EnemyManager {
 		if(!actionRunning) {
 			StartCoroutine(RunAction ());
 		}
-        if (health.f_currentHP < GetMaxHealth() * .5f)
+        if (health.f_currentHP < GetMaxHealth() * startRageHealth)
             Rage();
         FlipBoss();
 	}
@@ -159,9 +159,9 @@ public abstract class ScriptedEnemy : EnemyManager {
     {
         if (!GetGrounded()) yield break;
         lastAction = ShootBigBullet;
-        SwapBullet();
+        SwapBullet(1);
         yield return StartCoroutine(ShootOnce());
-        SwapBullet();
+        SwapBullet(0);
     }
 
     protected virtual IEnumerator ShootOnce()
@@ -208,7 +208,6 @@ public abstract class ScriptedEnemy : EnemyManager {
         if (GetGrounded() && lastAction != JumpSideWays)
         {
             lastAction = JumpSideWays;
-            print("Jump");
             float move = 0;
             if (Mathf.Abs(minX - transform.position.x) < Mathf.Abs(maxX - transform.position.x))
             {

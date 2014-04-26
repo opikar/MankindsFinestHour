@@ -14,6 +14,7 @@ public class FlappyBoss : ScriptedEnemy {
         Action action4 = JumpSideWays;
         Action action5 = DropAction;
 
+
 		currentState.AddAction (action1);
         currentState.AddAction (action2);
         currentState.AddAction (action3);

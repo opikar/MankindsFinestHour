@@ -49,7 +49,6 @@ public class Movement : MonoBehaviour
 		m_groundMask = 1 << LayerMask.NameToLayer("Ground");
 		facingRight = true;
 		colliderSize = GetComponent<BoxCollider2D>().size;
-		print (colliderSize);
 	}
 	
 

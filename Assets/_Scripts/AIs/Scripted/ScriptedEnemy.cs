@@ -15,7 +15,8 @@ public abstract class ScriptedEnemy : EnemyManager {
     public float collisionDamage = 20f;
     public float startRageHealth = 0.5f;
 
-    private float maxY, minY, maxX, minX;
+    private float maxY, minY, minX, maxX;
+    private bool hitGround;
     protected Transform player;
     protected bool rage;
     protected float timer;
@@ -34,8 +35,8 @@ public abstract class ScriptedEnemy : EnemyManager {
         lastAction = null;
         Transform top = GameObject.Find("BossMaxYPosition").transform;
         Transform down = GameObject.Find("BossMinYPosition").transform;
-        maxX = top.position.x;
-        minX = down.position.x;
+        minX = top.position.x;
+        maxX = down.position.x;
         maxY = top.position.y;
         minY = down.position.y;
 
@@ -55,11 +56,11 @@ public abstract class ScriptedEnemy : EnemyManager {
             if (pl != null)
                 pl.ApplyDamage(collisionDamage);
         }
-        if (GetGrounded())
-        {
-            platformPosition = other.transform.position;
-            platformScale = other.transform.localScale;
-        }
+
+        if (m_transform.position.y < other.transform.position.y || other.tag != "Ground") return;
+        platformPosition = other.transform.position;
+        platformScale = other.transform.localScale;
+        hitGround = true;
     }
 
    
@@ -209,7 +210,7 @@ public abstract class ScriptedEnemy : EnemyManager {
         {
             lastAction = JumpSideWays;
             float move = 0;
-            if (Mathf.Abs(minX - transform.position.x) < Mathf.Abs(maxX - transform.position.x))
+            if (Mathf.Abs(maxX - transform.position.x) < Mathf.Abs(minX - transform.position.x))
             {
                 yield return StartCoroutine(MoveToPoint(platformPosition.x - platformScale.x * 0.4f));
                 move = -1f;
@@ -221,11 +222,13 @@ public abstract class ScriptedEnemy : EnemyManager {
             }
             Jump();
             yield return new WaitForSeconds(0.1f);
-            while (!GetGrounded())
+            hitGround = false;
+            while (m_transform.position.x > minX && m_transform.position.x < maxX)
             {
                 Move(move);
                 yield return null;
             }
+            while (!GetGrounded() || !hitGround) yield return null;
             yield return StartCoroutine(MoveToPoint(platformPosition.x));
             yield return new WaitForSeconds(waitAfterAction);
         }
@@ -243,6 +246,5 @@ public abstract class ScriptedEnemy : EnemyManager {
             Move(moving);
             yield return null;
         }
-        print("Got to a point");
     }
 }

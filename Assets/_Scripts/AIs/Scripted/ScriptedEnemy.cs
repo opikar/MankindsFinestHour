@@ -41,7 +41,8 @@ public abstract class ScriptedEnemy : EnemyManager {
         minY = down.position.y;
 
         bulletPerSecond = 1 / bulletPerSecond;
-        player = GameObject.Find("Player").GetComponent<Transform>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+
 
         FlipBoss();
 

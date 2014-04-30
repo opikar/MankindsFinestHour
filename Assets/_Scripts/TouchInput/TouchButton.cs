@@ -12,10 +12,19 @@ public class TouchButton : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        for (int i = 0; i < Input.touchCount; i++)
-        { 
-            if(Input.touches[i].phase == TouchPhase.Began && area.Contains(Input.touches[i].position))
-                Debug.Log("touched button");
-        }
+        
 	}
+
+    public virtual bool Pressed() 
+    {
+        for (int i = 0; i < Input.touchCount; i++)
+        {
+            if (Input.touches[i].phase == TouchPhase.Began && area.Contains(Input.touches[i].position))
+            {
+                Debug.Log("Pressed: " + gameObject.name);
+                return true;
+            }
+        }
+        return false;
+    }
 }

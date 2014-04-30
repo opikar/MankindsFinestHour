@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(GUITexture))]
 public class TouchButton : MonoBehaviour {
 
     Rect area;
 
-	// Use this for initialization
 	void Start () {
         area = guiTexture.pixelInset;
 	}

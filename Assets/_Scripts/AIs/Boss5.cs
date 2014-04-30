@@ -26,7 +26,7 @@ public class Boss5 : ScriptedEnemy {
         topLeftCorner = GameObject.Find("TopLeftCorner").transform.position;
         topRightCorner = GameObject.Find("TopRightCorner").transform.position;
 
-        target = topLeftCorner;
+        target = east;
 		currentState.AddAction (action);
 	}
 

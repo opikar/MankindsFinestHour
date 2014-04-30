@@ -2,7 +2,7 @@
 using System.Collections;
 
 public abstract class LevelManager : MonoBehaviour {
-	public void Start() {
+	public virtual void Start() {
 		GameManager.instance.SetState(State.Running);
 	}
 

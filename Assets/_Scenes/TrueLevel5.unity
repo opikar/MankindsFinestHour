@@ -637,6 +637,7 @@ MonoBehaviour:
   start: {fileID: 2142884252}
   speed: 6.5
   moveAlways: 0
+  f_delay: 0
 --- !u!61 &41552976
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2086,6 +2087,10 @@ Prefab:
       propertyPath: speed
       value: 6.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: aa4722270579f284aa4a7c42e936c72f, type: 2}
+      propertyPath: f_delay
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aa4722270579f284aa4a7c42e936c72f, type: 2}
   m_RootGameObject: {fileID: 41552972}
@@ -3058,6 +3063,7 @@ MonoBehaviour:
   start: {fileID: 886528224}
   speed: 10
   moveAlways: 0
+  f_delay: 2
 --- !u!61 &291914442
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3947,9 +3953,9 @@ Transform:
   m_Children:
   - {fileID: 1637951647}
   - {fileID: 1877558444}
-  - {fileID: 1954478016}
-  - {fileID: 927862748}
   - {fileID: 1704885469}
+  - {fileID: 927862748}
+  - {fileID: 1954478016}
   - {fileID: 1679816732}
   m_Father: {fileID: 0}
 --- !u!1 &366372376
@@ -6155,6 +6161,7 @@ MonoBehaviour:
   start: {fileID: 472315953}
   speed: 10
   moveAlways: 0
+  f_delay: 0
 --- !u!61 &582776215
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7800,6 +7807,7 @@ MonoBehaviour:
   start: {fileID: 1821825444}
   speed: 5
   moveAlways: 0
+  f_delay: 2
 --- !u!61 &698583902
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8027,6 +8035,10 @@ Prefab:
       objectReference: {fileID: 1080494094}
     - target: {fileID: 11400000, guid: aa4722270579f284aa4a7c42e936c72f, type: 2}
       propertyPath: moveAlways
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: aa4722270579f284aa4a7c42e936c72f, type: 2}
+      propertyPath: f_delay
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -10240,6 +10252,7 @@ MonoBehaviour:
   start: {fileID: 1080494094}
   speed: 10
   moveAlways: 0
+  f_delay: 0
 --- !u!61 &988377196
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13068,6 +13081,7 @@ MonoBehaviour:
   start: {fileID: 874554921}
   speed: 6.5
   moveAlways: 0
+  f_delay: 0
 --- !u!61 &1310205053
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14367,6 +14381,7 @@ MonoBehaviour:
   start: {fileID: 1843261759}
   speed: 10
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &1409696768
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16094,6 +16109,7 @@ MonoBehaviour:
   start: {fileID: 1287978261}
   speed: 10
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &1561598606
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17187,6 +17203,10 @@ Prefab:
       propertyPath: speed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: aa4722270579f284aa4a7c42e936c72f, type: 2}
+      propertyPath: f_delay
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aa4722270579f284aa4a7c42e936c72f, type: 2}
   m_RootGameObject: {fileID: 582776211}
@@ -18027,6 +18047,7 @@ MonoBehaviour:
   start: {fileID: 426873466}
   speed: 10
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &1753915265
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21787,6 +21808,10 @@ Prefab:
     - target: {fileID: 11400000, guid: aa4722270579f284aa4a7c42e936c72f, type: 2}
       propertyPath: speed
       value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: aa4722270579f284aa4a7c42e936c72f, type: 2}
+      propertyPath: f_delay
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aa4722270579f284aa4a7c42e936c72f, type: 2}

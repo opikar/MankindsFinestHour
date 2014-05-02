@@ -7,6 +7,7 @@ public class MovingPlatform : MonoBehaviour {
 	public GameObject start;
 	public float speed = 10f;
 	public bool moveAlways;
+	public float f_delay = 2f;
 	public Vector3 MoveDirection
 	{
 		get{return v_moveDirection * speed;}
@@ -19,7 +20,6 @@ public class MovingPlatform : MonoBehaviour {
     protected List<Transform> waypoint;
     protected bool b_moving = false;
     protected float f_timer;
-    protected float f_delay = 2f;
 
     protected virtual void Start()
 	{

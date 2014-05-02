@@ -285,8 +285,8 @@ MonoBehaviour:
   shootSpawn: {fileID: 400008}
   rateOfFire: .300000012
   autoShoot: 0
-  laserDamage: 50
-  laserAmmo: 5
+  laserDamage: 5
+  laserAmmo: 3
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

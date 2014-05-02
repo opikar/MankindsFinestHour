@@ -78,7 +78,7 @@ public class Movement : MonoBehaviour
                 {
                     if (flipped)
                     {
-                        if (rigidbody2D.velocity.y > 0)
+                        if (rigidbody2D.velocity.y > 0 || other.transform.position.y > transform.position.y)
                             return;
                     }
                     if (other.gameObject.name == "MovingPlatform" || other.gameObject.name == "TransportPlatform")

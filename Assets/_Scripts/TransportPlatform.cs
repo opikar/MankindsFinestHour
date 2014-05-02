@@ -23,6 +23,7 @@ public class TransportPlatform : MovingPlatform {
         if (other.tag != "Player") return;
         manager = GameObject.Find("Manager").GetComponent<GameManager>();
         manager.SetState(State.Win);
+        other.rigidbody2D.velocity = Vector2.zero;
         BoxCollider2D[] box = c.GetComponentsInChildren<BoxCollider2D>();
         foreach (BoxCollider2D b in box)
             b.enabled = false;

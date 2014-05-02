@@ -174,6 +174,8 @@ public class Movement : MonoBehaviour
     {
 		if(rigidbody2D.gravityScale == 0)
 			rigidbody2D.gravityScale = 1f;
+		else if(!b_grounded)
+			Jump ();
 	}
 
 	public void Flip()

@@ -12,7 +12,7 @@ public class TurretEnemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		enemyManager = GetComponent<EnemyManager>();
-		t_player = GameObject.Find("Player").GetComponent<Transform>();
+		t_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 		m_transform = transform;
 	}
 	

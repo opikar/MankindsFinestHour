@@ -13,7 +13,7 @@ public class KamikazeEnemy : PatrollingEnemy {
 	// Use this for initialization
 	protected override void Start () {
 		base.Start();
-		m_playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
+		m_playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
 		f_chargeStart = Time.time;
 	}
 	

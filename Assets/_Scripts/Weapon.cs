@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour {
 	public float rateOfFire = .3f;
 	public bool autoShoot;
 	public float laserDamage = 20;
+	public float curLaserAmmo;
 	public float laserAmmo = 30;
 
     private Transform m_transform;
@@ -40,6 +41,7 @@ public class Weapon : MonoBehaviour {
 		//laser.SetWidth(0.2f, 0.1f);
 		laser.material = Resources.Load<Material>("LaserMaterial");
 		//laser.material.color = Color.red;
+		curLaserAmmo = laserAmmo;
 	}
 	
 	// Update is called once per frame
@@ -65,8 +67,8 @@ public class Weapon : MonoBehaviour {
 
 	public void ShootSpecialGun()
     {
-		if(laserAmmo > 0) {
-			laserAmmo -= Time.deltaTime;
+		if(curLaserAmmo > 0) {
+			curLaserAmmo -= Time.deltaTime;
 			laser.SetPosition (0, shootSpawn.position);
 			Vector3 direction = (shootSpawn.position - transform.position).normalized;
 

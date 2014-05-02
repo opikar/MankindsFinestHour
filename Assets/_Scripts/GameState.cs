@@ -37,7 +37,6 @@ public static class GameState {
 		GameObject tmp;
 
 		if(uniques.ContainsKey(name)) {
-			Debug.Log(uniques[name]);
 			if(uniques[name] == null) {
 				Debug.Log("New player");
 				tmp = MonoBehaviour.Instantiate(prefabs[name]) as GameObject;

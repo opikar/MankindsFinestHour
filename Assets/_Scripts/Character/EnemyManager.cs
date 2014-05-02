@@ -29,5 +29,11 @@ public class EnemyManager : Character {
 	void OnBecameInvisible() {
 		Die();
 	}
+
+	public override void Reset()
+	{
+		base.Reset();
+		health.RestoreHP();
+	}
     #endregion
 }

@@ -14,7 +14,14 @@ public class TransportPlatform : MovingPlatform {
 
     protected override void NextIndex()
     {
-        if (++i_index >= waypoint.Count) GameObject.Find("LevelManager").GetComponent<LevelManager>().CompleteLevel();   
+        if (++i_index >= waypoint.Count) {
+			//Dont destroy on load doesen't work if object isn't on top level
+			GameObject player = GameObject.FindGameObjectWithTag("Player");
+			player.transform.parent = null; 
+			player.GetComponent<PlayerManager>().SaveState();
+
+			GameObject.Find("LevelManager").GetComponent<LevelManager>().CompleteLevel();
+		}
     }
 
     protected override void OnTriggerEnter2D(Collider2D other)

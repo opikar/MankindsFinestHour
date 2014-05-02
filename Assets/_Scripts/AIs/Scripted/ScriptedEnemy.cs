@@ -102,6 +102,7 @@ public abstract class ScriptedEnemy : EnemyManager {
     public override void Die()
     {
 		GameManager.instance.SetState(State.Postgame);
+		GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().HardReset();
         GameObject.Find("LevelManager").GetComponent<LevelManager>().CompleteLevel();
         print("Boss died");
     }

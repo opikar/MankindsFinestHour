@@ -16,14 +16,12 @@ public class PlayerManager : Character
 	private Rect livesArea = new Rect(350, 30, 100, 40);
 	public static int score = 0;
 	private HealthBar hpBar;
-
-	protected new static Weapon weapon;
-	protected new static Health health;
     #endregion
 
     #region UNITY_METHODS
-    public void Start () 
+    protected override void Awake () 
     {
+		base.Awake();
 		p_state = PlayerState.Normal;
         m_guiManager = GetComponent<GUIManager>();
         if (m_guiManager == null)
@@ -37,12 +35,12 @@ public class PlayerManager : Character
 		health = GetComponent<Health>();
 		if (health == null)
 		{
-			gameObject.AddComponent<Health>();
+			health = gameObject.AddComponent<Health>();
 		}
 		weapon = GetComponent<Weapon>();
 		if (weapon == null)
 		{
-			gameObject.AddComponent<Weapon>();
+			weapon = gameObject.AddComponent<Weapon>();
 		}
 
         InitHealthDisplay();
@@ -50,6 +48,8 @@ public class PlayerManager : Character
 		GUIManager.OnDraw += OnDrawLaserAmmo;
 		GUIManager.OnDraw += OnDrawScore;
 		GUIManager.OnDraw += OnDrawLives;
+
+		HardReset();
 	}
 
 	void HandlePickup(PickupScript pickup) {
@@ -110,7 +110,7 @@ public class PlayerManager : Character
 	}
 
 	void OnDrawLaserAmmo() {
-		float ammo = weapon.laserAmmo < 0 ? 0 : weapon.laserAmmo;
+		float ammo = weapon.curLaserAmmo < 0 ? 0 : weapon.curLaserAmmo;
 		GUI.Box (laserArea, ammo.ToString("#.00"), style);
 	}
 
@@ -119,12 +119,20 @@ public class PlayerManager : Character
 		GUIManager.OnDraw -= OnDrawScore;
     }
 
+	public void SaveState() {
+		SaveScript.save.hp = health.f_currentHP;
+		SaveScript.save.laser = weapon.curLaserAmmo;
+		SaveScript.save.score = score;
+	}
+
 	public override void Die()
     {
-		if (--lives >= 0) { 
+		if (--lives >= 0) {
 			Application.LoadLevel(Application.loadedLevel);
 		} else {
 			gameObject.SetActive(false);
+			HardReset();
+			GameManager.instance.SetState(State.StartMenu);
 			Application.LoadLevel ("MechList");
 		}
     }
@@ -192,6 +200,22 @@ public class PlayerManager : Character
 	public PlayerState GetPlayerState()
 	{
 		return p_state;
+	}
+
+	public void HardReset() {
+		base.Reset();
+		weapon.curLaserAmmo = weapon.laserAmmo;
+		health.RestoreHP();
+		lives = 3;
+		score = 0;
+		SaveState();
+	}
+
+	public override void Reset() {
+		base.Reset();
+		weapon.curLaserAmmo = SaveScript.save.laser;
+		health.f_currentHP = SaveScript.save.hp;
+		score = SaveScript.save.score;
 	}
 
     #endregion

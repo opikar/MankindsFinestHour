@@ -29,12 +29,12 @@ public abstract class Character : MonoBehaviour
 		health = GetComponent<Health>();
         if (health == null)
         {
-            gameObject.AddComponent<Health>();
+            health = gameObject.AddComponent<Health>();
         }
 		weapon = GetComponent<Weapon>();
         if (weapon == null)
         {
-            gameObject.AddComponent<Weapon>();
+            weapon = gameObject.AddComponent<Weapon>();
         }
       
 		gameManager = GameObject.Find("Manager").GetComponent<GameManager>();
@@ -118,7 +118,6 @@ public abstract class Character : MonoBehaviour
 
 	public virtual void Reset()
 	{
-		health.RestoreHP();
 		rigidbody2D.velocity = new Vector2(0, 0);
         gameManager = GameManager.instance;
 		rigidbody2D.gravityScale = 1;

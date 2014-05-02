@@ -74,8 +74,8 @@ public class Movement : MonoBehaviour
             if (other.tag == "Ground" && rigidbody2D.velocity.y < 0)
             {
                 if (transform.position.x + Mathf.Abs(transform.localScale.x / 2) >= other.transform.position.x - other.transform.localScale.x / 2 &&
-                   transform.position.x - Mathf.Abs(transform.localScale.x / 2) <= other.transform.position.x + other.transform.localScale.x / 2 &&
-                    !flipped)
+                   transform.position.x - Mathf.Abs(transform.localScale.x / 2) <= other.transform.position.x + other.transform.localScale.x / 2 //&&
+                    )//!flipped)
                 {
                     if (other.gameObject.name == "MovingPlatform" || other.gameObject.name == "TransportPlatform")
                     {

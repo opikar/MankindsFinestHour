@@ -13,7 +13,7 @@ public class PatrollingEnemy : BasicAI {
 
 	// Use this for initialization
 	protected override void Start () {
-		m_player = GameObject.Find("Player").GetComponent<Transform>();
+		m_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 		m_transform = transform;
 		i_mask = 1 << LayerMask.NameToLayer("Player");
 	}

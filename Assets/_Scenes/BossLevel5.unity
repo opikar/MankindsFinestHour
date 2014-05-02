@@ -335,11 +335,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: choice
-      value: Player(Mobile)
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: m_Name
-      value: Player(Mobile)
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: m_IsActive
@@ -406,7 +406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &337752953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,7 +431,7 @@ GUITexture:
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2
-    x: 650
+    x: 400
     y: 0
     width: 100
     height: 100
@@ -660,6 +660,14 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 13100000, guid: e8b35fd1c69369e4b80e2df6071ed449, type: 2}
+      propertyPath: m_PixelInset.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e8b35fd1c69369e4b80e2df6071ed449, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8b35fd1c69369e4b80e2df6071ed449, type: 2}
   m_RootGameObject: {fileID: 337752952}
@@ -699,6 +707,10 @@ Prefab:
     - target: {fileID: 400000, guid: 0215cddee2d284e9c9bda1dbe42f829c, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0215cddee2d284e9c9bda1dbe42f829c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0215cddee2d284e9c9bda1dbe42f829c, type: 2}
@@ -1264,7 +1276,7 @@ GameObject:
   - 61: {fileID: 1260244950}
   - 212: {fileID: 1260244953}
   m_Layer: 13
-  m_Name: Player(Mobile)
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1294,7 +1306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d62cf344385264e479b27d952343f58b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  choice: Player(Mobile)
+  choice: Player
   gizmoSize: {x: 2, y: 3}
 --- !u!4 &1260244952
 Transform:
@@ -1452,6 +1464,14 @@ Prefab:
     - target: {fileID: 400000, guid: 454ce64c1b8d5da4ab7ef2c6bdd48212, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 13100000, guid: 454ce64c1b8d5da4ab7ef2c6bdd48212, type: 2}
+      propertyPath: m_PixelInset.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 454ce64c1b8d5da4ab7ef2c6bdd48212, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 454ce64c1b8d5da4ab7ef2c6bdd48212, type: 2}
@@ -1898,7 +1918,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1702130385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1923,7 +1943,7 @@ GUITexture:
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2
-    x: 650
+    x: 400
     y: 200
     width: 100
     height: 100
@@ -2495,7 +2515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2145735946
 MonoBehaviour:
   m_ObjectHideFlags: 0

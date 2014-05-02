@@ -21,7 +21,12 @@ public class Projectile : MonoBehaviour
     {
         SpriteRenderer sp = GetComponent<SpriteRenderer>();
         sp.sprite = sprite;
-		rigidbody2D.velocity *= speed;
+        float angle = Vector3.Angle(transform.right.normalized , (Vector3)rigidbody2D.velocity.normalized);
+        if (Vector3.Dot(transform.up, (Vector3)rigidbody2D.velocity.normalized) < 0)
+            angle *= -1;
+        transform.rotation = Quaternion.Euler(new Vector3(0,0,angle));
+        rigidbody2D.velocity *= speed;
+        
 
 	}
 

@@ -128,6 +128,7 @@ public class PlayerManager : Character
 	public override void Die()
     {
 		if (--lives >= 0) {
+			m_transform.position += Vector3.up * 100f;
 			Application.LoadLevel(Application.loadedLevel);
 		} else {
 			gameObject.SetActive(false);

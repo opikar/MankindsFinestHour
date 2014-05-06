@@ -84,7 +84,6 @@ public class Movement : MonoBehaviour
                     if (other.gameObject.name == "MovingPlatform" || other.gameObject.name == "TransportPlatform")
                     {
                         platform = other.gameObject.GetComponent<MovingPlatform>();
-                        transform.parent = other.gameObject.transform;
                     }
                     rigidbody2D.gravityScale = 0;
                     rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);

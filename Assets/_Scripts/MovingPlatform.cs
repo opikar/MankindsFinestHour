@@ -100,8 +100,11 @@ public class MovingPlatform : MonoBehaviour {
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
 	{
-		if(other.tag == "Player" && other.transform.position.y > m_transform.position.y)
-			b_moving = true;
+        if (other.tag == "Player" && other.transform.position.y > m_transform.position.y)
+        {
+            other.transform.parent = m_transform;
+            b_moving = true;
+        }
 	}
 
 

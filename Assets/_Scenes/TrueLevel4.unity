@@ -16955,7 +16955,7 @@ Prefab:
       objectReference: {fileID: 149929452}
     - target: {fileID: 11400000, guid: 64f178e5a92bbc94483022387f9bdd12, type: 2}
       propertyPath: i_index
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 64f178e5a92bbc94483022387f9bdd12, type: 2}
       propertyPath: waypoints.Array.data[2]
@@ -16997,7 +16997,20 @@ Prefab:
       propertyPath: waypoints.Array.data[7]
       value: 
       objectReference: {fileID: 1141450129}
-    m_RemovedComponents: []
+    - target: {fileID: 2000000, guid: 64f178e5a92bbc94483022387f9bdd12, type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: 64f178e5a92bbc94483022387f9bdd12, type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: 64f178e5a92bbc94483022387f9bdd12, type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4500000, guid: 64f178e5a92bbc94483022387f9bdd12, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 64f178e5a92bbc94483022387f9bdd12, type: 2}
   m_RootGameObject: {fileID: 1242385893}
   m_IsPrefabParent: 0
@@ -17361,7 +17374,6 @@ GameObject:
   - 81: {fileID: 1242385898}
   - 114: {fileID: 1242385897}
   - 114: {fileID: 1242385896}
-  - 45: {fileID: 1242385895}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -17385,15 +17397,6 @@ Transform:
   - {fileID: 1749744095}
   - {fileID: 2136028219}
   m_Father: {fileID: 0}
---- !u!45 &1242385895
-Skybox:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4500000, guid: 64f178e5a92bbc94483022387f9bdd12,
-    type: 2}
-  m_PrefabInternal: {fileID: 1202012370}
-  m_GameObject: {fileID: 1242385893}
-  m_Enabled: 1
-  m_CustomSkybox: {fileID: 2100000, guid: 16522f49031ff414abdf1f83f1b6a36c, type: 2}
 --- !u!114 &1242385896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17429,7 +17432,7 @@ MonoBehaviour:
   - {fileID: 792767405}
   - {fileID: 96613447}
   - {fileID: 1141450129}
-  i_index: 7
+  i_index: 0
 --- !u!81 &1242385898
 AudioListener:
   m_ObjectHideFlags: 0
@@ -17464,7 +17467,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0

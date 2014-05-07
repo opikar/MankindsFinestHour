@@ -2896,6 +2896,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2951c946979addc48b12f48642688158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startState: 4
+  waitingTime: 0
 --- !u!4 &464207190
 Transform:
   m_ObjectHideFlags: 0
@@ -4633,6 +4635,7 @@ GameObject:
   - 61: {fileID: 803687592}
   - 114: {fileID: 803687591}
   - 50: {fileID: 803687590}
+  - 61: {fileID: 803687595}
   m_Layer: 8
   m_Name: TransportPlatform
   m_TagString: Ground
@@ -4683,6 +4686,7 @@ MonoBehaviour:
   start: {fileID: 1877839558}
   speed: 10
   moveAlways: 0
+  f_delay: 2
 --- !u!61 &803687592
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4692,7 +4696,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 803687588}
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 3f6ca8c148419eb46bcb1e399230a6b4, type: 2}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Size: {x: 1, y: 1}
   m_Center: {x: 0, y: 0}
 --- !u!23 &803687593
@@ -4725,6 +4729,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 530874660}
   m_GameObject: {fileID: 803687588}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!61 &803687595
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6100002, guid: b104441ac423fe842b5348605c70eb44,
+    type: 2}
+  m_PrefabInternal: {fileID: 530874660}
+  m_GameObject: {fileID: 803687588}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: .800000012, y: .5}
+  m_Center: {x: 0, y: .5}
 --- !u!1 &808098505
 GameObject:
   m_ObjectHideFlags: 0
@@ -9457,6 +9473,10 @@ Prefab:
     - target: {fileID: 100000, guid: 03c2b7df759afb3458afe8ac7b0f7a06, type: 2}
       propertyPath: m_Name
       value: LevelManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 03c2b7df759afb3458afe8ac7b0f7a06, type: 2}
+      propertyPath: startState
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 03c2b7df759afb3458afe8ac7b0f7a06, type: 2}

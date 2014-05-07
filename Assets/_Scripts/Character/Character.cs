@@ -8,7 +8,7 @@ using System.Collections;
 public abstract class Character : MonoBehaviour
 {
     #region MEMBERS
-    protected GameManager gameManager;
+    //protected GameManager gameManager;
 	protected Health health;
 	protected Weapon weapon;
 	protected Movement movement;
@@ -36,14 +36,9 @@ public abstract class Character : MonoBehaviour
         {
             weapon = gameObject.AddComponent<Weapon>();
         }
-      
-		gameManager = GameObject.Find("Manager").GetComponent<GameManager>();
-        if (gameManager != null)
-        {
-            gameManager.SetState(State.Running);
-        }
+      		
 
-        if (gameManager == null || movement == null || health == null || weapon == null)
+        if (movement == null || health == null || weapon == null)
         {
             Debug.LogError("All components not loaded properly in Character.cs");
         }
@@ -119,7 +114,7 @@ public abstract class Character : MonoBehaviour
 	public virtual void Reset()
 	{
 		rigidbody2D.velocity = new Vector2(0, 0);
-        gameManager = GameManager.instance;
+        //gameManager = GameManager.instance;
 		rigidbody2D.gravityScale = 1;
 	}
 

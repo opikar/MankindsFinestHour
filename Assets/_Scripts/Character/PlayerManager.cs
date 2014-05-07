@@ -75,7 +75,7 @@ public class PlayerManager : Character
                 HandlePickup(other.gameObject.GetComponent<PickupScript>());
             }
 
-            if (other.tag == "Enemy" && gameManager.GetState() == State.Running)
+            if (other.tag == "Enemy" && GameManager.instance.GetState() == State.Running)
             {
                 EnemyManager em = null;
                 em = other.GetComponent<EnemyManager>();
@@ -183,12 +183,13 @@ public class PlayerManager : Character
 
     public void Pause()
     {
-		if(gameManager.GetState() == State.Running){
-			gameManager.SetState(State.PauseMenu);
+        if (GameManager.instance.GetState() == State.Running)
+        {
+            GameManager.instance.SetState(State.PauseMenu);
 			Time.timeScale = 0f;
 		}
 		else{
-			gameManager.SetState(State.Running);
+            GameManager.instance.SetState(State.Running);
 			Time.timeScale = 1f;
 		}
 	}

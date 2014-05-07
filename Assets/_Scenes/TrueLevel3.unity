@@ -2467,6 +2467,7 @@ MonoBehaviour:
   start: {fileID: 1298415756}
   speed: 33
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &98716952
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4207,6 +4208,7 @@ MonoBehaviour:
   start: {fileID: 492602719}
   speed: 26
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &169575606
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6864,6 +6866,7 @@ MonoBehaviour:
   start: {fileID: 1809522150}
   speed: 15
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &269476564
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9656,6 +9659,7 @@ MonoBehaviour:
   start: {fileID: 1619843273}
   speed: 43
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &409274589
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9846,6 +9850,7 @@ MonoBehaviour:
   start: {fileID: 2099897838}
   speed: 26
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &415853137
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12616,6 +12621,7 @@ MonoBehaviour:
   start: {fileID: 404726812}
   speed: 20
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &522047124
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12923,6 +12929,7 @@ MonoBehaviour:
   start: {fileID: 617803021}
   speed: 10
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &533035688
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14402,6 +14409,7 @@ MonoBehaviour:
   start: {fileID: 638635029}
   speed: 10
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &588758874
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15179,6 +15187,7 @@ MonoBehaviour:
   start: {fileID: 828600720}
   speed: 33
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &629255205
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15363,6 +15372,7 @@ MonoBehaviour:
   start: {fileID: 219879591}
   speed: 10
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &632414325
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15500,6 +15510,7 @@ MonoBehaviour:
   start: {fileID: 87595993}
   speed: 30
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &634925780
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15606,6 +15617,7 @@ MonoBehaviour:
   start: {fileID: 1844771953}
   speed: 15
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &636462891
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15771,6 +15783,7 @@ MonoBehaviour:
   start: {fileID: 1977810714}
   speed: 58
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &638677370
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16703,6 +16716,7 @@ MonoBehaviour:
   start: {fileID: 665695941}
   speed: 22
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &673592244
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17031,6 +17045,7 @@ MonoBehaviour:
   start: {fileID: 854043765}
   speed: 29
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &688928500
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18543,6 +18558,7 @@ MonoBehaviour:
   start: {fileID: 1563074618}
   speed: 36
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &750555418
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20263,6 +20279,7 @@ MonoBehaviour:
   start: {fileID: 1379150216}
   speed: 10
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &813530690
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20460,6 +20477,7 @@ MonoBehaviour:
   start: {fileID: 1228820618}
   speed: 10
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &826662762
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21655,6 +21673,10 @@ Prefab:
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 35fb4a13f4484554db42eea7f7c496d5, type: 2}
+      propertyPath: startState
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35fb4a13f4484554db42eea7f7c496d5, type: 2}
   m_RootGameObject: {fileID: 1448156511}
@@ -22117,6 +22139,7 @@ MonoBehaviour:
   start: {fileID: 518944916}
   speed: 35
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &903941829
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22737,6 +22760,7 @@ MonoBehaviour:
   start: {fileID: 1892683267}
   speed: 10
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &934032249
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23624,6 +23648,7 @@ MonoBehaviour:
   start: {fileID: 607568175}
   speed: 10
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &967870414
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24541,6 +24566,7 @@ MonoBehaviour:
   start: {fileID: 1254568150}
   speed: 36
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &1006248935
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24911,6 +24937,7 @@ MonoBehaviour:
   start: {fileID: 1578855359}
   speed: 10
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &1016886822
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27301,6 +27328,7 @@ MonoBehaviour:
   start: {fileID: 1644355707}
   speed: 25
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &1138967458
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29736,6 +29764,7 @@ MonoBehaviour:
   start: {fileID: 709752670}
   speed: 5
   moveAlways: 0
+  f_delay: 2
 --- !u!61 &1222203843
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30484,6 +30513,7 @@ MonoBehaviour:
   start: {fileID: 75672746}
   speed: 10
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &1255705174
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34365,6 +34395,7 @@ MonoBehaviour:
   start: {fileID: 481197903}
   speed: 43
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &1391201027
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35271,6 +35302,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c5411713da6b744b9b42684ad25993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startState: 4
+  waitingTime: 0
 --- !u!4 &1448156513
 Transform:
   m_ObjectHideFlags: 0
@@ -35511,6 +35544,7 @@ MonoBehaviour:
   start: {fileID: 1970427063}
   speed: 15
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &1462315563
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35727,6 +35761,7 @@ MonoBehaviour:
   start: {fileID: 785370088}
   speed: 58
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &1467185312
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35839,6 +35874,7 @@ MonoBehaviour:
   start: {fileID: 16042825}
   speed: 15
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &1467675657
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -39348,6 +39384,7 @@ MonoBehaviour:
   start: {fileID: 1806843017}
   speed: 10
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &1617747058
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40003,6 +40040,7 @@ MonoBehaviour:
   start: {fileID: 426935516}
   speed: 10
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &1646841898
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40434,6 +40472,7 @@ GameObject:
   - 61: {fileID: 1668272368}
   - 114: {fileID: 1668272367}
   - 50: {fileID: 1668272366}
+  - 61: {fileID: 1668272372}
   m_Layer: 8
   m_Name: TransportPlatform
   m_TagString: Ground
@@ -40472,6 +40511,7 @@ MonoBehaviour:
   start: {fileID: 0}
   speed: 10
   moveAlways: 0
+  f_delay: 2
 --- !u!61 &1668272368
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40481,7 +40521,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1668272365}
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 3f6ca8c148419eb46bcb1e399230a6b4, type: 2}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Size: {x: 1, y: 1}
   m_Center: {x: 0, y: 0}
 --- !u!23 &1668272369
@@ -40524,9 +40564,21 @@ Transform:
   m_LocalPosition: {x: 1200, y: -10, z: 0}
   m_LocalScale: {x: 11.2252626, y: 1, z: 1}
   m_Children:
-  - {fileID: 1583862743}
   - {fileID: 2085091298}
+  - {fileID: 1583862743}
   m_Father: {fileID: 0}
+--- !u!61 &1668272372
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6100002, guid: b104441ac423fe842b5348605c70eb44,
+    type: 2}
+  m_PrefabInternal: {fileID: 564275188}
+  m_GameObject: {fileID: 1668272365}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: .800000012, y: .5}
+  m_Center: {x: 0, y: .5}
 --- !u!1 &1670322704
 GameObject:
   m_ObjectHideFlags: 0
@@ -41589,6 +41641,7 @@ MonoBehaviour:
   start: {fileID: 1920752943}
   speed: 35
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &1707602189
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42503,6 +42556,7 @@ MonoBehaviour:
   start: {fileID: 878897361}
   speed: 20
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &1743495445
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42734,6 +42788,7 @@ MonoBehaviour:
   start: {fileID: 596718342}
   speed: 10
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &1752870059
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44726,6 +44781,7 @@ MonoBehaviour:
   start: {fileID: 419680459}
   speed: 25
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &1816193449
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46745,6 +46801,7 @@ MonoBehaviour:
   start: {fileID: 1388912919}
   speed: 10
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &1877719005
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50255,6 +50312,7 @@ MonoBehaviour:
   start: {fileID: 230269572}
   speed: 29
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &2020863629
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50569,6 +50627,7 @@ MonoBehaviour:
   start: {fileID: 1601852126}
   speed: 10
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &2029226898
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52787,6 +52846,7 @@ MonoBehaviour:
   start: {fileID: 445068013}
   speed: 22
   moveAlways: 1
+  f_delay: 2
 --- !u!61 &2131404672
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -57,9 +57,15 @@ public class Movement : MonoBehaviour
     // You are setting those values for a future use in Move
     // What if you only call them at the beginning of Move?
     //////////////////////////////////////////////
+
+    //Animations and ground checking are in update instead of Move() because they need to be updated when gamestate is not running
 	void Update () 
     {
-
+        b_grounded = Physics2D.OverlapCircle(m_groundCheck.position, f_groundRadius, m_groundMask) ||
+            Physics2D.OverlapCircle(m_groundCheck2.position, f_groundRadius, m_groundMask);
+        character.SetAnimatorSpeed(Mathf.Abs(rigidbody2D.velocity.x));
+        character.SetAnimatorGrounded(b_grounded);
+        character.SetAnimatorYVelocity(rigidbody2D.velocity.y);
 	}
 
 	public void SetMoveSpeed(float speed)
@@ -127,11 +133,6 @@ public class Movement : MonoBehaviour
 			Flip ();
 		}
 
-		//grounded = rigidbody2D.gravityScale == 0 ? true : false;
-		//character is standing on ground if groundchecks are overlapping with ground
-		b_grounded = Physics2D.OverlapCircle(m_groundCheck.position, f_groundRadius, m_groundMask) ||
-			Physics2D.OverlapCircle(m_groundCheck2.position, f_groundRadius, m_groundMask);
-		
 		//if the character is on ground he can use double jump
 		if(b_grounded)
 			b_doubleJump = false;
@@ -148,13 +149,10 @@ public class Movement : MonoBehaviour
 				vel.x -= platformVelocity;
 			vel.x *= direction;
 			rigidbody2D.velocity = vel;
-			//print (platformVelocity);
 		}
 		else
 			rigidbody2D.velocity = new Vector2(f_speed * direction, rigidbody2D.velocity.y);
-		character.SetAnimatorSpeed (Mathf.Abs (rigidbody2D.velocity.x));
-		character.SetAnimatorGrounded (b_grounded);
-		character.SetAnimatorYVelocity (rigidbody2D.velocity.y);
+		
 	}
 
 	/// <summary>

@@ -18,7 +18,7 @@ public class KamikazeEnemy : PatrollingEnemy {
 	}
 	
 	// Update is called once per frame
-	protected override void Update () {
+	protected override void Update () {        
 		b_seePlayer = (SeePlayer(seePlayerDistance) || b_seePlayer); //&& renderer.isVisible;
         b_charge = b_charge || b_seePlayer;
 		if(!b_seePlayer && !b_charge){

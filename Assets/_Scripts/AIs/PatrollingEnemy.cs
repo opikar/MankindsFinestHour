@@ -13,9 +13,10 @@ public class PatrollingEnemy : BasicAI {
 
 	// Use this for initialization
 	protected override void Start () {
-		m_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        base.Start();
+        m_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 		m_transform = transform;
-		i_mask = 1 << LayerMask.NameToLayer("Player");
+		
 	}
 	
 	// Update is called once per frame
@@ -44,8 +45,6 @@ public class PatrollingEnemy : BasicAI {
         {
             if (other.gameObject.tag == "Ground" && !GetFlipped())
                 SetPatrolRoute(other.gameObject.transform);
-            else if (other.tag == "Enemy")
-                ChangeDirection();
         }
 	}
 

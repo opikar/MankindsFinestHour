@@ -6,7 +6,7 @@ public class PlayerManager : Character
 {
     #region MEMBERS
     private GUIManager m_guiManager;
-	private int lives = 3;
+	private static int lives = 3;
 	private PlayerState p_state;
 	public GUIStyle style;
 
@@ -14,7 +14,20 @@ public class PlayerManager : Character
 	private Rect scoreArea = new Rect(1800, 30, 100, 50);
 	private Rect laserArea = new Rect(1800, 1000, 100, 50);
 	private Rect livesArea = new Rect(350, 30, 100, 40);
-	public static int score = 0;
+	private static int _score = 0;
+	public static int score {
+		get {
+			return _score;
+		}
+		set {
+			if(value > 200) {
+				_score = 0;
+				lives++;
+			} else {
+				_score = value;
+			}
+		}
+	}
 	private HealthBar hpBar;
     #endregion
 

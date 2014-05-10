@@ -18,7 +18,7 @@ public class MainButtons : MonoBehaviour
 
 	void Start () {
 		//m_gameManager = GameObject.Find("Manager").GetComponent<GameManager>();
-		available = SaveScript.save.availableLevels [name];
+		available = SaveScript.save.availableLevels.TryGetValue (name, true);
 		if (!available) {
 			guiTexture.color = disabled;
 		}

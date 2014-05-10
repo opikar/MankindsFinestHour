@@ -2068,19 +2068,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
       propertyPath: type
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 21200000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
       propertyPath: m_Color.r
-      value: 255
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 21200000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
       propertyPath: m_Color.b
-      value: 255
+      value: .0156862754
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
       propertyPath: m_Name
-      value: laser
+      value: score
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
+      propertyPath: m_Color.g
+      value: .921568632
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 19ce48c1993654be38052cbb04a56c96, type: 2}
@@ -2471,7 +2475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69d1e4a005354e0ab09eb4785b5a7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedToWaypoint: 4.5
+  SpeedToWaypoint: 6
 --- !u!4 &149929452
 Transform:
   m_ObjectHideFlags: 0
@@ -3527,7 +3531,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 9a85118d0d96e4740afc32080815d95a, type: 2}
       propertyPath: SpeedToWaypoint
-      value: 4.5
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a85118d0d96e4740afc32080815d95a, type: 2}
@@ -3573,7 +3577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69d1e4a005354e0ab09eb4785b5a7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedToWaypoint: 4.5
+  SpeedToWaypoint: 6
 --- !u!1001 &278525220
 Prefab:
   m_ObjectHideFlags: 0
@@ -3772,8 +3776,9 @@ Transform:
   m_GameObject: {fileID: 291914438}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 623.503296, y: 12.5630322, z: 0}
-  m_LocalScale: {x: 11.2252626, y: 1, z: 1}
+  m_LocalScale: {x: 13.8912621, y: 1, z: 1}
   m_Children:
+  - {fileID: 1758160911}
   - {fileID: 886528226}
   m_Father: {fileID: 0}
 --- !u!50 &291914440
@@ -3859,7 +3864,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 291914438}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: .800000012, y: .5}
   m_Center: {x: 0, y: .5}
 --- !u!1 &295605296
@@ -4665,8 +4670,8 @@ Transform:
   - {fileID: 1616725628}
   - {fileID: 743350892}
   - {fileID: 884944490}
-  - {fileID: 417684155}
   - {fileID: 1325840620}
+  - {fileID: 417684155}
   - {fileID: 1761854312}
   - {fileID: 1702383610}
   - {fileID: 1981747986}
@@ -6020,7 +6025,7 @@ GameObject:
   - 114: {fileID: 417684157}
   - 60: {fileID: 417684156}
   m_Layer: 0
-  m_Name: laser
+  m_Name: score
   m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6102,7 +6107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371f037d6b3ff4a9682f14c5724ee305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 2
+  type: 1
   amount: 40
 --- !u!212 &417684158
 SpriteRenderer:
@@ -6127,7 +6132,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: d19dbc57dd0d89a4b8b61f8937a71ba9, type: 3}
-  m_Color: {r: 255, g: 0, b: 255, a: 1}
+  m_Color: {r: 1, g: .921568632, b: .0156862754, a: 1}
 --- !u!1001 &418769670
 Prefab:
   m_ObjectHideFlags: 0
@@ -9183,6 +9188,7 @@ MonoBehaviour:
   on: {r: .699999988, g: .699999988, b: .699999988, a: 1}
   off: {r: .5, g: .5, b: .5, a: 1}
   press: {r: .300000012, g: .300000012, b: .300000012, a: 1}
+  disabled: {r: .100000001, g: .100000001, b: .100000001, a: 1}
 --- !u!114 &672424764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11269,7 +11275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69d1e4a005354e0ab09eb4785b5a7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedToWaypoint: 4.5
+  SpeedToWaypoint: 6
 --- !u!1 &802851351
 GameObject:
   m_ObjectHideFlags: 0
@@ -13831,7 +13837,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 9a85118d0d96e4740afc32080815d95a, type: 2}
       propertyPath: SpeedToWaypoint
-      value: 4.5
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a85118d0d96e4740afc32080815d95a, type: 2}
@@ -14732,7 +14738,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 9a85118d0d96e4740afc32080815d95a, type: 2}
       propertyPath: SpeedToWaypoint
-      value: 4.5
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a85118d0d96e4740afc32080815d95a, type: 2}
@@ -15226,7 +15232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69d1e4a005354e0ab09eb4785b5a7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedToWaypoint: 4.5
+  SpeedToWaypoint: 6
 --- !u!4 &1065752616
 Transform:
   m_ObjectHideFlags: 0
@@ -16210,7 +16216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69d1e4a005354e0ab09eb4785b5a7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedToWaypoint: 4.5
+  SpeedToWaypoint: 6
 --- !u!1 &1147522600
 GameObject:
   m_ObjectHideFlags: 0
@@ -18181,7 +18187,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 9a85118d0d96e4740afc32080815d95a, type: 2}
       propertyPath: SpeedToWaypoint
-      value: 4.5
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a85118d0d96e4740afc32080815d95a, type: 2}
@@ -18985,7 +18991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69d1e4a005354e0ab09eb4785b5a7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedToWaypoint: 4.5
+  SpeedToWaypoint: 6
 --- !u!4 &1358164664
 Transform:
   m_ObjectHideFlags: 0
@@ -19229,7 +19235,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 9a85118d0d96e4740afc32080815d95a, type: 2}
       propertyPath: SpeedToWaypoint
-      value: 4.5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9a85118d0d96e4740afc32080815d95a, type: 2}
       propertyPath: m_IsActive
@@ -21347,7 +21353,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 9a85118d0d96e4740afc32080815d95a, type: 2}
       propertyPath: SpeedToWaypoint
-      value: 4.5
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a85118d0d96e4740afc32080815d95a, type: 2}
@@ -22611,7 +22617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69d1e4a005354e0ab09eb4785b5a7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedToWaypoint: 4.5
+  SpeedToWaypoint: 6
 --- !u!1001 &1592394292
 Prefab:
   m_ObjectHideFlags: 0
@@ -25992,6 +25998,46 @@ Prefab:
   m_RootGameObject: {fileID: 559595022}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1758160910
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100002, guid: b104441ac423fe842b5348605c70eb44, type: 2}
+  m_PrefabInternal: {fileID: 139835428}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1758160911}
+  - 114: {fileID: 1758160912}
+  m_Layer: 0
+  m_Name: PlatformWaypoint
+  m_TagString: PlatformWaypoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1758160911
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400002, guid: b104441ac423fe842b5348605c70eb44, type: 2}
+  m_PrefabInternal: {fileID: 139835428}
+  m_GameObject: {fileID: 1758160910}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.2954884, y: 0, z: .0146484375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 291914439}
+--- !u!114 &1758160912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: b104441ac423fe842b5348605c70eb44,
+    type: 2}
+  m_PrefabInternal: {fileID: 139835428}
+  m_GameObject: {fileID: 1758160910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc854b531ed395c4298524cc5e8c0565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: .5
 --- !u!1001 &1758481129
 Prefab:
   m_ObjectHideFlags: 0
@@ -31090,7 +31136,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 9a85118d0d96e4740afc32080815d95a, type: 2}
       propertyPath: SpeedToWaypoint
-      value: 4.5
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a85118d0d96e4740afc32080815d95a, type: 2}

@@ -127,6 +127,7 @@ public class PlayerManager : Character
 
 	public override void Die()
     {
+		transform.parent = null;
 		if (--lives >= 0) {
 			m_transform.position += Vector3.up * 100f;
 			Application.LoadLevel(Application.loadedLevel);

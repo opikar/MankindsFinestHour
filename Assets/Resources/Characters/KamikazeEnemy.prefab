@@ -178,8 +178,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f01024196f0cd146a5452d09c100981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angle: 50
   seePlayerDistance: 20
   reactionTime: 1
+  b_seePlayer: 0
+  b_charge: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -197,6 +200,7 @@ MonoBehaviour:
   rateOfFire: .300000012
   autoShoot: 1
   laserDamage: 20
+  curLaserAmmo: 0
   laserAmmo: 300000
 --- !u!114 &11400006
 MonoBehaviour:

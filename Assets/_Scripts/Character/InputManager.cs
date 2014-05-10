@@ -21,11 +21,6 @@ public class InputManager : MonoBehaviour
 
 	void Update () 
     {
-        //Pause handling
-        if(Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)){
-            m_playerManager.Pause();
-        }
-
 		if(GameManager.instance.GetState() != State.Running || m_playerManager.GetPlayerState() != PlayerState.Normal) return;
 		float axisVertical = Input.GetAxisRaw("Vertical");
 		float axisHorizontal = Input.GetAxisRaw("Horizontal");
@@ -45,6 +40,11 @@ public class InputManager : MonoBehaviour
 			m_playerManager.ShootSpecialWeapon();
 		else if(Input.GetButtonDown("Fire1"))
 			m_playerManager.ShootPrimaryWeapon();
+
+		//Pause handling
+		if(Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)){
+			m_playerManager.Pause();
+		}
     }
     #endregion
 }

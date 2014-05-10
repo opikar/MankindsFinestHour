@@ -5,8 +5,8 @@ public class KamikazeEnemy : PatrollingEnemy {
 
 	public float reactionTime = 1f;
 
-	private bool b_seePlayer = false;
-	private bool b_charge = false;
+	public bool b_seePlayer = false;
+	public bool b_charge = false;
 	private float f_chargeSpeed = 20f;
 	private float f_chargeStart;
 	private PlayerManager m_playerManager;
@@ -20,9 +20,10 @@ public class KamikazeEnemy : PatrollingEnemy {
 	// Update is called once per frame
 	protected override void Update () {
 		b_seePlayer = (SeePlayer(seePlayerDistance) || b_seePlayer); //&& renderer.isVisible;
-		if(!b_seePlayer){
+        b_charge = b_charge || b_seePlayer;
+		if(!b_seePlayer && !b_charge){
 			Move();
-			b_charge = true;
+			//b_charge = true;
 			f_chargeStart = Time.time;
 		}
 		else if(f_chargeStart + reactionTime < Time.time && b_charge)

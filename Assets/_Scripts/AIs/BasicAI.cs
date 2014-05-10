@@ -5,8 +5,15 @@ public class BasicAI : EnemyManager {
 	
 	private RaycastHit2D hit;
 
+    public float angle = 30f;
+
 	protected int i_mask;
 	protected int i_viewDirection;
+
+    protected virtual void Start()
+    {
+        i_mask = 1 << LayerMask.NameToLayer("Player");
+    }
 
 	protected bool SeePlayer(float seePlayerDistance){
 		//for loop for more precise vision.
@@ -25,7 +32,6 @@ public class BasicAI : EnemyManager {
 	{
 		if (seePlayerDistance * seePlayerDistance > (playerPosition - m_transform.position).sqrMagnitude) 
 		{
-			float angle = 30f;
 			float dot = Vector2.Dot((playerPosition - m_transform.position).normalized, m_transform.up);
 			dot = Mathf.Rad2Deg * dot;
 			if(dot >= -angle && dot <= angle)

@@ -208,9 +208,11 @@ MonoBehaviour:
   states:
   - stateName: 
     position: {fileID: 0}
-  shootingTime: 2
-  bulletPerSecond: 15
+  shootingTime: 1
+  bulletPerSecond: 20
   waitAfterAction: 1.5
+  collisionDamage: 20
+  startRageHealth: .5
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -230,6 +232,7 @@ MonoBehaviour:
   rateOfFire: .300000012
   autoShoot: 0
   laserDamage: 20
+  curLaserAmmo: 0
   laserAmmo: 300000
 --- !u!114 &11400006
 MonoBehaviour:

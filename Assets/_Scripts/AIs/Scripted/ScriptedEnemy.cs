@@ -73,6 +73,7 @@ public abstract class ScriptedEnemy : EnemyManager {
 
 	// Update is called once per frame
 	protected virtual void Update () {
+        if (GameManager.instance.GetState() != State.Running) return;
 		if(!actionRunning) {
 			StartCoroutine(RunAction ());
 		}

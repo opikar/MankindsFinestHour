@@ -12,13 +12,23 @@ public class MainButtons : MonoBehaviour
 	public Color on = new Color(0.7f,0.7f,0.7f,1f);
 	public Color off = new Color(0.5f,0.5f,0.5f,1f);
 	public Color press = new Color(0.3f,0.3f,0.3f,1f);
+	public Color disabled = new Color(0.1f, 0.1f, 0.1f);
+
+	private bool available;
 
 	void Start () {
 		//m_gameManager = GameObject.Find("Manager").GetComponent<GameManager>();
+		available = SaveScript.save.availableLevels [name];
+		if (!available) {
+			guiTexture.color = disabled;
+		}
 	}
 
 	void Update () 
     {
+		if (!available) {
+			return;
+		}
 
     	//activate if mouse over a button
 		if(guiTexture.HitTest(Input.mousePosition))

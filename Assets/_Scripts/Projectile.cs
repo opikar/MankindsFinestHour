@@ -26,7 +26,7 @@ public class Projectile : MonoBehaviour
             angle *= -1;
         transform.rotation = Quaternion.Euler(new Vector3(0,0,angle));
         rigidbody2D.velocity *= speed;
-        
+        AudioSource.PlayClipAtPoint(audio.clip, Vector3.zero);
 
 	}
 

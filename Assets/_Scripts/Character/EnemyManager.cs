@@ -14,12 +14,11 @@ public class EnemyManager : Character {
     public override void Die()
     {
         gameObject.SetActive(false);
-		PlayerManager.score += 10;
     }
 
     public virtual void Stomped()
     {
-        Die();
+		health.ApplyDamage(100);
     }
 
 	public void Move(float direction){

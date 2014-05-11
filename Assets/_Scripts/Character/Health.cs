@@ -22,8 +22,12 @@ public class Health : MonoBehaviour
     public void ApplyDamage (float dmg)
 	{
 		f_currentHP -= dmg;
-		if(f_currentHP <= 0f)
+		if (f_currentHP <= 0f) {
+			if(m_character.tag == "Enemy") {
+				PlayerManager.score += 10;
+			}
 			m_character.Die();
+		}
     }
 
 	public void RestoreHP() {

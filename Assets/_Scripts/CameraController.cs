@@ -39,7 +39,7 @@ public class CameraController : MonoBehaviour
         }
 
         m_transform.Translate(direction * f_speed * Time.deltaTime);
-        if ((m_transform.position - waypoints[i_index].position).sqrMagnitude < 2000f && !blinking) StartCoroutine(BlinkingArrow());
+        if ((m_transform.position - waypoints[i_index].position).sqrMagnitude < 500f && !blinking) StartCoroutine(BlinkingArrow());
         if ((m_transform.position - waypoints[i_index].position).sqrMagnitude < f_range)
         {
             if (++i_index == waypoints.Length)
@@ -65,7 +65,6 @@ public class CameraController : MonoBehaviour
         if (i_index == waypoints.Length - 1) yield break;
         blinking = true;
         int i = i_index;
-        //arrow.transform.position = transform.posi
         Vector3 dir = (waypoints[i_index + 1].position - waypoints[i_index].position).normalized;
         float angle = Vector3.Angle(transform.right, dir);
         if (Vector3.Dot(transform.up, dir) < 0)

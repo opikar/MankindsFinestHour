@@ -12,5 +12,6 @@ public abstract class LevelManager : MonoBehaviour {
 		GameManager.instance.SetState(State.Running);
 	}
 
+
     public abstract void CompleteLevel();
 }

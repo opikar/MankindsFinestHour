@@ -105,7 +105,6 @@ public abstract class ScriptedEnemy : EnemyManager {
 		GameManager.instance.SetState(State.Postgame);
 		GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().HardReset();
         GameObject.Find("LevelManager").GetComponent<LevelManager>().CompleteLevel();
-        print("Boss died");
     }
 
     protected virtual void Rage()

@@ -47,6 +47,13 @@ public class ShakingPlatform : MonoBehaviour {
 		b_drop = true;
 		b_shake = false;
 		rigidbody2D.isKinematic = r_rigidbody.isKinematic = false;
-
+        Invoke("DisableCollider", 0.2f);
 	}
+
+    void DisableCollider()
+    {
+        collider2D.enabled = false;
+        Destroy(gameObject, 2f);
+    }
+
 }

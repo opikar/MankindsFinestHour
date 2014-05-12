@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BossLevel5Manager : LevelManager {
+public class BossLevel5Manager : BossLevelManager {
 
 
 

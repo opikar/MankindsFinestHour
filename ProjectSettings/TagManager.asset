@@ -46,3 +46,7 @@ TagManager:
     userID: 0
     uniqueID: 0
     locked: 0
+  - name: Background
+    userID: 1
+    uniqueID: 1379034175
+    locked: 0

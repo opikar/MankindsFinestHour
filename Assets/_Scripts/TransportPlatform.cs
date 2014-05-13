@@ -20,7 +20,6 @@ public class TransportPlatform : MovingPlatform {
 			GameObject player = GameObject.FindGameObjectWithTag("Player");
 			player.transform.parent = null; 
 			player.GetComponent<PlayerManager>().SaveState();
-
 			GameObject.Find("LevelManager").GetComponent<LevelManager>().CompleteLevel();
 		}
     }

@@ -52,7 +52,7 @@ public class InputManagerMobile : MonoBehaviour
             axisVertical = 0;
 		m_playerManager.AimVertical(axisVertical, axisHorizontal);
 		
-        m_movement.Move(axisHorizontal);//joystick.position.x);
+        m_movement.Move(axisHorizontal);
 
 		if(jump.Pressed()) 
         {

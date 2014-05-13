@@ -6,6 +6,8 @@ public class InputManagerMobile : MonoBehaviour
     #region MEMBERS
     private Movement m_movement;
 	private PlayerManager m_playerManager;
+    private float axisVertical;
+    private float axisHorizontal;
     public Joystick joystick;
     public TouchButton shoot, jump;
     #endregion
@@ -32,11 +34,25 @@ public class InputManagerMobile : MonoBehaviour
         }
 
 		if(GameManager.instance.GetState() != State.Running || m_playerManager.GetPlayerState() != PlayerState.Normal) return;
-        float axisVertical = joystick.position.y;
-        float axisHorizontal = joystick.position.x;
+        axisVertical = joystick.position.y;
+        axisHorizontal = joystick.position.x;      
+
+        if (axisHorizontal > 0.3f)
+            axisHorizontal = 1;
+        else if (axisHorizontal < -0.3f)
+            axisHorizontal = -1f;
+        else
+            axisHorizontal = 0;
+        print(joystick.position.x);
+        if (axisVertical > 0.5f)
+            axisVertical = 1;
+        else if (axisVertical < -0.5f)
+            axisVertical = -1f;
+        else
+            axisVertical = 0;
 		m_playerManager.AimVertical(axisVertical, axisHorizontal);
 		
-        m_movement.Move(joystick.position.x);
+        m_movement.Move(axisHorizontal);//joystick.position.x);
 
 		if(jump.Pressed()) 
         {

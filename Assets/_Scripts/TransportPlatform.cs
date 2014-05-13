@@ -5,10 +5,11 @@ public class TransportPlatform : MovingPlatform {
 
     GameManager manager;
     GameObject c;
+    public FireworksController fireworkdController;
 
     protected override void Start()
     {
-        base.Start();
+        base.Start();        
         c = GameObject.Find("Main Camera");
     }
 
@@ -31,6 +32,8 @@ public class TransportPlatform : MovingPlatform {
         manager = GameObject.Find("Manager").GetComponent<GameManager>();
         manager.SetState(State.Win);
         other.rigidbody2D.velocity = Vector2.zero;
+        if (fireworkdController != null)
+            StartCoroutine(fireworkdController.Activate());
         BoxCollider2D[] box = c.GetComponentsInChildren<BoxCollider2D>();
         foreach (BoxCollider2D b in box)
             b.enabled = false;

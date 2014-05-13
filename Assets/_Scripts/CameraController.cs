@@ -39,7 +39,7 @@ public class CameraController : MonoBehaviour
         }
 
         m_transform.Translate(direction * f_speed * Time.deltaTime);
-        if ((m_transform.position - waypoints[i_index].position).sqrMagnitude < 500f && !blinking) StartCoroutine(BlinkingArrow());
+        if ((m_transform.position - waypoints[i_index].position).sqrMagnitude < 500f && !blinking && i_index + 1 < waypoints.Length) StartCoroutine(BlinkingArrow());
         if ((m_transform.position - waypoints[i_index].position).sqrMagnitude < f_range)
         {
             if (++i_index == waypoints.Length)

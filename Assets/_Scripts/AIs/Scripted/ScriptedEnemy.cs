@@ -162,15 +162,17 @@ public abstract class ScriptedEnemy : EnemyManager {
     {
         if (!GetGrounded()) yield break;
         lastAction = ShootBigBullet;
-        SwapBullet(1);
-        yield return StartCoroutine(ShootOnce());
-        SwapBullet(0);
+        SwapBullet(2);
+        SetTarget(player);
+        ShootPrimaryWeapon();
+        yield return new WaitForSeconds(waitAfterAction);
     }
 
     protected virtual IEnumerator ShootOnce()
     {
         if (GetGrounded())
         {
+            SwapBullet(0);
             lastAction = ShootOnce;
             SetTarget(player);
             ShootPrimaryWeapon();
@@ -185,13 +187,13 @@ public abstract class ScriptedEnemy : EnemyManager {
             lastAction = ShootRapidlyAction;
             SetTarget(player);
             timer = 0;
+            SwapBullet(1);
             while (timer < shootingTime)
             {
-                print(timer);
                 timer += bulletPerSecond;
                 ShootPrimaryWeapon();
                 yield return new WaitForSeconds(bulletPerSecond);
-            }
+            }            
             yield return new WaitForSeconds(waitAfterAction);
         }
     }

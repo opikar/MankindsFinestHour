@@ -16,7 +16,6 @@ public abstract class BossLevelManager : LevelManager {
         size.xMax = size.x + numbers[0].width;
         size.yMax = size.y + numbers[0].height;
         guiTexture.pixelInset = size;
-        print(size);
         GameManager.instance.SetState(startState);
         while (timer >= 0)
         {

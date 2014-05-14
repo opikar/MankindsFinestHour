@@ -49,6 +49,8 @@ public class KamikazeEnemy : PatrollingEnemy {
 	{
 		//still need and exploding animation
 		m_playerManager.ApplyDamage(m_playerManager.GetMaxHealth() * .5f);
+        b_charge = false;
+        b_seePlayer = false;
 		Die();
 	}
 

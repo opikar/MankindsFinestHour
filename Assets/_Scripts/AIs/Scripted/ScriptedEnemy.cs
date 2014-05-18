@@ -146,6 +146,7 @@ public abstract class ScriptedEnemy : EnemyManager {
         {
             lastAction = ShootAction;
             timer = 0;
+            SwapBullet(0);
             int num = UnityEngine.Random.Range(1, 6);
             while (timer < num)
             {

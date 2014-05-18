@@ -26,7 +26,7 @@ public class MainButtons : MonoBehaviour
 
 	void Update () 
     {
-		if (!available) {
+		if (!available && Application.loadedLevel != 0) {
 			return;
 		}
 

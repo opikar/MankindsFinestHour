@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23519bfd455c34594936e71ec82fbbde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angle: 30
   seePlayerDistance: 40
 --- !u!114 &11400004
 MonoBehaviour:
@@ -197,6 +198,7 @@ MonoBehaviour:
   rateOfFire: .400000006
   autoShoot: 1
   laserDamage: 20
+  curLaserAmmo: 0
   laserAmmo: 300000
 --- !u!114 &11400006
 MonoBehaviour:
@@ -247,7 +249,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300024, guid: 36aa681f83b13ba498004dae7e16897b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6e908df6d5d21d849b2404d2ab2c5298, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

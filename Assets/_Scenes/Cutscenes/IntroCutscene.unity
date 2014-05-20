@@ -484,11 +484,11 @@ MonoBehaviour:
   - {fileID: 1900637056}
   - {fileID: 494163667}
   story:
-  - Story placeholder nr.1
-  - Story placeholder nr.2
-  - Story placeholder nr.3
-  - Story placeholder nr.4
-  - Story placeholder nr.5
+  - Use arrow keys to move. Left and right to move. Down and up arrow to aim
+  - Press Z to shoot. X for limited laser.
+  - Press P to pause
+  - Press space to jump/doublejump
+  - Press down and space to drop through a platform
 --- !u!132 &1662522000
 GUIText:
   m_ObjectHideFlags: 0

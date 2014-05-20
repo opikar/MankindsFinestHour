@@ -182,6 +182,7 @@ MonoBehaviour:
   rateOfFire: 1
   autoShoot: 1
   laserDamage: 20
+  curLaserAmmo: 0
   laserAmmo: 300000
 --- !u!114 &11400006
 MonoBehaviour:
@@ -232,7 +233,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300006, guid: 4fc01601a0c78664fa08fdd4ce6af42c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6e908df6d5d21d849b2404d2ab2c5298, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

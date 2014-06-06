@@ -4,8 +4,8 @@ using System.Collections;
 public class InputManager : MonoBehaviour
 {
     #region MEMBERS
-    private Movement m_movement;
 	private PlayerManager m_playerManager;
+    private Movement m_movement;
     #endregion
 
     #region UNITY_METHODS
@@ -21,7 +21,7 @@ public class InputManager : MonoBehaviour
 
 	void Update () 
     {
-		if(GameManager.instance.GetState() != State.Running || m_playerManager.GetPlayerState() != PlayerState.Normal) return;
+		if((GameManager.instance.GetState() != State.Running && GameManager.instance.GetState() != State.PauseMenu) || m_playerManager.GetPlayerState() != PlayerState.Normal) return;
 		float axisVertical = Input.GetAxisRaw("Vertical");
 		float axisHorizontal = Input.GetAxisRaw("Horizontal");
 		m_playerManager.AimVertical(axisVertical, axisHorizontal);

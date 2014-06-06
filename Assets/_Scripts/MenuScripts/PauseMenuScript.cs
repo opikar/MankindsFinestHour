@@ -20,7 +20,8 @@ public class PauseMenuScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(m_gameManager.GetState() == State.PauseMenu){
+        if (GameManager.instance.GetState() == State.PauseMenu)
+        {
 			blackBox.enabled = true;
 			paused.enabled = true;
 			toMain.enabled = true;

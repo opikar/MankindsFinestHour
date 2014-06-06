@@ -26,7 +26,7 @@ public class MainButtons : MonoBehaviour
 
 	void Update () 
     {
-		if (!available && Application.loadedLevel != 0) {
+		if (!available && Application.loadedLevel != 0 && GameManager.instance.GetState() != State.PauseMenu) {
 			return;
 		}
 

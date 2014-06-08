@@ -6,10 +6,10 @@ public class InputManagerMobile : MonoBehaviour
     #region MEMBERS
     private Movement m_movement;
 	private PlayerManager m_playerManager;
+    private int i_up, i_down, i_left, i_right;
     private float axisVertical;
     private float axisHorizontal;
-    public Joystick joystick;
-    public TouchButton shoot, jump;
+    private TouchButton shoot, jump, up, down ,left, right;
     #endregion
 
     #region UNITY_METHODS
@@ -23,7 +23,10 @@ public class InputManagerMobile : MonoBehaviour
 		m_playerManager = GetComponent<PlayerManager>();
         jump = GameObject.Find("JumpButton").GetComponent<TouchButton>();
         shoot = GameObject.Find("ShootButton").GetComponent<TouchButton>();
-        joystick = GameObject.Find("Single Joystick").GetComponent<Joystick>();
+        up = GameObject.Find("ArrowUp").GetComponent<TouchButton>();
+        down = GameObject.Find("ArrowDown").GetComponent<TouchButton>();
+        left = GameObject.Find("ArrowLeft").GetComponent<TouchButton>();
+        right = GameObject.Find("ArrowRight").GetComponent<TouchButton>();
 	}
 
 	void Update () 
@@ -34,29 +37,39 @@ public class InputManagerMobile : MonoBehaviour
         }
 
 		if(GameManager.instance.GetState() != State.Running || m_playerManager.GetPlayerState() != PlayerState.Normal) return;
-        axisVertical = joystick.position.y;
-        axisHorizontal = joystick.position.x;      
 
-        if (axisHorizontal > 0.3f)
-            axisHorizontal = 1;
-        else if (axisHorizontal < -0.3f)
-            axisHorizontal = -1f;
+
+        if (up.Pressing())
+            i_up = 1;
         else
-            axisHorizontal = 0;
-        print(joystick.position.x);
-        if (axisVertical > 0.5f)
-            axisVertical = 1;
-        else if (axisVertical < -0.5f)
-            axisVertical = -1f;
+            i_up = 0;
+
+        if (down.Pressing())
+            i_down = -1;
         else
-            axisVertical = 0;
+            i_down = 0;
+
+        if (right.Pressing())
+            i_right = 1;
+        else
+            i_right = 0;
+
+        if (left.Pressing())
+            i_left = -1;
+        else
+            i_left = 0;
+
+
+        axisHorizontal = i_left + i_right;
+        axisVertical = i_up + i_down;
+
 		m_playerManager.AimVertical(axisVertical, axisHorizontal);
 		
         m_movement.Move(axisHorizontal);
 
 		if(jump.Pressed()) 
         {
-			if(joystick.position.y < -0.5f)
+			if(axisVertical < 0)
 				m_movement.Drop();
 			else
 				m_movement.Jump();

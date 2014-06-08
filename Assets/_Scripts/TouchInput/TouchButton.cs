@@ -27,4 +27,17 @@ public class TouchButton : MonoBehaviour {
         }
         return false;
     }
+
+    public virtual bool Pressing()
+    {
+        for (int i = 0; i < Input.touchCount; i++)
+        {
+            if ((Input.touches[i].phase == TouchPhase.Began || Input.touches[i].phase == TouchPhase.Stationary || Input.touches[i].phase == TouchPhase.Moved) && area.Contains(Input.touches[i].position))
+            {
+                Debug.Log("Pressed: " + gameObject.name);
+                return true;
+            }
+        }
+        return false;
+    }
 }

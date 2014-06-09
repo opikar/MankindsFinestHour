@@ -33,6 +33,7 @@ public class MainButtons : MonoBehaviour
     	//activate if mouse over a button
 		if(guiTexture.HitTest(Input.mousePosition))
 		{
+            
 			guiTexture.color = on;
 			
 			//if clicked
@@ -80,30 +81,35 @@ public class MainButtons : MonoBehaviour
 				else if(guiTexture.name == "TrueLevel1")
 				{
 					//Level1
+                    Time.timeScale = 1f;
 					Debug.Log("Lvl1");
 					Application.LoadLevel("TrueLevel1");
 				}
 				else if(guiTexture.name == "TrueLevel2")
 				{
 					//Level2
+                    Time.timeScale = 1f;
 					Debug.Log("Lvl2");
 					Application.LoadLevel("TrueLevel2");
 				}
 				else if(guiTexture.name == "TrueLevel3")
 				{
 					//Level3
+                    Time.timeScale = 1f;
 					Debug.Log("Lvl3");
 					Application.LoadLevel("TrueLevel3");
 				}
 				else if(guiTexture.name == "TrueLevel4")
 				{
 					//Level4
+                    Time.timeScale = 1f;
 					Debug.Log("Lvl4");
 					Application.LoadLevel("TrueLevel4");
 				}
 				else if(guiTexture.name == "TrueLevel5")
 				{
 					//Level5
+                    Time.timeScale = 1f;
 					Debug.Log("Lvl5");
 					Application.LoadLevel("TrueLevel5");
 				}

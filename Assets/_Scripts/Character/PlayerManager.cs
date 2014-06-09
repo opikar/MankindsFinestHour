@@ -141,15 +141,25 @@ public class PlayerManager : Character
 	public override void Die()
     {
 		transform.parent = null;
-		if (--lives >= 0) {
-			m_transform.position += Vector3.up * 100f;
-			Application.LoadLevel(Application.loadedLevel);
-		} else {
-			gameObject.SetActive(false);
-			HardReset();
-			GameManager.instance.SetState(State.StartMenu);
-			Application.LoadLevel ("MechList");
-		}
+        StartCoroutine(DyingAnimation());
+		
+    }
+    private IEnumerator DyingAnimation()
+    {
+        yield return null;
+        
+        if (--lives >= 0)
+        {
+            m_transform.position += Vector3.up * 100f;
+            Application.LoadLevel(Application.loadedLevel);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+            HardReset();
+            GameManager.instance.SetState(State.StartMenu);
+            Application.LoadLevel("MechList");
+        }
     }
 
 	public void HitEnemy(EnemyManager em, Vector3 position)

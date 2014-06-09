@@ -67,6 +67,11 @@ public class CameraController : MonoBehaviour
     private IEnumerator BlinkingArrow()
     {
         if (i_index == waypoints.Length - 1) yield break;
+        Vector3 p1 = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0));
+        Vector3 p2 = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0));
+        float width = Vector3.Distance(p1, p2) * 0.4f;
+        p2 = Camera.main.ScreenToWorldPoint(new Vector3(0, Screen.height, 0));
+        float height = Vector3.Distance(p1, p2) * .4f;
         blinking = true;
         int i = i_index;
         Vector3 dir = (waypoints[i_index + 1].position - waypoints[i_index].position).normalized;
@@ -77,6 +82,13 @@ public class CameraController : MonoBehaviour
         float startTime = Time.time;
         while (startTime + blinkTime > Time.time && i == i_index)
         {
+            Vector3 position = transform.position;
+            position.z = 0;
+            dir = dir.normalized;
+            dir.x *= width;
+            dir.y *= height;
+            position += dir;
+            arrow.transform.position = position;
             arrow.SetActive(!arrow.activeSelf);
             yield return new WaitForSeconds(0.4f);
         }

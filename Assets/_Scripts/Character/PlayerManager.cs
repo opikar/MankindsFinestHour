@@ -140,6 +140,8 @@ public class PlayerManager : Character
 
 	public override void Die()
     {
+        if (GetPlayerState() == PlayerState.Dead) return;
+        SetPlayerState(PlayerState.Dead);
 		transform.parent = null;
         StartCoroutine(DyingAnimation());
 		
@@ -150,7 +152,22 @@ public class PlayerManager : Character
         
         if (--lives >= 0)
         {
-            m_transform.position += Vector3.up * 100f;
+            Vector3 direction = new Vector3(UnityEngine.Random.Range(-.5f, .5f), 1f);
+            direction = direction.normalized;
+            collider2D.enabled = false;
+
+            float gravity = rigidbody2D.gravityScale;
+            rigidbody2D.velocity = Vector2.zero;
+            rigidbody2D.gravityScale = 0;
+
+            yield return new WaitForSeconds(1f);
+            
+            rigidbody2D.gravityScale = gravity;
+            rigidbody2D.AddForce(direction * 9000f);
+            yield return new WaitForSeconds(3f);
+            collider2D.enabled = true;
+            
+            SetPlayerState(PlayerState.Normal);
             Application.LoadLevel(Application.loadedLevel);
         }
         else
@@ -250,5 +267,6 @@ public class PlayerManager : Character
 public enum PlayerState
 {
 	Hurt,
-	Normal
+	Normal,
+    Dead
 }

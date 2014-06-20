@@ -102,7 +102,7 @@ public class PlayerManager : Character
 	}
 	void OnCollisionEnter2D(Collision2D collision)
 	{
-		if (collision.gameObject.tag == "Ground" && GetPlayerState () == PlayerState.Hurt)
+		if (collision.gameObject.tag == "Ground" && GetPlayerState () != PlayerState.Normal)
 			SetPlayerState (PlayerState.Normal);
 	}
     #endregion
@@ -247,6 +247,7 @@ public class PlayerManager : Character
 
 	public void HardReset() {
 		base.Reset();
+        p_state = PlayerState.Normal;
 		weapon.curLaserAmmo = weapon.laserAmmo;
 		health.RestoreHP();
 		lives = 3;
@@ -256,6 +257,7 @@ public class PlayerManager : Character
 
 	public override void Reset() {
 		base.Reset();
+        p_state = PlayerState.Normal;
 		weapon.curLaserAmmo = SaveScript.save.laser;
 		health.f_currentHP = SaveScript.save.hp;
 		score = SaveScript.save.score;

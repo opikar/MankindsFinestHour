@@ -4,12 +4,15 @@ using System.Collections;
 public class TouchButtonController : MonoBehaviour {
 
     public GUITexture up, down, left, right, shoot, jump;
-    public int arrowSize = 70, abSize = 100;
+    public float arrowSize = 9, abSize = 8;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
+        arrowSize = Screen.width / arrowSize;
+        abSize = Screen.width / abSize;
         SetABButtons();
         SetArrowButtons();
+        Debug.Log(Screen.width);
 	}
 
     private void SetArrowButtons()
@@ -17,11 +20,19 @@ public class TouchButtonController : MonoBehaviour {
         Rect arrow = new Rect(0, 0, arrowSize, arrowSize);
 
         arrow.x = 20;
-        arrow.y = Screen.height - arrowSize * 2f;
+        arrow.y = (Screen.height - arrowSize) * 0.5f;
 
         left.pixelInset = arrow;
 
-        arrow.x += arrowSize * 0.5f;
+        arrow.x += arrowSize;
+        //arrow.y += arrowSize * 0.5f;
+
+        right.pixelInset = arrow;
+
+        arrow.width = arrowSize;
+        arrow.height = arrowSize;
+
+        arrow.x -= arrowSize * 0.5f;
         arrow.y += arrowSize * 0.5f;
 
         up.pixelInset = arrow;
@@ -30,10 +41,7 @@ public class TouchButtonController : MonoBehaviour {
 
         down.pixelInset = arrow;
 
-        arrow.x += arrowSize * 0.5f;
-        arrow.y += arrowSize * 0.5f;
-
-        right.pixelInset = arrow;
+        
     }
 
     private void SetABButtons()

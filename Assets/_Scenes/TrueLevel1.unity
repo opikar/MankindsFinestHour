@@ -1409,6 +1409,14 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400012, guid: b0e9a68d687cf8e43aee186f4a29f522, type: 2}
+      propertyPath: arrowSize
+      value: 10.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400012, guid: b0e9a68d687cf8e43aee186f4a29f522, type: 2}
+      propertyPath: abSize
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0e9a68d687cf8e43aee186f4a29f522, type: 2}
   m_RootGameObject: {fileID: 221300092}
@@ -1834,8 +1842,8 @@ MonoBehaviour:
   right: {fileID: 444148491}
   shoot: {fileID: 242596238}
   jump: {fileID: 1431355085}
-  arrowSize: 70
-  abSize: 100
+  arrowSize: 10.5
+  abSize: 8
 --- !u!1001 &241446094
 Prefab:
   m_ObjectHideFlags: 0

@@ -49,7 +49,7 @@ public class MainButtons : MonoBehaviour
 				{
 
 					//Load the first cutscene or "New Game"
-					Application.LoadLevel("IntroCutscene");
+					Application.LoadLevel("TrueLevel1");
 				}
 				else if(guiTexture.name == "Load")
 				{

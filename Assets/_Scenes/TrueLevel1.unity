@@ -687,7 +687,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 156863339}
   m_GameObject: {fileID: 88226630}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: efe97bd4e5807774fb808a38d82240d1, type: 3}
+  m_Texture: {fileID: 2800000, guid: 7722d032b7fa7854c8ef049c9901a346, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .168627456}
   m_PixelInset:
     serializedVersion: 2
@@ -747,11 +747,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: choice
-      value: Player
+      value: Player(Mobile)
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
       propertyPath: m_Name
-      value: Player
+      value: Player(Mobile)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 839a95b2db400488990a2213dcc31e85, type: 2}
@@ -1407,7 +1407,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: b0e9a68d687cf8e43aee186f4a29f522, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0e9a68d687cf8e43aee186f4a29f522, type: 2}
@@ -1791,13 +1791,14 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 221300093}
+  - 114: {fileID: 221300094}
   m_Layer: 0
   m_Name: TouchButtons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &221300093
 Transform:
   m_ObjectHideFlags: 0
@@ -1815,6 +1816,26 @@ Transform:
   - {fileID: 1431355083}
   - {fileID: 242596236}
   m_Father: {fileID: 0}
+--- !u!114 &221300094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400012, guid: b0e9a68d687cf8e43aee186f4a29f522,
+    type: 2}
+  m_PrefabInternal: {fileID: 156863339}
+  m_GameObject: {fileID: 221300092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccfe0337049a51542a39ac619d083de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  up: {fileID: 88226632}
+  down: {fileID: 1663404144}
+  left: {fileID: 1269985608}
+  right: {fileID: 444148491}
+  shoot: {fileID: 242596238}
+  jump: {fileID: 1431355085}
+  arrowSize: 70
+  abSize: 100
 --- !u!1001 &241446094
 Prefab:
   m_ObjectHideFlags: 0
@@ -1915,7 +1936,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 156863339}
   m_GameObject: {fileID: 242596235}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: a86d42cb56bb6bb439b9dfd3804813db, type: 3}
+  m_Texture: {fileID: 2800000, guid: 4fbc5e832bff832429a813de56f03767, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .168627456}
   m_PixelInset:
     serializedVersion: 2
@@ -2804,7 +2825,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 156863339}
   m_GameObject: {fileID: 444148488}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: b4f1d8b1a9e3c054389a779a8d9bf6a2, type: 3}
+  m_Texture: {fileID: 2800000, guid: 25f3109cb29b8cd4aa3b63609327ea46, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .168627456}
   m_PixelInset:
     serializedVersion: 2
@@ -7042,7 +7063,7 @@ GameObject:
   - 114: {fileID: 1260244951}
   - 61: {fileID: 1260244950}
   m_Layer: 13
-  m_Name: Player
+  m_Name: Player(Mobile)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7072,7 +7093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d62cf344385264e479b27d952343f58b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  choice: Player
+  choice: Player(Mobile)
   gizmoSize: {x: 2, y: 3}
 --- !u!4 &1260244952
 Transform:
@@ -7233,7 +7254,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 156863339}
   m_GameObject: {fileID: 1269985605}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: 6c2836bb0c89841449e9ad9022c53c62, type: 3}
+  m_Texture: {fileID: 2800000, guid: 3020bb6029f642244b9a0e355390f03a, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .168627456}
   m_PixelInset:
     serializedVersion: 2
@@ -8453,7 +8474,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 156863339}
   m_GameObject: {fileID: 1431355082}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: 3e4b8152a7ae4c14ca0b9d320437c13f, type: 3}
+  m_Texture: {fileID: 2800000, guid: 797a2282190beca4c9c3d379619c4766, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .168627456}
   m_PixelInset:
     serializedVersion: 2
@@ -9532,7 +9553,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 156863339}
   m_GameObject: {fileID: 1663404141}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: 632fc3317a8709543bd59d6e0f8fc114, type: 3}
+  m_Texture: {fileID: 2800000, guid: 360f3e24d7d76c14581281ffe0ce380d, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .168627456}
   m_PixelInset:
     serializedVersion: 2

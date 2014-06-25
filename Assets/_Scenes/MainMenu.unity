@@ -85,6 +85,7 @@ GameObject:
   - 131: {fileID: 136297825}
   - 114: {fileID: 136297827}
   - 114: {fileID: 136297828}
+  - 114: {fileID: 136297829}
   m_Layer: 0
   m_Name: New
   m_TagString: Untagged
@@ -128,7 +129,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 136297824}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e277a28169144ecd937bd551a0cf111, type: 3}
   m_Name: 
@@ -136,6 +137,7 @@ MonoBehaviour:
   on: {r: .699999988, g: .699999988, b: .699999988, a: 1}
   off: {r: .5, g: .5, b: .5, a: 1}
   press: {r: .300000012, g: .300000012, b: .300000012, a: 1}
+  disabled: {r: .100000001, g: .100000001, b: .100000001, a: 1}
 --- !u!114 &136297828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +151,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   widthPercent: 25
   pos: 4
+--- !u!114 &136297829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 136297824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 529ca1bf6783d554b9ba5ba3e5a3e1b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadLevel: 1
+  levelToLoad: 1
+  on: {r: .699999988, g: .699999988, b: .699999988, a: 1}
+  off: {r: .698039234, g: .698039234, b: .698039234, a: 1}
+  press: {r: .300000012, g: .300000012, b: .300000012, a: 1}
+  disabled: {r: .100000001, g: .100000001, b: .100000001, a: 1}
 --- !u!1 &150246971
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +238,7 @@ GameObject:
   - 131: {fileID: 669888617}
   - 114: {fileID: 669888619}
   - 114: {fileID: 669888620}
+  - 114: {fileID: 669888621}
   m_Layer: 0
   m_Name: Load
   m_TagString: Untagged
@@ -262,7 +282,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 669888616}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e277a28169144ecd937bd551a0cf111, type: 3}
   m_Name: 
@@ -270,6 +290,7 @@ MonoBehaviour:
   on: {r: .699999988, g: .699999988, b: .699999988, a: 1}
   off: {r: .5, g: .5, b: .5, a: 1}
   press: {r: .300000012, g: .300000012, b: .300000012, a: 1}
+  disabled: {r: .100000001, g: .100000001, b: .100000001, a: 1}
 --- !u!114 &669888620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,6 +304,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   widthPercent: 25
   pos: 2.5
+--- !u!114 &669888621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 669888616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 529ca1bf6783d554b9ba5ba3e5a3e1b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadLevel: 1
+  levelToLoad: 6
+  on: {r: .699999988, g: .699999988, b: .699999988, a: 1}
+  off: {r: .5, g: .5, b: .5, a: 1}
+  press: {r: .300000012, g: .300000012, b: .300000012, a: 1}
+  disabled: {r: .100000001, g: .100000001, b: .100000001, a: 1}
 --- !u!1 &1233293484
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,6 +475,7 @@ MonoBehaviour:
   on: {r: .699999988, g: .699999988, b: .699999988, a: 1}
   off: {r: .5, g: .5, b: .5, a: 1}
   press: {r: .300000012, g: .300000012, b: .300000012, a: 1}
+  disabled: {r: .100000001, g: .100000001, b: .100000001, a: 1}
 --- !u!114 &1407429083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,6 +500,7 @@ GameObject:
   - 131: {fileID: 1763123284}
   - 114: {fileID: 1763123286}
   - 114: {fileID: 1763123287}
+  - 114: {fileID: 1763123288}
   m_Layer: 0
   m_Name: Quit
   m_TagString: Untagged
@@ -504,7 +544,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1763123283}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e277a28169144ecd937bd551a0cf111, type: 3}
   m_Name: 
@@ -512,6 +552,7 @@ MonoBehaviour:
   on: {r: .699999988, g: .699999988, b: .699999988, a: 1}
   off: {r: .5, g: .5, b: .5, a: 1}
   press: {r: .300000012, g: .300000012, b: .300000012, a: 1}
+  disabled: {r: .100000001, g: .100000001, b: .100000001, a: 1}
 --- !u!114 &1763123287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -525,3 +566,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   widthPercent: 25
   pos: 1
+--- !u!114 &1763123288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1763123283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 529ca1bf6783d554b9ba5ba3e5a3e1b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadLevel: 0
+  levelToLoad: 0
+  on: {r: .699999988, g: .699999988, b: .699999988, a: 1}
+  off: {r: .5, g: .5, b: .5, a: 1}
+  press: {r: .300000012, g: .300000012, b: .300000012, a: 1}
+  disabled: {r: .100000001, g: .100000001, b: .100000001, a: 1}

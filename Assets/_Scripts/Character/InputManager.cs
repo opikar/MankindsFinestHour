@@ -21,7 +21,9 @@ public class InputManager : MonoBehaviour
 
 	void Update () 
     {
-		if((GameManager.instance.GetState() != State.Running && GameManager.instance.GetState() != State.PauseMenu) || m_playerManager.GetPlayerState() != PlayerState.Normal) return;
+		if((GameManager.instance.GetState() != State.Running && 
+            GameManager.instance.GetState() != State.PauseMenu) || 
+            m_playerManager.GetPlayerState() != PlayerState.Normal) return;
 		float axisVertical = Input.GetAxisRaw("Vertical");
 		float axisHorizontal = Input.GetAxisRaw("Horizontal");
 		m_playerManager.AimVertical(axisVertical, axisHorizontal);

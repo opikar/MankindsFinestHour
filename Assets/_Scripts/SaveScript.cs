@@ -44,7 +44,7 @@ public class SaveScript
 	{
 		availableLevels = new Dictionary<string, bool>() 
         { 
-            { levels[0], false },
+            { levels[0], true },
             { levels[1], false },
             { levels[2], false },
             { levels[3], false },

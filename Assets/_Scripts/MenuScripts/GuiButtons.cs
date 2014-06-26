@@ -77,9 +77,13 @@ public class GuiButtons : MonoBehaviour {
             {             
                 Time.timeScale = 1f;
                 if (restart)
-                    Application.LoadLevel(Application.loadedLevel);
+                {
+                    Application.LoadLevel(Application.loadedLevelName);
+                }
                 else if (loadLevel)
+                {
                     Application.LoadLevel(levelToLoad.ToString());
+                }
                 else
                     Application.Quit();
             }
@@ -100,6 +104,11 @@ public enum Levels {
     TrueLevel3,
     TrueLevel4,
     TrueLevel5,
+    BossLevel1,
+    BossLevel2,
+    BossLevel3,
+    BossLevel4,
+    BossLevel5,
     MechList,
     IntroCutscene
 

@@ -4,6 +4,7 @@ using System;
 
 public class GuiButtons : MonoBehaviour {
 
+    public bool restart;
     public bool loadLevel = true;
     public Levels levelToLoad;
 
@@ -18,7 +19,15 @@ public class GuiButtons : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    //activate if mouse over a button
+        if (guiTexture != null)
+            UpdateGUITexture();
+        else if (guiText != null)
+            UpdateGUIText();
+    }
+
+    private void UpdateGUITexture()
+    {
+        //activate if mouse over a button
         if (levelToLoad.ToString().Substring(0, 4) == "True")
             if (!SaveScript.save.availableLevels[levelToLoad.ToString()])
             {
@@ -27,7 +36,7 @@ public class GuiButtons : MonoBehaviour {
             }
         if (guiTexture.HitTest(Input.mousePosition))
         {
-            
+
             guiTexture.color = on;
 
             //if clicked
@@ -38,7 +47,7 @@ public class GuiButtons : MonoBehaviour {
 
             if (Input.GetMouseButtonUp(0))
             {
-                Time.timeScale = 1f;                
+                Time.timeScale = 1f;
                 if (loadLevel)
                     Application.LoadLevel(levelToLoad.ToString());
                 else
@@ -50,7 +59,37 @@ public class GuiButtons : MonoBehaviour {
         {
             guiTexture.color = off;
         }
-	}
+    }
+    private void UpdateGUIText()
+    {
+        if (guiText.HitTest(Input.mousePosition))
+        {
+
+            guiText.color = on;
+
+            //if clicked
+            if (Input.GetMouseButton(0))
+            {
+                guiText.color = press;
+            }
+
+            if (Input.GetMouseButtonUp(0))
+            {             
+                Time.timeScale = 1f;
+                if (restart)
+                    Application.LoadLevel(Application.loadedLevel);
+                else if (loadLevel)
+                    Application.LoadLevel(levelToLoad.ToString());
+                else
+                    Application.Quit();
+            }
+        }
+        //Return color to normal
+        else
+        {
+            guiText.color = off;
+        }
+    }
 }
 
 [Flags]

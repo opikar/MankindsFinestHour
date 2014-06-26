@@ -9,7 +9,12 @@ public class CameraController : MonoBehaviour
     bool blinking;
     [SerializeField]
     int i_index = 0;
-    float f_speed;
+    private float f_speed;
+    public float speed
+    {
+        get { return f_speed; }
+        set { f_speed = value; }
+    }
     Vector3 direction;
     float f_range;
 

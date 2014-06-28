@@ -19,9 +19,9 @@ public class GuiButtons : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (guiTexture != null)
+        if (guiTexture != null && guiTexture.enabled)
             UpdateGUITexture();
-        else if (guiText != null)
+        else if (guiText != null && guiText.enabled)
             UpdateGUIText();
     }
 

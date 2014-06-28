@@ -27,8 +27,7 @@ public abstract class LevelManager : MonoBehaviour {
         if (livesLeft)
         {
             levelSelect.enabled = false;
-            retry.enabled = true;
-           // retry.transform.position = cameraPosition;
+            retry.enabled = true;         
         }
         else
         {

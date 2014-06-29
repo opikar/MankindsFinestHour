@@ -112,7 +112,7 @@ public abstract class Character : MonoBehaviour
 	}
 
 	public virtual void Reset()
-	{
+	{        
 		rigidbody2D.velocity = new Vector2(0, 0);
         //gameManager = GameManager.instance;
 		rigidbody2D.gravityScale = 1;

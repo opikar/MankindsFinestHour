@@ -37,7 +37,7 @@ public class Movement : MonoBehaviour
     #endregion
 
     #region UNITY_METHODS
-    protected void Start () 
+    protected void Awake () 
     {
         // Here we call the base.variable which is the slow one
         // and store that value into our new one.

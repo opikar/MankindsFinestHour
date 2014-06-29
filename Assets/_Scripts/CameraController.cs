@@ -6,7 +6,8 @@ public class CameraController : MonoBehaviour
     public Transform[] waypoints;
     public GameObject arrow;
 
-    bool blinking;
+    private bool arrow_blinking;
+	private bool arrow_shouldBlink;
     [SerializeField]
     int i_index = 0;
     private float f_speed;
@@ -18,7 +19,7 @@ public class CameraController : MonoBehaviour
     Vector3 direction;
     float f_range;
 
-    float blinkTime;
+    private float arrow_blinkTime;
 
     private Transform m_transform;
 
@@ -26,7 +27,7 @@ public class CameraController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        blinkTime = 2f;
+        arrow_blinkTime = 2f;
         m_transform = transform;
         f_range = Mathf.Abs(transform.position.z - waypoints[i_index].position.z) + 0.1f;
         f_range *= f_range;
@@ -55,7 +56,7 @@ public class CameraController : MonoBehaviour
             if (i_index != -1)
                 GetDirection();
         }
-        if (!blinking && i_index < waypoints.Length)
+        if (!arrow_blinking && i_index < waypoints.Length && arrow_shouldBlink)
             if ((m_transform.position - waypoints[i_index].position).sqrMagnitude < 500f)
                 StartCoroutine(BlinkingArrow());
 
@@ -66,7 +67,9 @@ public class CameraController : MonoBehaviour
         vec = m_transform.position;
         vec.z = 0;
         direction = (waypoints[i_index].position - vec).normalized;
-        f_speed = waypoints[i_index].GetComponent<WaypointScript>().SpeedToWaypoint;
+		WaypointScript ws = waypoints[i_index].GetComponent<WaypointScript>();
+		arrow_shouldBlink = ws.blink;
+        f_speed = ws.SpeedToWaypoint;
     }
 
     private IEnumerator BlinkingArrow()
@@ -77,7 +80,7 @@ public class CameraController : MonoBehaviour
         float width = Vector3.Distance(p1, p2) * 0.4f;
         p2 = Camera.main.ScreenToWorldPoint(new Vector3(0, Screen.height, 0));
         float height = Vector3.Distance(p1, p2) * .4f;
-        blinking = true;
+        arrow_blinking = true;
         int i = i_index;
         Vector3 dir = (waypoints[i_index + 1].position - waypoints[i_index].position).normalized;
         float angle = Vector3.Angle(transform.right, dir);
@@ -85,7 +88,7 @@ public class CameraController : MonoBehaviour
             angle *= -1;
         arrow.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         float startTime = Time.time;
-        while (startTime + blinkTime > Time.time && i == i_index)
+        while (startTime + arrow_blinkTime > Time.time && i == i_index)
         {
             Vector3 position = transform.position;
             position.z = 0;
@@ -97,7 +100,7 @@ public class CameraController : MonoBehaviour
             arrow.SetActive(!arrow.activeSelf);
             yield return new WaitForSeconds(0.4f);
         }
-        blinking = false;
+        arrow_blinking = false;
         arrow.SetActive(false);
     }
 

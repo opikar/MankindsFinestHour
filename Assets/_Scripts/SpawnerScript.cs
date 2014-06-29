@@ -14,7 +14,6 @@ public class SpawnerScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D collider) {
 		if(collider.name == "Spawner") {
 			GameObject character = GameState.GetCharacter(choice);
-
 			character.GetComponent<Character>().Reset();
 			character.transform.position = transform.position;
 

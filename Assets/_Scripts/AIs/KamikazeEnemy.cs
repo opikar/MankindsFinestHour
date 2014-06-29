@@ -8,11 +8,21 @@ public class KamikazeEnemy : PatrollingEnemy {
 	public bool b_seePlayer = false;
 	public bool b_charge = false;
 	private float f_chargeSpeed = 20f;
+    private float f_normalSpeed;
 	private float f_chargeStart;
 	private PlayerManager m_playerManager;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        f_normalSpeed = movement.f_speed;
+        print(f_normalSpeed);
+    }
+
 	// Use this for initialization
 	protected override void Start () {
 		base.Start();
+       
 		m_playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
 		f_chargeStart = Time.time;
 	}
@@ -53,6 +63,14 @@ public class KamikazeEnemy : PatrollingEnemy {
         b_seePlayer = false;
 		Die();
 	}
+
+    public override void Reset()
+    {
+        base.Reset();
+        f_chargeStart = Time.time;
+        b_charge = b_seePlayer = false;
+        SetMoveSpeed(f_normalSpeed);
+    }
 
 
 }

@@ -259,10 +259,12 @@ public class PlayerManager : Character
 
 	public override void Reset() {
 		base.Reset();
+        
         p_state = PlayerState.Normal;
 		weapon.curLaserAmmo = SaveScript.save.laser;
 		health.f_currentHP = SaveScript.save.hp;
 		score = SaveScript.save.score;
+        if (!movement.facingRight) movement.Flip();
 	}
 
     #endregion

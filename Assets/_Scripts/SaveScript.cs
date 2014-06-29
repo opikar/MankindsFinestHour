@@ -81,6 +81,7 @@ public class SaveScript
 
 	public void ResetAllLevels()
 	{
+        Debug.Log("Reset");
 		availableLevels [levels [0]] = true;
 		availableLevels [levels [1]] = false;
 		availableLevels [levels [2]] = false;

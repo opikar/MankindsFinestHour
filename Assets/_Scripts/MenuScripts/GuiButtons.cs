@@ -2,11 +2,17 @@
 using System.Collections;
 using System;
 
+
+
 public class GuiButtons : MonoBehaviour {
+
+    public delegate void PressedButton();
+    public event PressedButton pressedButton;
 
     public bool restart;
     public bool loadLevel = true;
     public Levels levelToLoad;
+    
 
     public Color on = new Color(0.7f,0.7f,0.7f,1f);
 	public Color off = new Color(0.5f,0.5f,0.5f,1f);
@@ -47,6 +53,7 @@ public class GuiButtons : MonoBehaviour {
 
             if (Input.GetMouseButtonUp(0))
             {
+                if (pressedButton != null) pressedButton();
                 Time.timeScale = 1f;
                 if (loadLevel)
                     Application.LoadLevel(levelToLoad.ToString());

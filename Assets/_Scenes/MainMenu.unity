@@ -253,7 +253,7 @@ GameObject:
   - 114: {fileID: 669888620}
   - 114: {fileID: 669888621}
   m_Layer: 0
-  m_Name: Load
+  m_Name: Continue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -330,7 +330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restart: 0
   loadLevel: 1
-  levelToLoad: 6
+  levelToLoad: 11
   on: {r: .699999988, g: .699999988, b: .699999988, a: 1}
   off: {r: .5, g: .5, b: .5, a: 1}
   press: {r: .300000012, g: .300000012, b: .300000012, a: 1}

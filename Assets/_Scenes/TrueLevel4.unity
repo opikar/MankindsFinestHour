@@ -1735,6 +1735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedToWaypoint: 2.5
+  blink: 1
 --- !u!1 &111352856
 GameObject:
   m_ObjectHideFlags: 0
@@ -2716,6 +2717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedToWaypoint: 6
+  blink: 1
 --- !u!4 &149929452
 Transform:
   m_ObjectHideFlags: 0
@@ -3889,6 +3891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedToWaypoint: 6
+  blink: 1
 --- !u!1001 &278525220
 Prefab:
   m_ObjectHideFlags: 0
@@ -7761,7 +7764,7 @@ GUIText:
   m_GameObject: {fileID: 512573017}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: You have died. Try again
+  m_Text: You Have Died
   m_Anchor: 4
   m_Alignment: 1
   m_PixelOffset: {x: 0, y: 0}
@@ -11820,6 +11823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedToWaypoint: 6
+  blink: 1
 --- !u!1 &802851351
 GameObject:
   m_ObjectHideFlags: 0
@@ -15781,6 +15785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedToWaypoint: 6
+  blink: 1
 --- !u!4 &1065752616
 Transform:
   m_ObjectHideFlags: 0
@@ -16765,6 +16770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedToWaypoint: 6
+  blink: 1
 --- !u!1 &1147522600
 GameObject:
   m_ObjectHideFlags: 0
@@ -17106,6 +17112,92 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1391636550}
+--- !u!1 &1176019291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: c1caa2c10f31ccf418e8c61f0cae0896, type: 2}
+  m_PrefabInternal: {fileID: 1379817282}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1176019293}
+  - 82: {fileID: 1176019292}
+  m_Layer: 0
+  m_Name: Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1176019292
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8200000, guid: c1caa2c10f31ccf418e8c61f0cae0896,
+    type: 2}
+  m_PrefabInternal: {fileID: 1379817282}
+  m_GameObject: {fileID: 1176019291}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 77c9e19205b5fa648807e8aa10e6fd40, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!4 &1176019293
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: c1caa2c10f31ccf418e8c61f0cae0896, type: 2}
+  m_PrefabInternal: {fileID: 1379817282}
+  m_GameObject: {fileID: 1176019291}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 811.306458, y: 7.89198494, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1001 &1180606487
 Prefab:
   m_ObjectHideFlags: 0
@@ -19595,6 +19687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedToWaypoint: 6
+  blink: 1
 --- !u!4 &1358164664
 Transform:
   m_ObjectHideFlags: 0
@@ -19978,6 +20071,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   choice: TurretEnemy
   gizmoSize: {x: 2, y: 3}
+--- !u!1001 &1379817282
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: c1caa2c10f31ccf418e8c61f0cae0896, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 811.306458
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c1caa2c10f31ccf418e8c61f0cae0896, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 7.89198494
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c1caa2c10f31ccf418e8c61f0cae0896, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c1caa2c10f31ccf418e8c61f0cae0896, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c1caa2c10f31ccf418e8c61f0cae0896, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c1caa2c10f31ccf418e8c61f0cae0896, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c1caa2c10f31ccf418e8c61f0cae0896, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c1caa2c10f31ccf418e8c61f0cae0896, type: 2}
+  m_RootGameObject: {fileID: 1176019291}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1001 &1384275640
 Prefab:
   m_ObjectHideFlags: 0
@@ -23221,6 +23354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedToWaypoint: 6
+  blink: 1
 --- !u!1001 &1592394292
 Prefab:
   m_ObjectHideFlags: 0

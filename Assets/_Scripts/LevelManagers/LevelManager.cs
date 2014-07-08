@@ -26,12 +26,14 @@ public abstract class LevelManager : MonoBehaviour {
         gameOver.SetActive(true);
         if (livesLeft)
         {
-            levelSelect.enabled = false;
+            //levelSelect.enabled = false;
+            levelSelect.text = "Level select";
             retry.enabled = true;         
         }
         else
         {
-            levelSelect.enabled = true;
+            //levelSelect.enabled = true;
+            levelSelect.text = "Continue";
             retry.enabled = false;
         }
 

@@ -72,7 +72,13 @@ public class GuiButtons : MonoBehaviour {
         if (levelToLoad.ToString().Substring(0, 4) == "True")
             if (!SaveScript.save.availableLevels[levelToLoad.ToString()])
             {
-                guiText.color = disabled;
+                //guiText.color = disabled;
+                guiText.enabled = false;
+                return;
+            }
+            else
+            {
+                guiText.enabled = true;
                 return;
             }
         if (guiText.HitTest(Input.mousePosition))

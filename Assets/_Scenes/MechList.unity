@@ -736,6 +736,7 @@ GameObject:
   - 4: {fileID: 1418190961}
   - 114: {fileID: 1418190960}
   - 114: {fileID: 1418190962}
+  - 114: {fileID: 1418190963}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -779,6 +780,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab6ba4effb5fb144b8d285a234967b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1418190963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1418190959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b414fba300214842b55e6ec9732c33e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guiTexts:
+  - {fileID: 795071999}
+  - {fileID: 49198254}
+  - {fileID: 102548003}
+  - {fileID: 280383290}
+  - {fileID: 2023936537}
+  - {fileID: 392502375}
 --- !u!1001 &1903774926
 Prefab:
   m_ObjectHideFlags: 0

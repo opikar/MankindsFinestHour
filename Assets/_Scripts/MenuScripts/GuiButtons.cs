@@ -6,13 +6,19 @@ using System;
 
 public class GuiButtons : MonoBehaviour {
 
+    public ArrowKeyCoordinator arrows;
+
     public delegate void PressedButton();
     public event PressedButton pressedButton;
 
     public bool restart;
     public bool loadLevel = true;
     public Levels levelToLoad;
-    
+
+    public bool selected;
+    private bool ignoreMouse;
+
+    private Vector3 previousMousePosition;
 
     public Color on = new Color(0.7f,0.7f,0.7f,1f);
 	public Color off = new Color(0.5f,0.5f,0.5f,1f);
@@ -21,6 +27,7 @@ public class GuiButtons : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        
 	}
 	
 	// Update is called once per frame
@@ -73,27 +80,34 @@ public class GuiButtons : MonoBehaviour {
             if (!SaveScript.save.availableLevels[levelToLoad.ToString()])
             {
                 //guiText.color = disabled;
-                guiText.enabled = false;
-                return;
+                guiText.enabled = false;                
             }
             else
             {
                 guiText.enabled = true;
-                return;
             }
+        if (ignoreMouse)
+        {
+            print("ignore");
+            if (Input.GetAxisRaw("Mouse X") != 0 || Input.GetAxisRaw("Mouse Y") != 0 || Input.GetMouseButton(0))
+                ignoreMouse = false;
+
+            if (selected)
+                guiText.color = on;
+            else
+                guiText.color = off;
+
+            return;
+        }
         if (guiText.HitTest(Input.mousePosition))
         {
 
             guiText.color = on;
-
-            //if clicked
-            if (Input.GetMouseButton(0))
-            {
-                guiText.color = press;
-            }
+           
 
             if (Input.GetMouseButtonUp(0))
-            {             
+            {
+                if (pressedButton != null) pressedButton();
                 Time.timeScale = 1f;
                 if (restart)
                 {
@@ -112,6 +126,21 @@ public class GuiButtons : MonoBehaviour {
         {
             guiText.color = off;
         }
+    }
+
+    private void OnEnable()
+    {
+        arrows.changeSelected += ChangeSelected;
+    }
+    private void OnDisable()
+    {
+        arrows.changeSelected -= ChangeSelected;
+    }
+    private void ChangeSelected()
+    {
+        ignoreMouse = true;
+        if (selected)
+            selected = false;
     }
 }
 

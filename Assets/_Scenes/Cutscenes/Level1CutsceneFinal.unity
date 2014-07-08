@@ -366,9 +366,8 @@ MonoBehaviour:
   - {fileID: 443414590}
   - {fileID: 443414590}
   story:
-  - The boss killed itself
-  - I hope you're happy now >=(
-  - Asshole
+  - Congratulations on beating the first level
+  - Second level has been unlocked
 --- !u!132 &1662522000
 GUIText:
   m_ObjectHideFlags: 0

@@ -34,6 +34,7 @@ public class Movement : MonoBehaviour
 	protected new Rigidbody2D rigidbody2D;
 	protected new Transform transform;
 	protected Vector2 colliderSize;
+	private float previousX = 0;
     #endregion
 
     #region UNITY_METHODS
@@ -58,12 +59,14 @@ public class Movement : MonoBehaviour
     // What if you only call them at the beginning of Move?
     //////////////////////////////////////////////
 
+
     //Animations and ground checking are in update instead of Move() because they need to be updated when gamestate is not running
 	void Update () 
     {
         b_grounded = Physics2D.OverlapCircle(m_groundCheck.position, f_groundRadius, m_groundMask) ||
             Physics2D.OverlapCircle(m_groundCheck2.position, f_groundRadius, m_groundMask);
-        character.SetAnimatorSpeed(Mathf.Abs(rigidbody2D.velocity.x));
+        character.SetAnimatorSpeed(Mathf.Abs(previousX - transform.position.x) / Time.deltaTime);
+		previousX = transform.position.x;
         character.SetAnimatorGrounded(b_grounded);
         character.SetAnimatorYVelocity(rigidbody2D.velocity.y);
 	}

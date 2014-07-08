@@ -515,7 +515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69d1e4a005354e0ab09eb4785b5a7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedToWaypoint: 7
+  SpeedToWaypoint: 8
   blink: 0
 --- !u!4 &46723324
 Transform:
@@ -1347,7 +1347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69d1e4a005354e0ab09eb4785b5a7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedToWaypoint: 7
+  SpeedToWaypoint: 8
   blink: 0
 --- !u!4 &149929452
 Transform:
@@ -2388,7 +2388,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 9a85118d0d96e4740afc32080815d95a, type: 2}
       propertyPath: SpeedToWaypoint
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9a85118d0d96e4740afc32080815d95a, type: 2}
       propertyPath: m_Name
@@ -3791,7 +3791,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 9a85118d0d96e4740afc32080815d95a, type: 2}
       propertyPath: SpeedToWaypoint
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9a85118d0d96e4740afc32080815d95a, type: 2}
       propertyPath: m_Name
@@ -7829,7 +7829,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 9a85118d0d96e4740afc32080815d95a, type: 2}
       propertyPath: SpeedToWaypoint
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9a85118d0d96e4740afc32080815d95a, type: 2}
       propertyPath: m_IsActive
@@ -8706,7 +8706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69d1e4a005354e0ab09eb4785b5a7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedToWaypoint: 7
+  SpeedToWaypoint: 8
   blink: 0
 --- !u!1001 &1474190965
 Prefab:
@@ -11781,7 +11781,7 @@ GUIText:
   m_GameObject: {fileID: 2056983450}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: You have died. Try again
+  m_Text: You Have Died
   m_Anchor: 4
   m_Alignment: 1
   m_PixelOffset: {x: 0, y: 0}

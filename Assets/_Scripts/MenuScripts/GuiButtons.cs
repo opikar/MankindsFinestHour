@@ -76,6 +76,14 @@ public class GuiButtons : MonoBehaviour {
     }
     private void UpdateGUIText()
     {
+        if (selected)
+            guiText.color = on;
+        //Return color to normal
+        else
+        {
+            guiText.color = off;
+        }
+
         if (levelToLoad.ToString().Substring(0, 4) == "True")
             if (!SaveScript.save.availableLevels[levelToLoad.ToString()])
             {
@@ -88,7 +96,6 @@ public class GuiButtons : MonoBehaviour {
             }
         if (ignoreMouse)
         {
-            print("ignore");
             if (Input.GetAxisRaw("Mouse X") != 0 || Input.GetAxisRaw("Mouse Y") != 0 || Input.GetMouseButton(0))
                 ignoreMouse = false;
 
@@ -101,31 +108,16 @@ public class GuiButtons : MonoBehaviour {
         }
         if (guiText.HitTest(Input.mousePosition))
         {
-
+            arrows.ChangeSelectedByMouse(this);
+            selected = true;
             guiText.color = on;
            
 
             if (Input.GetMouseButtonUp(0))
             {
-                if (pressedButton != null) pressedButton();
-                Time.timeScale = 1f;
-                if (restart)
-                {
-                    Application.LoadLevel(Application.loadedLevelName);
-                }
-                else if (loadLevel)
-                {
-                    Application.LoadLevel(levelToLoad.ToString());
-                }
-                else
-                    Application.Quit();
+                PressButton();
             }
-        }
-        //Return color to normal
-        else
-        {
-            guiText.color = off;
-        }
+        }       
     }
 
     private void OnEnable()
@@ -141,6 +133,22 @@ public class GuiButtons : MonoBehaviour {
         ignoreMouse = true;
         if (selected)
             selected = false;
+    }
+
+    public void PressButton()
+    {
+        if (pressedButton != null) pressedButton();
+        Time.timeScale = 1f;
+        if (restart)
+        {
+            Application.LoadLevel(Application.loadedLevelName);
+        }
+        else if (loadLevel)
+        {
+            Application.LoadLevel(levelToLoad.ToString());
+        }
+        else
+            Application.Quit();
     }
 }
 

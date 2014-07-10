@@ -8,6 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
+  - 114: {fileID: 11400006}
   m_Layer: 0
   m_Name: GameOver
   m_TagString: Untagged
@@ -152,9 +153,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 529ca1bf6783d554b9ba5ba3e5a3e1b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrows: {fileID: 11400006}
   restart: 0
   loadLevel: 1
   levelToLoad: 6
+  selected: 0
   on: {r: .699999988, g: .699999988, b: .699999988, a: 1}
   off: {r: .5, g: .5, b: .5, a: 1}
   press: {r: .300000012, g: .300000012, b: .300000012, a: 1}
@@ -170,9 +173,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 529ca1bf6783d554b9ba5ba3e5a3e1b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrows: {fileID: 11400006}
   restart: 1
   loadLevel: 1
   levelToLoad: 1
+  selected: 0
   on: {r: .699999988, g: .699999988, b: .699999988, a: 1}
   off: {r: .5, g: .5, b: .5, a: 1}
   press: {r: .300000012, g: .300000012, b: .300000012, a: 1}
@@ -188,13 +193,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 529ca1bf6783d554b9ba5ba3e5a3e1b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrows: {fileID: 11400006}
   restart: 0
   loadLevel: 1
   levelToLoad: 0
+  selected: 0
   on: {r: .699999988, g: .699999988, b: .699999988, a: 1}
   off: {r: .5, g: .5, b: .5, a: 1}
   press: {r: .300000012, g: .300000012, b: .300000012, a: 1}
   disabled: {r: .100000001, g: .100000001, b: .100000001, a: 1}
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b414fba300214842b55e6ec9732c33e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guiTexts:
+  - {fileID: 13200002}
+  - {fileID: 13200000}
+  - {fileID: 13200004}
 --- !u!132 &13200000
 GUIText:
   m_ObjectHideFlags: 1

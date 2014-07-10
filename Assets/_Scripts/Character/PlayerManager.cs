@@ -29,6 +29,8 @@ public class PlayerManager : Character
 		}
 	}
 	private HealthBar hpBar;
+
+    private GameObject pauseMenu;
     #endregion
 
     #region UNITY_METHODS
@@ -62,6 +64,7 @@ public class PlayerManager : Character
 		GUIManager.OnDraw += OnDrawScore;
 		GUIManager.OnDraw += OnDrawLives;
 
+        pauseMenu = GameObject.Find("PauseMenu");
 		HardReset();
 	}
 
@@ -228,10 +231,12 @@ public class PlayerManager : Character
     {
         if (GameManager.instance.GetState() == State.Running)
         {
+            pauseMenu.SetActive(true);
             GameManager.instance.SetState(State.PauseMenu);
 			Time.timeScale = 0f;
 		}
 		else{
+            pauseMenu.SetActive(false);
             GameManager.instance.SetState(State.Running);
 			Time.timeScale = 1f;
 		}
@@ -249,6 +254,10 @@ public class PlayerManager : Character
 
 	public void HardReset() {
 		base.Reset();
+        if(pauseMenu == null)
+            pauseMenu = GameObject.Find("PauseMenu");
+        if (pauseMenu != null)
+            pauseMenu.SetActive(false);
         p_state = PlayerState.Normal;
 		weapon.curLaserAmmo = weapon.laserAmmo;
 		health.RestoreHP();
@@ -259,7 +268,10 @@ public class PlayerManager : Character
 
 	public override void Reset() {
 		base.Reset();
-        
+        if (pauseMenu == null)
+            pauseMenu = GameObject.Find("PauseMenu");
+        if(pauseMenu != null)
+            pauseMenu.SetActive(false);
         p_state = PlayerState.Normal;
 		weapon.curLaserAmmo = SaveScript.save.laser;
 		health.f_currentHP = SaveScript.save.hp;

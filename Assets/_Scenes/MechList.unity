@@ -143,9 +143,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 529ca1bf6783d554b9ba5ba3e5a3e1b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrows: {fileID: 1418190963}
   restart: 0
   loadLevel: 1
   levelToLoad: 2
+  selected: 0
   on: {r: .699999988, g: .699999988, b: .699999988, a: 1}
   off: {r: .5, g: .5, b: .5, a: 1}
   press: {r: .300000012, g: .300000012, b: .300000012, a: 1}
@@ -242,9 +244,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 529ca1bf6783d554b9ba5ba3e5a3e1b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrows: {fileID: 1418190963}
   restart: 0
   loadLevel: 1
   levelToLoad: 3
+  selected: 0
   on: {r: .699999988, g: .699999988, b: .699999988, a: 1}
   off: {r: .5, g: .5, b: .5, a: 1}
   press: {r: .300000012, g: .300000012, b: .300000012, a: 1}
@@ -341,9 +345,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 529ca1bf6783d554b9ba5ba3e5a3e1b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrows: {fileID: 1418190963}
   restart: 0
   loadLevel: 1
   levelToLoad: 4
+  selected: 0
   on: {r: .699999988, g: .699999988, b: .699999988, a: 1}
   off: {r: .5, g: .5, b: .5, a: 1}
   press: {r: .300000012, g: .300000012, b: .300000012, a: 1}
@@ -459,9 +465,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 529ca1bf6783d554b9ba5ba3e5a3e1b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrows: {fileID: 1418190963}
   restart: 0
   loadLevel: 1
   levelToLoad: 0
+  selected: 0
   on: {r: .699999988, g: .699999988, b: .699999988, a: 1}
   off: {r: .5, g: .5, b: .5, a: 1}
   press: {r: .300000012, g: .300000012, b: .300000012, a: 1}
@@ -616,9 +624,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 529ca1bf6783d554b9ba5ba3e5a3e1b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrows: {fileID: 1418190963}
   restart: 0
   loadLevel: 1
   levelToLoad: 1
+  selected: 0
   on: {r: .699999988, g: .699999988, b: .699999988, a: 1}
   off: {r: .5, g: .5, b: .5, a: 1}
   press: {r: .300000012, g: .300000012, b: .300000012, a: 1}
@@ -907,9 +917,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 529ca1bf6783d554b9ba5ba3e5a3e1b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrows: {fileID: 1418190963}
   restart: 0
   loadLevel: 1
   levelToLoad: 5
+  selected: 0
   on: {r: .699999988, g: .699999988, b: .699999988, a: 1}
   off: {r: .5, g: .5, b: .5, a: 1}
   press: {r: .300000012, g: .300000012, b: .300000012, a: 1}

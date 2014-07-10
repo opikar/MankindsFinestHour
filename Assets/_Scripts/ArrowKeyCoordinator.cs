@@ -23,7 +23,8 @@ public class ArrowKeyCoordinator : MonoBehaviour {
             if (guiButtons[i] == null)
                 print("problem in coordinator");
         }
-        changeSelected();
+        if(changeSelected != null)
+            changeSelected();
         guiButtons[selection].selected = true;
 	}
 	
@@ -37,23 +38,43 @@ public class ArrowKeyCoordinator : MonoBehaviour {
         {
             ArrowDown();
         }
+        if (Input.GetKeyDown(KeyCode.Return))
+            guiButtons[selection].PressButton();
 
 	}
 
     private void ArrowUp()
     {
-        selection--;
-        if (selection < 0)
-            selection = textCount - 1;
-        changeSelected();
+        do
+        {
+            selection--;
+            if (selection < 0)
+                selection = textCount - 1;
+        } while (!guiButtons[selection].guiText.enabled);
+        if (changeSelected != null)
+            changeSelected();
         guiButtons[selection].selected = true;
     }
     private void ArrowDown()
     {
-        selection++;
-        if (selection >= textCount)
-            selection = 0;        
-        changeSelected();
+        do{
+            selection++;
+            if (selection >= textCount)
+                selection = 0;
+        } while (!guiButtons[selection].guiText.enabled);
+        if (changeSelected != null)
+            changeSelected(); 
         guiButtons[selection].selected = true;
+    }
+
+    public void ChangeSelectedByMouse(GuiButtons gb)
+    {
+        for (int i = 0; i < textCount; i++)
+        {
+            if (gb == guiButtons[i])
+                selection = i;        
+        }
+        if (changeSelected != null)
+            changeSelected();
     }
 }

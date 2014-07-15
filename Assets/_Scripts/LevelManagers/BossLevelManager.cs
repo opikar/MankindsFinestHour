@@ -1,29 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(GUITexture))]
+[RequireComponent(typeof(GUIText))]
 public abstract class BossLevelManager : LevelManager {
 
-    public Texture[] numbers;
-    private Rect size;
 	// Use this for initialization
 	public override IEnumerator Start () {
         waitingTime = 3f;
-        int timer = 2;
-        size = new Rect();
-        size.x = 0.5f * (Screen.width - numbers[0].width);
-        size.y = 0.5f * (Screen.height - numbers[0].height);
-        size.xMax = size.x + numbers[0].width;
-        size.yMax = size.y + numbers[0].height;
-        guiTexture.pixelInset = size;
+        int timer = 3;
+        guiText.fontSize = 50;
+        guiText.pixelOffset = new Vector2(Screen.width, Screen.height) * 0.5f;
         GameManager.instance.SetState(startState);
-        while (timer >= 0)
+        while (timer >= 1)
         {
-            guiTexture.texture = numbers[timer];
+            guiText.text = timer.ToString();
             timer--;
             yield return new WaitForSeconds(1f);
         }
-        guiTexture.enabled = false;
+        guiText.enabled = false;
         GameManager.instance.SetState(State.Running);
 	}
 	

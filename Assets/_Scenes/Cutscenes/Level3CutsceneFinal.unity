@@ -364,7 +364,6 @@ MonoBehaviour:
   texture:
   - {fileID: 443414590}
   - {fileID: 443414590}
-  - {fileID: 443414590}
   story:
   - That's hardcore
   - Fourth level is unlocked

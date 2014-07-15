@@ -364,7 +364,6 @@ MonoBehaviour:
   texture:
   - {fileID: 443414590}
   - {fileID: 443414590}
-  - {fileID: 443414590}
   story:
   - You're getting better at this
   - Third level has been unlocked

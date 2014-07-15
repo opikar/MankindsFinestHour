@@ -364,7 +364,6 @@ MonoBehaviour:
   texture:
   - {fileID: 443414590}
   - {fileID: 443414590}
-  - {fileID: 443414590}
   story:
   - Congratulations on beating the first level
   - Second level has been unlocked

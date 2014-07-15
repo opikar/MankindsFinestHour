@@ -38,7 +38,7 @@ public class ArrowKeyCoordinator : MonoBehaviour {
         {
             ArrowDown();
         }
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Z))
             guiButtons[selection].PressButton();
 
 	}

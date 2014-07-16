@@ -9,19 +9,20 @@ public abstract class ScriptedEnemy : EnemyManager {
 	bool actionRunning = false;
 	protected ActionState currentState;
 
+    protected float maxY, minY, minX, maxX;
+
     public float shootingTime = 2f;
     public float bulletPerSecond;
     public float waitAfterAction = 1.5f;
     public float collisionDamage = 20f;
     public float startRageHealth = 0.5f;
 
-    private float maxY, minY, minX, maxX;
-    private bool hitGround;
+    protected bool hitGround;
     protected Transform player;
     protected bool rage;
     protected float timer;
     protected Action lastAction;
-    private Vector3 platformPosition, platformScale;
+    protected Vector3 platformPosition, platformScale;
 	private HealthBar hpBar;
 
 	override protected void Awake() {
@@ -33,6 +34,7 @@ public abstract class ScriptedEnemy : EnemyManager {
     {
         base.Start();
         lastAction = null;
+
         Transform top = GameObject.Find("BossMaxYPosition").transform;
         Transform down = GameObject.Find("BossMinYPosition").transform;
         minX = top.position.x;
@@ -209,47 +211,5 @@ public abstract class ScriptedEnemy : EnemyManager {
         else
             yield return null;
     }
-    protected IEnumerator JumpSideWays()
-    {
-        if (GetGrounded() && lastAction != JumpSideWays)
-        {
-            lastAction = JumpSideWays;
-            float move = 0;
-            if (Mathf.Abs(maxX - transform.position.x) < Mathf.Abs(minX - transform.position.x))
-            {
-                yield return StartCoroutine(MoveToPoint(platformPosition.x - platformScale.x * 0.4f));
-                move = -1f;
-            }
-            else
-            {
-                yield return StartCoroutine(MoveToPoint(platformPosition.x + platformScale.x * 0.4f));
-                move = 1;
-            }
-            Jump();
-            yield return new WaitForSeconds(0.1f);
-            hitGround = false;
-            while (m_transform.position.x > minX && m_transform.position.x < maxX)
-            {
-                Move(move);
-                yield return null;
-            }
-            while (!GetGrounded() || !hitGround) yield return null;
-            yield return StartCoroutine(MoveToPoint(platformPosition.x));
-            yield return new WaitForSeconds(waitAfterAction);
-        }
-    }
-    protected IEnumerator MoveToPoint(float pointX)
-    { 
-        float moving = 0;
-        float sign = Mathf.Sign(transform.position.x - pointX);
-        if (pointX > transform.position.x)
-            moving = 1f;
-        else if (pointX < transform.position.x)
-            moving = -1f;
-        while (Mathf.Abs(transform.position.x - pointX) > 0.2f && Mathf.Sign(transform.position.x - pointX) == sign)
-        {
-            Move(moving);
-            yield return null;
-        }
-    }
+    
 }

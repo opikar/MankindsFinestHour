@@ -245,7 +245,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 22.0533848
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -261,7 +261,7 @@ Transform:
   m_PrefabInternal: {fileID: 1441517390}
   m_GameObject: {fileID: 17813268}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 856.906128, y: 20, z: -10}
+  m_LocalPosition: {x: 856.102661, y: 20, z: -10}
   m_LocalScale: {x: 2.27499986, y: 1, z: 1}
   m_Children:
   - {fileID: 10189963}
@@ -451,7 +451,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ef3fbd5cc6c44364aae9374f88905d07, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -10.8000488
+      value: -52.4603882
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ef3fbd5cc6c44364aae9374f88905d07, type: 2}
       propertyPath: m_LocalPosition.y
@@ -744,7 +744,7 @@ Transform:
   m_PrefabInternal: {fileID: 98867560}
   m_GameObject: {fileID: 251297599}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.8000488, y: 25.7531166, z: 0}
+  m_LocalPosition: {x: -52.4603882, y: 25.7531166, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1954213371}
@@ -2476,7 +2476,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 64f178e5a92bbc94483022387f9bdd12, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 856.906128
+      value: 856.102661
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 64f178e5a92bbc94483022387f9bdd12, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2528,7 +2528,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 64f178e5a92bbc94483022387f9bdd12, type: 2}
       propertyPath: orthographic size
-      value: 20
+      value: 22.0533848
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 64f178e5a92bbc94483022387f9bdd12, type: 2}
       propertyPath: m_Enabled

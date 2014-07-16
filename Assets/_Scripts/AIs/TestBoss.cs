@@ -11,7 +11,7 @@ public class TestBoss : ScriptedEnemy {
 		Action action1 = ShootBigBullet;
         Action action2 = ShootRapidlyAction;
         Action action3 = JumpAction;
-        Action action4 = JumpSideWays;
+        //Action action4 = JumpSideWays;
         Action action5 = DropAction;
 
 		currentState.AddAction (action1);

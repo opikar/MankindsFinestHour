@@ -109,6 +109,11 @@ public abstract class ScriptedEnemy : EnemyManager {
         GameObject.Find("LevelManager").GetComponent<LevelManager>().CompleteLevel();
     }
 
+    public override void Stomped()
+    {
+        
+    }
+
     protected virtual void Rage()
     {
         rage = true;

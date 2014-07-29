@@ -10,6 +10,10 @@ public class InputManagerMobile : MonoBehaviour
     private float axisVertical;
     private float axisHorizontal;
     private TouchButton shoot, jump, up, down ,left, right;
+
+    private bool showArrows;
+    private int touchID;
+    private TouchButtonController controller;
     #endregion
 
     #region UNITY_METHODS
@@ -20,6 +24,7 @@ public class InputManagerMobile : MonoBehaviour
         {
             gameObject.AddComponent<Movement>();
         }
+        controller = GetComponent<TouchButtonController>();
 		m_playerManager = GetComponent<PlayerManager>();
         jump = GameObject.Find("JumpButton").GetComponent<TouchButton>();
         shoot = GameObject.Find("ShootButton").GetComponent<TouchButton>();
@@ -38,27 +43,30 @@ public class InputManagerMobile : MonoBehaviour
 
 		if(GameManager.instance.GetState() != State.Running || m_playerManager.GetPlayerState() != PlayerState.Normal) return;
 
+        for (int i = 0; i < Input.touchCount; i++)
+        {
+            if (shoot.Pressed(i) || jump.Pressed(i)) continue;
+            if (Input.touches[i].phase == TouchPhase.Ended && showArrows)
+            {
+                showArrows = false;
+            }
+            if (Input.touches[i].phase == TouchPhase.Began && !showArrows)
+            {
+                showArrows = true;
+                touchID = Input.touches[i].fingerId;
+                controller.SetButtons(Input.touches[i].position);
+            }
+        }
 
-        if (up.Pressing())
-            i_up = 1;
+        if (showArrows)
+        {
+            i_up = up.Pressing() ? 1 : 0;
+            i_down = down.Pressing() ? -1 : 0;
+            i_right = right.Pressing() ? 1 : 0;
+            i_left = left.Pressing() ? -1 : 0;
+        }
         else
-            i_up = 0;
-
-        if (down.Pressing())
-            i_down = -1;
-        else
-            i_down = 0;
-
-        if (right.Pressing())
-            i_right = 1;
-        else
-            i_right = 0;
-
-        if (left.Pressing())
-            i_left = -1;
-        else
-            i_left = 0;
-
+            i_up = i_right = i_left = i_down = 0;
 
         axisHorizontal = i_left + i_right;
         axisVertical = i_up + i_down;
@@ -75,8 +83,6 @@ public class InputManagerMobile : MonoBehaviour
 				m_movement.Jump();
 		}
 
-		//if(Input.GetButton ("Fire2"))
-			//m_playerManager.ShootSpecialWeapon();
 		if(shoot.Pressed())
 			m_playerManager.ShootPrimaryWeapon();
     }

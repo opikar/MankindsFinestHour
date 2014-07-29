@@ -1,6 +1,23 @@
 fileFormatVersion: 2
 guid: 65532452be8af1e4ba5ab58ec9e04fb1
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: Run_0
+    21300002: Run_1
+    21300004: Run_2
+    21300006: Run_3
+    21300008: Run_4
+    21300010: Run_5
+    21300012: Run_6
+    21300014: Run_7
+    21300016: Run_8
+    21300018: Run_9
+    21300020: Run_10
+    21300022: Run_11
+    21300024: Run_12
+    21300026: Run_13
+    21300028: Run_14
+    21300030: Run_15
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -35,6 +52,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 1024
   alphaIsTransparency: 1
   textureType: 8
@@ -54,6 +72,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: Run_1
       rect:
         serializedVersion: 2
@@ -63,6 +82,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: Run_2
       rect:
         serializedVersion: 2
@@ -72,6 +92,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: Run_3
       rect:
         serializedVersion: 2
@@ -81,6 +102,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: Run_4
       rect:
         serializedVersion: 2
@@ -90,6 +112,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: Run_5
       rect:
         serializedVersion: 2
@@ -99,6 +122,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: Run_6
       rect:
         serializedVersion: 2
@@ -108,6 +132,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: Run_7
       rect:
         serializedVersion: 2
@@ -117,6 +142,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: Run_8
       rect:
         serializedVersion: 2
@@ -126,6 +152,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: Run_9
       rect:
         serializedVersion: 2
@@ -135,6 +162,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: Run_10
       rect:
         serializedVersion: 2
@@ -144,6 +172,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: Run_11
       rect:
         serializedVersion: 2
@@ -153,6 +182,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: Run_12
       rect:
         serializedVersion: 2
@@ -162,6 +192,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: Run_13
       rect:
         serializedVersion: 2
@@ -171,6 +202,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: Run_14
       rect:
         serializedVersion: 2
@@ -180,6 +212,7 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: Run_15
       rect:
         serializedVersion: 2
@@ -189,5 +222,6 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

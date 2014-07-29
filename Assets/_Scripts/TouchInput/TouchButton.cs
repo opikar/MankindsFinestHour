@@ -28,6 +28,16 @@ public class TouchButton : MonoBehaviour {
         return false;
     }
 
+    public virtual bool Pressed(int id)
+    {
+        if (Input.GetTouch(id).phase == TouchPhase.Began && area.Contains(Input.GetTouch(id).position))
+        {
+            Debug.Log("Pressed: " + gameObject.name);
+            return true;
+        }
+        return false;
+    }
+
     public virtual bool Pressing()
     {
         for (int i = 0; i < Input.touchCount; i++)

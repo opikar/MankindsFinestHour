@@ -6,21 +6,35 @@ public class TouchButtonController : MonoBehaviour {
     public GUITexture up, down, left, right, shoot, jump;
     public float arrowSize = 9, abSize = 8;
 
+    private Vector2 arrowCenter;
+
 	// Use this for initialization
 	void Awake () {
         arrowSize = Screen.width / arrowSize;
         abSize = Screen.width / abSize;
         SetABButtons();
-        SetArrowButtons();
+        DisableArrows();
         Debug.Log(Screen.width);
 	}
 
+    public void SetButtons(Vector2 position)
+    {
+        arrowCenter = position;
+        SetArrowButtons();
+    }
+
+    public void DisableArrows()
+    {
+        up.enabled = down.enabled = left.enabled = right.enabled = false;
+    }
+
     private void SetArrowButtons()
     {
-        Rect arrow = new Rect(0, 0, arrowSize, arrowSize);
+        up.enabled = down.enabled = left.enabled = right.enabled = true;
+        Rect arrow = new Rect(arrowCenter.x, arrowCenter.y, arrowSize, arrowSize);
 
-        arrow.x = 20;
-        arrow.y = (Screen.height - arrowSize) * 0.5f;
+        arrow.x -= arrowSize;
+        arrow.y -= arrowSize * 0.5f;
 
         left.pixelInset = arrow;
 
@@ -28,9 +42,6 @@ public class TouchButtonController : MonoBehaviour {
         //arrow.y += arrowSize * 0.5f;
 
         right.pixelInset = arrow;
-
-        arrow.width = arrowSize;
-        arrow.height = arrowSize;
 
         arrow.x -= arrowSize * 0.5f;
         arrow.y += arrowSize * 0.5f;

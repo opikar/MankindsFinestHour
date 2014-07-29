@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlatformMaterialScript : MonoBehaviour {
 
-    private int multiplier = 40;
+    private int multiplier = 100;
 
     private Material m;
 

@@ -11,10 +11,9 @@ public class TouchButtonController : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
         arrowSize = Screen.width / arrowSize;
-        abSize = Screen.width / abSize;
-        SetABButtons();
+        abSize = Screen.width / abSize;        
         DisableArrows();
-        Debug.Log(Screen.width);
+        SetABButtons();
 	}
 
     public void SetButtons(Vector2 position)
@@ -30,6 +29,7 @@ public class TouchButtonController : MonoBehaviour {
 
     private void SetArrowButtons()
     {
+        if (GameManager.instance.GetState() != State.Running) return;
         up.enabled = down.enabled = left.enabled = right.enabled = true;
         Rect arrow = new Rect(arrowCenter.x, arrowCenter.y, arrowSize, arrowSize);
 
@@ -61,10 +61,10 @@ public class TouchButtonController : MonoBehaviour {
         button.x = Screen.width - abSize;
         button.y = Screen.height - abSize;
 
-        shoot.pixelInset = button;
-
-        button.y -= abSize;
-
         jump.pixelInset = button;
+
+        button.x -= abSize;
+
+        shoot.pixelInset = button;
     }
 }

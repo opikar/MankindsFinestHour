@@ -129,6 +129,7 @@ Transform:
   m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 400004}
+  m_RootOrder: 5
 --- !u!4 &400002
 Transform:
   m_ObjectHideFlags: 1
@@ -140,6 +141,7 @@ Transform:
   m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 400004}
+  m_RootOrder: 4
 --- !u!4 &400004
 Transform:
   m_ObjectHideFlags: 1
@@ -157,6 +159,7 @@ Transform:
   - {fileID: 400002}
   - {fileID: 400000}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!4 &400006
 Transform:
   m_ObjectHideFlags: 1
@@ -168,6 +171,7 @@ Transform:
   m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 400004}
+  m_RootOrder: 3
 --- !u!4 &400008
 Transform:
   m_ObjectHideFlags: 1
@@ -179,6 +183,7 @@ Transform:
   m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 400004}
+  m_RootOrder: 2
 --- !u!4 &400010
 Transform:
   m_ObjectHideFlags: 1
@@ -190,6 +195,7 @@ Transform:
   m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 400004}
+  m_RootOrder: 1
 --- !u!4 &400012
 Transform:
   m_ObjectHideFlags: 1
@@ -201,6 +207,7 @@ Transform:
   m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 400004}
+  m_RootOrder: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -284,8 +291,8 @@ MonoBehaviour:
   right: {fileID: 13100006}
   shoot: {fileID: 13100000}
   jump: {fileID: 13100002}
-  arrowSize: 70
-  abSize: 100
+  arrowSize: 10.5
+  abSize: 8
 --- !u!131 &13100000
 GUITexture:
   m_ObjectHideFlags: 1

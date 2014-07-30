@@ -23,15 +23,16 @@ public class InputManagerMobile : MonoBehaviour
         if (m_movement == null)
         {
             gameObject.AddComponent<Movement>();
-        }
-        controller = GetComponent<TouchButtonController>();
+        }        
 		m_playerManager = GetComponent<PlayerManager>();
+        controller = GameObject.Find("TouchButtons").GetComponent<TouchButtonController>();
         jump = GameObject.Find("JumpButton").GetComponent<TouchButton>();
         shoot = GameObject.Find("ShootButton").GetComponent<TouchButton>();
         up = GameObject.Find("ArrowUp").GetComponent<TouchButton>();
         down = GameObject.Find("ArrowDown").GetComponent<TouchButton>();
         left = GameObject.Find("ArrowLeft").GetComponent<TouchButton>();
         right = GameObject.Find("ArrowRight").GetComponent<TouchButton>();
+        controller.DisableArrows();
 	}
 
 	void Update () 
@@ -44,26 +45,28 @@ public class InputManagerMobile : MonoBehaviour
 		if(GameManager.instance.GetState() != State.Running || m_playerManager.GetPlayerState() != PlayerState.Normal) return;
 
         for (int i = 0; i < Input.touchCount; i++)
-        {
-            if (shoot.Pressed(i) || jump.Pressed(i)) continue;
-            if (Input.touches[i].phase == TouchPhase.Ended && showArrows)
+        {   
+            if (Input.touches[i].phase == TouchPhase.Ended && Input.touches[i].fingerId == touchID && showArrows)
             {
+                Debug.Log("arrows false");
                 showArrows = false;
+                controller.DisableArrows();
+                break;
             }
-            if (Input.touches[i].phase == TouchPhase.Began && !showArrows)
+            if (Input.touches[i].phase == TouchPhase.Began && !showArrows && !(shoot.Pressed(i) || jump.Pressed(i)))
             {
                 showArrows = true;
+                Debug.Log("show arrows");
                 touchID = Input.touches[i].fingerId;
                 controller.SetButtons(Input.touches[i].position);
             }
         }
-
         if (showArrows)
         {
-            i_up = up.Pressing() ? 1 : 0;
-            i_down = down.Pressing() ? -1 : 0;
-            i_right = right.Pressing() ? 1 : 0;
-            i_left = left.Pressing() ? -1 : 0;
+            i_up = up.Pressing(touchID) ? 1 : 0;
+            i_down = down.Pressing(touchID) ? -1 : 0;
+            i_right = right.Pressing(touchID) ? 1 : 0;
+            i_left = left.Pressing(touchID) ? -1 : 0;
         }
         else
             i_up = i_right = i_left = i_down = 0;

@@ -145,6 +145,7 @@ public class PlayerManager : Character
     {
         if (GetPlayerState() == PlayerState.Dead) return;
         SetPlayerState(PlayerState.Dead);
+        GameManager.instance.SetState(State.Loss);
 		transform.parent = null;
         StartCoroutine(DyingAnimation());
 		

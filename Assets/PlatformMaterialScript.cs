@@ -3,15 +3,13 @@ using System.Collections;
 
 public class PlatformMaterialScript : MonoBehaviour {
 
-    private int multiplier = 100;
-
     private Material m;
 
 	// Use this for initialization
 	void Start () {
         m = renderer.material;
         float x, y;
-        x = 1f / transform.localScale.x * multiplier;
+        x = transform.localScale.x;
         y = transform.localScale.y;
         m.SetTextureScale("_MainTex", new Vector2(x, y));
 	}

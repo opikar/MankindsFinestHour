@@ -141,6 +141,12 @@ public class PlayerManager : Character
 		SaveScript.save.score = score;
 	}
 
+    public override void ApplyDamage(float damage)
+    {
+        base.ApplyDamage(damage);
+        audio.Play();
+    }
+
 	public override void Die()
     {
         if (GetPlayerState() == PlayerState.Dead) return;

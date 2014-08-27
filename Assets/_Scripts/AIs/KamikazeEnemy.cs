@@ -15,8 +15,7 @@ public class KamikazeEnemy : PatrollingEnemy {
     protected override void Awake()
     {
         base.Awake();
-        f_normalSpeed = movement.f_speed;
-        print(f_normalSpeed);
+        f_normalSpeed = movement.f_speed;        
     }
 
 	// Use this for initialization

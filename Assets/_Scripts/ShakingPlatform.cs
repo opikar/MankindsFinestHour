@@ -37,7 +37,7 @@ public class ShakingPlatform : MonoBehaviour {
 	void Shake()
 	{
 		speed *= -1f;
-		r_rigidbody.velocity = new Vector2(speed, 0);
+		r_rigidbody.velocity = new Vector2(speed * 200f * Time.deltaTime, 0);
 		if(f_dropTimer + dropDelay < Time.time)
 			Drop();
 	}

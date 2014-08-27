@@ -9,9 +9,9 @@ public class PlatformMaterialScript : MonoBehaviour {
 	What is levelName?
 	What is a color bound to levelName?
 	Set the color to be LevelColor
-
-	private Color LevelColor = new Color(0F,0F,0F,1F);
-
+    */
+	private Color levelColor = new Color(0F,0F,0F,1F);
+    /*
 	After saying "Color" too many times, "Color" loses it's meaning.
 	Color makes you start to question yourself about Color.
 	Does "color" look weird to you now?
@@ -20,12 +20,13 @@ public class PlatformMaterialScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        levelColor = GameObject.Find("LevelManager").GetComponent<LevelManager>().LevelColor;
         m = renderer.material;
         float x, y;
         x = transform.localScale.x;
         y = transform.localScale.y;
         m.SetTextureScale("_MainTex", new Vector2(x, y));
-        //m.color = LevelColor;
+        m.color = levelColor;
 	}
 	
 	// Update is called once per frame

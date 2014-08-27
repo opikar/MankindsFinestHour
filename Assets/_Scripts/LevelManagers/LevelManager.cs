@@ -9,9 +9,9 @@ public abstract class LevelManager : MonoBehaviour {
     public GameObject gameOver;
     public GUIText retry;
     public GUIText levelSelect;
-    
 
 
+    public Color LevelColor;
 
 	public virtual IEnumerator Start() {
         

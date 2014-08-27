@@ -106,6 +106,7 @@ public class Movement : MonoBehaviour
     {
 		if(other.tag == "Ground")
 		{
+            print("exit");
 			if(other.gameObject.name == "MovingPlatform")
 			{
 				platform = null;

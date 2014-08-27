@@ -11,7 +11,7 @@ public abstract class LevelManager : MonoBehaviour {
     public GUIText levelSelect;
 
 
-    public Color LevelColor;
+    public Color LevelColor = Color.white;
 
 	public virtual IEnumerator Start() {
         

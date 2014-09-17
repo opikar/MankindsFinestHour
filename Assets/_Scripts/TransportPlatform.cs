@@ -28,8 +28,8 @@ public class TransportPlatform : MovingPlatform {
     {
         base.OnTriggerEnter2D(other);
         if (other.tag != "Player") return;
-        manager = GameObject.Find("Manager").GetComponent<GameManager>();
-        manager.SetState(State.Win);
+        //manager = GameObject.Find("Manager").GetComponent<GameManager>();
+        GameManager.instance.SetState(State.Win);
         other.rigidbody2D.velocity = Vector2.zero;
         if (fireworksController != null)
             StartCoroutine(fireworksController.Activate());

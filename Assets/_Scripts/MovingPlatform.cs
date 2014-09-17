@@ -102,7 +102,7 @@ public class MovingPlatform : MonoBehaviour {
 	{
         if (other.tag == "Player" && other.transform.position.y > m_transform.position.y && other.transform.parent == null)
         {
-            other.transform.parent = m_transform;
+            //other.transform.parent = m_transform;
             b_moving = true;
         }
 	}

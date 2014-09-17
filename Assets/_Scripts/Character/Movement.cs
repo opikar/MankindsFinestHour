@@ -24,7 +24,7 @@ public class Movement : MonoBehaviour
 	protected Animator animator = null;
 	protected Transform m_groundCheck;
 	protected Transform m_groundCheck2;
-	protected LayerMask m_groundMask;
+	public LayerMask m_groundMask;
 	protected float f_groundRadius = 0.30f;
 	protected MovingPlatform platform;
     // Here I am just creating a variable with the same name as inherited members
@@ -92,7 +92,11 @@ public class Movement : MonoBehaviour
                     }
                     if (other.gameObject.name == "MovingPlatform" || other.gameObject.name == "TransportPlatform")
                     {
-                        platform = other.gameObject.GetComponent<MovingPlatform>();
+                        if (transform.parent == null)
+                        {
+                            transform.parent = other.transform;
+                            platform = other.gameObject.GetComponent<MovingPlatform>();
+                        }
                     }
                     rigidbody2D.gravityScale = 0;
                     rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);
@@ -105,8 +109,7 @@ public class Movement : MonoBehaviour
     protected void OnTriggerExit2D(Collider2D other)
     {
 		if(other.tag == "Ground")
-		{
-            print("exit");
+		{            
 			if(other.gameObject.name == "MovingPlatform")
 			{
 				platform = null;
